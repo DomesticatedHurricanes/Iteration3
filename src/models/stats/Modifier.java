@@ -5,5 +5,5 @@ package models.stats;
  */
 //Description:Interface used to modify any stat.  The actual modification will be done here on specification lv
 public interface Modifier {
-    void apply(int delta);
+    void apply(Stats stats, int delta);
 }
