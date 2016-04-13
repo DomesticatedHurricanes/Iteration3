@@ -16,18 +16,17 @@ public class Avatar extends Entity implements Movement {
 
     public Avatar(Occupation occupation) {
         this.occupation = occupation;
+        this.avatarStats = new CharacterStats();
         occupation.initSkills(this);
-        occupation.initStats(this);
+        occupation.initStats(this.avatarStats);
         //this.inventory = new Inventory();
     }
 
     //called when an Avatar does an attack
-    public void attack() {
-
-    }
+    public void attack() { }
 
     //called when an Avatar uses a skill
-    public void useSkill() {
+    public void useSkill() { }
 
 
     @Override
