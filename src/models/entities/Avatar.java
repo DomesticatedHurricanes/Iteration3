@@ -19,4 +19,14 @@ public class Avatar extends Entity{
         occupation.initStats(this);
         //this.inventory = new Inventory();
     }
+
+    //called when an Avatar does an attack
+    public void attack() {
+
+    }
+
+    //called when an Avatar uses a skill
+    public void useSkill() {
+
+    }
 }
