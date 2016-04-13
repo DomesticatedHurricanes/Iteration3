@@ -1,4 +1,4 @@
-package Model.Graphics;
+package models.Graphics;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

@@ -1,7 +1,7 @@
-package Model;
+package models.View;
 
-import Model.Graphics.GraphicAssets;
-import Model.Map.Map;
+import models.Graphics.GraphicAssets;
+import models.Map.Map;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,7 +26,7 @@ public class View implements Runnable{
     private int height;
 
 
-    private Renderer renderer;
+    private utilities.Renderer renderer;
     private int mapStartX;
     private int mapStartY;
     private int mapEndX;
@@ -60,7 +60,7 @@ public class View implements Runnable{
         frame.pack();
 
         // Temporary class, the rendering will be moved to the GameStateView
-        renderer = new Renderer(this);
+        renderer = new utilities.Renderer(this);
 
         // Initialize the
         GraphicAssets.init();
@@ -106,7 +106,7 @@ public class View implements Runnable{
         mapCameraCenter = new Point((mapStartX + mapEndX)/2, (mapStartY + mapEndY)/2);
 
         Map world = new Map(10,10);
-        Renderer.mapRenderer.render(g,world,mapCameraCenter,mapStartX,mapEndX,mapStartY,mapEndY);
+        utilities.Renderer.mapRenderer.render(g,world,mapCameraCenter,mapStartX,mapEndX,mapStartY,mapEndY);
         //Renderer.mapRenderer.render2(g,world,mapCameraCenter,mapStartX,mapEndX,mapStartY,mapEndY);
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

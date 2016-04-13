@@ -1,8 +1,9 @@
-package Model;
+package utilities;
 
-import Model.Graphics.GraphicAssets;
-import Model.Map.Map;
-import Model.Map.Tile;
+import models.View.View;
+import models.Graphics.GraphicAssets;
+import models.Map.Map;
+import models.Map.Tile;
 
 import java.awt.*;
 

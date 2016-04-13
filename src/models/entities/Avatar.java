@@ -7,7 +7,8 @@ import models.stats.CharacterStats;
  * This class represents the player controlled Entity in the game
  * Subclass of Entity
  */
-public class Avatar extends Entity{
+
+public class Avatar extends Entity implements Movement {
     //private Inventory inventory;
     private Occupation occupation;
     private CharacterStats avatarStats;
@@ -27,6 +28,21 @@ public class Avatar extends Entity{
 
     //called when an Avatar uses a skill
     public void useSkill() {
+
+
+    @Override
+    public void walk() {
+
+    }
+
+    @Override
+    public void swim() {
+
+    }
+
+    @Override
+    public void traverse() {
+
 
     }
 }
