@@ -1,7 +1,4 @@
-package Model.Map;
-
-import Model.Graphics.GraphicAssets;
-import Model.Map.MapPoint;
+package models.Map;
 
 import java.awt.image.BufferedImage;
 

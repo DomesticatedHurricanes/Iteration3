@@ -1,7 +1,7 @@
-package Model.Map;
+package models.Map;
 
 
-import Model.Graphics.GraphicAssets;
+import models.Graphics.GraphicAssets;
 
 /**
  * Created by Michael on 3/30/16.
