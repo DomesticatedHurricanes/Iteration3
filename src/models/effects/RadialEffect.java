@@ -22,14 +22,14 @@ public class RadialEffect extends PlanarEffect{
         origin = point;
         this.range = range;
         Queue queue = tileFinder();
-        while(!queue.isEmpty()){
+        /*while(!queue.isEmpty()){
             Point3D currentPoint = (Point3D) queue.poll();//This looks scary
             System.out.println("-------------");
             System.out.print(currentPoint.getX()+" "+currentPoint.getY()+" "+currentPoint.getZ());
             System.out.println();
 
             i++;
-        }
+        }*/
 
         System.out.println("i is "+i);
     }
@@ -42,6 +42,8 @@ public class RadialEffect extends PlanarEffect{
         }
         return false;
     }
+
+
 
     @Override
     public Queue<Point3D> tileFinder() {
