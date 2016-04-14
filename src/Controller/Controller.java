@@ -25,7 +25,7 @@ public abstract class Controller {
             jFrame.addKeyListener(bind);
         }
     }
-    public void removeFromKeybindings(){
+    public void removeFromJframe(){
         for(KeyListener bind: bindings){
             jFrame.removeKeyListener(bind);
         }

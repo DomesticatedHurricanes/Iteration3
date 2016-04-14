@@ -10,5 +10,6 @@ public abstract class State {
     public State(JFrame jFrame) {
         this.jFrame=jFrame;
     }
-
+    public void setActive(){}
+    public void setInactive(){}
 }

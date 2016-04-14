@@ -37,6 +37,7 @@ public class Main {
 
         System.out.println("start" );
         //start threads
+        stateManager.changeToStartMenuState();
         gameThread.start();
         viewPort.start();
     }
