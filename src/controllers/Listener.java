@@ -1,6 +1,4 @@
-package Controller.Controllers;
-
-import Controller.ListenerAction;
+package controllers;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;

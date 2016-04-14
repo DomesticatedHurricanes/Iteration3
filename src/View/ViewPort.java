@@ -1,6 +1,6 @@
 package View;
 
-import Controller.ControllerManager;
+import controllers.ControllerManager;
 import State.StateManager;
 
 import javax.swing.*;

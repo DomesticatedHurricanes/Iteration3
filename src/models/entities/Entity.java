@@ -2,8 +2,8 @@ package models.entities;
 
 
 
-import models.stats.Stats;
 import utilities.Point3D;
+import models.stats.Stats;
 
 
 /**
