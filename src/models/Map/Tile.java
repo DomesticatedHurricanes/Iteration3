@@ -29,5 +29,4 @@ public abstract class Tile implements EntityVisitor {
         return mapPoint;
     }
 
-
 }

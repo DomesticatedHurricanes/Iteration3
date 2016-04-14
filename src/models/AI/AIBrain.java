@@ -15,7 +15,7 @@ public abstract class AIBrain {
 
     // randomly selects coordinates of direction
     // (0,0) (0,1) (1,0) (1,1) (0,-1), (-1,0) (-1,-1)
-    public Point3D generateMove(){
+    public Point3D changeDirection(){
         random = new Random();
         int x = random.nextInt(2)-random.nextInt(2);
         int y = random.nextInt(2)-random.nextInt(2);

@@ -8,6 +8,7 @@ import models.stats.CharacterStats;
  * Superclass for types of NPCs
  */
 public abstract class NPC extends Entity {
+
     protected CharacterStats npcStats;
     //Inventory inventory;
 }
