@@ -11,9 +11,8 @@ public abstract class InteractionHandler {
     protected Entity entity;
     protected Map map;
 
-    public InteractionHandler(Entity entity, Map map){
-        this.entity = entity;
-        this.map = map;
+    public InteractionHandler() {
+        
     }
 
     public boolean movementHandling(){
