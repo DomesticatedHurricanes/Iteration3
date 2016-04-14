@@ -8,15 +8,22 @@ import models.entities.occupation.Occupation;
 import models.stats.CharacterStats;
 
 /**
- * Created by ben on 4/11/16.
+ * Created by Breanna on 4/13/16.
+ * This class represents the player controlled Entity in the game
+ * Subclass of Entity
  */
-public class Avatar extends Entity implements Movement, Attack, TileVisitable, TakeableItemVisitable{
 
-    CharacterStats stats;
-    Inventory inventory;
+
+
+public class Avatar extends Entity implements Movement, Attack, TileVisitable, TakeableItemVisitable{
+    private Occupation occupation;
+    private CharacterStats stats;
+    private Inventory inventory;
+
 
     public Avatar(Occupation occupation){
-        inventory = new Inventory();
+        this.inventory = new Inventory();
+        this.occupation = occupation;
         stats = new CharacterStats();
         occupation.initStats(stats);
     }
