@@ -1,6 +1,5 @@
 package models.entities;
 
-import models.AI.NPCBrain;
 import models.stats.CharacterStats;
 
 /**
@@ -8,28 +7,11 @@ import models.stats.CharacterStats;
  * Represents a non-hostile NPC within the game
  */
 
-public class Villager extends NPC implements Movement{
-    private NPCBrain npcBrain;
+
+public class Villager extends NPC{
 
     public Villager() {
-        this.npcBrain = new NPCBrain();
         this.npcStats = new CharacterStats();
     }
-
-    @Override
-    public void walk() {
-
-    }
-
-    @Override
-    public void swim() {
-
-    }
-
-    @Override
-    public void traverse() {
-
-    }
-
 
 }

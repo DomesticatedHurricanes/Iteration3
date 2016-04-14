@@ -1,14 +1,18 @@
 package models.entities;
 
-import models.entities.occupation.*;
 import models.stats.CharacterStats;
+
+import models.entities.occupation.*;
+
+import models.Map.Tile;
+
 /**
  * Created by Breanna on 4/13/16.
  * This class represents the player controlled Entity in the game
  * Subclass of Entity
  */
 
-public class Avatar extends Entity implements Movement {
+public class Avatar extends Entity implements Movement, Attack, EntityVisitable {
     //private Inventory inventory;
     private Occupation occupation;
     private CharacterStats avatarStats;
@@ -22,26 +26,35 @@ public class Avatar extends Entity implements Movement {
         //this.inventory = new Inventory();
     }
 
-    //called when an Avatar does an attack
-    public void attack() { }
+
 
     //called when an Avatar uses a skill
     public void useSkill() { }
 
-
     @Override
-    public void walk() {
+    public boolean accept(Tile tile) {
+        return tile.visit(this);
+    }
+
+    //called when an Avatar does an attack
+    @Override
+    public void attack() {
 
     }
 
     @Override
-    public void swim() {
-
+    public boolean canSwim() {
+        return false;
     }
 
     @Override
-    public void traverse() {
+    public boolean canTraverse() {
+        return false;
+    }
 
+    @Override
+    public boolean canWalk() {
+        return true;
 
     }
 }

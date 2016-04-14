@@ -1,5 +1,6 @@
 package models.entities;
 
+import models.Map.Tile;
 import models.stats.LivingStats;
 import models.AI.PetBrain;
 
@@ -8,7 +9,7 @@ import models.AI.PetBrain;
  * This class represents the Pet in the game.
  */
 
-public class Pet extends Entity implements Movement {
+public class Pet extends Entity implements Movement, EntityVisitable {
 
     private LivingStats petStats;
     private PetBrain petBrain;
@@ -19,18 +20,23 @@ public class Pet extends Entity implements Movement {
     }
 
     @Override
-    public void walk() {
-
+    public boolean accept(Tile tile) {
+        return tile.visit(this);
     }
 
     @Override
-    public void swim() {
-
+    public boolean canSwim() {
+        return false;
     }
 
     @Override
-    public void traverse() {
+    public boolean canTraverse() {
+        return false;
+    }
 
+    @Override
+    public boolean canWalk() {
+        return true;
     }
 
     public boolean decideToSteal(){
