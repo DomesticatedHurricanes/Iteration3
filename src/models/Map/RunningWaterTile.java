@@ -1,6 +1,9 @@
 package models.Map;
 
 import models.Graphics.GraphicAssets;
+import models.entities.Avatar;
+import models.entities.Monster;
+import models.entities.Pet;
 
 /**
  * Created by Michael on 4/7/16.
@@ -18,6 +21,38 @@ public class RunningWaterTile extends Tile {
 
     public int getSpeed(){
         return speed;
+    }
+
+
+    @Override
+    public boolean visit(Avatar avatar) {
+        if(this.checkItem() && avatar.canTraverse()){
+            this.insertEntity(avatar);
+            applyItems(avatar);
+            return true;
+        }
+
+        return avatar.canSwim();
+    }
+
+    @Override
+    public boolean visit(Monster monster) {
+        if(this.checkItem() && monster.canTraverse()){
+            this.insertEntity(monster);
+            return true;
+        }
+
+        return monster.canSwim();
+    }
+
+    @Override
+    public boolean visit(Pet pet) {
+        if(this.checkItem() && pet.canTraverse()){
+            this.insertEntity(pet);
+            return true;
+        }
+
+        return pet.canSwim();
     }
 
 

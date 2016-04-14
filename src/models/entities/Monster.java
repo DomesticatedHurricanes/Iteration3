@@ -1,24 +1,41 @@
 package models.entities;
 
+
 import models.AI.MonsterBrain;
+
+import models.Map.Tile;
+
 import models.stats.CharacterStats;
 
 /**
  * Created by Breanna on 4/13/16.
  * Monster is a hostile NPC in the game
  */
-public class Monster extends NPC {
+
+public class Monster extends NPC implements Movement{
     private MonsterBrain monsterBrain;
-    //private List<Skill> skillsList;
 
     public Monster() {
         this.monsterBrain = new MonsterBrain();
-        this.npcStats = new CharacterStats();
+        this.stats = new CharacterStats();
+    }
+    @Override
+    public boolean canSwim() {return false;}
+
+    @Override
+    public boolean canTraverse() {
+        return false;
     }
 
-    //called when a monster attacks
-    public void attack() {}
+    @Override
+    public boolean canWalk() {
+        return true;
+    }
 
-    //called when a monster uses a skill
-    public void useSkill() {}
+    @Override
+    public CharacterStats getStats() {
+        return stats;
+    }
+
 }
+

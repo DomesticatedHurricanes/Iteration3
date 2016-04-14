@@ -1,6 +1,7 @@
 package models.entities;
 
 import models.stats.CharacterStats;
+import models.Item.Inventory;
 
 /**
  * Created by Breanna on 4/13/16.
@@ -8,6 +9,6 @@ import models.stats.CharacterStats;
  * Superclass for types of NPCs
  */
 public abstract class NPC extends Entity {
-    protected CharacterStats npcStats;
-    //Inventory inventory;
+    protected CharacterStats stats;
+    protected Inventory inventory;
 }

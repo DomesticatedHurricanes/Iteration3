@@ -1,47 +1,61 @@
 package models.entities;
 
-import models.entities.occupation.*;
+
+import models.Item.Inventory;
+import models.Map.Tile;
+import models.entities.occupation.Occupation;
 import models.stats.CharacterStats;
+import models.stats.Stats;
+
+
 /**
  * Created by Breanna on 4/13/16.
  * This class represents the player controlled Entity in the game
  * Subclass of Entity
  */
 
-public class Avatar extends Entity implements Movement {
-    //private Inventory inventory;
+
+public class Avatar extends Entity implements Movement, Attack, EntityVisitable{
     private Occupation occupation;
-    private CharacterStats avatarStats;
-    //private List<Skill> skillsList;
+    private CharacterStats stats;
+    private Inventory inventory;
 
-    public Avatar(Occupation occupation) {
+
+    public Avatar(Occupation occupation){
+        this.inventory = new Inventory();
         this.occupation = occupation;
-        this.avatarStats = new CharacterStats();
-        occupation.initSkills(this);
-        occupation.initStats(this.avatarStats);
-        //this.inventory = new Inventory();
+        stats = new CharacterStats();
+        occupation.initStats(stats);
     }
 
-    //called when an Avatar does an attack
-    public void attack() { }
-
-    //called when an Avatar uses a skill
-    public void useSkill() { }
-
+    @Override
+    public boolean accept(Tile tile) {
+        return tile.visit(this);
+    }
 
     @Override
-    public void walk() {
+    public void attack() {
 
     }
 
     @Override
-    public void swim() {
-
+    public boolean canSwim() {
+        return false;
     }
 
     @Override
-    public void traverse() {
+    public boolean canTraverse() {
+        return false;
+    }
+
+    @Override
+    public boolean canWalk() {
+        return true;
+    }
 
 
+    @Override
+    public CharacterStats getStats(){
+        return stats;
     }
 }
