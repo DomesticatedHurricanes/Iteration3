@@ -85,13 +85,10 @@ public class RadialEffect extends PlanarEffect{
             //If this pointnode is not already in the hash map
             if(!seenPoints.containsKey(targetPoint)/*||!haveSeen(seenList,current3DPoint.target)*/) {
                 System.out.println(!seenPoints.containsKey(current3DPoint.target));
-<<<<<<< HEAD
-                seenPoints.put(new Point3D(targetPoint), current3DPoint);
-                seenList.add(targetPoint);
-=======
+
                 seenPoints.put(targetPoint, current3DPoint);
                 //seenList.add(targetPoint);
->>>>>>> ca48129a18eac6364e9c63ada7846336954dde57
+
 
                 //gets the adjacent points
                 for (PointNode pointNode : getAdjacentPoints(current3DPoint)) {
