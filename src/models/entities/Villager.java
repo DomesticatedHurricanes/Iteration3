@@ -1,24 +1,13 @@
 package models.entities;
 
+import models.stats.Stats;
+
 /**
  * Created by ben on 4/11/16.
  */
-public class Villager extends NPC implements Movement{
-
+public class Villager extends NPC {
     @Override
-    public void walk() {
-
+    public Stats getStats() {
+        return stats;
     }
-
-    @Override
-    public void swim() {
-
-    }
-
-    @Override
-    public void traverse() {
-
-    }
-
-
 }
