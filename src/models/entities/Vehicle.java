@@ -1,6 +1,6 @@
 package models.entities;
 
-
+import models.Map.Tile;
 import models.stats.VehicleStats;
 import models.stats.Stats;
 
@@ -10,7 +10,9 @@ import models.stats.Stats;
  * Subclass of entity
  */
 
-public class Vehicle extends Entity {
+
+
+public class Vehicle extends Entity{
     private VehicleStats vehicleStats;
 
     //create the Vehicle passing in the movement modifier

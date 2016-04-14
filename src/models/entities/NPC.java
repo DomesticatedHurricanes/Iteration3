@@ -11,4 +11,5 @@ import models.Item.Inventory;
 public abstract class NPC extends Entity {
     protected CharacterStats stats;
     protected Inventory inventory;
+
 }

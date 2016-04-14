@@ -11,6 +11,7 @@ import models.stats.Stats;
  * This class represents the Pet in the game.
  */
 
+
 public class Pet extends Entity implements Movement, EntityVisitable {
     private LivingStats stats;
     private PetBrain petBrain;
@@ -19,13 +20,12 @@ public class Pet extends Entity implements Movement, EntityVisitable {
         this.petBrain = new PetBrain();
         this.stats = new LivingStats();
     }
-
-
-
     @Override
     public boolean accept(Tile tile) {
         return tile.visit(this);
     }
+
+
 
     @Override
     public boolean canSwim() {
@@ -41,6 +41,7 @@ public class Pet extends Entity implements Movement, EntityVisitable {
     public boolean canWalk() {
         return true;
     }
+
 
     @Override
     public LivingStats getStats() {

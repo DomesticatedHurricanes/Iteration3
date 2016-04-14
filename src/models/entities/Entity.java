@@ -1,6 +1,7 @@
 package models.entities;
 
-import models.Map.MapPoint;
+
+
 import models.stats.Stats;
 import utilities.Point3D;
 
@@ -14,7 +15,6 @@ public abstract class Entity {
 
 
     public abstract Stats getStats();
-
 
 
 }

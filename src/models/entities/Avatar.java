@@ -1,12 +1,10 @@
 package models.entities;
 
-
 import models.Item.Inventory;
 import models.Map.Tile;
 import models.entities.occupation.Occupation;
 import models.stats.CharacterStats;
 import models.stats.Stats;
-
 
 /**
  * Created by Breanna on 4/13/16.
@@ -52,7 +50,6 @@ public class Avatar extends Entity implements Movement, Attack, EntityVisitable{
     public boolean canWalk() {
         return true;
     }
-
 
     @Override
     public CharacterStats getStats(){
