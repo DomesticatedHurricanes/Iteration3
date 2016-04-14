@@ -5,7 +5,7 @@ import models.Map.Tile;
 /**
  * Created by ben on 4/11/16.
  */
-public class Avatar implements Movement, Attack, EntityVisitable{
+public class Avatar extends Entity implements Movement, Attack, EntityVisitable{
 
     @Override
     public boolean accept(Tile tile) {

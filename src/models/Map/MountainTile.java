@@ -17,16 +17,31 @@ public class MountainTile extends Tile {
 
     @Override
     public boolean visit(Avatar avatar) {
+        if(this.checkItem() && avatar.canTraverse()){
+            this.insertEntity(avatar);
+            return true;
+        }
+
         return avatar.canTraverse();
     }
 
     @Override
     public boolean visit(Monster monster) {
+        if(this.checkItem() && monster.canTraverse()){
+            this.insertEntity(monster);
+            return true;
+        }
+
         return monster.canTraverse();
     }
 
     @Override
     public boolean visit(Pet pet) {
+        if(this.checkItem() && pet.canTraverse()){
+            this.insertEntity(pet);
+            return true;
+        }
+
         return pet.canTraverse();
     }
 }

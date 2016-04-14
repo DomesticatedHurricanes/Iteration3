@@ -6,7 +6,7 @@ import models.stats.LivingStats;
 /**
  * Created by ben on 4/11/16.
  */
-public class Pet implements Movement, EntityVisitable {
+public class Pet extends Entity implements Movement, EntityVisitable {
     private LivingStats petStats;
 
     @Override
