@@ -2,12 +2,11 @@ package models.entities;
 
 import models.Map.Tile;
 import models.stats.LivingStats;
-import models.stats.Stats;
 
 /**
  * Created by ben on 4/11/16.
  */
-public class Pet extends Entity implements Movement, EntityVisitable {
+public class Pet extends Entity implements Movement, TileVisitable {
     private LivingStats stats;
 
     @Override

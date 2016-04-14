@@ -1,6 +1,8 @@
 package models.Item.Takeable.Equippable;
 
 import models.Item.Takeable.Takeable;
+import models.Item.Takeable.TakeableItemVisitor;
+import models.entities.Avatar;
 import models.entities.Entity;
 import models.stats.StatModifier;
 import models.stats.StatModifiers;
@@ -8,20 +10,26 @@ import models.stats.StatModifiers;
 /**
  * Created by mazumderm on 4/13/2016.
  */
-public class Equippable extends Takeable {
-    private StatModifiers statModifier;
+public class Equippable extends Takeable implements TakeableItemVisitor {
+    protected StatModifiers statModifiers;
+    protected int lvlReq;
 
-    public Equippable(StatModifiers statModifier, int price){
+    public Equippable(StatModifiers statModifiers, int price){
         super(price);
-        this.statModifier = statModifier;
+        this.statModifiers = statModifiers;
     }
 
     public StatModifiers getModifier(){
-        return this.statModifier;
+        return this.statModifiers;
     }
 
     @Override
     public void onUse(Entity entity) {
+
+    }
+
+    @Override
+    public void visit(Avatar avatar) {
 
     }
 }

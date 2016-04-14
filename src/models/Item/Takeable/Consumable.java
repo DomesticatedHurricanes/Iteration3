@@ -20,6 +20,6 @@ public class Consumable extends Takeable {
 
     @Override
     public void onUse(Entity entity) {
-
+        statModifiers.apply(entity.getStats());
     }
 }
