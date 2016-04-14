@@ -7,7 +7,7 @@ import models.entities.Pet;
 /**
  * Created by david on 4/13/16.
  */
-public interface EntityVisitor {
+public interface TileVisitor {
     boolean visit(Avatar avatar);
     boolean visit(Monster monster);
     boolean visit(Pet pet);

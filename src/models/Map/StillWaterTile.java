@@ -2,14 +2,13 @@ package models.Map;
 
 import models.Graphics.GraphicAssets;
 import models.entities.Avatar;
-import models.entities.Entity;
 import models.entities.Monster;
 import models.entities.Pet;
 
 /**
  * Created by Michael on 4/7/16.
  */
-public class StillWaterTile extends Tile implements EntityVisitor {
+public class StillWaterTile extends Tile implements TileVisitor {
 
 
     public StillWaterTile(MapPoint mapPoint){

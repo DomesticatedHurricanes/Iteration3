@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * Tile represents a single location on the map.
  * It is responsible for holding Entity, Item, AreaEffect, and Projectiles.
  */
-public abstract class Tile implements EntityVisitor {
+public abstract class Tile implements TileVisitor {
 
     //Properties of tile
     protected Point3D point3D;
