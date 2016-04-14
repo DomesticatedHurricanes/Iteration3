@@ -8,7 +8,7 @@ import models.stats.StatModifier;
 public class TakeDamage extends AreaEffect {
     @Override
     public void activate(){
-        StatModifier TakeDamage = StatModifier.makeHpModifier(-10);
+        StatModifier TakeDamage = StatModifier.makeCurrentHpModifier(-10);
         //Pass Stats somehow
     }
 }

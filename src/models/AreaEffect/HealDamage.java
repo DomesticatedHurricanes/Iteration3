@@ -8,7 +8,7 @@ import models.stats.StatModifier;
 public class HealDamage extends AreaEffect {
     @Override
     public void activate(){
-        StatModifier healDamage = StatModifier.makeHpModifier(10);
+        StatModifier healDamage = StatModifier.makeCurrentHpModifier(10);
         //Pass Stats somehow
     }
 }
