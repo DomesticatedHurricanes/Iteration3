@@ -9,10 +9,15 @@ import models.entities.Entity;
  */
 public class AvatarInteractionHandler extends InteractionHandler{
 
+    private Avatar avatar;
 
     public AvatarInteractionHandler(Avatar avatar, Map map){
-        entity = avatar;
+        this.avatar = avatar;
         this.map = map;
+    }
+
+    public void updateAvatarPosition(){
+
     }
 
     public void tileInteraction(Entity entity){

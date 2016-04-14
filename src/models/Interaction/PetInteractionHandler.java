@@ -9,9 +9,15 @@ import models.entities.Pet;
  */
 public class PetInteractionHandler extends InteractionHandler {
 
+    private Pet pet;
+
     public PetInteractionHandler(Pet pet, Map map){
-        entity = pet;
+        this.pet = pet;
         this.map = map;
+    }
+
+    public void updatePetPosition(){
+
     }
 
     protected void tileInteraction(Entity entity){

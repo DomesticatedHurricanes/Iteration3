@@ -9,12 +9,26 @@ import models.entities.Monster;
  */
 public class MonsterInteractionHandler extends InteractionHandler{
 
+    private Monster monster;
+
     public MonsterInteractionHandler(Monster monster, Map map){
-        this.entity = monster;
+        this.monster = monster;
         this.map = map;
+    }
+
+    public void updateMonster(){
+
     }
 
     protected void tileInteraction(Entity entity){
 
+    }
+
+    public boolean isPursuingAvatar(){
+
+        if(monster.getAggression() == 10){
+            return true;
+        }
+        else return false;
     }
 }

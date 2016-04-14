@@ -8,7 +8,6 @@ import models.entities.Entity;
  */
 public abstract class InteractionHandler {
 
-    protected Entity entity;
     protected Map map;
 
     public InteractionHandler() {

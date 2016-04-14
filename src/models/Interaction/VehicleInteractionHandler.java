@@ -9,9 +9,15 @@ import models.entities.Vehicle;
  */
 public class VehicleInteractionHandler extends InteractionHandler{
 
+    private Vehicle vehicle;
+
     public VehicleInteractionHandler(Vehicle vehicle, Map map){
-        this.entity = vehicle;
+        this.vehicle = vehicle;
         this.map = map;
+    }
+
+    public void updateVehiclePos(){
+
     }
 
     protected void tileInteraction(Entity entity){

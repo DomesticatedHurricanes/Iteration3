@@ -66,4 +66,9 @@ public class Monster extends NPC implements Movement {
         return isAttacking;
     }
 
+    public int getAggression(){
+
+        return monsterBrain.getAggression();
+    }
+
 }
