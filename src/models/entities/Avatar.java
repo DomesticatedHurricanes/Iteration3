@@ -14,6 +14,7 @@ import models.stats.CharacterStats;
  */
 
 
+
 public class Avatar extends Entity implements Movement, Attack, TileVisitable, TakeableItemVisitable{
     private Occupation occupation;
     private CharacterStats stats;
