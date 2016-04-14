@@ -44,7 +44,7 @@ public class RadialEffect extends PlanarEffect{
         Queue<PointNode> bfsQueue = new LinkedList<>();
         ArrayList<Point3D> seenList = new ArrayList<>();
 
-        HashMap<Point3D,PointNode> seenPoints= new HashMap<>();
+        HashMap<Point3D,PointNode> seenPoints = new HashMap<>();
         //Adds in the roots
         //sentQueue.add(origin);
         PointNode root = new PointNode(origin,0);
@@ -75,7 +75,6 @@ public class RadialEffect extends PlanarEffect{
                 /*for(int j = 0;j<seenList.size();j++){
                     System.out.println("X is "+seenList.get(j).getX()+" Y is "+ seenList.get(j).getY());
                 }*/
-
                 System.out.println("It check marked "+ i);
                 System.out.println("Array list size is "+seenList.size());
                 System.out.println("Final queue size is "+sentQueue.size());
@@ -86,8 +85,13 @@ public class RadialEffect extends PlanarEffect{
             //If this pointnode is not already in the hash map
             if(!seenPoints.containsKey(targetPoint)/*||!haveSeen(seenList,current3DPoint.target)*/) {
                 System.out.println(!seenPoints.containsKey(current3DPoint.target));
+<<<<<<< HEAD
                 seenPoints.put(new Point3D(targetPoint), current3DPoint);
                 seenList.add(targetPoint);
+=======
+                seenPoints.put(targetPoint, current3DPoint);
+                //seenList.add(targetPoint);
+>>>>>>> ca48129a18eac6364e9c63ada7846336954dde57
 
                 //gets the adjacent points
                 for (PointNode pointNode : getAdjacentPoints(current3DPoint)) {
@@ -100,9 +104,9 @@ public class RadialEffect extends PlanarEffect{
 
                         //seenPoints.put(new Point3D(pointNode.target), pointNode);
                     }
-
                 }
-            }else{
+            }
+            else{
                 i++;
             }
 
