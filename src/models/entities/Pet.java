@@ -1,12 +1,22 @@
 package models.entities;
 
 import models.stats.LivingStats;
+import models.AI.PetBrain;
 
 /**
- * Created by ben on 4/11/16.
+ * Created by Breanna on 4/13/16.
+ * This class represents the Pet in the game.
  */
-public class Pet implements Movement{
+
+public class Pet extends Entity implements Movement {
+
     private LivingStats petStats;
+    private PetBrain petBrain;
+
+    public Pet() {
+        this.petBrain = new PetBrain();
+        this.petStats = new LivingStats();
+    }
 
     @Override
     public void walk() {

@@ -3,8 +3,11 @@ package models.entities;
 import models.stats.CharacterStats;
 
 /**
- * Created by ben on 4/11/16.
+ * Created by Breanna on 4/13/16.
+ * Represents a NPC in the game.
+ * Superclass for types of NPCs
  */
-public abstract class NPC {
+public abstract class NPC extends Entity {
     protected CharacterStats npcStats;
+    //Inventory inventory;
 }
