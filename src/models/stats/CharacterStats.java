@@ -12,6 +12,8 @@ public class CharacterStats extends LivingStats {
     private int level;
     private int mana;
     private int armorRating;
+    private int attackRange;
+    private int attackCooldown;
 
     //Getters and modifiers for the Stats
     public int getAgility() {
@@ -61,4 +63,14 @@ public class CharacterStats extends LivingStats {
     public void modifyArmorRating(int armorRating) {
         this.armorRating += armorRating;
     }
+
+    public int getAttackRange(){ return  attackRange; }
+
+    public void modifyAttackRange(int delta){ this.attackRange += delta; }
+
+    public int getAttackCooldown(){ return  attackCooldown; }
+
+    public void modifyAttackCooldown(int delta){ this.attackCooldown += delta; }
+
+
 }
