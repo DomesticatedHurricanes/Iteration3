@@ -3,6 +3,7 @@ package models.entities;
 
 import models.stats.CharacterStats;
 import models.stats.Stats;
+import utilities.Point3D;
 
 /**
  * Created by Breanna on 4/13/16.
@@ -10,7 +11,7 @@ import models.stats.Stats;
  */
 
 
-public class Villager extends NPC {
+public class Villager extends Entity {
     private CharacterStats stats;
 
     public Villager() {

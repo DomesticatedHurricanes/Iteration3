@@ -50,18 +50,12 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
         inventory.equipHelmet(helmet);
     }
 
-    public void equipChestPlate(ChestPlate chestPlate){
+    public void equipChestPlate(ChestPlate chestPlate) {
         inventory.equipChestPlate(chestPlate);
     }
 
-    public void equipOneHandedWeapon(OneHandedWeapon oneHandedWeapon){
-        inventory.equipOneHandedWeapon(oneHandedWeapon);
-    }
-
-    public void equipTwoHandedWeapon(TwoHandedWeapon twoHandedWeapon){
-        inventory.equipTwoHandedWeapon(twoHandedWeapon);
-    }
-
+    public void equipOneHandedWeapon(OneHandedWeapon oneHandedWeapon){ inventory.equipOneHandedWeapon(oneHandedWeapon);}
+    
     public void equipRangedWeapon(Ranged rangedWeapon){
         inventory.equipRangedWeapon(rangedWeapon);
     }
@@ -74,7 +68,9 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
         inventory.equipBoots(boots);
     }
 
+    public void equipTwoHandedWeapon(TwoHandedWeapon twoHandedWeapon){ inventory.equipTwoHandedWeapon(twoHandedWeapon);}
 
+    
     //Movement booleans
     @Override
     public boolean canSwim() {

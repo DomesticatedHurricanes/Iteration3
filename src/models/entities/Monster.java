@@ -5,6 +5,7 @@ import models.AI.MonsterBrain;
 import models.Map.Tile;
 import models.stats.CharacterStats;
 import models.stats.Stats;
+import utilities.Point3D;
 
 /**
  * Created by Breanna on 4/13/16.
@@ -39,5 +40,25 @@ public class Monster extends NPC implements Movement{
         return stats;
     }
 
+    //Add Observer
+    public void addObserver(Observer observer){
+        observers.add(observer);
+    }
+
+    //Observer Notifiers
+
+    @Override
+    public void notifyMove(Point3D point3D) {
+        for(Observer observer: observers){
+            observer.processMove(this, point3D);
+        }
+    }
+
+    @Override
+    public void notifyThought() {
+        for(Observer observer: observers){
+            observer.processThought(this);
+        }
+    }
 }
 

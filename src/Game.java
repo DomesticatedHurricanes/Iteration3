@@ -1,3 +1,6 @@
+import controllers.ControllerManager;
+import State.StateManager;
+
 /**
  * Created by Michael on 3/30/16.
  * Game is the thread responsible for updating the game logic
@@ -10,19 +13,57 @@ public class Game implements Runnable {
     private int height;
     private boolean running = false;
 
+
+    boolean alive;
+    StateManager stateManager;
+    ControllerManager controllerManager;
+
+    public Game(StateManager stateManager,ControllerManager controllerManager){
+        this.stateManager=stateManager;
+        this.controllerManager=controllerManager;
+        alive=false;
+    }
+
     public Game(){
-        this.title = title;
-        this.width = width;
-        this.height = height;
-        //viewport = new Viewport("Testing");
+
     }
 
     // Initializes the game
     private void init(){
+
     }
 
     private void tick(){
+        int fps = 60;
+        double perTick = 1000000000 / fps;
+        double delta = 0;
+        long now,then;
+        then = System.nanoTime();
+        long time = 0;
+        int tick = 0;
+        now = System.nanoTime();
+        delta += (now - then) / perTick;
+        time += now - then;
+        then = now;
 
+        if( delta>=1 ){System.out.println("tick");
+            try{
+
+            }catch(Exception e){
+
+            }
+            tick++;
+            delta--;
+        }
+
+        //currentstateTick
+
+        //catch
+        //System.out.println("tick"+tick);
+        if(time>1000000000){
+            tick = 0;
+            time = 0;
+        }
     }
 
     private void render(){
@@ -35,15 +76,13 @@ public class Game implements Runnable {
 
     @Override
     public void run(){
-
         // Initialize the game
         init();
 
         // Game loop
-
         while(running){
             tick();
-            render();
+            // call current state tick
         }
 
         // Stop the thread

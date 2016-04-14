@@ -1,9 +1,26 @@
 package controllers;
 
+import javax.swing.*;
+
 /**
- * Created by ben on 4/12/16.
+ * Created by Dartyx on 4/9/2016.
  */
 public class ControllerManager {
-    protected Controller controller;
+    Controller activeController;
 
+
+
+    JPanel currentPanel;
+    public void ControllerManager(){
+
+
+    }
+
+    //set controller
+
+
+    //setting the current panel
+    public void setCurrentPanel(JPanel currentPanel) {
+        this.currentPanel = currentPanel;
+    }
 }
