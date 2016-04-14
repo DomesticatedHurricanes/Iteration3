@@ -32,6 +32,8 @@ public class StartMenuController extends Controller{
         getBindings().add(new Listener(Settings.DOWN, getKeyMapping().get(Settings.DOWN)));
         getBindings().add(new Listener(Settings.LEFT, getKeyMapping().get(Settings.LEFT)));
         getBindings().add(new Listener(Settings.RIGHT, getKeyMapping().get(Settings.RIGHT)));
+        getBindings().add(new Listener(Settings.INV, getKeyMapping().get(Settings.INV)));
+        getBindings().add(new Listener(Settings.ENTER, getKeyMapping().get(Settings.ENTER)));
     }
 
 
