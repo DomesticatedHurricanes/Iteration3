@@ -10,9 +10,5 @@ public class RunGame {
         System.out.println("Hello World");
         Point3D point = new Point3D(0,0,3);
         new RadialEffect(point, 2);
-
-        PetBrain PB = new PetBrain();
-        PB.decideToSteal();
-
     }
 }
