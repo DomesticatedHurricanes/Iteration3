@@ -63,7 +63,15 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
     }
 
     public void equipRangedWeapon(Ranged rangedWeapon){
-        equipRangedWeapon(rangedWeapon);
+        inventory.equipRangedWeapon(rangedWeapon);
+    }
+
+    public void equipSlacks(Slacks slacks){
+        inventory.equipSlacks(slacks);
+    }
+
+    public void equipBoots(Boots boots){
+        inventory.equipBoots(boots);
     }
 
 

@@ -11,4 +11,6 @@ public class Inventory {
     public void equipOneHandedWeapon(OneHandedWeapon oneHandedWeapon){}
     public void equipTwoHandedWeapon(TwoHandedWeapon twoHandedWeapon){}
     public void equipRangedWeapon(Ranged rangedWeapon){}
+    public void equipSlacks(Slacks slacks){}
+    public void equipBoots(Boots boots){}
 }
