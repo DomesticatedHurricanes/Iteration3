@@ -1,5 +1,7 @@
 package models.Map;
 
+import models.entities.Entity;
+
 import java.awt.image.BufferedImage;
 
 /**
@@ -7,7 +9,7 @@ import java.awt.image.BufferedImage;
  * Tile represents a single location on the map.
  * It is responsible for holding Entity, Item, AreaEffect, and Projectiles.
  */
-public abstract class Tile {
+public abstract class Tile implements EntityVisitor {
     protected MapPoint mapPoint;
     protected BufferedImage image;
 

@@ -1,25 +1,31 @@
 package models.entities;
 
+import models.Map.Tile;
 import models.stats.LivingStats;
 
 /**
  * Created by ben on 4/11/16.
  */
-public class Pet implements Movement {
+public class Pet implements Movement, EntityVisitable {
     private LivingStats petStats;
 
     @Override
-    public void walk() {
-
+    public boolean accept(Tile tile) {
+        return tile.visit(this);
     }
 
     @Override
-    public void swim() {
-
+    public boolean canSwim() {
+        return false;
     }
 
     @Override
-    public void traverse() {
+    public boolean canTraverse() {
+        return false;
+    }
 
+    @Override
+    public boolean canWalk() {
+        return true;
     }
 }

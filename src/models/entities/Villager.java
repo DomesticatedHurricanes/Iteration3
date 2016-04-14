@@ -3,22 +3,5 @@ package models.entities;
 /**
  * Created by ben on 4/11/16.
  */
-public class Villager extends NPC implements Movement{
-
-    @Override
-    public void walk() {
-
-    }
-
-    @Override
-    public void swim() {
-
-    }
-
-    @Override
-    public void traverse() {
-
-    }
-
-
+public class Villager extends NPC {
 }
