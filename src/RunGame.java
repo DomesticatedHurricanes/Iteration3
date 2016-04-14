@@ -1,6 +1,7 @@
 /**
  * Created by ben on 4/11/16.
  */
+import models.AI.MonsterBrain;
 import models.View.View;
 import models.effects.RadialEffect;
 import utilities.Point3D;
