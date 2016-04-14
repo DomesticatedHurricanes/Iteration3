@@ -54,7 +54,13 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
         inventory.equipChestPlate(chestPlate);
     }
 
+    public void equipOneHandedWeapon(OneHandedWeapon oneHandedWeapon){ inventory.equipOneHandedWeapon(oneHandedWeapon);}
 
+    public void equipTwoHandedWeapon(TwoHandedWeapon twoHandedWeapon){ inventory.equipTwoHandedWeapon(twoHandedWeapon);}
+
+    public void equipRangedWeapon(Ranged rangedWeapon){ inventory.equipRangedWeapon(rangedWeapon);}
+
+    
     //Movement booleans
     @Override
     public boolean canSwim() {
