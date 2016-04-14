@@ -13,6 +13,7 @@ import java.util.Queue;
 public abstract class Effect {
     protected Point3D origin;
     protected int range;
+    protected ArrayList<Point3D> tilePoints = new ArrayList<>();
     //need to put pathfinder in here make abstract
     public abstract Queue<Point3D> tileFinder();
 
@@ -25,15 +26,19 @@ public abstract class Effect {
         return false;
     }
 
+    public ArrayList<Point3D> getTilePoints(){
+        return tilePoints;
+    }
+
     public ArrayList<Point3D> getDistinctPoints(Queue<Point3D> queue){
-        ArrayList<Point3D> distinctPoints = new ArrayList<>();
+
         while(!queue.isEmpty()){
             Point3D currentPoint = queue.poll();
-            if (!haveSeen(distinctPoints, currentPoint)) {
-                distinctPoints.add(currentPoint);
+            if (!haveSeen(tilePoints, currentPoint)) {
+                tilePoints.add(currentPoint);
             }
         }
-        System.out.println("THE OFFICAL SIZE IS "+distinctPoints.size());
+        System.out.println("THE OFFICAL SIZE IS "+tilePoints.size());
         return null;
     }
 
