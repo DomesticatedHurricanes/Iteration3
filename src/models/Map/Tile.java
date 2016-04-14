@@ -3,6 +3,7 @@ package models.Map;
 import models.AreaEffect.AreaEffect;
 import models.Item.Item;
 import models.entities.Entity;
+import utilities.Point3D;
 
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 public abstract class Tile implements EntityVisitor {
 
     //Properties of tile
-    protected MapPoint mapPoint;
+    protected Point3D point3D;
     protected BufferedImage image;
     protected Entity entity;
     protected ArrayList<Item> items = new ArrayList<>();
@@ -23,7 +24,7 @@ public abstract class Tile implements EntityVisitor {
 
     //Methods of a tile
     public Tile(MapPoint mapPoint){
-        this.mapPoint = mapPoint;
+        this.point3D = point3D;
     }
 
     public BufferedImage getImage(){
@@ -34,9 +35,11 @@ public abstract class Tile implements EntityVisitor {
         this.image = image;
     }
 
-    public MapPoint getMapPoint(){
-        return mapPoint;
+    public Point3D getMapPoint(){
+        return point3D;
     }
+
+    public Entity getEntity(){ return entity; }
 
     public void insertEntity(Entity entity){
         this.entity = entity;
@@ -46,11 +49,9 @@ public abstract class Tile implements EntityVisitor {
     //Checks if you can pass on the item on the tile.
     public boolean checkItem(){
         for(Item item: items){
-            if(!item.onTouch()){
+            if(!item.onTouch())
                 return false;
-            }
         }
-
         return true;
     }
 
