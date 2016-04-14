@@ -1,25 +1,51 @@
 package models.entities;
 
+import models.Map.Tile;
 import models.stats.LivingStats;
 
+import models.AI.PetBrain;
+
+
+
+
 /**
- * Created by ben on 4/11/16.
+ * Created by Breanna on 4/13/16.
+ * This class represents the Pet in the game.
  */
-public class Pet implements Movement {
-    private LivingStats petStats;
+
+public class Pet extends Entity implements Movement, TileVisitable {
+    private LivingStats stats;
+    private PetBrain petBrain;
+
+    public Pet() {
+        this.petBrain = new PetBrain();
+        this.stats = new LivingStats();
+    }
+    @Override
+    public boolean accept(Tile tile) {
+        return tile.visit(this);
+    }
+
+
 
     @Override
-    public void walk() {
-
+    public boolean canSwim() {
+        return false;
     }
 
     @Override
-    public void swim() {
-
+    public boolean canTraverse() {
+        return false;
     }
 
     @Override
-    public void traverse() {
+    public boolean canWalk() {
+        return true;
+    }
 
+
+    @Override
+    public LivingStats getStats() {
+        return stats;
     }
 }

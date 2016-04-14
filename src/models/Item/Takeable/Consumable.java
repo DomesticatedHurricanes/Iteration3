@@ -1,5 +1,6 @@
 package models.Item.Takeable;
 
+import models.entities.Entity;
 import models.stats.StatModifiers;
 
 /**
@@ -15,5 +16,10 @@ public class Consumable extends Takeable {
 
     public StatModifiers getStatModifiers() {
         return statModifiers;
+    }
+
+    @Override
+    public void onUse(Entity entity) {
+        statModifiers.apply(entity.getStats());
     }
 }

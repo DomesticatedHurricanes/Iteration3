@@ -1,5 +1,7 @@
 package models.Item;
 
+import models.entities.Entity;
+
 /**
  * Created by mazumderm on 4/13/2016.
  */
@@ -11,11 +13,11 @@ public class Interactable extends Item {
 
     }
 
-    public boolean getActivated(){
-        return this.isActivated;
+    public boolean onTouch(){
+        return false;
     }
 
-    public void onTouch(){
+    public void apply(Entity entity){
 
     }
 }

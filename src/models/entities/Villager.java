@@ -1,23 +1,26 @@
 package models.entities;
 
+
+import models.stats.CharacterStats;
+import models.stats.Stats;
+
 /**
- * Created by ben on 4/11/16.
+ * Created by Breanna on 4/13/16.
+ * Represents a non-hostile NPC within the game
  */
-public class Villager extends NPC implements Movement{
 
-    @Override
-    public void walk() {
 
+public class Villager extends NPC {
+    private CharacterStats stats;
+
+    public Villager() {
+
+        this.stats = new CharacterStats();
     }
 
     @Override
-    public void swim() {
-
-    }
-
-    @Override
-    public void traverse() {
-
+    public Stats getStats() {
+        return stats;
     }
 
 

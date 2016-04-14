@@ -1,5 +1,6 @@
 package models.Item;
 
+import models.entities.Entity;
 import models.stats.StatModifiers;
 
 /**
@@ -16,7 +17,11 @@ public class OneShot extends Item {
         return this.statModifiers;
     }
 
-    public void onTouch(){
+    public boolean onTouch(){
+        return true;
+    }
+
+    public void apply(Entity entity){
 
     }
 
