@@ -5,6 +5,6 @@ import models.stats.CharacterStats;
 /**
  * Created by ben on 4/11/16.
  */
-public abstract class NPC {
-    protected CharacterStats npcStats;
+public abstract class NPC extends Entity {
+    protected CharacterStats stats;
 }

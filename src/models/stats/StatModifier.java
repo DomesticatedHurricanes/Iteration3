@@ -119,6 +119,22 @@ public class StatModifier{
         }
     };;
 
+    private static Modifier modifyAttackRange = new Modifier() {
+        @Override
+        public void apply(Stats stats, int delta) {
+            CharacterStats cs = (CharacterStats) stats;
+            cs.modifyAttackRange(delta);
+        }
+    };;
+
+    private static Modifier modifyAttackCooldowm = new Modifier() {
+        @Override
+        public void apply(Stats stats, int delta) {
+            CharacterStats cs = (CharacterStats) stats;
+            cs.modifyAttackCooldown(delta);
+        }
+    };;
+
     private int myDelta;
     private Modifier myModifier;
 
@@ -173,6 +189,10 @@ public class StatModifier{
     }
 
     public static StatModifier makeArmorRatingModifier(int delta){return new StatModifier(delta, modifyArmorRating );}
+
+    public static StatModifier makeAttackRangeModifier(int delta){return new StatModifier(delta, modifyAttackRange);}
+
+    public static StatModifier makeAttackCooldownModifier(int delta){return new StatModifier(delta, modifyAttackCooldowm);}
 
 
     //How to apply the modifier to an Entities Stats
