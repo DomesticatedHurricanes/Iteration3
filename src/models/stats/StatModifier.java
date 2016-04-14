@@ -15,11 +15,19 @@ public class StatModifier{
         }
     };
 
-    private static Modifier modifyHp = new Modifier() {
+    private static Modifier modifyMaxHp = new Modifier() {
         @Override
         public void apply(Stats stats, int delta) {
             LivingStats ls = (LivingStats)stats;
-            ls.modifyHp(delta);
+            ls.modifyMaxHp(delta);
+        }
+    };
+
+    private static Modifier modifyCurrentHp = new Modifier() {
+        @Override
+        public void apply(Stats stats, int delta) {
+            LivingStats ls = (LivingStats)stats;
+            ls.modifyCurrentHp(delta);
         }
     };
 
@@ -111,6 +119,22 @@ public class StatModifier{
         }
     };;
 
+    private static Modifier modifyAttackRange = new Modifier() {
+        @Override
+        public void apply(Stats stats, int delta) {
+            CharacterStats cs = (CharacterStats) stats;
+            cs.modifyAttackRange(delta);
+        }
+    };;
+
+    private static Modifier modifyAttackCooldowm = new Modifier() {
+        @Override
+        public void apply(Stats stats, int delta) {
+            CharacterStats cs = (CharacterStats) stats;
+            cs.modifyAttackCooldown(delta);
+        }
+    };;
+
     private int myDelta;
     private Modifier myModifier;
 
@@ -124,9 +148,9 @@ public class StatModifier{
         return new StatModifier(delta, modifyMovement );
     }
 
-    public static StatModifier makeHpModifier(int delta){
-        return new StatModifier(delta, modifyHp);
-    }
+    public static StatModifier makeMaxHpModifier(int delta){return new StatModifier(delta, modifyMaxHp);}
+
+    public static StatModifier makeCurrentHpModifier(int delta){return new StatModifier(delta, modifyCurrentHp);}
 
     public static StatModifier makeStrengthModifier(int delta){
         return new StatModifier(delta, modifyStrength );
@@ -165,6 +189,10 @@ public class StatModifier{
     }
 
     public static StatModifier makeArmorRatingModifier(int delta){return new StatModifier(delta, modifyArmorRating );}
+
+    public static StatModifier makeAttackRangeModifier(int delta){return new StatModifier(delta, modifyAttackRange);}
+
+    public static StatModifier makeAttackCooldownModifier(int delta){return new StatModifier(delta, modifyAttackCooldowm);}
 
 
     //How to apply the modifier to an Entities Stats

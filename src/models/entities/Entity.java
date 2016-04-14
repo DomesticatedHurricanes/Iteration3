@@ -1,8 +1,20 @@
 package models.entities;
 
+
+
+import utilities.Point3D;
+import models.stats.Stats;
+
+
 /**
- * Created by ben on 4/11/16.
+ * Created by Breanna on 4/13/16.
  */
-public class Entity {
+
+public abstract class Entity {
+    Point3D point3D;
+
+
+    public abstract Stats getStats();
+
 
 }
