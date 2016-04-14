@@ -69,9 +69,15 @@ public class Point3D {
     public void translateSouthEast(){
         translate(1,0);
     }
+
     public void translateNorthEast(){
         translate(1,-1);
     }
+
+    public void translateUp(){translate(0,0,1);}
+
+    public void translateDown(){translate(0,0,-1);}
+
     public void translate(int x,int y,int z){
         this.x += x;
         this.y += y;

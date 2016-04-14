@@ -32,15 +32,8 @@ public class RadialEffect extends PlanarEffect{
         }*/
 
         System.out.println("i is "+i);
-    }
+        getDistinctPoints(queue);
 
-    public boolean haveSeen(ArrayList<Point3D> seenList,Point3D newPoint){
-        for(int i = 0;i<seenList.size();i++){
-            if(seenList.get(i).getX() == newPoint.getX()&&seenList.get(i).getY() == newPoint.getY()){
-                return true;
-            }
-        }
-        return false;
     }
 
 
@@ -89,17 +82,18 @@ public class RadialEffect extends PlanarEffect{
                 return sentQueue;
             }
             sentQueue.add(targetPoint);
+            //seenList.add(targetPoint);
             //If this pointnode is not already in the hash map
             if(!seenPoints.containsKey(targetPoint)/*||!haveSeen(seenList,current3DPoint.target)*/) {
                 System.out.println(!seenPoints.containsKey(current3DPoint.target));
                 seenPoints.put(new Point3D(targetPoint), current3DPoint);
-                //seenList.add(targetPoint);
+                seenList.add(targetPoint);
 
                 //gets the adjacent points
                 for (PointNode pointNode : getAdjacentPoints(current3DPoint)) {
                     //check if point was already seen
 
-                    if (!seenPoints.containsKey(pointNode.target)) {
+                    if (!seenPoints.containsKey(pointNode.target)/*!haveSeen(seenList,current3DPoint.target)*/) {
 
                         pointNode.range+=1;
                         bfsQueue.offer(pointNode);//sent to the
@@ -144,12 +138,7 @@ public class RadialEffect extends PlanarEffect{
         Point3D northwestPoint = new Point3D(originPoint.target);
         northwestPoint.translateNorthWest();//This is arbitrary for now
         adjacentPoints.add(new PointNode(northwestPoint,originPoint.range));
-        for(int i = 0;i<adjacentPoints.size();i++){
-            int x = adjacentPoints.get(i).target.getX();
-            int y = adjacentPoints.get(i).target.getY();
-            int z = adjacentPoints.get(i).target.getZ();
-            System.out.println("x is "+x+" y is "+y+" z is "+z);
-        }
+
         return adjacentPoints;
     }
 }
