@@ -12,10 +12,13 @@ public abstract class AIBrain {
 
     private Random random;
 
+
+    // randomly selects coordinates of direction
+    // (0,0) (0,1) (1,0) (1,1) (0,-1), (-1,0) (-1,-1)
     public Point3D generateMove(){
         random = new Random();
-        int x = random.nextInt(2);
-        int y = random.nextInt(2);
+        int x = random.nextInt(2)-random.nextInt(2);
+        int y = random.nextInt(2)-random.nextInt(2);
 
         Point3D point = new Point3D(x, y, 0);
         return point;
