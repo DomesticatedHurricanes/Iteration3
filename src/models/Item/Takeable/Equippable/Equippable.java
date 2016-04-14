@@ -1,6 +1,7 @@
 package models.Item.Takeable.Equippable;
 
 import models.Item.Takeable.Takeable;
+import models.entities.Entity;
 import models.stats.StatModifier;
 import models.stats.StatModifiers;
 
@@ -17,5 +18,10 @@ public class Equippable extends Takeable {
 
     public StatModifiers getModifier(){
         return this.statModifier;
+    }
+
+    @Override
+    public void onUse(Entity entity) {
+
     }
 }

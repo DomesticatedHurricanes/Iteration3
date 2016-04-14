@@ -1,5 +1,6 @@
 package models.Map;
 
+import models.Item.Item;
 import models.entities.Entity;
 
 import java.awt.image.BufferedImage;
@@ -42,7 +43,13 @@ public abstract class Tile implements EntityVisitor {
 
     //Checks if you can pass on the item on the tile.
     public boolean checkItem(){
-        return item.onTouch();
+        for(Item item: items){
+            if(!item.onTouch()){
+                return false;
+            }
+        }
+
+        return true;
     }
 
 
