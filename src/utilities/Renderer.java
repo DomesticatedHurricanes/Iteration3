@@ -81,7 +81,7 @@ public class Renderer {
 //                g.drawImage(tile.getImage(), topLeft.x, topLeft.y, GraphicAssets.TILE_PX_WIDTH, GraphicAssets.TILE_PX_HEIGHT, null);
                 // Draw the image given the height and width of the image
                 g.drawImage(tile.getImage(), topLeft.x, topLeft.y, tile.getImage().getWidth(), tile.getImage().getHeight(), null);
-                Integer point = tile.getMapPoint().getZ();
+                Integer point = tile.getPoint3D().getZ();
                 g.drawString(point.toString(),topLeft.x,topLeft.y);
             }
         }
