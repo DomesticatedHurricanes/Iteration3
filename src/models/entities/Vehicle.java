@@ -8,7 +8,7 @@ import models.stats.VehicleStats;
  * Subclass of entity
  */
 public class Vehicle extends Entity {
-    
+
     private VehicleStats vehicleStats;
 
     //create the Vehicle passing in the movement modifier
