@@ -32,4 +32,9 @@ public class Pet extends Entity implements Movement {
     public void traverse() {
 
     }
+
+    public boolean decideToSteal(){
+
+        return petBrain.decideToSteal();
+    }
 }

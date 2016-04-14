@@ -4,7 +4,7 @@ import models.Map.Map;
 import models.entities.Entity;
 
 /**
- * Created by MyMac on 4/13/16.
+ * Created by Nicole on 4/13/16.
  */
 public abstract class InteractionHandler {
 
@@ -12,7 +12,7 @@ public abstract class InteractionHandler {
     protected Map map;
 
     public InteractionHandler() {
-        
+
     }
 
     public boolean movementHandling(){
