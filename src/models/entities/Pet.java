@@ -2,12 +2,13 @@ package models.entities;
 
 import models.Map.Tile;
 import models.stats.LivingStats;
+import models.stats.Stats;
 
 /**
  * Created by ben on 4/11/16.
  */
 public class Pet extends Entity implements Movement, EntityVisitable {
-    private LivingStats petStats;
+    private LivingStats stats;
 
     @Override
     public boolean accept(Tile tile) {
@@ -27,5 +28,10 @@ public class Pet extends Entity implements Movement, EntityVisitable {
     @Override
     public boolean canWalk() {
         return true;
+    }
+
+    @Override
+    public LivingStats getStats() {
+        return stats;
     }
 }

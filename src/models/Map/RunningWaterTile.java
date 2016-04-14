@@ -28,6 +28,7 @@ public class RunningWaterTile extends Tile {
     public boolean visit(Avatar avatar) {
         if(this.checkItem() && avatar.canTraverse()){
             this.insertEntity(avatar);
+            applyItems(avatar);
             return true;
         }
 

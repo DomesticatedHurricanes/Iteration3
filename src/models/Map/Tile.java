@@ -1,5 +1,6 @@
 package models.Map;
 
+import models.AreaEffect.AreaEffect;
 import models.Item.Item;
 import models.entities.Entity;
 
@@ -18,6 +19,7 @@ public abstract class Tile implements EntityVisitor {
     protected BufferedImage image;
     protected Entity entity;
     protected ArrayList<Item> items = new ArrayList<>();
+    protected AreaEffect areaEffect;
 
     //Methods of a tile
     public Tile(MapPoint mapPoint){
@@ -50,6 +52,16 @@ public abstract class Tile implements EntityVisitor {
         }
 
         return true;
+    }
+
+    public void applyItems(Entity entity){
+        for(Item item: items){
+            item.apply(entity);
+        }
+    }
+
+    public void applyAreaEffect(Entity entity){
+
     }
 
 

@@ -21,6 +21,7 @@ public class StillWaterTile extends Tile implements EntityVisitor {
     public boolean visit(Avatar avatar) {
         if(this.checkItem() && avatar.canTraverse()){
             this.insertEntity(avatar);
+            applyItems(avatar);
             return true;
         }
 
@@ -43,7 +44,6 @@ public class StillWaterTile extends Tile implements EntityVisitor {
             this.insertEntity(pet);
             return true;
         }
-
         return pet.canTraverse();
     }
 }

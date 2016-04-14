@@ -1,5 +1,6 @@
 package models.AreaEffect;
 
+import models.entities.Entity;
 import models.stats.StatModifier;
 
 /**
@@ -7,7 +8,7 @@ import models.stats.StatModifier;
  */
 public class HealDamage extends AreaEffect {
     @Override
-    public void activate(){
+    public void activate(Entity entity){
         StatModifier healDamage = StatModifier.makeCurrentHpModifier(10);
         //Pass Stats somehow
     }

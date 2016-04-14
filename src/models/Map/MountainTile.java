@@ -39,6 +39,7 @@ public class MountainTile extends Tile {
     public boolean visit(Pet pet) {
         if(this.checkItem() && pet.canTraverse()){
             this.insertEntity(pet);
+
             return true;
         }
 
