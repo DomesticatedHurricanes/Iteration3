@@ -1,15 +1,20 @@
 package models.entities;
 
-import models.Map.MapPoint;
+
+
+import utilities.Point3D;
+import models.stats.Stats;
+
+
 /**
  * Created by Breanna on 4/13/16.
  */
-public class Entity {
-    MapPoint location;
 
-    //update the location of the entity
-    public void move(MapPoint location) {
-        this.location = location;
-    }
+public abstract class Entity {
+    Point3D point3D;
+
+
+    public abstract Stats getStats();
+
 
 }
