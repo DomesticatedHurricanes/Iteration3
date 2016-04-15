@@ -64,8 +64,8 @@ public class RadialEffect extends PlanarEffect{
             PointNode current3DPoint = bfsQueue.poll();
             Point3D targetPoint = new Point3D(current3DPoint.target);
             //i++;
-            System.out.print(current3DPoint.target.getX()+ " "+current3DPoint.target.getY()+ " "+current3DPoint.target.getZ()+ " ");
-            System.out.println("range is "+ current3DPoint.range);
+//            System.out.print(current3DPoint.target.getX()+ " "+current3DPoint.target.getY()+ " "+current3DPoint.target.getZ()+ " ");
+//            System.out.println("range is "+ current3DPoint.range);
             //System.out.print(current3DPoint.target.getX()+" "+current3DPoint.target.getY()+" "+current3DPoint.target.getZ());
             //System.out.println();
             //sentQueue.add(current3DPoint.target);
@@ -82,15 +82,15 @@ public class RadialEffect extends PlanarEffect{
                 /*for(int j = 0;j<seenList.size();j++){
                     System.out.println("X is "+seenList.get(j).getX()+" Y is "+ seenList.get(j).getY());
                 }*/
-                System.out.println("It check marked "+ i);
-                System.out.println("Array list size is "+seenList.size());
-                System.out.println("Final queue size is "+sentQueue.size());
+                //System.out.println("It check marked "+ i);
+                //System.out.println("Array list size is "+seenList.size());
+                //System.out.println("Final queue size is "+sentQueue.size());
                 return sentQueue;
             }
             sentQueue.add(targetPoint);
             //If this pointnode is not already in the hash map
             if(!seenPoints.containsKey(targetPoint)/*||!haveSeen(seenList,current3DPoint.target)*/) {
-                System.out.println(!seenPoints.containsKey(current3DPoint.target));
+                //System.out.println(!seenPoints.containsKey(current3DPoint.target));
                 seenPoints.put(targetPoint, current3DPoint);
                 //seenList.add(targetPoint);
 
@@ -147,7 +147,7 @@ public class RadialEffect extends PlanarEffect{
             int x = adjacentPoints.get(i).target.getX();
             int y = adjacentPoints.get(i).target.getY();
             int z = adjacentPoints.get(i).target.getZ();
-            System.out.println("x is "+x+" y is "+y+" z is "+z);
+            //System.out.println("x is "+x+" y is "+y+" z is "+z);
         }
         return adjacentPoints;
     }

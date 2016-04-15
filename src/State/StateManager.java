@@ -33,8 +33,14 @@ public class StateManager {
     }
 
     private static void init(){
+        // Create states here
         gameState = new GameState(instance);
+
+        // Set the current state
         currentState = gameState;
+
+        // Initialize the keybindings for the states
+        gameState.init();
         states.add(gameState);
     }
 
@@ -56,7 +62,7 @@ public class StateManager {
         }
     }
 
-    public static State getCurrentState(){
+    public State getCurrentState(){
         return currentState;
     }
 

@@ -14,6 +14,11 @@ public class StartMenuState extends State {
     }
 
     @Override
+    public void init(){
+
+    }
+
+    @Override
     protected void update() {
 
     }

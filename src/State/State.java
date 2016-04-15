@@ -13,6 +13,7 @@ public abstract class State {
         this.stateManager = stateManager;
     }
 
+    public abstract void init();
     protected abstract void update();
     protected abstract void render(Graphics g);
 

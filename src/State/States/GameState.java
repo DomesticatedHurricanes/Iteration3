@@ -24,6 +24,11 @@ public class GameState extends State{
     }
 
     @Override
+    public void init(){
+        gameStateController.init();
+    }
+
+    @Override
     protected void update() {
         gameStateController.update();
     }

@@ -25,11 +25,15 @@ public class Game implements Runnable {
 //        alive=false;
 //    }
 
-    public Game(){}
+    public Game(StateManager manager){
+        this.stateManager = manager;
+    }
 
     // Initializes the game
     private void init(){
-        stateManager = StateManager.getInstance();
+        System.out.print("Game; init game");
+//        stateManager = StateManager.getInstance();
+        System.out.println("Game; Current state: " + stateManager.getCurrentState());
     }
 
     private void tick(){

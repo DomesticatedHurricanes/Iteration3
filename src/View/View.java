@@ -1,5 +1,6 @@
 package View;
 
+import State.State;
 import State.StateManager;
 import models.Graphics.GraphicAssets;
 import models.Map.Map;
@@ -30,7 +31,8 @@ public class View implements Runnable{
 
     private StateManager stateManager;
 
-    public View(){
+    public View(StateManager manager){
+        this.stateManager = manager;
         this.title = "Testing";
         this.width = 400;
         this.height = 600;
@@ -65,7 +67,7 @@ public class View implements Runnable{
     // Called when the thread starts
     private void init(){
         // Statemanager has all of the states
-        stateManager = StateManager.getInstance();
+//        stateManager = StateManager.getInstance();
 
         // Render the current state
         long startingTime = System.currentTimeMillis();
