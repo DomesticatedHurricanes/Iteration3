@@ -19,10 +19,9 @@ public class PathFinder {
     private Tile tile;
     private List<Point3D> path;
     private NPC npc;
-    // will this need TileVisitor or TileVisitable??
 
     public PathFinder(NPC npc, Avatar avatar){
-        // TODO initialize this stuff
+        // TODO initialize this stuff in PetInteraction and MonsterInteraction
     }
 
 }

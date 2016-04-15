@@ -10,6 +10,7 @@ import models.entities.Pet;
 public class PetInteractionHandler extends InteractionHandler {
 
     private Pet pet;
+    private PathFinder PF;
 
     public PetInteractionHandler(Pet pet, Map map){
         this.pet = pet;

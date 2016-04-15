@@ -19,5 +19,5 @@ public class Villager extends Entity {
     public Stats getStats() {
         return stats;
     }
-    
+
 }
