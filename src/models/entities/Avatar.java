@@ -1,15 +1,9 @@
 package models.entities;
 
-<<<<<<< HEAD
-import models.stats.CharacterStats;
 
-import models.entities.occupation.*;
-
-=======
 import models.Item.Inventory;
 import models.Item.Takeable.Equippable.*;
 import models.Item.Takeable.TakeableItemVisitor;
->>>>>>> ea585cf5ba3caaac7cfe11f751c1c0bc8ac30e6d
 import models.Map.Tile;
 import models.entities.occupation.Occupation;
 import models.stats.CharacterStats;
@@ -20,14 +14,9 @@ import models.stats.CharacterStats;
  * Subclass of Entity
  */
 
-<<<<<<< HEAD
-public class Avatar extends Entity implements Movement, Attack, EntityVisitable {
-    //private Inventory inventory;
-=======
 
 
 public class Avatar extends Entity implements Movement, Attack, TileVisitable, TakeableItemVisitable{
->>>>>>> ea585cf5ba3caaac7cfe11f751c1c0bc8ac30e6d
     private Occupation occupation;
     private CharacterStats stats;
     private Inventory inventory;
@@ -40,15 +29,10 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
         occupation.initStats(stats);
     }
 
-<<<<<<< HEAD
-
-
     //called when an Avatar uses a skill
     public void useSkill() { }
 
-=======
     //Visitable methods
->>>>>>> ea585cf5ba3caaac7cfe11f751c1c0bc8ac30e6d
     @Override
     public boolean accept(Tile tile) {
         return tile.visit(this);
@@ -96,10 +80,6 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
     @Override
     public boolean canWalk() {
         return true;
-<<<<<<< HEAD
-
-=======
->>>>>>> ea585cf5ba3caaac7cfe11f751c1c0bc8ac30e6d
     }
 
     //Getters

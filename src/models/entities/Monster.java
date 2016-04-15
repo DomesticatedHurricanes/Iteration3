@@ -1,34 +1,21 @@
 package models.entities;
 
-<<<<<<< HEAD
+import models.Interaction.Observer;
+
 import models.AI.MonsterBrain;
 
 import models.stats.CharacterStats;
 
 
-=======
 
-import models.AI.MonsterBrain;
-import models.Map.Tile;
-import models.stats.CharacterStats;
 import models.stats.Stats;
 import utilities.Point3D;
->>>>>>> ea585cf5ba3caaac7cfe11f751c1c0bc8ac30e6d
 
-/**
- * Created by Breanna on 4/13/16.
- * Monster is a hostile NPC in the game
- */
-
-<<<<<<< HEAD
 public class Monster extends NPC implements Movement {
 
     private boolean isMoving;
     private boolean isAttacking;
-=======
-public class Monster extends NPC implements Movement{
     CharacterStats stats;
->>>>>>> ea585cf5ba3caaac7cfe11f751c1c0bc8ac30e6d
     private MonsterBrain monsterBrain;
 
     public Monster() {
@@ -36,7 +23,6 @@ public class Monster extends NPC implements Movement{
         this.stats = new CharacterStats();
     }
 
-<<<<<<< HEAD
     public void getNewDirection(){
         monsterBrain.changeDirection();
     }
@@ -47,9 +33,6 @@ public class Monster extends NPC implements Movement{
     //called when a monster uses a skill
     public void useSkill() {}
 
-=======
-
->>>>>>> ea585cf5ba3caaac7cfe11f751c1c0bc8ac30e6d
     @Override
     public boolean canSwim() {return false;}
 
@@ -63,7 +46,6 @@ public class Monster extends NPC implements Movement{
         return true;
     }
 
-<<<<<<< HEAD
     /**
     *       Getters and Setters
      */
@@ -89,7 +71,6 @@ public class Monster extends NPC implements Movement{
         return monsterBrain.getAggression();
     }
 
-=======
     @Override
     public Stats getStats() {
         return stats;
@@ -115,6 +96,5 @@ public class Monster extends NPC implements Movement{
             observer.processThought(this);
         }
     }
->>>>>>> ea585cf5ba3caaac7cfe11f751c1c0bc8ac30e6d
 }
 

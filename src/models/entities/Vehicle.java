@@ -8,15 +8,8 @@ import models.stats.Stats;
  * This class represents a vehicle in the game
  * Subclass of entity
  */
-<<<<<<< HEAD
-public class Vehicle extends Entity {
-
-=======
-
-
 
 public class Vehicle extends Entity{
->>>>>>> ea585cf5ba3caaac7cfe11f751c1c0bc8ac30e6d
     private VehicleStats vehicleStats;
 
     //create the Vehicle passing in the movement modifier
