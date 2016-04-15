@@ -1,7 +1,9 @@
 package models.Item.Takeable;
 
 import models.Item.Item;
+import models.entities.Avatar;
 import models.entities.Entity;
+import models.entities.Pet;
 import models.entities.TakeableItemVisitable;
 
 /**
