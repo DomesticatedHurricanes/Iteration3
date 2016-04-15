@@ -11,4 +11,9 @@ public abstract class State {
         this.jFrame=jFrame;
     }
 
+    protected abstract void update();
+    protected void tick(){
+
+    }
 }
+

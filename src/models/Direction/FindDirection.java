@@ -1,8 +1,5 @@
-package Model.Direction;
+package models.Direction;
 
-import Model.Map.MapPoint;
-
-import java.awt.*;
 import java.util.HashMap;
 
 /**
@@ -11,14 +8,15 @@ import java.util.HashMap;
 public class FindDirection {
     private Direction direction;
 
-    public static HashMap<Direction, MapPoint> oddDirections;
-    public static HashMap<Direction, MapPoint> evenDirections;
+//    public static HashMap<Direction, MapPoint> oddDirections;
+//    public static HashMap<Direction, MapPoint> evenDirections;
 
-    public FindDirection(){
-        this.oddDirections = new HashMap<Direction, MapPoint>();
-        this.evenDirections = new HashMap<Direction, MapPoint>();
-        initializeMaps();
-    }
+    public FindDirection(){}
+//    public FindDirection(){
+//        this.oddDirections = new HashMap<Direction, MapPoint>();
+//        this.evenDirections = new HashMap<Direction, MapPoint>();
+//        initializeMaps();
+//    }
 
     private void initializeMaps(){
 

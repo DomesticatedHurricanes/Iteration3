@@ -1,4 +1,4 @@
-package Model.Direction;
+package models.Direction;
 
 /**
  * Created by Michael on 4/13/16.
