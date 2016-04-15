@@ -11,36 +11,30 @@ import java.util.ArrayList;
  * Created by Dartyx on 4/9/2016.
  */
 public class StateManager {
-    private ArrayList<State> states;
-    private State currentState;
+    private static ArrayList<State> states;
+    private static State currentState;
 
+
+    private static GameState gameState;
     private CreationState creationState;
-    private GameState gameState;
     private StartMenuState startMenuState;
 
     private static StateManager instance;
     private StateManager(){
         this.states = new ArrayList<>();
-        this.gameState = new GameState(instance);
-
-        // initialize the list of states
-        init();
-
-        // set the current state
-        this.currentState = gameState;
-
     }
 
     public static synchronized StateManager getInstance(){
         if (instance == null){
             instance = new StateManager();
+            init();
         }
         return instance;
     }
 
-
-
-    private void init(){
+    private static void init(){
+        gameState = new GameState(instance);
+        currentState = gameState;
         states.add(gameState);
     }
 
@@ -57,11 +51,14 @@ public class StateManager {
     }
 
     public void changeToGameState(){
-        currentState = null;
+        if (currentState != gameState){
+            currentState = gameState;
+        }
     }
 
-
-
+    public static State getCurrentState(){
+        return currentState;
+    }
 
 
 }

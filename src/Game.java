@@ -16,17 +16,16 @@ public class Game implements Runnable {
 
     boolean alive;
     private StateManager stateManager;
-    ControllerManager controllerManager;
 
-    public Game(StateManager stateManager,ControllerManager controllerManager){
-        this.stateManager=stateManager;
-        this.controllerManager=controllerManager;
-        alive=false;
-    }
+    //ControllerManager controllerManager;
 
-    public Game(){
+//    public Game(StateManager stateManager,ControllerManager controllerManager){
+//        this.stateManager=stateManager;
+//        this.controllerManager=controllerManager;
+//        alive=false;
+//    }
 
-    }
+    public Game(){}
 
     // Initializes the game
     private void init(){
@@ -64,14 +63,6 @@ public class Game implements Runnable {
             tick = 0;
             time = 0;
         }
-    }
-
-    private void render(){
-        // Set to the current state and call the current state view's render
-        // currentState = GameState
-        // GameState.addKeyListener()
-        // GameState.render()
-//        display.render();
     }
 
     @Override

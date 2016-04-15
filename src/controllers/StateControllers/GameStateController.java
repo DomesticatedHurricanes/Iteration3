@@ -18,8 +18,10 @@ public class GameStateController extends Controller {
 //        getKeyMapping().put(Settings.UP,()->System.out.println("left"));
 //        getKeyMapping().put(Settings.UP,()->System.out.println("right"));
 //        getKeyMapping().put(Settings.UP,()->System.out.println("down"));
-        //getKeyMapping().put(Settings.INV,()->stateManager.changeToInventoryState());
-        //getKeyMapping().put(Settings.ENTER,()->stateManager.changeToGameState());
+//        getKeyMapping().put(Settings.INV,()->stateManager.changeToInventoryState());
+        System.out.println("StateManager: " + stateManager);
+       System.out.println("Current state: " + stateManager.getCurrentState());
+//       getKeyMapping().put(Settings.ENTER,()->stateManager.changeToGameState());
 
 
 //        getBindings().add(new Listener(Settings.UP, getKeyMapping().get(Settings.UP)));
@@ -31,7 +33,7 @@ public class GameStateController extends Controller {
     }
 
     public void update(){
-        System.out.println("Game controller tick");
+        //System.out.println("Game controller tick");
 
     }
 }

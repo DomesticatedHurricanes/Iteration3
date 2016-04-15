@@ -21,9 +21,6 @@ public class GameState extends State{
         super(stateManager);
         gameStateView = new GameStateView();
         gameStateController = new GameStateController(this.stateManager);
-        //this.gameStateView = new GameStateView();
-        //this.gameStateController = new GameStateController();
-        this.map = map;
     }
 
     @Override
@@ -37,8 +34,5 @@ public class GameState extends State{
     }
 
 
-    public void tick(){
-
-    }
 
 }
