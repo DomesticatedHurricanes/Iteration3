@@ -17,7 +17,7 @@ public class MonsterBrain extends AIBrain{
     public MonsterBrain(){
         isIgnoringAvatar = false;
         // aggression level determines how much the monster seeks out and attacks the Avatar
-        aggression = 5; //[1-10]
+        aggression = 1; //[1-5]
     }
 
 //     this would be used if Sneak were in creep mode
@@ -33,14 +33,14 @@ public class MonsterBrain extends AIBrain{
 
     public void setAggression(int newAggressionLevel){
         // checks that aggression is [1, 10]
-        if(newAggressionLevel>=1 && newAggressionLevel<=10){
+        if(newAggressionLevel>=1 && newAggressionLevel<=5){
             aggression = newAggressionLevel;}
-        else throw new IndexOutOfBoundsException("Assigned aggression level must belong in range [1, 10].");
+        else throw new IndexOutOfBoundsException("Assigned aggression level must belong in range [1, 5].");
     }
 
     // call this function if Monster is instigated or attacked
     public void incrAggression(){
-        if(aggression != 10){
+        if(aggression != 5){
             aggression++;
         }
     }

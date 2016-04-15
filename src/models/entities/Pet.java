@@ -12,14 +12,9 @@ import utilities.Point3D;
  * This class represents the Pet in the game.
  */
 
-<<<<<<< HEAD
-public class Pet extends Entity implements Movement, EntityVisitable {
 
-    private LivingStats petStats;
-=======
 public class Pet extends NPC implements Movement, TileVisitable {
     private LivingStats stats;
->>>>>>> ea585cf5ba3caaac7cfe11f751c1c0bc8ac30e6d
     private PetBrain petBrain;
 
     public Pet() {
@@ -48,12 +43,10 @@ public class Pet extends NPC implements Movement, TileVisitable {
         return true;
     }
 
-<<<<<<< HEAD
     public boolean decideToSteal(){
 
         return petBrain.decideToSteal();
     }
-=======
 
     @Override
     public LivingStats getStats() {
@@ -63,7 +56,7 @@ public class Pet extends NPC implements Movement, TileVisitable {
 
     //AI functions
     public void makeMove(){
-        notifyMove(petBrain.generateMove());
+        notifyMove(petBrain.changeDirection());
     }
 
 
@@ -89,5 +82,4 @@ public class Pet extends NPC implements Movement, TileVisitable {
     }
 
 
->>>>>>> ea585cf5ba3caaac7cfe11f751c1c0bc8ac30e6d
 }
