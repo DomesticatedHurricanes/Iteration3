@@ -2,6 +2,7 @@ package models.effects;
 
 import utilities.Point3D;
 
+import java.util.ArrayList;
 import java.util.Queue;
 
 /**
@@ -14,7 +15,7 @@ public class HemiConicalEffect extends VolumetricEffect{
     }
 
     @Override
-    public Point3D getAdjacentTiles() {
+    public ArrayList<PointNode> getAdjacentPoints(PointNode originPoint) {
         return null;
     }
 }

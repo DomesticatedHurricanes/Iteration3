@@ -1,4 +1,4 @@
-package models.View;
+package View;
 
 import models.Graphics.GraphicAssets;
 import models.Map.Map;
@@ -69,6 +69,23 @@ public class View implements Runnable{
     // Called when the thread starts
     private void init(){
         // Render the current state
+        long startingTime = System.currentTimeMillis();
+
+        //currentStateRender()
+
+        long finishingTime = System.currentTimeMillis();
+
+        double delta = startingTime-finishingTime;
+        if(delta<40){
+            try {
+                Thread.sleep(((long) (40 - delta)));
+            } catch(InterruptedException exception){
+
+            }
+        }
+        else{
+            System.out.println("something fucked up , call the police! (view)");
+        }
     }
 
     public void tick(){

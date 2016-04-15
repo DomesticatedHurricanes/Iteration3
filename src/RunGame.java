@@ -1,7 +1,7 @@
 /**
  * Created by ben on 4/11/16.
  */
-import models.View.View;
+import View.View;
 import models.effects.RadialEffect;
 import utilities.Point3D;
 public class RunGame {
