@@ -10,7 +10,6 @@ import utilities.Point3D;
  * Represents a non-hostile NPC within the game
  */
 
-
 public class Villager extends Entity {
     private CharacterStats stats;
 

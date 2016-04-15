@@ -1,5 +1,6 @@
 package models.entities;
 
+
 import models.Item.Inventory;
 import models.Item.Takeable.Equippable.*;
 import models.Item.Takeable.TakeableItemVisitor;
@@ -28,12 +29,16 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
         occupation.initStats(stats);
     }
 
+    //called when an Avatar uses a skill
+    public void useSkill() { }
+
     //Visitable methods
     @Override
     public boolean accept(Tile tile) {
         return tile.visit(this);
     }
 
+    //called when an Avatar does an attack
     @Override
     public void accept(TakeableItemVisitor takeableItemVisitor) {
         takeableItemVisitor.visit(this);

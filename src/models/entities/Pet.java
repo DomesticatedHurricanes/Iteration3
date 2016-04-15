@@ -1,5 +1,6 @@
 package models.entities;
 
+import models.Interaction.Observer;
 import models.Map.Tile;
 import models.stats.LivingStats;
 
@@ -11,6 +12,7 @@ import utilities.Point3D;
  * Created by Breanna on 4/13/16.
  * This class represents the Pet in the game.
  */
+
 
 public class Pet extends NPC implements Movement, TileVisitable {
     private LivingStats stats;
@@ -26,7 +28,7 @@ public class Pet extends NPC implements Movement, TileVisitable {
     }
 
 
-
+    //Movement booleans
     @Override
     public boolean canSwim() {
         return false;
@@ -43,6 +45,12 @@ public class Pet extends NPC implements Movement, TileVisitable {
     }
 
 
+
+    public boolean decideToSteal(){
+
+        return petBrain.decideToSteal();
+    }
+
     @Override
     public LivingStats getStats() {
         return stats;
@@ -51,7 +59,7 @@ public class Pet extends NPC implements Movement, TileVisitable {
 
     //AI functions
     public void makeMove(){
-        notifyMove(petBrain.generateMove());
+
     }
 
 
@@ -75,6 +83,5 @@ public class Pet extends NPC implements Movement, TileVisitable {
             observer.processThought(this);
         }
     }
-
 
 }
