@@ -1,3 +1,4 @@
+import models.Skills.Enchantment;
 import models.effects.HemiConicalEffect;
 import models.effects.HemiSphericalEffect;
 import models.effects.PrismEffect;
@@ -20,6 +21,6 @@ public class ConsoleTester {
         for(int i = 0;i<tester.size();i++){
             System.out.println("Tester X is "+tester.get(i).getX() + " "+ tester.get(i).getY()+" "+tester.get(i).getZ());
         }*/
-
+        //new Enchantment();
     }
 }
