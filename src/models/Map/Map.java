@@ -23,7 +23,7 @@ public class Map {
 //        testHeightMap(width,height);
     }
 
-    private void initializeMap(int width, int height){
+    public void initializeMap(int width, int height){
         Tile[][] tiles = new Tile[width][height];
 
         for(int i = 0; i < width; i++){
