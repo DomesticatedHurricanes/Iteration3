@@ -1,7 +1,7 @@
 package models.entities;
 
+import models.Interaction.Observer;
 import models.stats.CharacterStats;
-import models.Item.Inventory;
 import utilities.Point3D;
 
 import java.util.ArrayList;
@@ -12,6 +12,10 @@ import java.util.ArrayList;
  * Superclass for types of NPCs
  */
 public abstract class NPC extends Entity {
+
+    protected CharacterStats npcStats;
+    //Inventory inventory;
+
     protected ArrayList<Observer> observers = new ArrayList<>();
 
 
