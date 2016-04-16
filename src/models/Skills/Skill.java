@@ -6,5 +6,4 @@ package models.Skills;
 public abstract class Skill{
     protected int skillLv;
 
-    public void useSkill() { }
 }

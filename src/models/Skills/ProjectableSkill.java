@@ -14,19 +14,10 @@ import java.util.Queue;
 public abstract class ProjectableSkill extends SearchableSkill{
     protected Projectile projectile;
     //protected ArrayList<Entity> affectedentityArrayList;
-    public void project(Queue<Point3D> queue,Tile tile){
-        Queue<Entity> entityQueue = new LinkedList<>();
-        while(!queue.isEmpty()){
-            Point3D point = queue.poll();
-            //How do I get the tile from the point?
-            //Here it looks like I am going from point to map
-            //Solution? I need map!
-
-            //Algorithm
-            //After getting the point.  Get the tile from map when the function is impleented
-            //From map get the tile and check if it has entity
-
-
+    public void project(ArrayList<Entity> victims){
+        for(Entity vicitim:victims){
+            //get stats from victim and them modify it!
+            //modify based on projectile!
         }
 
     }

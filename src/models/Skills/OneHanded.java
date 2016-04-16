@@ -2,6 +2,7 @@ package models.Skills;
 
 import utilities.Point3D;
 
+import java.util.ArrayList;
 import java.util.Queue;
 
 /**
@@ -11,7 +12,7 @@ public class OneHanded extends ProjectableSkill {
     public void useOneHanded() {}
 
     @Override
-    public Queue<Point3D> search() {
+    public ArrayList<Point3D> search() {
         return null;
     }
 }
