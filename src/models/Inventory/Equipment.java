@@ -18,6 +18,30 @@ public class Equipment {
 
     }
 
+    //accesors
+    public Helmet getHelmet(){
+        return this.helmet;
+    }
+
+    public ChestPlate getChestPlate(){
+        return this.chestPlate;
+    }
+
+    //weapon accessors
+
+    public Slacks getSlacks(){
+        return this.slacks;
+    }
+
+    public Boots getBoots(){
+        return this.boots;
+    }
+
+    public Gloves getGloves(){
+        return this.gloves;
+    }
+
+    //equipping
     public void equipHelmet(Helmet helmet){
         this.helmet = helmet;
     }
@@ -50,6 +74,7 @@ public class Equipment {
         this.gloves = gloves;
     }
 
+    //unequipping
     public void unequipHelmet(){
         this.helmet = null;
     }
