@@ -2,15 +2,8 @@ package View.StateViews;
 
 import models.Graphics.GraphicAssets;
 import models.Map.Map;
-<<<<<<< HEAD
 import models.entities.Avatar;
-import models.entities.Entity;
-
-=======
 import models.Map.Map3D;
-
-import javax.swing.*;
->>>>>>> master
 import java.awt.*;
 
 /**
