@@ -4,6 +4,7 @@ import models.Map.Tile;
 import models.entities.Entity;
 import utilities.Point3D;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -12,6 +13,7 @@ import java.util.Queue;
  */
 public abstract class ProjectableSkill extends SearchableSkill{
     protected Projectile projectile;
+    //protected ArrayList<Entity> affectedentityArrayList;
     public void project(Queue<Point3D> queue,Tile tile){
         Queue<Entity> entityQueue = new LinkedList<>();
         while(!queue.isEmpty()){
