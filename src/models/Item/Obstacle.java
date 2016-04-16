@@ -9,8 +9,8 @@ import models.entities.Pet;
  */
 public class Obstacle extends Item {
 
-    public Obstacle(){
-
+    public Obstacle(String name){
+        super(name);
     }
 
     public boolean onTouch(){

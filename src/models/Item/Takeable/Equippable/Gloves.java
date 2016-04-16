@@ -10,8 +10,8 @@ import models.stats.StatModifiers;
  */
 public class Gloves extends Equippable implements TakeableItemVisitor{
 
-    public Gloves(StatModifiers statModifiers, int price){
-        super(statModifiers, price);
+    public Gloves(String name, StatModifiers statModifiers, int price){
+        super(name, statModifiers, price);
     }
 
     @Override

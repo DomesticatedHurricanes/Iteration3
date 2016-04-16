@@ -12,7 +12,7 @@ public class Inventory {
 
     //constructor
     public Inventory(int sizeOfInventory){
-        pack = new Pack(sizeOfInventory - 6);
+        pack = new Pack(sizeOfInventory - 7);
         equipment = new Equipment();
     }
 
