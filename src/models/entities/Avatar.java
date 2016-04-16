@@ -8,6 +8,7 @@ import models.Item.Takeable.TakeableItemVisitor;
 import models.Map.Tile;
 import models.entities.occupation.Occupation;
 import models.stats.CharacterStats;
+import utilities.Point3D;
 
 /**
  * Created by Breanna on 4/13/16.
@@ -139,6 +140,10 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
     }
 
     public Inventory getInventory(){return inventory;}
+
+    public void setLocation(Point3D point3D){
+        this.location = point3D;
+    }
 
 
 }

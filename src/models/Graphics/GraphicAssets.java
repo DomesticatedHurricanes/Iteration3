@@ -6,6 +6,8 @@ import java.awt.image.BufferedImage;
  * Created by Michael on 3/30/16.
  */
 public class GraphicAssets {
+    public static final int VIEW_HEIGHT = 600;
+    public static final int VIEW_WIDTH = 400;
     public static final int TILE_PX_WIDTH = 60;
     public static final int TILE_PX_HEIGHT = 39;
 

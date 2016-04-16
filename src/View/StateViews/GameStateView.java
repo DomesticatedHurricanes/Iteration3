@@ -2,6 +2,9 @@ package View.StateViews;
 
 import models.Graphics.GraphicAssets;
 import models.Map.Map;
+import models.entities.Avatar;
+import models.entities.Entity;
+
 import java.awt.*;
 
 /**
@@ -15,17 +18,20 @@ public class GameStateView  extends  StateView{
     private int mapEndX;
     private int mapEndY;
     private Point mapCameraCenter;
+    private Point pxCameraCenter;
 
+    private Avatar avatar;
     private Map map;
 
-    public GameStateView(){
-        this.map = new Map(9,9);
+    public GameStateView(Map map, Avatar avatar){
+        this.map = map;
+        this.avatar = avatar;
         init();
     }
 
     @Override
     protected void init(){
-        this.map.initializeMap(10,10);
+
         //System.out.println("In game view");
     }
 
@@ -42,9 +48,31 @@ public class GameStateView  extends  StateView{
         mapEndY = Math.min(9, (int)Math.ceil(600/ GraphicAssets.TILE_PX_HEIGHT));
 
         mapCameraCenter = new Point((mapStartX + mapEndX)/2, (mapStartY + mapEndY)/2);
+        pxCameraCenter = new Point(400/2, 600/2);
 
-        Map world = new Map(10,10);
-        utilities.Renderer.mapRenderer.render(g,world,mapCameraCenter,mapStartX,mapEndX,mapStartY,mapEndY);
+        renderMap(g);
+        renderPlayer(g);
+    }
+
+    private void renderMap(Graphics g){
+        utilities.Renderer.mapRenderer.render(g,map,mapCameraCenter,mapStartX,mapEndX,mapStartY,mapEndY);
+
+    }
+
+    private void renderTile(Graphics g){
+
+    }
+
+    private void renderPlayer(Graphics g){
+//        for(Entity inViewEntity : inViewEntities) {
+//            // Get the offset amount
+//            Point pxRenderOffset = inViewEntityPxOffset.get(inViewEntity);
+//
+//            int x = inViewEntity.getLocation().x;
+//            int y = inViewEntity.getLocation().y;
+//            // Render it
+//            utilities.Renderer.entityRenderer.render(g, inViewEntity, mapCameraCenter, pxRenderOffset,playState.getPlayer().areaBeenSeen(x,y));
+//        }
     }
 
 }
