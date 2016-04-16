@@ -1,6 +1,8 @@
 package models.Item;
 
+import models.entities.Avatar;
 import models.entities.Entity;
+import models.entities.Pet;
 import models.stats.StatModifiers;
 
 /**
@@ -22,6 +24,14 @@ public class OneShot extends Item {
     }
 
     public void apply(Entity entity){
+
+    }
+
+    public void apply(Avatar avatar){
+
+    }
+
+    public void apply(Pet pet){
 
     }
 
