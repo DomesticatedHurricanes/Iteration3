@@ -2,22 +2,24 @@ package State.States;
 
 import State.State;
 import State.StateManager;
-import controllers.StateControllers.CreationController;
+import controllers.StateControllers.SaveController;
 
 import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by Dartyx on 4/13/2016.
+ * Created by Breanna on 4/15/16.
  */
-public class CreationState extends State {
-    private CreationController creationController;
+public class SaveState extends State {
+    SaveController saveController;
 
-    public CreationState(StateManager stateManager) { super(stateManager); }
+    public SaveState(StateManager stateManager){
+        super(stateManager);
+    }
 
     @Override
     public void init(){
-        creationController.init();
+        saveController.init();
     }
 
     @Override
@@ -34,4 +36,6 @@ public class CreationState extends State {
     protected void render(Graphics g){
 
     }
+
+
 }

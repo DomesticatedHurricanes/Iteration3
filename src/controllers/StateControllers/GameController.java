@@ -11,4 +11,9 @@ public class GameController extends Controller {
     public GameController(JFrame jFrame){
         super(jFrame);
     }
+
+    @Override
+    public void addJFrame(JFrame jFrame){
+        this.jFrame = jFrame;
+    }
 }
