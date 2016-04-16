@@ -9,6 +9,8 @@ import models.Map.Tile;
 import models.entities.occupation.Occupation;
 import models.stats.CharacterStats;
 
+import java.awt.image.BufferedImage;
+
 /**
  * Created by Breanna on 4/13/16.
  * This class represents the player controlled Entity in the game
@@ -28,6 +30,7 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
         this.occupation = occupation;
         stats = new CharacterStats();
         occupation.initStats(stats);
+        occupation.initImage(entityImage);
     }
 
 
