@@ -9,8 +9,8 @@ import models.stats.StatModifiers;
  */
 public class ChestPlate extends Equippable implements TakeableItemVisitor{
 
-    public ChestPlate(StatModifiers statModifiers, int price){
-        super(statModifiers, price);
+    public ChestPlate(String name, StatModifiers statModifiers, int price){
+        super(name, statModifiers, price);
     }
 
     @Override

@@ -14,8 +14,8 @@ public class Equippable extends Takeable implements TakeableItemVisitor {
     protected StatModifiers statModifiers;
     protected int lvlReq;
 
-    public Equippable(StatModifiers statModifiers, int price){
-        super(price);
+    public Equippable(String name, StatModifiers statModifiers, int price){
+        super(name, price);
         this.statModifiers = statModifiers;
     }
 

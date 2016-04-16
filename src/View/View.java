@@ -1,5 +1,6 @@
 package View;
 
+import State.State;
 import State.StateManager;
 import models.Graphics.GraphicAssets;
 import models.Map.Map;
@@ -15,7 +16,6 @@ import java.awt.image.BufferStrategy;
 public class View implements Runnable{
 
     // JFrame is the window
-
     private JFrame frame;
     private Canvas canvas;
     private String title;
@@ -28,17 +28,11 @@ public class View implements Runnable{
 
 
     private utilities.Renderer renderer;
-    private int mapStartX;
-    private int mapStartY;
-    private int mapEndX;
-    private int mapEndY;
-
-    private Point mapCameraCenter;
 
     private StateManager stateManager;
 
-
-    public View(){
+    public View(StateManager manager){
+        this.stateManager = manager;
         this.title = "Testing";
         this.width = 400;
         this.height = 600;
@@ -50,8 +44,9 @@ public class View implements Runnable{
         frame = new JFrame(title);
         frame.setSize(width, height);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(true);
-        frame.setLocationRelativeTo(null);
+        //frame.setResizable(true);
+        frame.setFocusable(true);
+        //frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
         canvas = new Canvas();
@@ -62,6 +57,7 @@ public class View implements Runnable{
         frame.add(canvas);
         frame.pack();
 
+        // TODO Remove this and put in
         // Temporary class, the rendering will be moved to the GameStateView
         renderer = new utilities.Renderer(this);
 
@@ -71,13 +67,11 @@ public class View implements Runnable{
 
     // Called when the thread starts
     private void init(){
-
-        stateManager = StateManager.getInstance();
+        // Statemanager has all of the states
+//        stateManager = StateManager.getInstance();
 
         // Render the current state
         long startingTime = System.currentTimeMillis();
-
-        //currentStateRender()
 
         long finishingTime = System.currentTimeMillis();
 
@@ -94,10 +88,6 @@ public class View implements Runnable{
         }
     }
 
-    public void tick(){
-        // Update the current state
-    }
-
     public void render(){
         // Get the current BufferStrategy
         bufferStrategy = canvas.getBufferStrategy();
@@ -110,11 +100,14 @@ public class View implements Runnable{
 
         g = bufferStrategy.getDrawGraphics();
 
-        // Start drawing the current state's view here
         // Clear the screen
         g.clearRect(0,0,width,height);
 
+        // Start drawing the current state's view here
         stateManager.renderCurrentState(g);
+        //System.out.println("View: Frame :" + frame);
+        stateManager.addJFrameToCurrentState(frame);
+
         // End drawing
         bufferStrategy.show();
         g.dispose();
@@ -133,7 +126,6 @@ public class View implements Runnable{
         // Game loop
 
         while(running){
-            tick();
             render();
         }
 

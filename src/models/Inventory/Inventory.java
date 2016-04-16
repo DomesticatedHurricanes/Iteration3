@@ -12,7 +12,7 @@ public class Inventory {
 
     //constructor
     public Inventory(int sizeOfInventory){
-        pack = new Pack(sizeOfInventory - 6);
+        pack = new Pack(sizeOfInventory - 7);
         equipment = new Equipment();
     }
 
@@ -27,11 +27,25 @@ public class Inventory {
 
     //equipping methods
     public void equipHelmet(Helmet helmet){
-        equipment.equipHelmet(helmet);
+        if(equipment.getHelmet() == null){
+            equipment.equipHelmet(helmet);
+        }
+        else{
+            Helmet tmp = equipment.getHelmet();
+            equipment.equipHelmet(helmet);
+            pack.addItem(tmp);
+        }
     }
 
     public void equipChestPlate(ChestPlate chestPlate){
-        equipment.equipChestPlate(chestPlate);
+        if(equipment.getChestPlate() == null){
+            equipment.equipChestPlate(chestPlate);
+        }
+        else{
+            ChestPlate tmp = equipment.getChestPlate();
+            equipment.equipChestPlate(chestPlate);
+            pack.addItem(tmp);
+        }
     }
 
     public void equipOneHandedWeapon(OneHandedWeapon oneHandedWeapon){
@@ -47,48 +61,85 @@ public class Inventory {
     }
 
     public void equipSlacks(Slacks slacks){
-        equipment.equipSlacks(slacks);
+        if(equipment.getSlacks() == null){
+            equipment.equipSlacks(slacks);
+        }
+        else{
+            Slacks tmp = equipment.getSlacks();
+            equipment.equipSlacks(slacks);
+            pack.addItem(tmp);
+        }
     }
 
     public void equipBoots(Boots boots){
-        equipment.equipBoots(boots);
+        if(equipment.getBoots() == null){
+            equipment.equipBoots(boots);
+        }
+        else{
+            Boots tmp = equipment.getBoots();
+            equipment.equipBoots(boots);
+            pack.addItem(tmp);
+        }
     }
 
     public void equipGloves(Gloves gloves){
-        equipment.equipGloves(gloves);
+        if(equipment.getGloves() == null){
+            equipment.equipGloves(gloves);
+        }
+        else{
+            Gloves tmp = equipment.getGloves();
+            equipment.equipGloves(gloves);
+            pack.addItem(tmp);
+        }
     }
 
-    //unequipip
+    //unequip
     public void unequipHelmet(){
+        Helmet helmet = equipment.getHelmet();
         equipment.unequipHelmet();
+        pack.addItem(helmet);
     }
 
     public void unequipChestPlate(){
+        ChestPlate chestPlate = equipment.getChestPlate();
         equipment.unequipChestPlate();
+        pack.addItem(chestPlate);
     }
 
     public void unequipOneHandedWeapon(){
+        Weapon oneHandedWeapon = equipment.getRightHandWeapon();
         equipment.unequipOneHandedWeapon();
+        pack.addItem(oneHandedWeapon);
     }
 
     public void unequipTwoHandedWeapon(){
+        Weapon twoHandedWeapon = equipment.getRightHandWeapon();
         equipment.unequipTwoHandedWeapon();
+        pack.addItem(twoHandedWeapon);
     }
 
     public void unequipRangedWeapon(){
+        Weapon rangedWeapon = equipment.getRightHandWeapon();
         equipment.unequipRangedWeapon();
+        pack.addItem(rangedWeapon);
     }
 
     public void unequipSlacks(){
+        Slacks slacks = equipment.getSlacks();
         equipment.unequipSlacks();
+        pack.addItem(slacks);
     }
 
     public void unequipBoots(){
+        Boots boots = equipment.getBoots();
         equipment.unequipBoots();
+        pack.addItem(boots);
     }
 
     public void unequipGloves(){
-       equipment.unequipGloves();
+        Gloves gloves = equipment.getGloves();
+        equipment.unequipGloves();
+        pack.addItem(gloves);
     }
 
     //pack related methods

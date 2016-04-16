@@ -16,21 +16,24 @@ public class Game implements Runnable {
 
     boolean alive;
     private StateManager stateManager;
-    ControllerManager controllerManager;
 
-    public Game(StateManager stateManager,ControllerManager controllerManager){
-        this.stateManager=stateManager;
-        this.controllerManager=controllerManager;
-        alive=false;
-    }
+    //ControllerManager controllerManager;
 
-    public Game(){
+//    public Game(StateManager stateManager,ControllerManager controllerManager){
+//        this.stateManager=stateManager;
+//        this.controllerManager=controllerManager;
+//        alive=false;
+//    }
 
+    public Game(StateManager manager){
+        this.stateManager = manager;
     }
 
     // Initializes the game
     private void init(){
-        stateManager = StateManager.getInstance();
+       // System.out.print("Game; init game");
+//        stateManager = StateManager.getInstance();
+        //System.out.println("Game; Current state: " + stateManager.getCurrentState());
     }
 
     private void tick(){
@@ -64,14 +67,6 @@ public class Game implements Runnable {
             tick = 0;
             time = 0;
         }
-    }
-
-    private void render(){
-        // Set to the current state and call the current state view's render
-        // currentState = GameState
-        // GameState.addKeyListener()
-        // GameState.render()
-//        display.render();
     }
 
     @Override

@@ -1,12 +1,8 @@
 package View.StateViews;
 
-import View.View;
 import models.Graphics.GraphicAssets;
 import models.Map.Map;
-
-import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferStrategy;
 
 /**
  * Created by Michael on 4/14/16.
@@ -24,24 +20,17 @@ public class GameStateView  {
 
     public GameStateView(){
         this.map = new Map(9,9);
-        this.g = g;
         init();
     }
 
     private void init(){
         this.map.initializeMap(10,10);
-        System.out.println("In game view");
+        //System.out.println("In game view");
     }
 
     public void render(Graphics g){
-        // Get the current BufferStrategy
+        //System.out.println("Printing gameview");
 
-        System.out.println("Printing gameview");
-
-
-        // All of this should be handled in the GameStateView
-        // GameStateView.render();
-        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         // Start the map in the top left corner.
         mapStartX = 0;
         mapStartY = 0;
@@ -54,12 +43,6 @@ public class GameStateView  {
 
         Map world = new Map(10,10);
         utilities.Renderer.mapRenderer.render(g,world,mapCameraCenter,mapStartX,mapEndX,mapStartY,mapEndY);
-        //Renderer.mapRenderer.render2(g,world,mapCameraCenter,mapStartX,mapEndX,mapStartY,mapEndY);
-        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-        // End drawing
-//        g.dispose();
-
     }
 
 }

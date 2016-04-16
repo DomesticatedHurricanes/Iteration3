@@ -11,7 +11,8 @@ import models.stats.StatModifiers;
 public class OneShot extends Item {
     private StatModifiers statModifiers;
 
-    public OneShot(StatModifiers statModifier){
+    public OneShot(String name, StatModifiers statModifier){
+        super(name);
         this.statModifiers = statModifier;
     }
 

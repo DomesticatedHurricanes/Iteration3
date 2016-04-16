@@ -10,6 +10,8 @@ public class Equipment {
     Helmet helmet;
     ChestPlate chestPlate;
     //weapon?
+    Weapon leftHand;
+    Weapon rightHand;
     Slacks slacks;
     Boots boots;
     Gloves gloves;
@@ -18,6 +20,32 @@ public class Equipment {
 
     }
 
+    //accesors
+    public Helmet getHelmet(){
+        return this.helmet;
+    }
+
+    public ChestPlate getChestPlate(){
+        return this.chestPlate;
+    }
+
+    public Weapon getLeftHandWeapon(){return this.leftHand;}
+
+    public Weapon getRightHandWeapon(){return this.rightHand;}
+
+    public Slacks getSlacks(){
+        return this.slacks;
+    }
+
+    public Boots getBoots(){
+        return this.boots;
+    }
+
+    public Gloves getGloves(){
+        return this.gloves;
+    }
+
+    //equipping
     public void equipHelmet(Helmet helmet){
         this.helmet = helmet;
     }
@@ -27,15 +55,17 @@ public class Equipment {
     }
 
     public void equipOneHandedWeapon(OneHandedWeapon oneHandedWeapon){
-
+        this.rightHand = oneHandedWeapon;
     }
 
     public void equipTwoHandedWeapon(TwoHandedWeapon twoHandedWeapon){
-
+        this.leftHand = twoHandedWeapon;
+        this.rightHand = twoHandedWeapon;
     }
 
     public void equipRangedWeapon(Ranged rangedWeapon){
-
+        this.leftHand = rangedWeapon;
+        this.rightHand = rangedWeapon;
     }
 
     public void equipSlacks(Slacks slacks){
@@ -50,6 +80,7 @@ public class Equipment {
         this.gloves = gloves;
     }
 
+    //unequipping
     public void unequipHelmet(){
         this.helmet = null;
     }
@@ -59,15 +90,17 @@ public class Equipment {
     }
 
     public void unequipOneHandedWeapon(){
-
+        this.rightHand = null;
     }
 
     public void unequipTwoHandedWeapon(){
-
+        this.leftHand = null;
+        this.rightHand = null;
     }
 
     public void unequipRangedWeapon(){
-
+        this.leftHand = null;
+        this.rightHand = null;
     }
 
     public void unequipSlacks(){

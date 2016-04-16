@@ -9,9 +9,15 @@ import models.entities.Pet;
  */
 public abstract class Item {
 
-    //constructor
-    public Item(){
+    String name;
 
+    //constructor
+    public Item(String name){
+        this.name = name;
+    }
+
+    public String getName(){
+        return this.name;
     }
 
     public abstract boolean onTouch();

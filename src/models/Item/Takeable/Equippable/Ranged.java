@@ -7,10 +7,10 @@ import models.stats.StatModifiers;
 /**
  * Created by mazumderm on 4/13/2016.
  */
-public class Ranged extends Equippable implements TakeableItemVisitor {
+public class Ranged extends Weapon implements TakeableItemVisitor {
 
-    public Ranged(StatModifiers statModifiers, int price){
-        super(statModifiers, price);
+    public Ranged(String name, StatModifiers statModifiers, int price){
+        super(name, statModifiers, price);
     }
 
     @Override

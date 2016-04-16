@@ -23,6 +23,7 @@ public class Pack {
         if(isNotFull()){ //if pack is already full you cannot add the item to the pack
             items.add(item);
         }
+        //go to interaction handler  to drop an item
     }
 
     public void removeItem(Item item){

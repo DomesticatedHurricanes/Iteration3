@@ -9,8 +9,8 @@ import models.stats.StatModifiers;
  */
 public class Slacks extends Equippable implements TakeableItemVisitor {
 
-    public Slacks(StatModifiers statModifiers, int price){
-        super(statModifiers, price);
+    public Slacks(String name, StatModifiers statModifiers, int price){
+        super(name, statModifiers, price);
     }
 
     @Override
