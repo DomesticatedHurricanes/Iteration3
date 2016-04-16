@@ -19,7 +19,7 @@ public class GameStateController extends Controller {
     }
 
     public void init(){
-        getKeyMapping().put(Settings.UP,()->System.out.println("up"));
+        //getKeyMapping().put(Settings.UP,()->System.out.println("up"));
         getKeyMapping().put(Settings.DOWN,()->System.out.println("down"));
         getKeyMapping().put(Settings.LEFT,()->System.out.println("left"));
         getKeyMapping().put(Settings.RIGHT,()->System.out.println("right"));
@@ -27,6 +27,7 @@ public class GameStateController extends Controller {
 //        System.out.println("StateManager: " + manager);
 //        System.out.println("Current state: " + manager.getCurrentState());
         getKeyMapping().put(Settings.ESCAPE,()->manager.changeToGameState());
+        getKeyMapping().put(Settings.UP,()->manager.testFunction());
 
 
         getBindings().add(new Listener(Settings.UP, getKeyMapping().get(Settings.UP)));

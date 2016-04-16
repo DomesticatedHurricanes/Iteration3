@@ -72,6 +72,10 @@ public class StateManager {
         return currentState;
     }
 
+    public void testFunction(){
+        System.out.println("HIII");
+    }
+
 
 }
 
