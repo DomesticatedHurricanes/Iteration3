@@ -58,6 +58,16 @@ public abstract class Tile implements TileVisitor {
         return true;
     }
 
+    public void applyItems(Entity entity){
+        for(Item item: items){
+            item.apply(entity);
+        }
+    }
+
+    public void applyAreaEffect(Entity entity){
+        areaEffect.activate(entity);
+    }
+
 
 
 }
