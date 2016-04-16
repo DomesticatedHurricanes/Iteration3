@@ -15,10 +15,12 @@ public class PauseMenuState extends State {
     private PauseMenuStateView pauseMenuStateView;
     private PauseMenuController pauseMenuController;
 
-    public PauseMenuState(StateManager stateManager) {
-        super(stateManager);
+
+    public PauseMenuState(StateManager stateManager, JFrame jFrame){
+        super(stateManager, jFrame);
+
         pauseMenuStateView = new PauseMenuStateView();
-        pauseMenuController = new PauseMenuController(this.stateManager);
+        pauseMenuController = new PauseMenuController(this.stateManager, this, jFrame);
     }
 
     @Override

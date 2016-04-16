@@ -12,8 +12,8 @@ import java.awt.*;
 public class StartMenuState extends State {
     private StartMenuController startMenuController;
 
-    public StartMenuState(StateManager stateManager){
-        super(stateManager);
+    public StartMenuState(StateManager stateManager, JFrame jFrame){
+        super(stateManager, jFrame);
     }
 
     @Override

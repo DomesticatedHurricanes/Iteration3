@@ -12,9 +12,17 @@ import java.awt.*;
  */
 public class EquipmentState extends State {
     private EquipmentController equipmentController;
+    public EquipmentState(StateManager stateManager, JFrame jFrame) {
+        super(stateManager, jFrame);
+        this.equipmentController = new EquipmentController(stateManager, this, jFrame);
+    }
+    public void setActive(){
+        equipmentController.addToJframe();
+    }
 
-    public EquipmentState(StateManager stateManager) { super(stateManager); }
-
+    public void setInactive(){
+        equipmentController.removeFromJframe();
+    }
     @Override
     public void init(){
         equipmentController.init();

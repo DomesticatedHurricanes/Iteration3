@@ -9,15 +9,19 @@ import java.awt.*;
  */
 public abstract class State {
     protected StateManager stateManager;
-
-    public State(StateManager stateManager){
+    protected JFrame jFrame;
+    public State(StateManager stateManager, JFrame jFrame){
         this.stateManager = stateManager;
+        this.jFrame = jFrame;
     }
 
     public abstract void init();
     protected abstract void addJFrame(JFrame frame);
     protected abstract void update();
     protected abstract void render(Graphics g);
+    public void setActive(){}
+    public void setInactive(){}
+
 
 }
 

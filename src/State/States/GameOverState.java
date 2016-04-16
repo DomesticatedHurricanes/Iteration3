@@ -13,7 +13,8 @@ import java.awt.*;
 public class GameOverState extends State {
     private GameOverController gameOverController;
 
-    public GameOverState(StateManager stateManager) { super(stateManager); }
+    public GameOverState(StateManager stateManager, JFrame jFrame){
+        super(stateManager, jFrame); }
 
     @Override
     public void init(){

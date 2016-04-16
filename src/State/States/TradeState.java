@@ -13,7 +13,9 @@ import java.awt.*;
 public class TradeState extends State {
     private TradeController tradeController;
 
-    public TradeState(StateManager stateManager) { super(stateManager); }
+    public TradeState(StateManager stateManager, JFrame jFrame){
+        super(stateManager, jFrame);
+    }
 
     @Override
     public void init(){
