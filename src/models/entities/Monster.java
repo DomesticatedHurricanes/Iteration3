@@ -5,22 +5,19 @@ import models.Interaction.Observer;
 import models.AI.MonsterBrain;
 
 import models.stats.CharacterStats;
-
-
-
-import models.stats.Stats;
+import models.Inventory.Inventory;
 import utilities.Point3D;
 
-public class Monster extends NPC implements Movement {
+public class Monster extends AINpc implements Movement {
 
     private boolean isMoving;
     private boolean isAttacking;
-    CharacterStats stats;
     private MonsterBrain monsterBrain;
 
     public Monster() {
         this.monsterBrain = new MonsterBrain();
-        this.stats = new CharacterStats();
+        this.npcStats = new CharacterStats();
+        this.inventory = new Inventory(16);
     }
 
     public void getNewDirection(){
@@ -78,7 +75,7 @@ public class Monster extends NPC implements Movement {
 
     @Override//Originally this was public Stats getStats()
     public CharacterStats getStats() {
-        return stats;
+        return npcStats;
     }
 
     //Add Observer

@@ -19,4 +19,9 @@ public class SaveController extends Controller {
     public void addJFrame(JFrame jFrame) {
 
     }
+
+    @Override
+    public void update() {
+
+    }
 }

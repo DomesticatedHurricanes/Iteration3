@@ -1,0 +1,63 @@
+README for Adding States
+~~~~~~~~~~~~~~~~~~~~~
+2. To add a state, you need several classes. Following GameState as an example, you need GameState, GameStateController and GameStateView.
+
+
+1. The State class is responsible for calling the current StateView's render and StateController update.
+The constructor:
+     GameState(StateManager stateManager){
+        super(stateManager)
+        gameStateView = new GameStateView();
+        gameStateController = new GameStateController(this.stateManager)
+     }
+The state class needs to override 4 methods
+    1. public void init(){
+        gameStateController.init();
+      }
+    2. protected void addJFrame(JFrame jFrame){
+        gameStateController.addJFrame(jFrame);
+        }
+    3. protected void update(){
+      gameStateController.update();
+    }
+    4. protected void render(Graphics g){
+      gameStateView.render(g);
+    }
+
+2. In the Controller class is responsible for updating the State's logic and adding the keylisteners
+The constructor:
+  GameStateController(StateManager stateManager){
+    super();
+    this.manager = stateManager;
+  }
+
+The Controller needs 3 methods:
+  1. public void init(){    // creates the Keybindings for the state
+      getKeyMapping().put(Settings.UP, ()->manager.changeToInventoryState());
+      getBindings().add(new Listener(Settings.UP, getKeyMapping().get(Settings.UP)));
+      }
+  2. public void addJFrame(Jframe jframe){  // Adds the jFrame to the State and attaches the keyListeners
+        this.jFrame = jFrame;
+        this.addToJFrame();
+      }
+  3. public void update(){}    // this method will have the logic to update
+
+
+3. The View class is responsible for rendering the State's view
+The constructor: (takes no parameters)
+    GameStateView(){}
+
+The view needs to override 2 methods
+    1. protected void init(){} //this is where you initialize all of the variables you need. It will be called in the statemanager
+    2. public void render(Graphics g){} // this is where you set the images you want to draw and call g.draw()
+
+
+After these classes are done you'll need to create a state in the StateManager class.
+1. create a private static variable
+  private static GameState gameState
+2. initialize the state and add it to the states list:
+  private static void init(){  (Be sure to follow the flow of logic laid out by the comments)
+    // Create states here
+    gameState = new GameState(instance);
+    states.add(gameState);
+  }
