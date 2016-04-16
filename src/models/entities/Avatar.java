@@ -30,6 +30,7 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
         occupation.initStats(stats);
     }
 
+
     //called when an Avatar uses a skill
     public void useSkill() { }
 
@@ -79,31 +80,31 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
     public void equipGloves(Gloves gloves){inventory.equipGloves(gloves);}
 
     //Unequipping functions
-    public void unequipHelmet(Helmet helmet){
+    public void unequipHelmet(){
         inventory.unequipHelmet();
     }
 
-    public void unequipChestPlate(ChestPlate chestPlate) {
+    public void unequipChestPlate() {
         inventory.unequipChestPlate();
     }
 
-    public void unequipOneHandedWeapon(OneHandedWeapon oneHandedWeapon){ inventory.unequipOneHandedWeapon();}
+    public void unequipOneHandedWeapon(){ inventory.unequipOneHandedWeapon();}
 
-    public void unequipRangedWeapon(Ranged rangedWeapon){
+    public void unequipRangedWeapon(){
         inventory.unequipRangedWeapon();
     }
 
-    public void unequipSlacks(Slacks slacks){
+    public void unequipSlacks(){
         inventory.unequipSlacks();
     }
 
-    public void unequipBoots(Boots boots){
+    public void unequipBoots(){
         inventory.unequipBoots();
     }
 
-    public void unequipTwoHandedWeapon(TwoHandedWeapon twoHandedWeapon){ inventory.unequipTwoHandedWeapon();}
+    public void unequipTwoHandedWeapon(){ inventory.unequipTwoHandedWeapon();}
 
-    public void unequipGloves(Gloves gloves){inventory.unequipGloves();}
+    public void unequipGloves(){inventory.unequipGloves();}
 
     //Pack functions
     public void addItem(Item item){inventory.addItem(item);}
@@ -137,6 +138,7 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
         return stats;
     }
 
+    public Inventory getInventory(){return inventory;}
 
 
 }

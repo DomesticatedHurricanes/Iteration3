@@ -12,7 +12,7 @@ public class Inventory {
 
     //constructor
     public Inventory(int sizeOfInventory){
-        pack = new Pack(sizeOfInventory - 6);
+        pack = new Pack(sizeOfInventory - 7);
         equipment = new Equipment();
     }
 
@@ -107,15 +107,21 @@ public class Inventory {
     }
 
     public void unequipOneHandedWeapon(){
+        Weapon oneHandedWeapon = equipment.getRightHandWeapon();
         equipment.unequipOneHandedWeapon();
+        pack.addItem(oneHandedWeapon);
     }
 
     public void unequipTwoHandedWeapon(){
+        Weapon twoHandedWeapon = equipment.getRightHandWeapon();
         equipment.unequipTwoHandedWeapon();
+        pack.addItem(twoHandedWeapon);
     }
 
     public void unequipRangedWeapon(){
+        Weapon rangedWeapon = equipment.getRightHandWeapon();
         equipment.unequipRangedWeapon();
+        pack.addItem(rangedWeapon);
     }
 
     public void unequipSlacks(){
@@ -144,4 +150,6 @@ public class Inventory {
     public void removeItem(Item item){
        pack.removeItem(item);
     }
+
+
 }

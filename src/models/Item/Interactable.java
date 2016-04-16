@@ -11,8 +11,8 @@ public class Interactable extends Item {
 
     private boolean isActivated;
 
-    public Interactable(){
-
+    public Interactable(String name){
+        super(name);
     }
 
     public boolean onTouch(){

@@ -7,10 +7,10 @@ import models.stats.StatModifiers;
 /**
  * Created by mazumderm on 4/13/2016.
  */
-public class TwoHandedWeapon extends Equippable implements TakeableItemVisitor {
+public class TwoHandedWeapon extends Weapon implements TakeableItemVisitor {
 
-    public TwoHandedWeapon(StatModifiers statModifiers, int price){
-        super(statModifiers, price);
+    public TwoHandedWeapon(String name, StatModifiers statModifiers, int price){
+        super(name, statModifiers, price);
     }
 
     @Override

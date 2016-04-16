@@ -34,13 +34,13 @@ public abstract class Controller {
         for(KeyListener bind: bindings){
             jFrame.addKeyListener(bind);
         }
-        System.out.println("making keybinds");
+        //System.out.println("making keybinds");
     }
     public void removeFromJframe(){
         for(KeyListener bind: bindings){
             jFrame.removeKeyListener(bind);
         }
-        System.out.println("purging keybinds");
+        //System.out.println("purging keybinds");
     }
     public Map<Integer, ListenerAction> getKeyMapping() {
         return keyMapping;

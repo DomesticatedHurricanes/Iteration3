@@ -18,7 +18,7 @@ public class Listener implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if(e.getKeyCode()==key){
-            System.out.println("action 1");
+            //System.out.println("action 1");
             //keyPressed = true;
            action.execute();
         }
@@ -35,7 +35,7 @@ public class Listener implements KeyListener {
     @Override
     public void keyTyped(KeyEvent e) {
         if(e.getKeyCode()==key){
-            System.out.println("action pressed");
+            //System.out.println("action pressed");
             keyPressed = true;
             action.execute();
         }
