@@ -3,6 +3,7 @@ package models.entities;
 import models.Interaction.Observer;
 import models.Map.Tile;
 import models.stats.LivingStats;
+import models.Inventory.Inventory;
 
 import models.AI.PetBrain;
 import utilities.Point3D;
@@ -14,13 +15,14 @@ import utilities.Point3D;
  */
 
 
-public class Pet extends NPC implements Movement, TileVisitable {
+public class Pet extends AINpc implements Movement, TileVisitable {
     private LivingStats stats;
     private PetBrain petBrain;
 
     public Pet() {
         this.petBrain = new PetBrain();
         this.stats = new LivingStats();
+        this.inventory = new Inventory(16);
     }
     @Override
     public boolean accept(Tile tile) {
