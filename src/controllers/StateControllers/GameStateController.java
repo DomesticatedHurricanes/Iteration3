@@ -31,7 +31,7 @@ public class GameStateController extends Controller {
     }
 
     public void update(){
-        System.out.println("Game controller tick");
+        //System.out.println("Game controller tick");
 
     }
 }

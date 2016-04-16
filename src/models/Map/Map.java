@@ -13,11 +13,13 @@ public class Map {
     private Tile[][] world;
     private int width;
     private int height;
+    private int depth;
 
     public Map(int width, int height){
 
         this.height = height;
         this.width = width;
+        this.depth = width;
         initializeMap(width,height);
         testTilesMap(width, height);
 //        testHeightMap(width,height);
@@ -25,11 +27,10 @@ public class Map {
 
     public void initializeMap(int width, int height){
         Tile[][] tiles = new Tile[width][height];
-
         for(int i = 0; i < width; i++){
             for(int j = 0; j < height; j++){
                 // Temporary: the height increases from left to right
-                tiles[i][j] = new GrassTile(new Point3D(i,j,i));
+                tiles[i][j] = new GrassTile(new Point3D(i,j, i));
             }
         }
 
