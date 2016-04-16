@@ -15,12 +15,18 @@ public class InventoryState extends State {
     private InventoryStateView inventoryStateView;
     private InventoryController inventoryController;
 
-    public InventoryState(StateManager stateManager){
-        super(stateManager);
+    public InventoryState(StateManager stateManager, JFrame jFrame){
+        super(stateManager, jFrame);
         inventoryStateView = new InventoryStateView();
-        inventoryController = new InventoryController(this.stateManager);
+        inventoryController = new InventoryController(this.stateManager, this, jFrame);
+    }
+    public void setActive(){
+        inventoryController.addToJframe();
     }
 
+    public void setInactive(){
+        inventoryController.removeFromJframe();
+    }
     @Override
     public void init(){
         inventoryController.init();

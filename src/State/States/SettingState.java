@@ -14,7 +14,8 @@ import java.awt.*;
 public class SettingState extends State {
     private SettingController settingController;
 
-    public SettingState(StateManager stateManager) { super(stateManager); }
+    public SettingState(StateManager stateManager, JFrame jFrame){
+        super(stateManager, jFrame);}
 
     @Override
     public void init(){

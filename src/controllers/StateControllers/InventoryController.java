@@ -1,6 +1,7 @@
 package controllers.StateControllers;
 
 import State.StateManager;
+import State.States.InventoryState;
 import controllers.Controller;
 import controllers.Listener;
 import utilities.Settings;
@@ -15,22 +16,29 @@ public class InventoryController extends Controller {
         super(jFrame);
     }
 
-    public InventoryController(StateManager stateManager){
-        super();
-        this.manager = stateManager;
+    StateManager stateManager;
+    InventoryState state;
+    JFrame jFrame;
+    public InventoryController(StateManager stateManager, InventoryState state, JFrame jFrame) {
+        super(jFrame);
+        this.stateManager = stateManager;
+        this.state=state;
+        this.jFrame=jFrame;
+        getKeyMapping().put(Settings.UP,()->stateManager.changeToGameState());
+        getBindings().add(new Listener(Settings.UP, getKeyMapping().get(Settings.UP)));
     }
 
 
     public void init() {
 
-        getKeyMapping().put(Settings.UP,()->manager.changeToGameState());
-        getBindings().add(new Listener(Settings.UP, getKeyMapping().get(Settings.UP)));
+        //getKeyMapping().put(Settings.UP,()->stateManager.changeToGameState());
+        //getBindings().add(new Listener(Settings.UP, getKeyMapping().get(Settings.UP)));
     }
 
     @Override
     public void addJFrame(JFrame jFrame) {
         this.jFrame = jFrame;
-        this.addToJframe();
+        //this.addToJframe();
     }
 
     @Override

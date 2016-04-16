@@ -30,14 +30,17 @@ public class View implements Runnable{
     private utilities.Renderer renderer;
 
     private StateManager stateManager;
-
-    public View(StateManager manager){
+    private JFrame jFrame;
+    public View(StateManager manager, JFrame jFrame, Canvas canvas){
         this.stateManager = manager;
         this.title = "Testing";
         this.width = 400;
         this.height = 600;
-
-        createDisplay();
+        this.frame=jFrame;
+        this.canvas=canvas;
+        renderer = new utilities.Renderer(this);
+        //createDisplay();
+        //manager.setJframe(frame);
     }
 
     private void createDisplay(){
@@ -106,7 +109,7 @@ public class View implements Runnable{
         // Start drawing the current state's view here
         stateManager.renderCurrentState(g);
         //System.out.println("View: Frame :" + frame);
-        stateManager.addJFrameToCurrentState(frame);
+        //stateManager.addJFrameToCurrentState(frame);
 
         // End drawing
         bufferStrategy.show();

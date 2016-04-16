@@ -13,8 +13,8 @@ import java.awt.*;
 public class SkillTreeState extends State {
     private SkillTreeController skillTreeController;
 
-    public SkillTreeState(StateManager stateManager) {
-        super(stateManager);
+    public SkillTreeState(StateManager stateManager, JFrame jFrame){
+        super(stateManager, jFrame);
         skillTreeController = new SkillTreeController(stateManager);
     }
 

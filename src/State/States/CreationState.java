@@ -11,10 +11,23 @@ import java.awt.*;
  * Created by Dartyx on 4/13/2016.
  */
 public class CreationState extends State {
-    private CreationController creationController;
+    //StateManager stateManager;
+    CreationController creationController;
+    public CreationState(StateManager stateManager, JFrame jFrame) {
+        super(stateManager,jFrame);
+        this.stateManager=stateManager;
+        this.creationController = new CreationController(stateManager,this,jFrame);
+        //make view
 
-    public CreationState(StateManager stateManager) { super(stateManager); }
+    }
 
+    public void setActive(){
+        creationController.addToJframe();
+    }
+
+    public void setInactive(){
+        creationController.removeFromJframe();
+    }
     @Override
     public void init(){
         creationController.init();
