@@ -48,4 +48,8 @@ public class StillWaterTile extends Tile implements TileVisitor {
         }
         return pet.canSwim();
     }
+
+    public String getType(){
+        return "Water";
+    }
 }

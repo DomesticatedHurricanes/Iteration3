@@ -46,6 +46,11 @@ public class Monster extends NPC implements Movement {
         return true;
     }
 
+    @Override
+    public boolean canFly() {
+        return false;
+    }
+
     /**
     *       Getters and Setters
      */
