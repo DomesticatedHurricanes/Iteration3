@@ -3,6 +3,7 @@ package utilities;
 import View.View;
 import models.Graphics.GraphicAssets;
 import models.Map.Map;
+import models.Map.Map3D;
 import models.Map.Tile;
 
 import java.awt.*;
@@ -63,6 +64,51 @@ public class Renderer {
 //                }
 //            }
 //        }
+//=======
+//        public static void render2(Graphics g, Map map, Point mapCenterPoint, int mapStartX, int mapEndX, int mapStartY, int mapEndY){
+//            for(int i = 0; i < mapEndX; i++){
+//                for(int j = 0; j < mapEndY; j++ ){
+//                    Point pxCenterPoint;
+//
+//                    int pxX = (j * GraphicAssets.TILE_PX_WIDTH / 2) + (i * GraphicAssets.TILE_PX_WIDTH /2);
+//                    int pxY = (i * GraphicAssets.TILE_PX_HEIGHT / 2) - (j * GraphicAssets.TILE_PX_HEIGHT / 2);
+//                    pxCenterPoint = new Point(pxX, pxY);
+//                    tileRenderer.render(g, map.getTile(i,j),pxCenterPoint);
+//                }
+//            }
+//        }
+//
+//        public static void render(Graphics g, Map3D map, Point mapCenterPoint, int mapStartX, int mapEndX, int mapStartY, int mapEndY) {
+//            for(int y = mapStartY; y < mapEndY; y++){
+//                for(int x = mapEndX - 1; x  >= mapStartX; x--){
+//                    Point pxCenterPoint;
+//                    int offset;
+//
+//                    // calculate the offset to render images of different size
+//                    if (map.getRelevantTile(x,y).getImageHeight().getHeight() != GraphicAssets.TILE_PX_HEIGHT){
+//                        offset = map.getRelevantTile(x,y).getImageHeight().getHeight() - GraphicAssets.TILE_PX_HEIGHT;
+//                    } else{
+//                        offset = 0;
+//                    }
+//
+//                    //System.out.println("offset: " + offset);
+//
+//                    if(x % 2 != 0) {
+//                        int pxX = (int)((x - mapCenterPoint.x)*(0.75* GraphicAssets.TILE_PX_WIDTH)) + view.getWidth()/2;
+//                        int pxY = ((mapCenterPoint.x % 2 == 0)? GraphicAssets.TILE_PX_HEIGHT/2 : 0) + ((y - mapCenterPoint.y)* GraphicAssets.TILE_PX_HEIGHT) + view.getHeight()/2 - offset/2;
+//                        pxCenterPoint = new Point(pxX, pxY);
+////                        System.out.println("odd: " + pxCenterPoint);
+//                    } else {
+//                        int pxX = (int)((x - mapCenterPoint.x)*(0.75* GraphicAssets.TILE_PX_WIDTH)) + view.getWidth()/2;
+//                        int pxY = ((mapCenterPoint.x % 2 != 0)? -1 * GraphicAssets.TILE_PX_HEIGHT/2 : 0) + ((y - mapCenterPoint.y)* GraphicAssets.TILE_PX_HEIGHT) + view.getHeight()/2 - offset/2;
+//                        pxCenterPoint = new Point(pxX, pxY);
+////                        System.out.println("even: " + pxCenterPoint);
+//                    }
+//                    tileRenderer.render(g, map.getRelevantTile(x, y), pxCenterPoint);
+//                }
+//            }
+//        }
+//>>>>>>> master
     }
 
     public static class tileRenderer {
@@ -83,6 +129,19 @@ public class Renderer {
                 g.drawImage(tile.getImage(), topLeft.x, topLeft.y, tile.getImage().getWidth(), tile.getImage().getHeight(), null);
                 // Integer point = tile.getPoint3D().getZ();
                 // g.drawString(point.toString(),topLeft.x,topLeft.y);
+//=======
+//            Point topLeft = new Point(pxCenterPoint.x - (tile.getImageHeight().getWidth()/2 ), pxCenterPoint.y - (tile.getImageHeight().getWidth()/2));
+//            if(value >= 0) {
+//                System.out.println("Did it");
+////                g.drawImage(tile.getImage(), topLeft.x, topLeft.y, GraphicAssets.TILE_PX_WIDTH, GraphicAssets.TILE_PX_HEIGHT, null);
+//                // Draw the image given the height and width of the image
+//                g.drawImage(tile.getImageHeight(), topLeft.x, topLeft.y, tile.getImageHeight().getWidth(), tile.getImageHeight().getHeight(), null);
+//                if(tile.getEntity() != null){
+//                   // g.drawImage(tile.getEntity().getEntityImage(), 5, 5, tile.getEntity().getEntityImage().getWidth(), tile.getEntity().getEntityImage().getHeight(), null);
+//                }
+//               // Integer point = tile.getPoint3D().getZ();
+//               // g.drawString(point.toString(),topLeft.x,topLeft.y);
+//>>>>>>> master
             }
         }
     }

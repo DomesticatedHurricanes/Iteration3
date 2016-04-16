@@ -31,6 +31,10 @@ public class GraphicAssets {
     public static BufferedImage h9;
     public static BufferedImage h10;
 
+    public static BufferedImage smasher;
+    public static BufferedImage sneak;
+    public static BufferedImage summoner;
+
 
     public static void init(){
 
@@ -55,5 +59,10 @@ public class GraphicAssets {
         h8 = ImageLoader.loadImage("/Resources/8.png");
         h9 = ImageLoader.loadImage("/Resources/9.png");
         h10 = ImageLoader.loadImage("/Resources/10.png");
+
+        smasher = ImageLoader.loadImage("/Resources/entitys/entity-smasher-S.png");
+        summoner = ImageLoader.loadImage("/Resources/entitys/entity-summoner-S.png");
+        sneak = ImageLoader.loadImage("/Resources/entitys/entity-sneak-S.png");
+
     }
 }
