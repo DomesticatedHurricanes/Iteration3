@@ -4,19 +4,24 @@ import models.Interaction.Observer;
 
 import models.AI.MonsterBrain;
 
+import models.entities.defaultNpcStat.NPCInitialStats;
 import models.stats.CharacterStats;
 import models.Inventory.Inventory;
 import utilities.Point3D;
+import models.entities.defaultNpcStat.MonsterStats;
 
 public class Monster extends AINpc implements Movement {
 
     private boolean isMoving;
     private boolean isAttacking;
+    private NPCInitialStats initialStats;
     private MonsterBrain monsterBrain;
 
     public Monster() {
         this.monsterBrain = new MonsterBrain();
         this.npcStats = new CharacterStats();
+        this.initialStats = new MonsterStats();
+        initialStats.initStats(npcStats);
         this.inventory = new Inventory(16);
     }
 
@@ -46,6 +51,11 @@ public class Monster extends AINpc implements Movement {
     @Override
     public boolean canFly() {
         return false;
+    }
+
+    @Override
+    public CharacterStats getStats() {
+        return (CharacterStats)npcStats;
     }
 
     /**

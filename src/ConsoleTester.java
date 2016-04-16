@@ -12,9 +12,14 @@ import models.effects.LinearEffect;
 import models.entities.Avatar;
 import models.entities.Entity;
 import models.entities.occupation.Smasher;
+import models.stats.CharacterStats;
 import models.stats.StatModifier;
 import models.stats.StatModifiers;
 import utilities.Point3D;
+import models.entities.Monster;
+import models.entities.Pet;
+import models.stats.Stats;
+import models.entities.Villager;
 
 import java.util.ArrayList;
 
@@ -23,6 +28,23 @@ import java.util.ArrayList;
  */
 public class ConsoleTester {
     public static void main(String args[]){
+        Monster monster = new Monster();
+        Stats monsterStats = monster.getStats();
+        Pet pet = new Pet();
+        Stats petStats = pet.getStats();
+        Villager villager = new Villager();
+        CharacterStats villagerStats = villager.getStats();
+
+        System.out.println(villagerStats.getAgility());
+
+        System.out.println(petStats.getMovement());
+
+        System.out.println(monsterStats.getMovement());
+
+
+
+
+
 
         /**
         Point3D point = new Point3D(0,0,0);
@@ -37,7 +59,7 @@ public class ConsoleTester {
          **/
 
 
-        Avatar testing = new Avatar(new Smasher());
+       /* Avatar testing = new Avatar(new Smasher());
         StatModifier agilityMod = StatModifier.makeAgilityModifier(5);
         StatModifier strMod = StatModifier.makeStrengthModifier(5);
         StatModifier health = StatModifier.makeCurrentHpModifier(-5);
@@ -91,7 +113,7 @@ public class ConsoleTester {
         //remove item
         testing.removeItem(consumable);
         testing.removeItem(helmet);
-        System.out.println(testing.getInventory().getPack().getPackContents());
+        System.out.println(testing.getInventory().getPack().getPackContents());*/
 
     }
 }
