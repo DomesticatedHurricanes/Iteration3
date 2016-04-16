@@ -1,7 +1,9 @@
 package models.Skills;
 
 import models.effects.RadialEffect;
+import models.entities.Avatar;
 import models.entities.Entity;
+import models.stats.StatusEffect;
 import utilities.Point3D;
 
 import java.awt.*;
@@ -22,19 +24,19 @@ import java.util.Queue;
 
 public class Enchantment extends ProjectableSkill implements ActiveSkill{
 
-    public Enchantment(){
-        useEnchantment();
-    }
+    public Enchantment(){}
 
     @Override
-    public void useSkill() {
-        useEnchantment();
+    public void useSkill(Avatar avatar) {
+        useEnchantment(avatar);
     }
 
-    public void useEnchantment() {
+    public void useEnchantment(Avatar avatar) {
         //Example of Ring of Operations!
         ArrayList<Point3D> affectedPoints = search();
         ArrayList<Entity> victims = findVictims(affectedPoints);
+        projectile = new Projectile(10, StatusEffect.statusEffect.NONE);
+        victimize(victims,projectile);
     }
 
     @Override
@@ -46,5 +48,10 @@ public class Enchantment extends ProjectableSkill implements ActiveSkill{
         affectedPoints=radialEffect.getTilePoints();
 
         return affectedPoints;
+    }
+
+    @Override
+    public int calculateDamage(Avatar avatar) {
+        return(avatar.getStats().getOffensiveRating());
     }
 }

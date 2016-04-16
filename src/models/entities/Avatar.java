@@ -22,7 +22,7 @@ import java.awt.image.BufferedImage;
 public class Avatar extends Entity implements Movement, Attack, TileVisitable, TakeableItemVisitable{
     private Occupation occupation;
     private CharacterStats stats;
-    private Inventory inventory;
+    //private Inventory inventory;
 
 
     public Avatar(Occupation occupation){
@@ -139,6 +139,12 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
     @Override
     public CharacterStats getStats(){
         return stats;
+    }
+
+
+    @Override
+    public String getType() {
+        return "Avatar";
     }
 
     public Inventory getInventory(){return inventory;}

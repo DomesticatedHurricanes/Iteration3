@@ -83,6 +83,11 @@ public class Monster extends AINpc implements Movement {
         return monsterBrain.getAggression();
     }
 
+    @Override//Originally this was public Stats getStats()
+    public CharacterStats getStats() {
+        return npcStats;
+    }
+
     //Add Observer
     public void addObserver(Observer observer){
         observers.add(observer);
@@ -102,6 +107,11 @@ public class Monster extends AINpc implements Movement {
         for(Observer observer: observers){
             observer.processThought(this);
         }
+    }
+
+    @Override
+    public String getType() {
+        return "Monster";
     }
 }
 
