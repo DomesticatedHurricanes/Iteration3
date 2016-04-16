@@ -19,13 +19,14 @@ import models.entities.defaultNpcStat.PetStats;
 
 public class Pet extends AINpc implements Movement, TileVisitable {
 
-    private LivingStats stats;
-
     private PetBrain petBrain;
+    private NPCInitialStats initialStats;
 
     public Pet() {
         this.petBrain = new PetBrain();
-        this.stats = new LivingStats();
+        this.npcStats = new LivingStats();
+        initialStats = new PetStats();
+        initialStats.initStats(npcStats);
         this.inventory = new Inventory(16);
     }
     @Override
