@@ -3,7 +3,7 @@ package models.entities;
 import models.Interaction.Observer;
 import models.Map.Tile;
 import models.stats.LivingStats;
-import models.Inventory.Pack;
+import models.Inventory.Inventory;
 
 import models.AI.PetBrain;
 import utilities.Point3D;
@@ -18,12 +18,11 @@ import utilities.Point3D;
 public class Pet extends AINpc implements Movement, TileVisitable {
     private LivingStats stats;
     private PetBrain petBrain;
-    private Pack pack;
 
     public Pet() {
         this.petBrain = new PetBrain();
         this.stats = new LivingStats();
-        this.pack = new Pack(5); //a pet can steal up to five items
+        this.inventory = new Inventory(16);
     }
     @Override
     public boolean accept(Tile tile) {
