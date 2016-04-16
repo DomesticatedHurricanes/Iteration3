@@ -14,13 +14,13 @@ public class Stats {
     }
 
     public void modifyMaxHp(int hp) {
-        this.maxHp += maxHp;
+        this.maxHp += hp;
     }
 
     public int getCurrentHp() { return maxHp;}
 
     public void modifyCurrentHp(int hp) {
-        this.currentHp += currentHp;
+        this.currentHp += hp;
     }
     //Stats all entities have
     protected int movement;

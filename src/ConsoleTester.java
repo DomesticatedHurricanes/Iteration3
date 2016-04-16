@@ -1,5 +1,6 @@
 
 import models.AreaEffect.*;
+import models.Interaction.MovementHandler;
 import models.Item.Takeable.Consumable;
 import models.Item.Takeable.Equippable.ChestPlate;
 import models.Item.Takeable.Equippable.Helmet;
@@ -13,9 +14,16 @@ import models.effects.LinearEffect;
 import models.entities.Avatar;
 import models.entities.Entity;
 import models.entities.occupation.Smasher;
+import models.entities.occupation.Sneak;
+import models.entities.occupation.Summoner;
+import models.stats.CharacterStats;
 import models.stats.StatModifier;
 import models.stats.StatModifiers;
 import utilities.Point3D;
+import models.entities.Monster;
+import models.entities.Pet;
+import models.stats.Stats;
+import models.entities.Villager;
 
 import java.util.ArrayList;
 
@@ -24,6 +32,36 @@ import java.util.ArrayList;
  */
 public class ConsoleTester {
     public static void main(String args[]){
+        Monster monster = new Monster();
+        Pet pet = new Pet();
+        Villager villager = new Villager();
+
+
+        Stats monsterStats = monster.getStats();
+        Stats petStats = pet.getStats();
+        CharacterStats villagerStats = villager.getStats();
+
+        System.out.println("Villager movement: " + villagerStats.getMovement());
+        System.out.println("Villager armor rating: " + villagerStats.getArmorRating());
+        System.out.println("Villager experience: " + villagerStats.getExperience());
+        System.out.println("Villager intellect: " + villagerStats.getIntellect());
+        System.out.println("Villager level: " + villagerStats.getLevel());
+        System.out.println("Villager stats: " + villagerStats.getAgility());
+        System.out.println("Villager current HP: " + villagerStats.getCurrentHp());
+        System.out.println("Villager mana: " + villagerStats.getMana());
+        System.out.println("Villager hardiness: " + villagerStats.getHardiness());
+        System.out.println("Villager jump hardiness: " + villagerStats.getJumpHeight());
+        System.out.println("Villager max HP: " + villagerStats.getMaxHp());
+        System.out.println("Villager strength: " + villagerStats.getStrength());
+        System.out.println("Villager offensive rating: " + villagerStats.getOffensiveRating());
+        System.out.println("Villager defensive rating: " + villagerStats.getDefensiveRating());
+
+        System.out.println("Monster max HP: " + monsterStats.getMaxHp());
+
+
+
+
+
 
 //
 //        Point3D point = new Point3D(0,0,0);
@@ -38,7 +76,7 @@ public class ConsoleTester {
 //
 
 
-        Avatar testing = new Avatar(new Smasher());
+       /* Avatar testing = new Avatar(new Smasher());
         StatModifier agilityMod = StatModifier.makeAgilityModifier(5);
         StatModifier strMod = StatModifier.makeStrengthModifier(5);
         StatModifier health = StatModifier.makeCurrentHpModifier(-5);
@@ -92,7 +130,15 @@ public class ConsoleTester {
         //remove item
         testing.removeItem(consumable);
         testing.removeItem(helmet);
-        System.out.println(testing.getInventory().getPack().getPackContents());
+        System.out.println(testing.getInventory().getPack().getPackContents());*/
+
+
+        Map3D map3D = new Map3D(10);
+        Avatar avatar = new Avatar(new Smasher());
+        avatar.setLocation(new Point3D(1,1,1));
+        MovementHandler movementHandler = new MovementHandler(map3D);
+        map3D.insertEnitity(avatar, 1, 1);
+        movementHandler.moveNorthWest(avatar);
 
 
         // testing areaEffects
@@ -101,7 +147,7 @@ public class ConsoleTester {
         AreaEffect levelUp = new LevelUp();
         AreaEffect takeDamage = new TakeDamage();
 
-        Avatar avatar = new Avatar(new Smasher());
+        avatar = new Avatar(new Summoner());
         System.out.println("testing instant death");
         System.out.println(avatar.getStats().getLives());
         instantDeath.activate(avatar);

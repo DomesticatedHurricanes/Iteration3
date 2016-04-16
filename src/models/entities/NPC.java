@@ -11,7 +11,7 @@
  */
 public abstract class NPC extends Entity {
 
-    protected CharacterStats npcStats;
+    protected Stats npcStats;
     protected Inventory inventory;
 
     @Override

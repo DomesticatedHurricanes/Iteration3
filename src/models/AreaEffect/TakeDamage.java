@@ -2,6 +2,7 @@ package models.AreaEffect;
 
 import models.entities.Entity;
 import models.stats.StatModifier;
+import models.stats.StatModifiers;
 import models.stats.Stats;
 
 /**
@@ -11,7 +12,7 @@ public class TakeDamage extends AreaEffect {
     @Override
     public void activate(Entity entity){
         StatModifier takeDamage = StatModifier.makeCurrentHpModifier(-10);
-        Stats enitityStats = entity.getStats();
-        takeDamage.apply(enitityStats);
+        Stats entityStats = entity.getStats();
+        takeDamage.apply(entityStats);
     }
 }
