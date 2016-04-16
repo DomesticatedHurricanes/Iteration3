@@ -28,6 +28,7 @@ public abstract class Controller {
     }
 
     public abstract void addJFrame(JFrame jFrame);
+    public abstract void update();
 
     public void addToJframe(){
         for(KeyListener bind: bindings){

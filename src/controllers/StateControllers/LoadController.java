@@ -20,4 +20,9 @@ public class LoadController extends Controller {
         this.jFrame = jFrame;
     }
 
+    @Override
+    public void update() {
+
+    }
+
 }

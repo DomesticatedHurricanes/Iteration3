@@ -7,7 +7,7 @@ import java.awt.*;
 /**
  * Created by Michael on 4/14/16.
  */
-public class GameStateView  {
+public class GameStateView  extends  StateView{
     private Graphics g;
 
     private int mapStartX;
@@ -23,11 +23,13 @@ public class GameStateView  {
         init();
     }
 
-    private void init(){
+    @Override
+    protected void init(){
         this.map.initializeMap(10,10);
         //System.out.println("In game view");
     }
 
+    @Override
     public void render(Graphics g){
         //System.out.println("Printing gameview");
 
