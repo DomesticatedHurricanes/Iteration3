@@ -68,7 +68,12 @@ public abstract class Tile implements TileVisitor {
         return point3D.getZ();
     }
 
-    public abstract String getType();
+    public void applyItems(Entity entity){
+        for(Item item: items){
+            item.apply(entity);
+        }
+    }
 
+    public abstract String getType();
 
 }
