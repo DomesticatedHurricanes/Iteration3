@@ -1,14 +1,24 @@
 package State;
 
+
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * Created by Dartyx on 4/7/2016.
  */
 public abstract class State {
-    JFrame jFrame;
-    public State(JFrame jFrame) {
-        this.jFrame=jFrame;
+    protected StateManager stateManager;
+
+    public State(StateManager stateManager){
+        this.stateManager = stateManager;
     }
 
+    public abstract void init();
+    protected abstract void addJFrame(JFrame frame);
+    protected abstract void update();
+    protected abstract void render(Graphics g);
+
 }
+
+

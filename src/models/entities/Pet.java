@@ -44,7 +44,10 @@ public class Pet extends NPC implements Movement, TileVisitable {
         return true;
     }
 
-
+    @Override
+    public boolean canFly() {
+        return false;
+    }
 
     public boolean decideToSteal(){
 

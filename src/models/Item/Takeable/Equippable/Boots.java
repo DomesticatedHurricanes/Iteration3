@@ -9,8 +9,8 @@ import models.stats.StatModifiers;
  */
 public class Boots extends Equippable implements TakeableItemVisitor {
 
-    public Boots(StatModifiers statModifiers, int price){
-        super(statModifiers, price);
+    public Boots(String name, StatModifiers statModifiers, int price){
+        super(name, statModifiers, price);
     }
 
     @Override

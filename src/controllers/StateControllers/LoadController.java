@@ -11,4 +11,13 @@ public class LoadController extends Controller {
     public LoadController(JFrame jFrame){
         super(jFrame);
     }
+
+
+    public void init() { }
+
+    @Override
+    public void addJFrame(JFrame jFrame){
+        this.jFrame = jFrame;
+    }
+
 }

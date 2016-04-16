@@ -7,6 +7,7 @@ import java.awt.event.KeyListener;
  * Created by Michael on 4/14/16.
  */
 public class Listener implements KeyListener {
+    boolean keyPressed;
     int key;
     ListenerAction action;
     public Listener(int key, ListenerAction action) {
@@ -16,14 +17,17 @@ public class Listener implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if(e.getKeyCode()==key){
+        if(e.getKeyCode()==key && !keyPressed){
+            keyPressed = true;
             action.execute();
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-
+        if(e.getKeyCode()==key && keyPressed){
+            keyPressed = false;
+        }
     }
 
     @Override
