@@ -24,8 +24,4 @@ public class Vehicle extends Entity{
     @Override
     public Stats getStats() { return vehicleStats; }
 
-    @Override
-    public String getType() {
-        return "Vehicle";
-    }
 }

@@ -139,11 +139,6 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
     }
 
 
-    @Override
-    public String getType() {
-        return "Avatar";
-    }
-
     public Inventory getInventory(){return inventory;}
 
 
