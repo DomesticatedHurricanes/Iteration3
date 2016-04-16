@@ -25,7 +25,7 @@ public class GameStateController extends Controller {
 //        getKeyMapping().put(Settings.INV,()->stateManager.changeToInventoryState());
 //        System.out.println("StateManager: " + manager);
 //        System.out.println("Current state: " + manager.getCurrentState());
-        getKeyMapping().put(Settings.ESCAPE,()->manager.changeToGameState());
+        getKeyMapping().put(Settings.ESCAPE,()->manager.changeToInventoryState());
         getKeyMapping().put(Settings.UP,()->manager.testFunction());
 
 
