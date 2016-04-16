@@ -25,7 +25,7 @@ public class OneShot extends Item {
     }
 
     public void apply(Entity entity){
-
+        getModifer().apply(entity.getStats());
     }
 
     public void apply(Avatar avatar){
