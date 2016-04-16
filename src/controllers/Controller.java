@@ -15,6 +15,7 @@ public abstract class Controller {
     private Map<Integer, ListenerAction> keyMapping;
     private ArrayList<KeyListener> bindings;
     JFrame jFrame;
+    public Controller(){}
     public Controller(JFrame jFrame) {
         this.jFrame=jFrame;
         keyMapping=new HashMap<>();

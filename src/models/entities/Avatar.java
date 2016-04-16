@@ -126,6 +126,11 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
         return true;
     }
 
+    @Override
+    public boolean canFly() {
+        return false;
+    }
+
     //Getters
     @Override
     public CharacterStats getStats(){

@@ -1,5 +1,6 @@
 package View;
 
+import State.StateManager;
 import models.Graphics.GraphicAssets;
 import models.Map.Map;
 
@@ -33,6 +34,8 @@ public class View implements Runnable{
     private int mapEndY;
 
     private Point mapCameraCenter;
+
+    private StateManager stateManager;
 
 
     public View(){
@@ -68,6 +71,9 @@ public class View implements Runnable{
 
     // Called when the thread starts
     private void init(){
+
+        stateManager = StateManager.getInstance();
+
         // Render the current state
         long startingTime = System.currentTimeMillis();
 
@@ -108,25 +114,7 @@ public class View implements Runnable{
         // Clear the screen
         g.clearRect(0,0,width,height);
 
-
-        // All of this should be handled in the GameStateView
-        // GameStateView.render();
-        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        // Start the map in the top left corner.
-        mapStartX = 0;
-        mapStartY = 0;
-
-        // The end of what we expect to render of the map should either be limited by the size of the map or the size of the viewport (i.e. the window)
-        mapEndX = Math.min(9, (int)Math.ceil(height/ GraphicAssets.TILE_PX_WIDTH));
-        mapEndY = Math.min(9, (int)Math.ceil(width/ GraphicAssets.TILE_PX_HEIGHT));
-
-        mapCameraCenter = new Point((mapStartX + mapEndX)/2, (mapStartY + mapEndY)/2);
-
-        Map world = new Map(10,10);
-        utilities.Renderer.mapRenderer.render(g,world,mapCameraCenter,mapStartX,mapEndX,mapStartY,mapEndY);
-        //Renderer.mapRenderer.render2(g,world,mapCameraCenter,mapStartX,mapEndX,mapStartY,mapEndY);
-        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+        stateManager.renderCurrentState(g);
         // End drawing
         bufferStrategy.show();
         g.dispose();
