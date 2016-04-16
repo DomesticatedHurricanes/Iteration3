@@ -4,6 +4,7 @@ import State.State;
 import State.StateManager;
 import controllers.StateControllers.SaveController;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -19,6 +20,11 @@ public class SaveState extends State {
     @Override
     public void init(){
         saveController.init();
+    }
+
+    @Override
+    protected void addJFrame(JFrame frame) {
+
     }
 
     @Override

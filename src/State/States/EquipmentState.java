@@ -4,6 +4,7 @@ import State.State;
 import State.StateManager;
 import controllers.StateControllers.EquipmentController;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -17,6 +18,11 @@ public class EquipmentState extends State {
     @Override
     public void init(){
         equipmentController.init();
+    }
+
+    @Override
+    protected void addJFrame(JFrame frame) {
+
     }
 
     @Override

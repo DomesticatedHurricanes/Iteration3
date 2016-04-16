@@ -4,6 +4,7 @@ import State.State;
 import State.StateManager;
 import controllers.StateControllers.SkillTreeController;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -20,6 +21,11 @@ public class SkillTreeState extends State {
     @Override
     public void init(){
         skillTreeController.init();
+    }
+
+    @Override
+    protected void addJFrame(JFrame frame) {
+
     }
 
     @Override

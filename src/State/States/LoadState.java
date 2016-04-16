@@ -5,6 +5,7 @@ import State.StateManager;
 import controllers.StateControllers.LoadController;
 
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -18,6 +19,11 @@ public class LoadState extends State {
     @Override
     public void init(){
         loadController.init();
+    }
+
+    @Override
+    protected void addJFrame(JFrame frame) {
+
     }
 
     @Override

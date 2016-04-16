@@ -4,6 +4,7 @@ import State.State;
 import State.StateManager;
 import controllers.StateControllers.InventoryController;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -17,6 +18,11 @@ public class InventoryState extends State {
     @Override
     public void init(){
         inventoryController.init();
+    }
+
+    @Override
+    protected void addJFrame(JFrame frame) {
+
     }
 
     @Override
