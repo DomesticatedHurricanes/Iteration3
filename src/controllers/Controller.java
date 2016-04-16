@@ -1,5 +1,6 @@
 package controllers;
 
+import State.StateManager;
 import controllers.ListenerAction;
 
 import javax.swing.*;
@@ -15,6 +16,8 @@ public abstract class Controller {
     private Map<Integer, ListenerAction> keyMapping;
     private ArrayList<KeyListener> bindings;
     JFrame jFrame;
+    protected StateManager manager;
+
     public Controller(){}
     public Controller(JFrame jFrame) {
         this.jFrame=jFrame;

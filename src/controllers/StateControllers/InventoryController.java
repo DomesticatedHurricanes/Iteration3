@@ -11,4 +11,6 @@ public class InventoryController extends Controller {
     public InventoryController(JFrame jFrame){
         super(jFrame);
     }
+
+    public void init() { }
 }

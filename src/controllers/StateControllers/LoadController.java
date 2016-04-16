@@ -11,4 +11,6 @@ public class LoadController extends Controller {
     public LoadController(JFrame jFrame){
         super(jFrame);
     }
+
+    public void init() { }
 }

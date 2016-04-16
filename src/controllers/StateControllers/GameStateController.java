@@ -11,7 +11,6 @@ import javax.swing.*;
  * Created by Michael on 4/14/16.
  */
 public class GameStateController extends Controller {
-    private StateManager manager;
 
     public GameStateController(StateManager stateManager){
         this.manager = stateManager;

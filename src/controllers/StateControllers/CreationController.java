@@ -12,4 +12,6 @@ public class CreationController extends Controller {
     public CreationController(JFrame jFrame){
         super(jFrame);
     }
+
+    public void init() { }
 }

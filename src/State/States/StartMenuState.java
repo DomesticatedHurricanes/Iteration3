@@ -2,12 +2,14 @@ package State.States;
 
 import State.State;
 import State.StateManager;
+import controllers.StateControllers.StartMenuController;
 import java.awt.*;
 
 /**
  * Created by Dartyx on 4/13/2016.
  */
 public class StartMenuState extends State {
+    private StartMenuController startMenuController;
 
     public StartMenuState(StateManager stateManager){
         super(stateManager);
@@ -15,12 +17,12 @@ public class StartMenuState extends State {
 
     @Override
     public void init(){
-
+        startMenuController.init();
     }
 
     @Override
     protected void update() {
-
+        startMenuController.update();
     }
 
     @Override

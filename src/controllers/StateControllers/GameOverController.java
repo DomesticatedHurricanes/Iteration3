@@ -11,4 +11,6 @@ public class GameOverController extends Controller {
     public GameOverController(JFrame jFrame){
         super(jFrame);
     }
+
+    public void init() { }
 }

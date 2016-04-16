@@ -11,4 +11,6 @@ public class SettingController extends Controller {
     public SettingController(JFrame jFrame){
         super(jFrame);
     }
+
+    public void init() { }
 }
