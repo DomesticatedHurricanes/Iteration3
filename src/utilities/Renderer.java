@@ -33,7 +33,7 @@ public class Renderer {
                         offset = 0;
                     }
 
-                    System.out.println("offset: " + offset);
+                    //System.out.println("offset: " + offset);
 
                     if(x % 2 != 0) {
                         int pxX = (int)((x - mapCenterPoint.x)*(0.75* GraphicAssets.TILE_PX_WIDTH)) + view.getWidth()/2;

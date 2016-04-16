@@ -11,15 +11,19 @@ import utilities.Point3D;
  */
 public class Map {
     private Tile[][] world;
+    private int width;
+    private int height;
 
     public Map(int width, int height){
 
+        this.height = height;
+        this.width = width;
         initializeMap(width,height);
         testTilesMap(width, height);
 //        testHeightMap(width,height);
     }
 
-    private void initializeMap(int width, int height){
+    public void initializeMap(int width, int height){
         Tile[][] tiles = new Tile[width][height];
 
         for(int i = 0; i < width; i++){
@@ -132,5 +136,22 @@ public class Map {
 
     public Tile getTile(int x, int y){
         return world[x][y];
+    }
+
+    // TODO add the necessary check to see if the tile is blocked/too high
+    public boolean isBlocked(int x, int y){
+        return false;
+    }
+
+    public boolean isValid(int sz, int z){
+        return false;
+    }
+
+    public int getWidth(){
+        return width;
+    }
+
+    public int getHeight(){
+        return height;
     }
 }

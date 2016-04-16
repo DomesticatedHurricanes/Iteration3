@@ -15,7 +15,7 @@ public class Game implements Runnable {
 
 
     boolean alive;
-    StateManager stateManager;
+    private StateManager stateManager;
     ControllerManager controllerManager;
 
     public Game(StateManager stateManager,ControllerManager controllerManager){
@@ -30,7 +30,7 @@ public class Game implements Runnable {
 
     // Initializes the game
     private void init(){
-
+        stateManager = StateManager.getInstance();
     }
 
     private void tick(){
@@ -83,6 +83,7 @@ public class Game implements Runnable {
         while(running){
             tick();
             // call current state tick
+            stateManager.updateCurrentState();
         }
 
         // Stop the thread

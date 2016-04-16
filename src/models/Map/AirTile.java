@@ -7,58 +7,47 @@ import models.entities.Pet;
 import utilities.Point3D;
 
 /**
- * Created by Michael on 4/7/16.
- * RunningWaterTile has a direction and speed to carry an Entity that goes in it
+ * Created by david on 4/15/16.
  */
-public class RunningWaterTile extends Tile {
+public class AirTile extends Tile {
 
-    // private Direction dir
-    private int speed;
-
-    public RunningWaterTile(Point3D point3D){
+    public AirTile(Point3D point3D){
         super(point3D);
-        this.image = GraphicAssets.RunningWaterTile;
+        //Add or don't an image to AirTile
     }
-
-    public int getSpeed(){
-        return speed;
-    }
-
 
     @Override
     public boolean visit(Avatar avatar) {
+        //TODO: Remember to remove avatar from previous tile in interaction handler
         if(this.checkItem() && avatar.canSwim()){
             this.insertEntity(avatar);
             applyItems(avatar);
             applyAreaEffect(avatar);
             return true;
         }
-
-        return avatar.canSwim();
+        return avatar.canFly();
     }
 
     @Override
     public boolean visit(Monster monster) {
-        if(this.checkItem() && monster.canSwim()){
+        if(this.checkItem() && monster.canFly()){
             this.insertEntity(monster);
             return true;
         }
 
-        return monster.canSwim();
+        return monster.canTraverse();
     }
 
     @Override
     public boolean visit(Pet pet) {
-        if(this.checkItem() && pet.canSwim()){
+        if(this.checkItem() && pet.canFly()){
             this.insertEntity(pet);
             return true;
         }
-
-        return pet.canSwim();
+        return pet.canFly();
     }
 
-    @Override
-    public String getType() {
-        return "Running";
+    public String getType(){
+        return "Air";
     }
 }

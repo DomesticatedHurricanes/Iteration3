@@ -54,7 +54,21 @@ public abstract class Tile implements TileVisitor {
         }
         return true;
     }
+    public void apply(Entity entity){
+        for(Item item: items){
+            item.apply(entity);
+        }
+    }
 
+    public void applyAreaEffect(Entity entity){
+        this.areaEffect.activate(entity);
+    }
+
+    public int getDepth(){
+        return point3D.getZ();
+    }
+
+    public abstract String getType();
 
 
 }

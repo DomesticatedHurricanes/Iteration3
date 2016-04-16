@@ -48,4 +48,8 @@ public class MountainTile extends Tile {
 
         return pet.canTraverse();
     }
+
+    public String getType(){
+        return "Mountain";
+    }
 }
