@@ -26,11 +26,17 @@ public class Pack {
         //go to interaction handler  to drop an item
     }
 
+    public boolean isEmpty(){return (items.size()==0);}
+
     public void removeItem(Item item){
        items.remove(item);
     }
 
+    public Item getItemAt(int i){return getPackContents().get(i);}
+
     public ArrayList<Item> getPackContents(){
         return items;
     }
+
+    public int getAmountOfItemsInPack(){return getPackContents().size();}
 }

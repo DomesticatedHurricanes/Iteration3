@@ -98,5 +98,10 @@ public class Monster extends AINpc implements Movement {
             observer.processThought(this);
         }
     }
+
+    @Override
+    public String getType() {
+        return "Monster";
+    }
 }
 

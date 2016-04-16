@@ -25,6 +25,15 @@ public abstract class Entity {
     }
 
     public abstract Stats getStats();
+    public abstract String getType();
+
+    public Inventory getInventory(){
+        return inventory;
+    }
+
+    public Point3D getLocation(){
+        return location;
+    }
 
 
 }
