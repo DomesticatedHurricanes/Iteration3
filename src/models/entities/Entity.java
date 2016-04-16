@@ -2,6 +2,7 @@ package models.entities;
 
 
 
+import models.Inventory.Inventory;
 import utilities.Point3D;
 import models.stats.Stats;
 
@@ -13,6 +14,7 @@ import models.stats.Stats;
 public abstract class Entity {
     Point3D location;
 
+    Inventory inventory;//This needs to be initialized in the specfic implementation details
     public enum Orientation{
         NORTHWEST,
         NORTH,

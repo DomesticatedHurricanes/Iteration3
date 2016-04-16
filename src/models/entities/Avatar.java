@@ -20,7 +20,7 @@ import models.stats.CharacterStats;
 public class Avatar extends Entity implements Movement, Attack, TileVisitable, TakeableItemVisitable{
     private Occupation occupation;
     private CharacterStats stats;
-    private Inventory inventory;
+    //private Inventory inventory;
 
 
     public Avatar(Occupation occupation){

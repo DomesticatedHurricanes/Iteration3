@@ -76,8 +76,8 @@ public class Monster extends NPC implements Movement {
         return monsterBrain.getAggression();
     }
 
-    @Override
-    public Stats getStats() {
+    @Override//Originally this was public Stats getStats()
+    public CharacterStats getStats() {
         return stats;
     }
 

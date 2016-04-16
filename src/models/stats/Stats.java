@@ -5,6 +5,23 @@ package models.stats;
  */
 //Description:The overall heirarchy of all stats.  This is the apex of stats
 public class Stats {
+
+    protected int maxHp;
+    protected int currentHp;
+
+    public int getMaxHp() {
+        return maxHp;
+    }
+
+    public void modifyMaxHp(int hp) {
+        this.maxHp += maxHp;
+    }
+
+    public int getCurrentHp() { return maxHp;}
+
+    public void modifyCurrentHp(int hp) {
+        this.currentHp += currentHp;
+    }
     //Stats all entities have
     protected int movement;
     protected int jumpHeight;
