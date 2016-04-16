@@ -1,4 +1,5 @@
 
+import models.AreaEffect.*;
 import models.Item.Takeable.Consumable;
 import models.Item.Takeable.Equippable.ChestPlate;
 import models.Item.Takeable.Equippable.Helmet;
@@ -93,5 +94,29 @@ public class ConsoleTester {
         testing.removeItem(helmet);
         System.out.println(testing.getInventory().getPack().getPackContents());
 
+
+        // testing areaEffects
+        AreaEffect healDamage = new HealDamage();
+        AreaEffect instantDeath = new InstantDeath();
+        AreaEffect levelUp = new LevelUp();
+        AreaEffect takeDamage = new TakeDamage();
+
+        Avatar avatar = new Avatar(new Smasher());
+        System.out.println("testing instant death");
+        System.out.println(avatar.getStats().getLives());
+        instantDeath.activate(avatar);
+        System.out.println(avatar.getStats().getLives());
+        System.out.println("testing level up");
+        System.out.println(avatar.getStats().getLevel());
+        levelUp.activate(avatar);
+        System.out.println(avatar.getStats().getLevel());
+        System.out.println("testing take damage");
+        System.out.println(avatar.getStats().getCurrentHp());
+        takeDamage.activate(avatar);
+        System.out.println(avatar.getStats().getCurrentHp());
+        System.out.println("testing heal damage");
+        System.out.println(avatar.getStats().getCurrentHp());
+        healDamage.activate(avatar);
+        System.out.println(avatar.getStats().getCurrentHp());
     }
 }
