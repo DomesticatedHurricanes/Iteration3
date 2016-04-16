@@ -26,6 +26,7 @@ public class GameStateController extends Controller {
 //        System.out.println("StateManager: " + manager);
 //        System.out.println("Current state: " + manager.getCurrentState());
         getKeyMapping().put(Settings.ESCAPE,()->manager.changeToInventoryState());
+        getKeyMapping().put(Settings.P,()->manager.changeToPauseMenuState());
         getKeyMapping().put(Settings.UP,()->manager.testFunction());
 
 
@@ -35,6 +36,7 @@ public class GameStateController extends Controller {
         getBindings().add(new Listener(Settings.RIGHT, getKeyMapping().get(Settings.RIGHT)));
         //getBindings().add(new Listener(Settings.INV, getKeyMapping().get(Settings.INV)));
         getBindings().add(new Listener(Settings.ESCAPE, getKeyMapping().get(Settings.ESCAPE)));
+        getBindings().add(new Listener(Settings.P, getKeyMapping().get(Settings.P)));
 //        System.out.println("bindings: " + getBindings());
 
     }
