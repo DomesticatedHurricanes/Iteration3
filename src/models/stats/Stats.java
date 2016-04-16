@@ -17,7 +17,7 @@ public class Stats {
         this.maxHp += hp;
     }
 
-    public int getCurrentHp() { return maxHp;}
+    public int getCurrentHp() { return currentHp;}
 
     public void modifyCurrentHp(int hp) {
         this.currentHp += hp;
