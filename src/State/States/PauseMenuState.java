@@ -28,16 +28,16 @@ public class PauseMenuState extends State {
 
     @Override
     protected void addJFrame(JFrame frame) {
-
+        pauseMenuController.addJFrame(frame);
     }
 
     @Override
     protected void update() {
-
+        pauseMenuController.update();
     }
 
     @Override
     protected void render(Graphics g){
-
+        pauseMenuStateView.render(g);
     }
 }
