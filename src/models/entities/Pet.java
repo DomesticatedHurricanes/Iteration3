@@ -91,4 +91,8 @@ public class Pet extends AINpc implements Movement, TileVisitable {
         }
     }
 
+    @Override
+    public String getType() {
+        return "Pet";
+    }
 }

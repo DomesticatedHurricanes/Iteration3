@@ -20,18 +20,22 @@ public class Monster extends AINpc implements Movement {
         this.inventory = new Inventory(16);
     }
 
-    public void getNewDirection(){
+    public void getNewDirection() {
         monsterBrain.changeDirection();
     }
 
     //called when a monster attacks
-    public void attack() {}
+    public void attack() {
+    }
 
     //called when a monster uses a skill
-    public void useSkill() {}
+    public void useSkill() {
+    }
 
     @Override
-    public boolean canSwim() {return false;}
+    public boolean canSwim() {
+        return false;
+    }
 
     @Override
     public boolean canTraverse() {
@@ -49,32 +53,37 @@ public class Monster extends AINpc implements Movement {
     }
 
     /**
-     *       Getters and Setters
+     * Getters and Setters
      */
 
-    public void setMoving(boolean move){
+    public void setMoving(boolean move) {
         isMoving = move;
     }
 
-    public boolean getIsMoving(){
+    public boolean getIsMoving() {
         return isMoving;
     }
 
-    public void setAttacking(boolean attack){
+    public void setAttacking(boolean attack) {
         isAttacking = attack;
     }
 
-    public boolean getAttacking(){
+    public boolean getAttacking() {
         return isAttacking;
     }
 
-    public int getAggression(){
+    public int getAggression() {
 
         return monsterBrain.getAggression();
     }
 
+    @Override//Originally this was public Stats getStats()
+    public CharacterStats getStats() {
+        return npcStats;
+    }
+
     //Add Observer
-    public void addObserver(Observer observer){
+    public void addObserver(Observer observer) {
         observers.add(observer);
     }
 
@@ -82,14 +91,14 @@ public class Monster extends AINpc implements Movement {
 
     @Override
     public void notifyMove(Point3D point3D) {
-        for(Observer observer: observers){
+        for (Observer observer : observers) {
             observer.processMove(this, point3D);
         }
     }
 
     @Override
     public void notifyThought() {
-        for(Observer observer: observers){
+        for (Observer observer : observers) {
             observer.processThought(this);
         }
     }
