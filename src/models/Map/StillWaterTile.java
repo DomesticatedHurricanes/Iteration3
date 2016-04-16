@@ -4,6 +4,7 @@ import models.Graphics.GraphicAssets;
 import models.entities.Avatar;
 import models.entities.Monster;
 import models.entities.Pet;
+import utilities.Point3D;
 
 /**
  * Created by Michael on 4/7/16.
@@ -11,8 +12,8 @@ import models.entities.Pet;
 public class StillWaterTile extends Tile implements TileVisitor {
 
 
-    public StillWaterTile(MapPoint mapPoint){
-        super(mapPoint);
+    public StillWaterTile(Point3D point3D){
+        super(point3D);
         this.image = GraphicAssets.StillWaterTile;
     }
 
@@ -46,5 +47,9 @@ public class StillWaterTile extends Tile implements TileVisitor {
             return true;
         }
         return pet.canSwim();
+    }
+
+    public String getType(){
+        return "Water";
     }
 }

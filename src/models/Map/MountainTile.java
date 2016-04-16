@@ -4,14 +4,15 @@ import models.Graphics.GraphicAssets;
 import models.entities.Avatar;
 import models.entities.Monster;
 import models.entities.Pet;
+import utilities.Point3D;
 
 /**
  * Created by Michael on 4/7/16.
  */
 public class MountainTile extends Tile {
 
-    public MountainTile(MapPoint mapPoint){
-        super(mapPoint);
+    public MountainTile(Point3D point3D){
+        super(point3D);
         this.image = GraphicAssets.MountainTile;
     }
 
@@ -46,5 +47,9 @@ public class MountainTile extends Tile {
         }
 
         return pet.canTraverse();
+    }
+
+    public String getType(){
+        return "Mountain";
     }
 }

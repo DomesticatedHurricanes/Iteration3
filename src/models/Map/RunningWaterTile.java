@@ -4,6 +4,7 @@ import models.Graphics.GraphicAssets;
 import models.entities.Avatar;
 import models.entities.Monster;
 import models.entities.Pet;
+import utilities.Point3D;
 
 /**
  * Created by Michael on 4/7/16.
@@ -14,8 +15,8 @@ public class RunningWaterTile extends Tile {
     // private Direction dir
     private int speed;
 
-    public RunningWaterTile(MapPoint mapPoint){
-        super(mapPoint);
+    public RunningWaterTile(Point3D point3D){
+        super(point3D);
         this.image = GraphicAssets.RunningWaterTile;
     }
 
@@ -56,6 +57,8 @@ public class RunningWaterTile extends Tile {
         return pet.canSwim();
     }
 
-
-
+    @Override
+    public String getType() {
+        return "Running";
+    }
 }

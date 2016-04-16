@@ -4,14 +4,15 @@ import models.Graphics.GraphicAssets;
 import models.entities.Avatar;
 import models.entities.Monster;
 import models.entities.Pet;
+import utilities.Point3D;
 
 /**
  * Created by Michael on 4/7/16.
  */
 public class GrassTile extends Tile {
 
-    public GrassTile(MapPoint mapPoint){
-        super(mapPoint);
+    public GrassTile(Point3D point3D){
+        super(point3D);
         this.image = GraphicAssets.GrassTile;
     }
 
@@ -45,5 +46,9 @@ public class GrassTile extends Tile {
         }
 
         return pet.canWalk();
+    }
+
+    public String getType(){
+        return "Grass";
     }
 }

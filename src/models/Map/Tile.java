@@ -23,7 +23,7 @@ public abstract class Tile implements TileVisitor {
     protected AreaEffect areaEffect;
 
     //Methods of a tile
-    public Tile(MapPoint mapPoint){
+    public Tile(Point3D point3D){
         this.point3D = point3D;
     }
 
@@ -35,8 +35,8 @@ public abstract class Tile implements TileVisitor {
         this.image = image;
     }
 
-    public Point3D getMapPoint(){
-        return point3D;
+    public Point3D getPoint3D(){
+        return this.point3D;
     }
 
     public Entity getEntity(){ return entity; }
@@ -54,6 +54,19 @@ public abstract class Tile implements TileVisitor {
         }
         return true;
     }
+    public void apply(Entity entity){
+        for(Item item: items){
+            item.apply(entity);
+        }
+    }
+
+    public void applyAreaEffect(Entity entity){
+        this.areaEffect.activate(entity);
+    }
+
+    public int getDepth(){
+        return point3D.getZ();
+    }
 
     public void applyItems(Entity entity){
         for(Item item: items){
@@ -61,9 +74,6 @@ public abstract class Tile implements TileVisitor {
         }
     }
 
-    public void applyAreaEffect(Entity entity){
-
-    }
-
+    public abstract String getType();
 
 }

@@ -45,7 +45,6 @@ public class MonsterBrain extends AIBrain{
         }
     }
 
-
     public int getAggression(){
         return aggression;
     }

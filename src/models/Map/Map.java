@@ -2,6 +2,7 @@ package models.Map;
 
 
 import models.Graphics.GraphicAssets;
+import utilities.Point3D;
 
 /**
  * Created by Michael on 3/30/16.
@@ -10,21 +11,25 @@ import models.Graphics.GraphicAssets;
  */
 public class Map {
     private Tile[][] world;
+    private int width;
+    private int height;
 
     public Map(int width, int height){
 
+        this.height = height;
+        this.width = width;
         initializeMap(width,height);
         testTilesMap(width, height);
 //        testHeightMap(width,height);
     }
 
-    private void initializeMap(int width, int height){
+    public void initializeMap(int width, int height){
         Tile[][] tiles = new Tile[width][height];
 
         for(int i = 0; i < width; i++){
             for(int j = 0; j < height; j++){
                 // Temporary: the height increases from left to right
-                tiles[i][j] = new GrassTile(new MapPoint(i,j,i));
+                tiles[i][j] = new GrassTile(new Point3D(i,j,i));
             }
         }
 
@@ -100,29 +105,29 @@ public class Map {
             for(int j = 0; j < 9; j++){
                 // Water
                 if (tileMap[i][j] == 0){
-                    world[i][j] = new StillWaterTile(new MapPoint(i,j,i));
+                    world[i][j] = new StillWaterTile(new Point3D(i,j,i));
                 }
                 // Grass
                 if (tileMap[i][j] == 1){
-                    world[i][j] = new GrassTile(new MapPoint(i,j,i));
+                    world[i][j] = new GrassTile(new Point3D(i,j,i));
                     world[i][j].setImage(GraphicAssets.GroundGrassTile);
                 }
                 // Trees
                 if (tileMap[i][j] == 2){
-                    world[i][j] = new GrassTile(new MapPoint(i,j,0));
+                    world[i][j] = new GrassTile(new Point3D(i,j,0));
                 }
                 // Path
                 if (tileMap[i][j] == 3){
-                    world[i][j] = new MountainTile(new MapPoint(i,j,0));
+                    world[i][j] = new MountainTile(new Point3D(i,j,0));
                     world[i][j].setImage(GraphicAssets.GroundMountainTile);
                 }
                 // Mountain
                 if (tileMap[i][j] == 4){
-                    world[i][j] = new MountainTile(new MapPoint(i,j,0));
+                    world[i][j] = new MountainTile(new Point3D(i,j,0));
                 }
                 // Rock
                 if (tileMap[i][j] == 3){
-                    world[i][j] = new MountainTile(new MapPoint(i,j,0));
+                    world[i][j] = new MountainTile(new Point3D(i,j,0));
                     world[i][j].setImage(GraphicAssets.RockTile);
                 }
             }
@@ -131,5 +136,22 @@ public class Map {
 
     public Tile getTile(int x, int y){
         return world[x][y];
+    }
+
+    // TODO add the necessary check to see if the tile is blocked/too high
+    public boolean isBlocked(int x, int y){
+        return false;
+    }
+
+    public boolean isValid(int sz, int z){
+        return false;
+    }
+
+    public int getWidth(){
+        return width;
+    }
+
+    public int getHeight(){
+        return height;
     }
 }
