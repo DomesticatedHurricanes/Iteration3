@@ -11,4 +11,9 @@ public class PauseMenuController extends Controller {
     public PauseMenuController(JFrame jFrame){
         super(jFrame);
     }
+
+    @Override
+    public void addJFrame(JFrame jFrame) {
+
+    }
 }

@@ -11,4 +11,9 @@ public class EquipmentController extends Controller {
     public EquipmentController(JFrame jFrame){
         super(jFrame);
     }
+
+    @Override
+    public void addJFrame(JFrame jFrame) {
+
+    }
 }

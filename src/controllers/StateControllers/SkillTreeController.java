@@ -11,4 +11,9 @@ public class SkillTreeController extends Controller {
     public SkillTreeController(JFrame jFrame){
         super(jFrame);
     }
+
+    @Override
+    public void addJFrame(JFrame jFrame){
+        this.jFrame = jFrame;
+    }
 }

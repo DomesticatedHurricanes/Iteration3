@@ -11,4 +11,9 @@ public class SettingController extends Controller {
     public SettingController(JFrame jFrame){
         super(jFrame);
     }
+
+    @Override
+    public void addJFrame(JFrame jFrame) {
+
+    }
 }

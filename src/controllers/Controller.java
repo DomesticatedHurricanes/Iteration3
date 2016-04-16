@@ -14,14 +14,19 @@ import java.util.Map;
 public abstract class Controller {
     private Map<Integer, ListenerAction> keyMapping;
     private ArrayList<KeyListener> bindings;
-    JFrame jFrame;
-    public Controller(){}
+
+    protected JFrame jFrame;
+    public Controller(){
+        keyMapping = new HashMap<>();
+        bindings = new ArrayList<>();
+    }
     public Controller(JFrame jFrame) {
         this.jFrame=jFrame;
         keyMapping=new HashMap<>();
         bindings=new ArrayList<>();
     }
 
+    public abstract void addJFrame(JFrame jFrame);
 
     public void addToJframe(){
         for(KeyListener bind: bindings){

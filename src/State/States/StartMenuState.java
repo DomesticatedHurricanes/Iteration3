@@ -2,6 +2,8 @@ package State.States;
 
 import State.State;
 import State.StateManager;
+
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -15,6 +17,11 @@ public class StartMenuState extends State {
 
     @Override
     public void init(){
+
+    }
+
+    @Override
+    protected void addJFrame(JFrame frame) {
 
     }
 

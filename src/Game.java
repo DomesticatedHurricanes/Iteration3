@@ -31,9 +31,9 @@ public class Game implements Runnable {
 
     // Initializes the game
     private void init(){
-        System.out.print("Game; init game");
+       // System.out.print("Game; init game");
 //        stateManager = StateManager.getInstance();
-        System.out.println("Game; Current state: " + stateManager.getCurrentState());
+        //System.out.println("Game; Current state: " + stateManager.getCurrentState());
     }
 
     private void tick(){

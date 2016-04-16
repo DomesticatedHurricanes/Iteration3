@@ -11,4 +11,9 @@ public class StartMenuController extends Controller {
     public StartMenuController(JFrame jFrame){
         super(jFrame);
     }
+
+    @Override
+    public void addJFrame(JFrame jFrame) {
+
+    }
 }
