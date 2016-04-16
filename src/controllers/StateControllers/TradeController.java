@@ -18,4 +18,9 @@ public class TradeController extends Controller{
     public void addJFrame(JFrame jFrame) {
 
     }
+
+    @Override
+    public void update() {
+
+    }
 }

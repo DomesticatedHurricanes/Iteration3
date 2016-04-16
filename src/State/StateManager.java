@@ -2,6 +2,7 @@ package State;
 
 import State.States.CreationState;
 import State.States.GameState;
+import State.States.InventoryState;
 import State.States.StartMenuState;
 
 import javax.swing.*;
@@ -17,6 +18,7 @@ public class StateManager {
 
 
     private static GameState gameState;
+    private static InventoryState inventoryState;
     private CreationState creationState;
     private StartMenuState startMenuState;
 
@@ -36,13 +38,23 @@ public class StateManager {
     private static void init(){
         // Create states here
         gameState = new GameState(instance);
+        inventoryState = new InventoryState(instance);
 
         // Set the current state
         currentState = gameState;
 
-        // Initialize the keybindings for the states
-        gameState.init();
+        // Add states to the list
         states.add(gameState);
+        states.add(inventoryState);
+
+        //Initialize the states
+        initStates();
+    }
+
+    private static void initStates(){
+        for(State s: states){
+            s.init();
+        }
     }
 
     public void updateCurrentState(){
@@ -58,7 +70,10 @@ public class StateManager {
     }
 
     public void changeToInventoryState(){
-        currentState = null;
+        if (currentState != inventoryState){
+            System.out.println("Changing to inventorystate");
+            currentState = inventoryState;
+        }
     }
 
     public void changeToGameState(){
