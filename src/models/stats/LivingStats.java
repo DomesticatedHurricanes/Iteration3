@@ -6,8 +6,8 @@ package models.stats;
 //Description:This class is used in pet,npc,avatar
 public class LivingStats extends Stats{
     //Stats that all Living Entities have
-    protected int maxHp;
-    protected int currentHp;
+    //protected int maxHp;
+    //protected int currentHp;
     protected int strength;
     protected int hardiness;
     protected int lives;
@@ -16,7 +16,7 @@ public class LivingStats extends Stats{
 
 
     //Getters and modifiers for the stats
-    public int getMaxHp() {
+    /*public int getMaxHp() {
         return maxHp;
     }
 
@@ -28,7 +28,7 @@ public class LivingStats extends Stats{
 
     public void modifyCurrentHp(int hp) {
         this.currentHp += currentHp;
-    }
+    }*/
 
     public int getStrength() {
         return strength;

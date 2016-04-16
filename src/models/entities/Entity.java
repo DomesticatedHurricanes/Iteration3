@@ -2,6 +2,7 @@ package models.entities;
 
 
 
+import models.Inventory.Inventory;
 import utilities.Point3D;
 import models.stats.Stats;
 
@@ -20,6 +21,7 @@ public abstract class Entity {
         entityImage = null;
     }
 
+    Inventory inventory;//This needs to be initialized in the specfic implementation details
     public enum Orientation{
         NORTHWEST,
         NORTH,
@@ -30,11 +32,18 @@ public abstract class Entity {
     }
 
     public abstract Stats getStats();
-    public BufferedImage getEntityImage(){
-        return entityImage;
+
+    public abstract String getType();
+
+    public Inventory getInventory(){
+        return inventory;
     }
 
     public Point3D getLocation() {
         return location;
     }
+    public BufferedImage getEntityImage(){
+        return entityImage;
+    }
+
 }

@@ -77,7 +77,7 @@ public abstract class Tile implements TileVisitor {
     }
 
 
-<<<<<<< HEAD
+
     public void setImageHeight(){
 
         switch (point3D.getZ()) {
@@ -120,16 +120,12 @@ public abstract class Tile implements TileVisitor {
         return imageHeight;
     }
 
-=======
-    public void applyItems(Entity entity){
-        for(Item item: items){
-            item.apply(entity);
-        }
-    }
+
+
 
 
 
     public abstract String getType();
->>>>>>> eb8cf4a2737c47da7423f6227614f60d729c0781
+
 
 }
