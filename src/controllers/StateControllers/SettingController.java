@@ -11,4 +11,17 @@ public class SettingController extends Controller {
     public SettingController(JFrame jFrame){
         super(jFrame);
     }
+
+
+    public void init() { }
+
+    @Override
+    public void addJFrame(JFrame jFrame) {
+
+    }
+
+    @Override
+    public void update(){
+
+    }
 }

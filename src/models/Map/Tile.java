@@ -42,8 +42,11 @@ public abstract class Tile implements TileVisitor {
     public Point3D getPoint3D(){
         return this.point3D;
     }
+    //The coressponding tile's point3d
 
     public Entity getEntity(){ return entity; }
+
+    public boolean hasEntity(){return(entity!=null);}
 
     public void insertEntity(Entity entity){
         this.entity = entity;
@@ -68,12 +71,13 @@ public abstract class Tile implements TileVisitor {
         this.areaEffect.activate(entity);
     }
 
+
     public int getDepth(){
         return point3D.getZ();
     }
 
-    public abstract String getType();
 
+<<<<<<< HEAD
     public void setImageHeight(){
 
         switch (point3D.getZ()) {
@@ -116,5 +120,16 @@ public abstract class Tile implements TileVisitor {
         return imageHeight;
     }
 
+=======
+    public void applyItems(Entity entity){
+        for(Item item: items){
+            item.apply(entity);
+        }
+    }
+
+
+
+    public abstract String getType();
+>>>>>>> eb8cf4a2737c47da7423f6227614f60d729c0781
 
 }

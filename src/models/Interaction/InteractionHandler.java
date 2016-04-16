@@ -9,8 +9,9 @@ import models.entities.Entity;
 public abstract class InteractionHandler {
 
     protected Map map;
-
+    protected MovementHandler movementHandler;
     public InteractionHandler() {
+        movementHandler = new MovementHandler(map);
 
     }
 

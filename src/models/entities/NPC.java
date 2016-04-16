@@ -1,10 +1,10 @@
 package models.entities;
 
-import models.Interaction.Observer;
-import models.stats.CharacterStats;
-import utilities.Point3D;
 
-import java.util.ArrayList;
+import models.stats.CharacterStats;
+import models.Inventory.Inventory;
+import models.stats.Stats;
+
 
 /**
  * Created by Breanna on 4/13/16.
@@ -14,12 +14,11 @@ import java.util.ArrayList;
 public abstract class NPC extends Entity {
 
     protected CharacterStats npcStats;
-    //Inventory inventory;
+    protected Inventory inventory;
 
-    protected ArrayList<Observer> observers = new ArrayList<>();
-
-
-    public abstract void notifyMove(Point3D point3D);
-    public abstract void notifyThought();
+    @Override
+    public Stats getStats() {
+        return npcStats;
+    }
 }
 

@@ -13,16 +13,28 @@ import java.awt.image.BufferedImage;
  */
 
 public abstract class Entity {
-    Point3D point3D;
+    Point3D location;
     BufferedImage entityImage;
     public Entity(){
-        point3D =null;
+        location =null;
         entityImage = null;
     }
+
+    public enum Orientation{
+        NORTHWEST,
+        NORTH,
+        NORTHEAST,
+        SOUTHWEST,
+        SOUTH,
+        SOUTHEAST
+    }
+
     public abstract Stats getStats();
     public BufferedImage getEntityImage(){
         return entityImage;
     }
 
-
+    public Point3D getLocation() {
+        return location;
+    }
 }

@@ -6,6 +6,8 @@ import controllers.StateControllers.GameStateController;
 import models.Map.Map;
 
 import State.StateManager;
+
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -17,13 +19,26 @@ public class GameState extends State{
     private Map map;
 
 
-    public GameState(StateManager stateManager){
-        super(stateManager);
+    public GameState(StateManager stateManager, JFrame jFrame){
+        super(stateManager, jFrame);
         gameStateView = new GameStateView();
-        gameStateController = new GameStateController(this.stateManager);
-        //this.gameStateView = new GameStateView();
-        //this.gameStateController = new GameStateController();
-        this.map = map;
+        gameStateController = new GameStateController(this.stateManager,this,jFrame);
+    }
+    public void setActive(){
+        gameStateController.addToJframe();
+    }
+
+    public void setInactive(){
+        gameStateController.removeFromJframe();
+    }
+    @Override
+    public void init(){
+        //gameStateController.init();
+    }
+
+    @Override
+    protected void addJFrame(JFrame jFrame){
+        gameStateController.addJFrame(jFrame);
     }
 
     @Override
@@ -37,8 +52,5 @@ public class GameState extends State{
     }
 
 
-    public void tick(){
-
-    }
 
 }

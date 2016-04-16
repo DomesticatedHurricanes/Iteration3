@@ -11,4 +11,14 @@ public class TradeViewController extends Controller {
     public TradeViewController(JFrame jFrame){
         super(jFrame);
     }
+
+    @Override
+    public void addJFrame(JFrame jFrame) {
+
+    }
+
+    @Override
+    public void update() {
+
+    }
 }

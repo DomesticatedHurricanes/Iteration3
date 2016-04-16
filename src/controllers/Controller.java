@@ -1,7 +1,6 @@
 package controllers;
 
-import controllers.ListenerAction;
-
+import State.StateManager;
 import javax.swing.*;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
@@ -14,24 +13,34 @@ import java.util.Map;
 public abstract class Controller {
     private Map<Integer, ListenerAction> keyMapping;
     private ArrayList<KeyListener> bindings;
-    JFrame jFrame;
-    public Controller(){}
+    protected StateManager manager;
+    protected JFrame jFrame;
+
+
+    public Controller(){
+        keyMapping = new HashMap<>();
+        bindings = new ArrayList<>();
+    }
     public Controller(JFrame jFrame) {
         this.jFrame=jFrame;
         keyMapping=new HashMap<>();
         bindings=new ArrayList<>();
     }
 
+    public abstract void addJFrame(JFrame jFrame);
+    public abstract void update();
 
     public void addToJframe(){
         for(KeyListener bind: bindings){
             jFrame.addKeyListener(bind);
         }
+        //System.out.println("making keybinds");
     }
-    public void removeFromKeybindings(){
+    public void removeFromJframe(){
         for(KeyListener bind: bindings){
             jFrame.removeKeyListener(bind);
         }
+        //System.out.println("purging keybinds");
     }
     public Map<Integer, ListenerAction> getKeyMapping() {
         return keyMapping;

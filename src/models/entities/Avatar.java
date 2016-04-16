@@ -1,7 +1,8 @@
 package models.entities;
 
 
-import models.Item.Inventory;
+import models.Inventory.Inventory;
+import models.Item.Item;
 import models.Item.Takeable.Equippable.*;
 import models.Item.Takeable.TakeableItemVisitor;
 import models.Map.Tile;
@@ -25,12 +26,13 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
 
 
     public Avatar(Occupation occupation){
-        this.inventory = new Inventory();
+        this.inventory = new Inventory(16);
         this.occupation = occupation;
         stats = new CharacterStats();
         occupation.initStats(stats);
         occupation.initImage(entityImage);
     }
+
 
     //called when an Avatar uses a skill
     public void useSkill() { }
@@ -78,6 +80,39 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
 
     public void equipTwoHandedWeapon(TwoHandedWeapon twoHandedWeapon){ inventory.equipTwoHandedWeapon(twoHandedWeapon);}
 
+    public void equipGloves(Gloves gloves){inventory.equipGloves(gloves);}
+
+    //Unequipping functions
+    public void unequipHelmet(){
+        inventory.unequipHelmet();
+    }
+
+    public void unequipChestPlate() {
+        inventory.unequipChestPlate();
+    }
+
+    public void unequipOneHandedWeapon(){ inventory.unequipOneHandedWeapon();}
+
+    public void unequipRangedWeapon(){
+        inventory.unequipRangedWeapon();
+    }
+
+    public void unequipSlacks(){
+        inventory.unequipSlacks();
+    }
+
+    public void unequipBoots(){
+        inventory.unequipBoots();
+    }
+
+    public void unequipTwoHandedWeapon(){ inventory.unequipTwoHandedWeapon();}
+
+    public void unequipGloves(){inventory.unequipGloves();}
+
+    //Pack functions
+    public void addItem(Item item){inventory.addItem(item);}
+
+    public void removeItem(Item item){inventory.removeItem(item);}
     
     //Movement booleans
     @Override
@@ -106,6 +141,7 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
         return stats;
     }
 
+    public Inventory getInventory(){return inventory;}
 
 
 }
