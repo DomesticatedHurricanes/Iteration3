@@ -1,6 +1,9 @@
 package controllers.StateControllers;
 
+import State.StateManager;
 import controllers.Controller;
+import controllers.Listener;
+import utilities.Settings;
 
 import javax.swing.*;
 
@@ -12,8 +15,15 @@ public class PauseMenuController extends Controller {
         super(jFrame);
     }
 
+    public PauseMenuController(StateManager stateManager){
+        super();
+        this.manager = stateManager;
+    }
 
-    public void init() { }
+    public void init() {
+        getKeyMapping().put(Settings.ESCAPE,()->manager.changeToGameState());
+        getBindings().add(new Listener(Settings.ESCAPE, getKeyMapping().get(Settings.ESCAPE)));
+    }
 
     @Override
     public void addJFrame(JFrame jFrame) {
