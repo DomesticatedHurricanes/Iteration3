@@ -14,7 +14,8 @@ import java.awt.*;
 public class LoadState extends State {
     private LoadController loadController;
 
-    public LoadState(StateManager stateManager) { super(stateManager); }
+    public LoadState(StateManager stateManager, JFrame jFrame){
+        super(stateManager, jFrame);}
 
     @Override
     public void init(){

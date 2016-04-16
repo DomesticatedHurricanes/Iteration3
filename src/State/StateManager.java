@@ -27,14 +27,16 @@ public class StateManager {
     private static SkillTreeState skillTreeState;
     private static TradeState tradeState;
 
+    private static JFrame jFrame;
     private static StateManager instance;
-    private StateManager(){
+    private StateManager(JFrame jFrame){
+        this.jFrame=jFrame;
         this.states = new ArrayList<>();
     }
 
-    public static synchronized StateManager getInstance(){
+    public static synchronized StateManager getInstance(JFrame jFrame){
         if (instance == null){
-            instance = new StateManager();
+            instance = new StateManager(jFrame);
             init();
         }
         return instance;
@@ -42,22 +44,24 @@ public class StateManager {
 
     private static void init(){
         // Create states here
-        gameState = new GameState(instance);
-        inventoryState = new InventoryState(instance);
-        creationState = new CreationState(instance);
-        startMenuState = new StartMenuState(instance);
-        pauseMenuState = new PauseMenuState(instance);
-        saveState = new SaveState(instance);
-        equipmentState = new EquipmentState(instance);
-        gameOverState = new GameOverState(instance);
-        loadState = new LoadState(instance);
-        settingState = new SettingState(instance);
-        skillTreeState = new SkillTreeState(instance);
-        tradeState = new TradeState(instance);
+
+        gameState = new GameState(instance, jFrame);
+        inventoryState = new InventoryState(instance,jFrame);
+        creationState = new CreationState(instance,jFrame);
+        startMenuState = new StartMenuState(instance,jFrame);
+        pauseMenuState = new PauseMenuState(instance,jFrame);
+        saveState = new SaveState(instance,jFrame);
+        equipmentState = new EquipmentState(instance,jFrame);
+        gameOverState = new GameOverState(instance,jFrame);
+        loadState = new LoadState(instance,jFrame);
+        settingState = new SettingState(instance,jFrame);
+        skillTreeState = new SkillTreeState(instance,jFrame);
+        tradeState = new TradeState(instance,jFrame);
+
 
         // Set the current state
         currentState = gameState;
-
+        currentState.setActive();
         // Add states to the list
         states.add(gameState);
         states.add(inventoryState);
@@ -70,6 +74,10 @@ public class StateManager {
         for(State s: states){
             s.init();
         }
+    }
+
+    public void setJframe(JFrame jframe){
+        this.jFrame=jframe;
     }
 
     public void updateCurrentState(){
@@ -85,16 +93,23 @@ public class StateManager {
     }
 
     public void changeToInventoryState(){
+        //System.out.println("well its changing");
         if (currentState != inventoryState){
-            System.out.println("Changing to inventorystate");
+            currentState.setInactive();
+            //System.out.println("Changing to inventorystate");
             currentState = inventoryState;
+            currentState.setActive();
         }
     }
 
     public void changeToGameState(){
+        //System.out.println("well its changing");
+
         if (currentState != gameState){
-            System.out.println("Changing to gamestate");
+            currentState.setInactive();
+            //System.out.println("Changing to gamestate");
             currentState = gameState;
+            currentState.setActive();
         }
     }
 
