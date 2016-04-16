@@ -22,14 +22,16 @@ public class StateManager {
     private CreationState creationState;
     private StartMenuState startMenuState;
 
+    private static JFrame jFrame;
     private static StateManager instance;
-    private StateManager(){
+    private StateManager(JFrame jFrame){
+        this.jFrame=jFrame;
         this.states = new ArrayList<>();
     }
 
-    public static synchronized StateManager getInstance(){
+    public static synchronized StateManager getInstance(JFrame jFrame){
         if (instance == null){
-            instance = new StateManager();
+            instance = new StateManager(jFrame);
             init();
         }
         return instance;
@@ -37,12 +39,12 @@ public class StateManager {
 
     private static void init(){
         // Create states here
-        gameState = new GameState(instance);
-        inventoryState = new InventoryState(instance);
+        gameState = new GameState(instance,jFrame);
+        inventoryState = new InventoryState(instance, jFrame);
 
         // Set the current state
         currentState = gameState;
-
+        currentState.setActive();
         // Add states to the list
         states.add(gameState);
         states.add(inventoryState);
@@ -55,6 +57,10 @@ public class StateManager {
         for(State s: states){
             s.init();
         }
+    }
+
+    public void setJframe(JFrame jframe){
+        this.jFrame=jframe;
     }
 
     public void updateCurrentState(){
@@ -70,16 +76,23 @@ public class StateManager {
     }
 
     public void changeToInventoryState(){
+        System.out.println("well its changing");
         if (currentState != inventoryState){
+            currentState.setInactive();
             System.out.println("Changing to inventorystate");
             currentState = inventoryState;
+            currentState.setActive();
         }
     }
 
     public void changeToGameState(){
+        System.out.println("well its changing");
+
         if (currentState != gameState){
+            currentState.setInactive();
             System.out.println("Changing to gamestate");
             currentState = gameState;
+            currentState.setActive();
         }
     }
 

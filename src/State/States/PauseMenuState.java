@@ -13,7 +13,8 @@ import java.awt.*;
 public class PauseMenuState extends State {
     private PauseMenuController pauseMenuController;
 
-    public PauseMenuState(StateManager stateManager) { super(stateManager); }
+    public PauseMenuState(StateManager stateManager, JFrame jFrame){
+        super(stateManager, jFrame);}
 
     @Override
     public void init(){
