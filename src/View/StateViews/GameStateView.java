@@ -2,6 +2,9 @@ package View.StateViews;
 
 import models.Graphics.GraphicAssets;
 import models.Map.Map;
+import models.Map.Map3D;
+
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -31,20 +34,33 @@ public class GameStateView  extends  StateView{
 
     @Override
     public void render(Graphics g){
+        // Get the current BufferStrategy
+
         //System.out.println("Printing gameview");
+
 
         // Start the map in the top left corner.
         mapStartX = 0;
         mapStartY = 0;
 
-        // The end of what we expect to render of the map should either be limited by the size of the map or the size of the viewport (i.e. the window)
-        mapEndX = Math.min(9, (int)Math.ceil(400/ GraphicAssets.TILE_PX_WIDTH));
-        mapEndY = Math.min(9, (int)Math.ceil(600/ GraphicAssets.TILE_PX_HEIGHT));
-
-        mapCameraCenter = new Point((mapStartX + mapEndX)/2, (mapStartY + mapEndY)/2);
 
         Map world = new Map(10,10);
-        utilities.Renderer.mapRenderer.render(g,world,mapCameraCenter,mapStartX,mapEndX,mapStartY,mapEndY);
+        Map3D world3D = new Map3D(10);
+
+        // The end of what we expect to render of the map should either be limited by the size of the map or the size of the viewport (i.e. the window)
+        mapEndX = Math.min(world3D.getWidth() , (int)Math.ceil(400/ GraphicAssets.TILE_PX_WIDTH));
+        mapEndY = Math.min(world3D.getHeight(), (int)Math.ceil(600/ GraphicAssets.TILE_PX_HEIGHT));
+
+        mapCameraCenter = new Point((mapStartX + mapEndX)/2, (mapStartY + mapEndY)/2);
+        utilities.Renderer.mapRenderer.render(g, world3D, mapCameraCenter, mapStartX, mapEndX, mapStartY, mapEndY);
+        //utilities.Renderer.mapRenderer.render(g,world3D,mapCameraCenter,mapEndX,mapEndY);
+        //Renderer.mapRenderer.render2(g,world,mapCameraCenter,mapStartX,mapEndX,mapStartY,mapEndY);
+        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+        // End drawing
+//        g.dispose();
+        //utilities.Renderer.mapRenderer.render(g,world,mapCameraCenter,mapStartX,mapEndX,mapStartY,mapEndY);
+
     }
 
 }

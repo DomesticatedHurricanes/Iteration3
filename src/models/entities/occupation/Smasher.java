@@ -1,9 +1,12 @@
 package models.entities.occupation;
 
+import models.Graphics.GraphicAssets;
 import models.entities.Avatar;
 import models.stats.StatModifier;
 import models.stats.StatModifiers;
 import models.stats.Stats;
+
+import java.awt.image.BufferedImage;
 
 /**
  * Created by ben on 4/11/16.
@@ -35,5 +38,10 @@ public class Smasher implements Occupation{
     @Override
     public void initSkills(Avatar avatar) {
 
+    }
+
+    @Override
+    public void initImage(BufferedImage bufferedImage) {
+        bufferedImage = GraphicAssets.smasher;
     }
 }

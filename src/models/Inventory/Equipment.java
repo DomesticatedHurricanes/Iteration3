@@ -114,4 +114,15 @@ public class Equipment {
     public void unequipGloves(){
         this.gloves = null;
     }
+
+    //print methods
+    public void printInventoryContents(){
+        System.out.println("Helmet: " + helmet);
+        System.out.println("Chest Plate: " + chestPlate);
+        System.out.println("Left Hand: " +leftHand);
+        System.out.println("Right Hand: " + rightHand);
+        System.out.println("Slacks: " + slacks);
+        System.out.println("Boots: " + boots);
+        System.out.println("Gloves: " + gloves);
+    }
 }

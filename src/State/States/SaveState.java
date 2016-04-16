@@ -13,8 +13,8 @@ import java.awt.*;
 public class SaveState extends State {
     SaveController saveController;
 
-    public SaveState(StateManager stateManager){
-        super(stateManager);
+    public SaveState(StateManager stateManager, JFrame jFrame){
+        super(stateManager, jFrame);
     }
 
     @Override

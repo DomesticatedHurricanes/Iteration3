@@ -12,16 +12,20 @@ public class Pack {
     int sizeOfPack;
 
     public Pack(int sizeOfPack){
+        items = new ArrayList<>();
         this.sizeOfPack = sizeOfPack;
     }
 
     public boolean isNotFull(){
-        return items.size() < sizeOfPack;
+        return (items.size() < sizeOfPack);
     }
 
     public void addItem(Item item){
         if(isNotFull()){ //if pack is already full you cannot add the item to the pack
             items.add(item);
+        }
+        else{
+            System.out.println("Full");
         }
         //go to interaction handler  to drop an item
     }
