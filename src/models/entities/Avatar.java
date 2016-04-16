@@ -1,6 +1,8 @@
 package models.entities;
 
-import models.Item.Inventory;
+
+import models.Inventory.Inventory;
+import models.Item.Item;
 import models.Item.Takeable.Equippable.*;
 import models.Item.Takeable.TakeableItemVisitor;
 import models.Map.Tile;
@@ -22,11 +24,14 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
 
 
     public Avatar(Occupation occupation){
-        this.inventory = new Inventory();
+        this.inventory = new Inventory(16);
         this.occupation = occupation;
         stats = new CharacterStats();
         occupation.initStats(stats);
     }
+
+    //called when an Avatar uses a skill
+    public void useSkill() { }
 
     //Visitable methods
     @Override
@@ -34,6 +39,7 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
         return tile.visit(this);
     }
 
+    //called when an Avatar does an attack
     @Override
     public void accept(TakeableItemVisitor takeableItemVisitor) {
         takeableItemVisitor.visit(this);
@@ -56,10 +62,53 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
 
     public void equipOneHandedWeapon(OneHandedWeapon oneHandedWeapon){ inventory.equipOneHandedWeapon(oneHandedWeapon);}
 
+    public void equipRangedWeapon(Ranged rangedWeapon){
+        inventory.equipRangedWeapon(rangedWeapon);
+    }
+
+    public void equipSlacks(Slacks slacks){
+        inventory.equipSlacks(slacks);
+    }
+
+    public void equipBoots(Boots boots){
+        inventory.equipBoots(boots);
+    }
+
     public void equipTwoHandedWeapon(TwoHandedWeapon twoHandedWeapon){ inventory.equipTwoHandedWeapon(twoHandedWeapon);}
 
-    public void equipRangedWeapon(Ranged rangedWeapon){ inventory.equipRangedWeapon(rangedWeapon);}
+    public void equipGloves(Gloves gloves){inventory.equipGloves(gloves);}
 
+    //Unequipping functions
+    public void unequipHelmet(Helmet helmet){
+        inventory.unequipHelmet();
+    }
+
+    public void unequipChestPlate(ChestPlate chestPlate) {
+        inventory.unequipChestPlate();
+    }
+
+    public void unequipOneHandedWeapon(OneHandedWeapon oneHandedWeapon){ inventory.unequipOneHandedWeapon();}
+
+    public void unequipRangedWeapon(Ranged rangedWeapon){
+        inventory.unequipRangedWeapon();
+    }
+
+    public void unequipSlacks(Slacks slacks){
+        inventory.unequipSlacks();
+    }
+
+    public void unequipBoots(Boots boots){
+        inventory.unequipBoots();
+    }
+
+    public void unequipTwoHandedWeapon(TwoHandedWeapon twoHandedWeapon){ inventory.unequipTwoHandedWeapon();}
+
+    public void unequipGloves(Gloves gloves){inventory.unequipGloves();}
+
+    //Pack functions
+    public void addItem(Item item){inventory.addItem(item);}
+
+    public void removeItem(Item item){inventory.removeItem(item);}
     
     //Movement booleans
     @Override
@@ -75,6 +124,11 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
     @Override
     public boolean canWalk() {
         return true;
+    }
+
+    @Override
+    public boolean canFly() {
+        return false;
     }
 
     //Getters

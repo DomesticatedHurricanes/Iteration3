@@ -1,6 +1,5 @@
 package models.entities;
 
-import models.Map.Tile;
 import models.stats.VehicleStats;
 import models.stats.Stats;
 
@@ -9,8 +8,6 @@ import models.stats.Stats;
  * This class represents a vehicle in the game
  * Subclass of entity
  */
-
-
 
 public class Vehicle extends Entity{
     private VehicleStats vehicleStats;

@@ -47,4 +47,8 @@ public class GrassTile extends Tile {
 
         return pet.canWalk();
     }
+
+    public String getType(){
+        return "Grass";
+    }
 }
