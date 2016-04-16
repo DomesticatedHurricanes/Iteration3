@@ -13,7 +13,12 @@ public class StartMenuController extends Controller {
         this.manager = stateManager;
     }
 
+
     public void init() { }
 
     public void update() { }
+    @Override
+    public void addJFrame(JFrame jFrame) {
+
+    }
 }

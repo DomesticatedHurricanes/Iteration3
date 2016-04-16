@@ -44,8 +44,9 @@ public class View implements Runnable{
         frame = new JFrame(title);
         frame.setSize(width, height);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(true);
-        frame.setLocationRelativeTo(null);
+        //frame.setResizable(true);
+        frame.setFocusable(true);
+        //frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
         canvas = new Canvas();
@@ -104,6 +105,8 @@ public class View implements Runnable{
 
         // Start drawing the current state's view here
         stateManager.renderCurrentState(g);
+        //System.out.println("View: Frame :" + frame);
+        stateManager.addJFrameToCurrentState(frame);
 
         // End drawing
         bufferStrategy.show();

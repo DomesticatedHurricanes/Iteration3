@@ -6,6 +6,8 @@ import controllers.StateControllers.GameStateController;
 import models.Map.Map;
 
 import State.StateManager;
+
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -26,6 +28,11 @@ public class GameState extends State{
     @Override
     public void init(){
         gameStateController.init();
+    }
+
+    @Override
+    protected void addJFrame(JFrame jFrame){
+        gameStateController.addJFrame(jFrame);
     }
 
     @Override

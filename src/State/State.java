@@ -1,6 +1,7 @@
 package State;
 
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -14,6 +15,7 @@ public abstract class State {
     }
 
     public abstract void init();
+    protected abstract void addJFrame(JFrame frame);
     protected abstract void update();
     protected abstract void render(Graphics g);
 

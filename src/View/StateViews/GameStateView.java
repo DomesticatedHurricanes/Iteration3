@@ -1,12 +1,8 @@
 package View.StateViews;
 
-import View.View;
 import models.Graphics.GraphicAssets;
 import models.Map.Map;
-
-import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferStrategy;
 
 /**
  * Created by Michael on 4/14/16.

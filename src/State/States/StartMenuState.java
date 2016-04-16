@@ -3,6 +3,7 @@ package State.States;
 import State.State;
 import State.StateManager;
 import controllers.StateControllers.StartMenuController;
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -18,6 +19,11 @@ public class StartMenuState extends State {
     @Override
     public void init(){
         startMenuController.init();
+    }
+
+    @Override
+    protected void addJFrame(JFrame frame) {
+
     }
 
     @Override

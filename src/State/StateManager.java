@@ -4,6 +4,7 @@ import State.States.CreationState;
 import State.States.GameState;
 import State.States.StartMenuState;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -52,18 +53,27 @@ public class StateManager {
         currentState.render(g);
     }
 
+    public void addJFrameToCurrentState(JFrame frame){
+        currentState.addJFrame(frame);
+    }
+
     public void changeToInventoryState(){
         currentState = null;
     }
 
     public void changeToGameState(){
         if (currentState != gameState){
+            System.out.println("Changing to gamestate");
             currentState = gameState;
         }
     }
 
     public State getCurrentState(){
         return currentState;
+    }
+
+    public void testFunction(){
+        System.out.println("HIII");
     }
 
 

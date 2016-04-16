@@ -12,5 +12,11 @@ public class InventoryController extends Controller {
         super(jFrame);
     }
 
+
     public void init() { }
+
+    @Override
+    public void addJFrame(JFrame jFrame) {
+
+    }
 }
