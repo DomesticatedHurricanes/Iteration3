@@ -57,6 +57,8 @@ public class RunningWaterTile extends Tile {
         return pet.canSwim();
     }
 
-
-
+    @Override
+    public String getType() {
+        return "Running";
+    }
 }

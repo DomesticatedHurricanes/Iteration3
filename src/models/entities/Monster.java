@@ -1,30 +1,23 @@
 package models.entities;
 
-import models.stats.Stats;
+import models.Interaction.Observer;
 
 import models.AI.MonsterBrain;
 
 import models.stats.CharacterStats;
-
-
+import models.Inventory.Inventory;
 import utilities.Point3D;
 
-/**
- * Created by Breanna on 4/13/16.
- * Monster is a hostile NPC in the game
- */
+public class Monster extends AINpc implements Movement {
 
-
-
-public class Monster extends NPC implements Movement{
-    CharacterStats stats;
-    private MonsterBrain monsterBrain;
     private boolean isMoving;
     private boolean isAttacking;
+    private MonsterBrain monsterBrain;
 
     public Monster() {
         this.monsterBrain = new MonsterBrain();
-        this.stats = new CharacterStats();
+        this.npcStats = new CharacterStats();
+        this.inventory = new Inventory(16);
     }
 
     public void getNewDirection(){
@@ -50,8 +43,13 @@ public class Monster extends NPC implements Movement{
         return true;
     }
 
+    @Override
+    public boolean canFly() {
+        return false;
+    }
+
     /**
-    *       Getters and Setters
+     *       Getters and Setters
      */
 
     public void setMoving(boolean move){
@@ -75,11 +73,6 @@ public class Monster extends NPC implements Movement{
         return monsterBrain.getAggression();
     }
 
-    @Override
-    public Stats getStats() {
-        return stats;
-    }
-
     //Add Observer
     public void addObserver(Observer observer){
         observers.add(observer);
@@ -101,4 +94,3 @@ public class Monster extends NPC implements Movement{
         }
     }
 }
-

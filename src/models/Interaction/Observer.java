@@ -1,6 +1,7 @@
-package models.entities;
+package models.Interaction;
 
 import models.Map.Tile;
+import models.entities.NPC;
 import utilities.Point3D;
 
 /**

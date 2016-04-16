@@ -1,5 +1,6 @@
 package models.effects;
 
+import models.entities.Entity;
 import utilities.Point3D;
 
 import java.util.Queue;
@@ -23,7 +24,7 @@ public abstract class Effect {
     protected Point3D origin;
     protected int range;
     protected ArrayList<Point3D> tilePoints = new ArrayList<>();
-
+    protected Entity.Orientation orientation;
     //need to put pathfinder in here make abstract
     public abstract Queue<Point3D> tileFinder();
 

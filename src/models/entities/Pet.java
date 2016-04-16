@@ -1,7 +1,9 @@
 package models.entities;
 
+import models.Interaction.Observer;
 import models.Map.Tile;
 import models.stats.LivingStats;
+import models.Inventory.Inventory;
 
 import models.AI.PetBrain;
 import utilities.Point3D;
@@ -13,13 +15,15 @@ import utilities.Point3D;
  */
 
 
-public class Pet extends NPC implements Movement, TileVisitable {
+public class Pet extends AINpc implements Movement, TileVisitable {
+
     private LivingStats stats;
     private PetBrain petBrain;
 
     public Pet() {
         this.petBrain = new PetBrain();
         this.stats = new LivingStats();
+        this.inventory = new Inventory(16);
     }
     @Override
     public boolean accept(Tile tile) {
@@ -27,7 +31,7 @@ public class Pet extends NPC implements Movement, TileVisitable {
     }
 
 
-
+    //Movement booleans
     @Override
     public boolean canSwim() {
         return false;
@@ -41,6 +45,11 @@ public class Pet extends NPC implements Movement, TileVisitable {
     @Override
     public boolean canWalk() {
         return true;
+    }
+
+    @Override
+    public boolean canFly() {
+        return false;
     }
 
     public boolean decideToSteal(){
@@ -57,6 +66,7 @@ public class Pet extends NPC implements Movement, TileVisitable {
     //AI functions
     public void makeMove(){
         notifyMove(petBrain.changeDirection());
+
     }
 
 
@@ -80,6 +90,5 @@ public class Pet extends NPC implements Movement, TileVisitable {
             observer.processThought(this);
         }
     }
-
 
 }

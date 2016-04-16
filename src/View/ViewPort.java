@@ -8,10 +8,11 @@ import javax.swing.*;
 /**
  * Created by Dartyx on 4/7/2016.
  */
-public class ViewPort implements Runnable {
+public abstract class ViewPort implements Runnable {
     boolean alive=false;
     StateManager stateManager;
     ControllerManager controllerManager;
+    public ViewPort(){}
     public ViewPort(StateManager stateManager, ControllerManager controllerManager){
         JFrame jFrame = new JFrame();
         //JPanel startMenu

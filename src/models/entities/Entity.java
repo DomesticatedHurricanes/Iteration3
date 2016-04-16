@@ -12,11 +12,21 @@ import models.stats.Stats;
 
 public abstract class Entity {
 
-    Point3D point3D;
+    Point3D location;
+
+    public enum Orientation{
+        NORTHWEST,
+        NORTH,
+        NORTHEAST,
+        SOUTHWEST,
+        SOUTH,
+        SOUTHEAST
+    }
+
 
     public abstract Stats getStats();
 
     public Point3D getCurrentLocation(){
-        return point3D;
+        return location;
     }
 }

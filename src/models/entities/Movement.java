@@ -9,4 +9,5 @@ public interface Movement {
     boolean canWalk();
     boolean canSwim();
     boolean canTraverse();
+    boolean canFly();
 }

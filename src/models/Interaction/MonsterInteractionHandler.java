@@ -22,8 +22,8 @@ public class MonsterInteractionHandler extends InteractionHandler{
 
     }
 
+    @Override
     protected void tileInteraction(Entity entity){
-
     }
 
     public boolean isPursuingAvatar(){

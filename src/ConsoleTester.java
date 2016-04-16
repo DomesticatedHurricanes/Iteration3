@@ -1,7 +1,11 @@
+
+import models.effects.AngularEffect;
+
+import models.Map.Map3D;
+
 import models.effects.HemiConicalEffect;
-import models.effects.HemiSphericalEffect;
-import models.effects.PrismEffect;
-import models.effects.RadialEffect;
+import models.effects.LinearEffect;
+import models.entities.Entity;
 import utilities.Point3D;
 
 import java.util.ArrayList;
@@ -11,15 +15,16 @@ import java.util.ArrayList;
  */
 public class ConsoleTester {
     public static void main(String args[]){
-        System.out.println("Hello World");
-        /*Point3D point = new Point3D(0,0,3);
-        new RadialEffect(point, 2);
-        PrismEffect prismEffect = new PrismEffect(point,2);
-        ArrayList<Point3D> tester;
-        tester = prismEffect.getTilePoints();
-        for(int i = 0;i<tester.size();i++){
-            System.out.println("Tester X is "+tester.get(i).getX() + " "+ tester.get(i).getY()+" "+tester.get(i).getZ());
-        }*/
+
+        Point3D point = new Point3D(0,0,0);
+        HemiConicalEffect hemiConicalEffect= new HemiConicalEffect(point,3, Entity.Orientation.NORTH);
+        ArrayList<Point3D> arrayList = hemiConicalEffect.getTilePoints();
+        for(Point3D i:arrayList){
+            System.out.println(i.getX()+ " "+ i.getY()+" "+i.getZ());
+        }
+
+        Map3D map3D = new Map3D(5);
+        map3D.testMap();
 
     }
 }
