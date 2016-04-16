@@ -9,8 +9,8 @@ import models.stats.StatModifiers;
 public class Consumable extends Takeable {
     private StatModifiers statModifiers;
 
-    public Consumable(StatModifiers statModifiers, int price){
-        super(price);
+    public Consumable(String name, StatModifiers statModifiers, int price){
+        super(name, price);
         this.statModifiers = statModifiers;
     }
 

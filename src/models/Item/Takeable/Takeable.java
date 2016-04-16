@@ -12,7 +12,8 @@ import models.entities.TakeableItemVisitable;
 public abstract class Takeable extends Item{
     private int price;
 
-    public Takeable(int price){
+    public Takeable(String name, int price){
+        super(name);
         this.price = price;
     }
 
