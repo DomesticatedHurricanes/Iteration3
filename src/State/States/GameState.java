@@ -30,7 +30,7 @@ public class GameState extends State{
         super(stateManager, jFrame);
         avatar = new Avatar(occupation);
         avatar.setLocation(new Point3D(1,1,1));
-        map = new Map(10,10);
+        map = new Map(25,25);
         movementHandler = new MovementHandler(map);
         gameStateView = new GameStateView(map,avatar);
         gameStateController = new GameStateController(this.stateManager,this,jFrame, movementHandler,avatar);
