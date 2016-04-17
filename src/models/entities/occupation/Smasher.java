@@ -41,7 +41,7 @@ public class Smasher implements Occupation{
     }
 
     @Override
-    public void initImage(BufferedImage bufferedImage) {
-        bufferedImage = GraphicAssets.smasher;
+    public BufferedImage initImage() {
+        return GraphicAssets.smasher;
     }
 }

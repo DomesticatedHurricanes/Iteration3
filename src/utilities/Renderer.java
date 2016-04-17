@@ -161,8 +161,8 @@ public class Renderer {
 
 
             // Calculate the top left corner from the center point
-            g.setColor(new Color(0, 0, 0));
-            g.fillOval(pxCenterPoint.x - 25, pxCenterPoint.y - 25, 45, 45);
+            //g.setColor(new Color(0, 0, 0));
+            //g.fillOval(pxCenterPoint.x - 25, pxCenterPoint.y - 25, 45, 45);
             // render the correct image for the avatar's occupation.
 
             // Calculate location that the tile needs to be rendered using the pxCenterPoint

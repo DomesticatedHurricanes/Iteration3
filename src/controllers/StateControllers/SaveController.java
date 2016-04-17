@@ -1,5 +1,8 @@
 package controllers.StateControllers;
 
+import State.StateManager;
+import State.States.GameOverState;
+import State.States.SaveState;
 import controllers.Controller;
 
 import javax.swing.*;
@@ -8,10 +11,15 @@ import javax.swing.*;
  * Created by ben on 4/12/16.
  */
 public class SaveController extends Controller {
-    public SaveController(JFrame jFrame){
+    StateManager stateManager;
+    SaveState state;
+    JFrame jFrame;
+    public SaveController(StateManager stateManager, SaveState state, JFrame jFrame) {
         super(jFrame);
+        this.stateManager = stateManager;
+        this.state=state;
+        this.jFrame=jFrame;
     }
-
 
     public void init() { }
 

@@ -3,6 +3,8 @@ package controllers.StateControllers;
 import State.StateManager;
 import State.States.CreationState;
 import controllers.Controller;
+import controllers.Listener;
+import utilities.Settings;
 
 import javax.swing.*;
 
@@ -18,6 +20,15 @@ public class CreationController extends Controller {
         this.stateManager = stateManager;
         this.state=state;
         this.jFrame=jFrame;
+        getKeyMapping().put(Settings.LEFT,()->state.left());
+        getKeyMapping().put(Settings.RIGHT,()->state.right());
+        getKeyMapping().put(Settings.ENTER,()->state.enter());
+        getKeyMapping().put(Settings.ESCAPE,()->state.escape());
+
+        getBindings().add(new Listener(Settings.LEFT, getKeyMapping().get(Settings.LEFT)));
+        getBindings().add(new Listener(Settings.RIGHT, getKeyMapping().get(Settings.RIGHT)));
+        getBindings().add(new Listener(Settings.ENTER, getKeyMapping().get(Settings.ENTER)));
+        getBindings().add(new Listener(Settings.ESCAPE, getKeyMapping().get(Settings.ESCAPE)));
     }
     public void init() { }
 
