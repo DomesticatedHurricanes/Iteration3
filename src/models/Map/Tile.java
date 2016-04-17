@@ -52,6 +52,10 @@ public abstract class Tile implements TileVisitor {
         this.entity = entity;
     }
 
+    public void removeEntity(){
+        this.entity = null;
+    }
+
 
     //Checks if you can pass on the item on the tile.
     public boolean checkItem(){
@@ -61,6 +65,22 @@ public abstract class Tile implements TileVisitor {
         }
         return true;
     }
+
+    public boolean checkEntities(){
+        if(entity != null){
+            return false;
+        }
+        else
+            return true;
+    }
+
+    public boolean checkHeightDifferential(Entity entity){
+       if(entity.getStats().getJumpHeight() >= Math.abs((point3D.getZ() - entity.getLocation().getZ())))
+           return true;
+        else
+           return false;
+    }
+
     public void applyItems(Entity entity){
         for(Item item: items){
             item.apply(entity);

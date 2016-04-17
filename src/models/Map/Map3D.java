@@ -74,15 +74,15 @@ public class Map3D {
 
     public void initTopologicalMap(){
         int[][] baseMap = {
-                {2, 1, 0},
-                {2, 1, 0},
-                {2, 1, 0}
+                {1, 4, 1},
+                {1, 1, 1},
+                {1, 1, 1}
         };
 
         int[][] terrainMap = {
                 {1, 1, 1},
-                {2, 2, 2},
-                {3, 3, 3}
+                {1, 1, 1},
+                {1, 2, 1}
         };
 
         topologicalMap = new Tile[3][3];
@@ -130,7 +130,7 @@ public class Map3D {
     }
 
     //Gets the highest non-AirTile
-    public Tile getRelevantTile(int x, int y) {
+    public Tile     getRelevantTile(int x, int y) {
         return topologicalMap[x][y];
     }
 

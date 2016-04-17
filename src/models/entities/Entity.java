@@ -39,6 +39,10 @@ public abstract class Entity {
         return inventory;
     }
 
+    public void setLocation(Point3D point3D){
+        location = point3D;
+    }
+
     public Point3D getLocation() {
         return location;
     }
