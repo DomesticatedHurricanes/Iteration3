@@ -64,11 +64,7 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
         inventory.equipChestPlate(chestPlate);
     }
 
-    public void equipOneHandedWeapon(OneHandedWeapon oneHandedWeapon){ inventory.equipOneHandedWeapon(oneHandedWeapon);}
-
-    public void equipRangedWeapon(Ranged rangedWeapon){
-        inventory.equipRangedWeapon(rangedWeapon);
-    }
+    public void equipWeapon(Weapon weapon){inventory.equipWeapon(weapon);   }
 
     public void equipSlacks(Slacks slacks){
         inventory.equipSlacks(slacks);
@@ -77,8 +73,6 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
     public void equipBoots(Boots boots){
         inventory.equipBoots(boots);
     }
-
-    public void equipTwoHandedWeapon(TwoHandedWeapon twoHandedWeapon){ inventory.equipTwoHandedWeapon(twoHandedWeapon);}
 
     public void equipGloves(Gloves gloves){inventory.equipGloves(gloves);}
 
@@ -91,11 +85,7 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
         inventory.unequipChestPlate();
     }
 
-    public void unequipOneHandedWeapon(){ inventory.unequipOneHandedWeapon();}
-
-    public void unequipRangedWeapon(){
-        inventory.unequipRangedWeapon();
-    }
+    public void unequipWeapon(){ inventory.unequipWeapon();}
 
     public void unequipSlacks(){
         inventory.unequipSlacks();
@@ -104,8 +94,6 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
     public void unequipBoots(){
         inventory.unequipBoots();
     }
-
-    public void unequipTwoHandedWeapon(){ inventory.unequipTwoHandedWeapon();}
 
     public void unequipGloves(){inventory.unequipGloves();}
 
