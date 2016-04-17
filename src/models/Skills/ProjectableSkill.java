@@ -1,7 +1,9 @@
 package models.Skills;
 
 import models.Map.Tile;
+import models.entities.Avatar;
 import models.entities.Entity;
+import models.stats.StatusEffect;
 import utilities.Point3D;
 
 import java.util.ArrayList;
@@ -13,12 +15,21 @@ import java.util.Queue;
  */
 public abstract class ProjectableSkill extends SearchableSkill{
     protected Projectile projectile;
+    protected int damage;
     //protected ArrayList<Entity> affectedentityArrayList;
-    public void project(ArrayList<Entity> victims){
+    public void victimize(ArrayList<Entity> victims, Projectile projectile){
+        int damage = projectile.getDamage();
+        StatusEffect.statusEffect status = projectile.getStatus();//currently not used
         for(Entity vicitim:victims){
             //get stats from victim and them modify it!
             //modify based on projectile!
+            vicitim.getStats().modifyCurrentHp(damage);//
+            //given from projectile
+
+
         }
 
     }
+
+    public abstract int calculateDamage(Avatar avatar);
 }

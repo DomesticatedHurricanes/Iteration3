@@ -8,6 +8,8 @@ import models.stats.CharacterStats;
 import models.Inventory.Inventory;
 import utilities.Point3D;
 
+import java.util.Observer;
+
 public class Monster extends AINpc implements Movement {
 
     private boolean isMoving;
@@ -73,25 +75,34 @@ public class Monster extends AINpc implements Movement {
         return monsterBrain.getAggression();
     }
 
-    //Add AIObserver
-    public void addObserver(AIObserver observer){
-        observers.add(observer);
+
+
+    @Override//Originally this was public Stats getStats()
+    public CharacterStats getStats() {
+        return npcStats;
     }
+
+
 
     //AIObserver Notifiers
 
     @Override
-    public void notifyMove(Point3D point3D) {
+    public void notifyMove(AINpc aiNpc) {
         for(AIObserver observer: observers){
-            observer.processMove(this, point3D);
+            observer.processMove(this);
         }
     }
 
     @Override
-    public void notifyThought() {
+    public void notifyThought(AINpc aiNpc) {
         for(AIObserver observer: observers){
             observer.processThought(this);
         }
+    }
+
+    @Override
+    public String getType() {
+        return "Monster";
     }
 }
 

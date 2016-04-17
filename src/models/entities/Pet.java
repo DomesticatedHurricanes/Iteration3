@@ -69,24 +69,28 @@ public class Pet extends AINpc implements Movement, TileVisitable {
 
 
     //Add AIObserver
-    public void addObserver(AIObserver observer){
-        observers.add(observer);
+    public void addObserver(AIObserver aiObserver){
+        observers.add(aiObserver);
     }
 
     //AIObserver Notifiers
 
     @Override
-    public void notifyMove(Point3D point3D) {
+    public void notifyMove(AINpc aiNpc) {
         for(AIObserver observer: observers){
-            observer.processMove(this, point3D);
+            observer.processMove(this);
         }
     }
 
     @Override
-    public void notifyThought() {
+    public void notifyThought(AINpc aiNpc) {
         for(AIObserver observer: observers){
             observer.processThought(this);
         }
     }
 
+    @Override
+    public String getType() {
+        return "Pet";
+    }
 }

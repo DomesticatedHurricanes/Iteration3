@@ -14,6 +14,10 @@ public abstract class AINpc extends NPC {
     protected ArrayList<AIObserver> observers = new ArrayList<>();
 
 
-    public abstract void notifyMove();
-    public abstract void notifyThought();
+    //Add Observer
+    public void addObserver(AIObserver observer){
+        observers.add(observer);
+    }
+    public abstract void notifyMove(AINpc aiNpc);
+    public abstract void notifyThought(AINpc aiNpc);
 }
