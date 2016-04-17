@@ -34,7 +34,7 @@ public class View implements Runnable{
     public View(StateManager manager, JFrame jFrame, Canvas canvas){
         this.stateManager = manager;
         this.title = "Testing";
-        this.width = 400;
+        this.width = 800;
         this.height = 600;
         this.frame=jFrame;
         this.canvas=canvas;

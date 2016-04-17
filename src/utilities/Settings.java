@@ -7,6 +7,8 @@ import java.awt.event.KeyEvent;
  */
 public class Settings {
     //adjustable keys
+    public static int GAMEHEIGHT =600;
+    public static int GAMEWIDTH = 800;
     public static int UP = KeyEvent.VK_UP;
     public static int LEFT = KeyEvent.VK_LEFT;
     public static int RIGHT = KeyEvent.VK_RIGHT;

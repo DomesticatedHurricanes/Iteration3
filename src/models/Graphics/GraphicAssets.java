@@ -28,6 +28,10 @@ public class GraphicAssets {
     public static BufferedImage h8;
     public static BufferedImage h9;
     public static BufferedImage h10;
+    public static BufferedImage startBackground;
+    public static BufferedImage startBackground2;
+    public static BufferedImage creationBackground;
+
 
 
     public static void init(){
@@ -53,5 +57,10 @@ public class GraphicAssets {
         h8 = ImageLoader.loadImage("/Resources/8.png");
         h9 = ImageLoader.loadImage("/Resources/9.png");
         h10 = ImageLoader.loadImage("/Resources/10.png");
+
+
+        //states stuff
+        startBackground = ImageLoader.loadImage("/Resources/back.jpg");
+        startBackground2 = ImageLoader.loadImage("/Resources/back2.jpg");
     }
 }

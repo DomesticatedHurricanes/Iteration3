@@ -47,7 +47,7 @@ public class GameState extends State{
     }
 
     @Override
-    protected void render(Graphics g){
+    public void render(Graphics g){
         gameStateView.render(g);
     }
 

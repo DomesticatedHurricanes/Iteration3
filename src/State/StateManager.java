@@ -60,7 +60,7 @@ public class StateManager {
 
 
         // Set the current state
-        currentState = gameState;
+        currentState = startMenuState;
         currentState.setActive();
         // Add states to the list
         states.add(gameState);
@@ -140,7 +140,12 @@ public class StateManager {
             currentState = saveState;
         }
     }
-
+    public void changeToLoadState(){
+        if (currentState != loadState){
+            System.out.println("Changing to savestate");
+            currentState = loadState;
+        }
+    }
     public void changeToEquipmentState(){
         if (currentState != equipmentState){
             System.out.println("Changing to equipmentstate");
@@ -175,6 +180,10 @@ public class StateManager {
             currentState = tradeState;
         }
     }
+
+    public void renderMap(Graphics g){
+        gameState.render(g);
+    };
 
     public State getCurrentState(){
         return currentState;
