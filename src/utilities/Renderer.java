@@ -3,8 +3,8 @@ package utilities;
 import View.View;
 import models.Graphics.GraphicAssets;
 import models.Map.Map;
-import models.Map.Map3D;
 import models.Map.Tile;
+import models.entities.Entity;
 
 import java.awt.*;
 
@@ -146,39 +146,30 @@ public class Renderer {
         }
     }
 
-//    public static class entityRenderer {
-//        public static void render(Graphics g, Entity entity, Point mapCenterPoint, Point pxRenderOffset) {
-//            render(g, entity, mapCenterPoint, pxRenderOffset, 1f);
-//        }
-//
-//        public static void render(Graphics g, Entity entity, Point mapCenterPoint, Point pxRenderOffset, float value) {
-//
-//            if (value > 0.25f) {
-//
-//                Point pxCenterPoint;
-//                if (entity.getLocation().x % 2 != 0) {
-//                    int pxX = (int) ((entity.getLocation().x - mapCenterPoint.x) * (0.75 * graphicsAssets.TILE_PX_WIDTH)) + view.getWidth() / 2;
-//                    int pxY = ((mapCenterPoint.x % 2 == 0) ? graphicsAssets.TILE_PX_HEIGHT / 2 : 0) + ((entity.getLocation().y - mapCenterPoint.y) * graphicsAssets.TILE_PX_HEIGHT) + view.getHeight() / 2;
-//                    pxCenterPoint = new Point(pxX, pxY);
-//                } else {
-//                    int pxX = (int) ((entity.getLocation().x - mapCenterPoint.x) * (0.75 * graphicsAssets.TILE_PX_WIDTH)) + view.getWidth() / 2;
-//                    int pxY = ((mapCenterPoint.x % 2 != 0) ? -1 * graphicsAssets.TILE_PX_HEIGHT / 2 : 0) + ((entity.getLocation().y - mapCenterPoint.y) * graphicsAssets.TILE_PX_HEIGHT) + view.getHeight() / 2;
-//                    pxCenterPoint = new Point(pxX, pxY);
-//                }
-//
-//                pxCenterPoint.x += pxRenderOffset.x;
-//                pxCenterPoint.y += pxRenderOffset.y;
-//
-//                // Calculate the top left corner from the center point
-//                    g.setColor(new Color(0, 0, 0));
-//                    g.fillOval(pxCenterPoint.x - 25, pxCenterPoint.y - 25, 50, 50);
-//                    // render the correct image for the avatar's occupation.
-//                }
-//
-//                // Calculate location that the tile needs to be rendered using the pxCenterPoint
-//                Point topLeft = new Point(pxCenterPoint.x - (graphicsAssets.TILE_PX_WIDTH / 2), pxCenterPoint.y - (graphicsAssets.TILE_PX_HEIGHT / 2));
-//
-//        }
-//    }
+    public static class entityRenderer {
+        public static void render(Graphics g, Entity entity, Point mapCenterPoint) {
+            Point pxCenterPoint;
+            if (entity.getLocation().getX() % 2 != 0) {
+                int pxX = (int) ((entity.getLocation().getX() - mapCenterPoint.x) * (0.75 * GraphicAssets.TILE_PX_WIDTH)) + view.getWidth() / 2;
+                int pxY = ((mapCenterPoint.x % 2 == 0) ? GraphicAssets.TILE_PX_HEIGHT / 2 : 0) + ((entity.getLocation().getY() - mapCenterPoint.y) * GraphicAssets.TILE_PX_HEIGHT) + view.getHeight() / 2;
+                pxCenterPoint = new Point(pxX, pxY);
+            } else {
+                int pxX = (int) ((entity.getLocation().getX() - mapCenterPoint.x) * (0.75 * GraphicAssets.TILE_PX_WIDTH)) + view.getWidth() / 2;
+                int pxY = ((mapCenterPoint.x % 2 != 0) ? -1 * GraphicAssets.TILE_PX_HEIGHT / 2 : 0) + ((entity.getLocation().getY() - mapCenterPoint.y) * GraphicAssets.TILE_PX_HEIGHT) + view.getHeight() / 2;
+                pxCenterPoint = new Point(pxX, pxY);
+            }
+
+
+            // Calculate the top left corner from the center point
+            g.setColor(new Color(0, 0, 0));
+            g.fillOval(pxCenterPoint.x - 25, pxCenterPoint.y - 25, 45, 45);
+            // render the correct image for the avatar's occupation.
+
+            // Calculate location that the tile needs to be rendered using the pxCenterPoint
+            Point topLeft = new Point(pxCenterPoint.x - (GraphicAssets.TILE_PX_WIDTH / 2), pxCenterPoint.y - (GraphicAssets.TILE_PX_HEIGHT / 2));
+            g.drawImage(entity.getEntityImage(), topLeft.x, topLeft.y, GraphicAssets.TILE_PX_WIDTH, GraphicAssets.TILE_PX_HEIGHT, null);
+
+        }
+    }
 }
 

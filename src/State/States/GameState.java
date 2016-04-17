@@ -7,14 +7,11 @@ import models.Map.Map;
 
 import State.StateManager;
 import models.entities.Avatar;
-import models.entities.Entity;
-import models.entities.occupation.Occupation;
 import models.entities.occupation.Smasher;
 import utilities.Point3D;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 /**
  * Created by Dartyx on 4/13/2016.
@@ -23,7 +20,6 @@ public class GameState extends State{
     private GameStateView gameStateView;
     private GameStateController gameStateController;
     private Avatar avatar;
-    private Entity entity;
     private Map map;
 
 
@@ -32,12 +28,14 @@ public class GameState extends State{
 
 
         avatar = new Avatar(new Smasher());
-        avatar.setLocation(new Point3D(1,0,1));
-        map = new Map(9,9);
+        avatar.setLocation(new Point3D(1,1,1));
+        System.out.println("Image: " +  avatar.getEntityImage());
+        map = new Map(10,10);
 
         gameStateView = new GameStateView(map,avatar);
         gameStateController = new GameStateController(this.stateManager,this,jFrame);
     }
+
     public void setActive(){
         gameStateController.addToJframe();
     }
