@@ -30,7 +30,7 @@ public class Map {
         for(int i = 0; i < width; i++){
             for(int j = 0; j < height; j++){
                 // Temporary: the height increases from left to right
-                tiles[i][j] = new GrassTile(new Point3D(i,j, i));
+                tiles[i][j] = new GrassTile(new Point3D(i,j, 0));
             }
         }
 

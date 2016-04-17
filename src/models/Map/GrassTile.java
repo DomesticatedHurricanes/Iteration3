@@ -18,10 +18,10 @@ public class GrassTile extends Tile {
 
     @Override
     public boolean visit(Avatar avatar) {
-        if(this.checkItem() && avatar.canWalk() && checkEntities() && checkHeightDifferential(avatar)){
+        if(checkHeightDifferential(avatar)){//this.checkItem() && avatar.canWalk() && checkEntities() &&
             this.insertEntity(avatar);
-            applyItems(avatar);
-            applyAreaEffect(avatar);
+            //applyItems(avatar);
+            //applyAreaEffect(avatar);
             return true;
         }
         System.out.println("TOO HIGH");
