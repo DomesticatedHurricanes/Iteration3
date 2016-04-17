@@ -35,12 +35,22 @@ public class GameStateController extends Controller {
     }
 
     private void initListeners(){
-        getKeyMapping().put(Settings.DOWN,()->movementHandler.moveSouth(avatar));
-        getKeyMapping().put(Settings.LEFT,()->movementHandler.moveNorthWest(avatar));
-        getKeyMapping().put(Settings.RIGHT,()->movementHandler.moveNorthEast(avatar));
-        getKeyMapping().put(Settings.UP,()->movementHandler.moveNorth(avatar));
+        getKeyMapping().put(Settings.Up,()->movementHandler.moveNorth(avatar));
+        getKeyMapping().put(Settings.UpRight,()->movementHandler.moveNorthEast(avatar));
+        getKeyMapping().put(Settings.UpLeft,()->movementHandler.moveNorthWest(avatar));
+        getKeyMapping().put(Settings.Down,()->movementHandler.moveSouth(avatar));
+        getKeyMapping().put(Settings.DownRight,()->movementHandler.moveSouthEast(avatar));
+        getKeyMapping().put(Settings.DownLeft,()->movementHandler.moveSouthWest(avatar));
         getKeyMapping().put(Settings.INV,()->stateManager.changeToInventoryState());
 
+
+        getBindings().add(new Listener(Settings.Up, getKeyMapping().get(Settings.Up)));
+        getBindings().add(new Listener(Settings.Down, getKeyMapping().get(Settings.Down)));
+        getBindings().add(new Listener(Settings.DownRight, getKeyMapping().get(Settings.DownRight)));
+
+        getBindings().add(new Listener(Settings.UpRight, getKeyMapping().get(Settings.UpRight)));
+        getBindings().add(new Listener(Settings.UpLeft, getKeyMapping().get(Settings.UpLeft)));
+        getBindings().add(new Listener(Settings.DownLeft, getKeyMapping().get(Settings.DownLeft)));
 
         getBindings().add(new Listener(Settings.UP, getKeyMapping().get(Settings.UP)));
         getBindings().add(new Listener(Settings.DOWN, getKeyMapping().get(Settings.DOWN)));
