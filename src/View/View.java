@@ -4,6 +4,7 @@ import State.State;
 import State.StateManager;
 import models.Graphics.GraphicAssets;
 import models.Map.Map;
+import utilities.Settings;
 
 import javax.swing.*;
 import java.awt.*;
@@ -34,8 +35,8 @@ public class View implements Runnable{
     public View(StateManager manager, JFrame jFrame, Canvas canvas){
         this.stateManager = manager;
         this.title = "Testing";
-        this.width = 800;
-        this.height = 600;
+        this.width = GraphicAssets.VIEW_WIDTH;
+        this.height =  GraphicAssets.VIEW_HEIGHT;
         this.frame=jFrame;
         this.canvas=canvas;
         renderer = new utilities.Renderer(this);

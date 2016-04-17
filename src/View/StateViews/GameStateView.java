@@ -52,11 +52,11 @@ public class GameStateView  extends  StateView{
         Map3D world3D = new Map3D(10);
 
         // The end of what we expect to render of the map should either be limited by the size of the map or the size of the viewport (i.e. the window)
-        mapEndX = Math.min(map.getWidth() , (int)Math.ceil(400/ GraphicAssets.TILE_PX_WIDTH));
-        mapEndY = Math.min(map.getHeight(), (int)Math.ceil(600/ GraphicAssets.TILE_PX_HEIGHT));
+        mapEndX = Math.min(map.getWidth() -1, (int)Math.ceil(GraphicAssets.VIEW_WIDTH/ GraphicAssets.TILE_PX_WIDTH));
+        mapEndY = Math.min(map.getHeight() -1, (int)Math.ceil(GraphicAssets.VIEW_HEIGHT/ GraphicAssets.TILE_PX_HEIGHT));
 
         mapCameraCenter = new Point((mapStartX + mapEndX)/2, (mapStartY + mapEndY)/2);
-        pxCameraCenter = new Point(400/2, 600/2);
+        pxCameraCenter = new Point(GraphicAssets.VIEW_WIDTH/2, GraphicAssets.VIEW_HEIGHT/2);
 
         renderMap(g);
         renderPlayer(g);
