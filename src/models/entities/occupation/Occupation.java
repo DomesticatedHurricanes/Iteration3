@@ -11,5 +11,5 @@ import java.awt.image.BufferedImage;
 public interface Occupation {
     void initSkills(Avatar avatar);
     void initStats(Stats stats);
-    void initImage(BufferedImage bufferedImage);
+    BufferedImage initImage();
 }

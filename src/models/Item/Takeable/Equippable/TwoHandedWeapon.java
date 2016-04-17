@@ -9,14 +9,14 @@ import models.stats.StatModifiers;
  */
 public class TwoHandedWeapon extends Weapon implements TakeableItemVisitor {
 
-    public TwoHandedWeapon(String name, StatModifiers statModifiers, int price){
-        super(name, statModifiers, price);
+    public TwoHandedWeapon(String name, StatModifiers statModifiers, int price, StatModifiers enemyEffect){
+        super(name, statModifiers, price, enemyEffect);
     }
 
     @Override
     public void visit(Avatar avatar) {
         if (avatar.getStats().getLevel() >= lvlReq){
-            avatar.equipTwoHandedWeapon(this);
+            avatar.equipWeapon(this);
             statModifiers.apply(avatar.getStats());
         }
     }

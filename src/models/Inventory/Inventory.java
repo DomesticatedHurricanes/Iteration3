@@ -48,16 +48,8 @@ public class Inventory {
         }
     }
 
-    public void equipOneHandedWeapon(OneHandedWeapon oneHandedWeapon){
-        equipment.equipOneHandedWeapon(oneHandedWeapon);
-    }
-
-    public void equipTwoHandedWeapon(TwoHandedWeapon twoHandedWeapon){
-        equipment.equipTwoHandedWeapon(twoHandedWeapon);
-    }
-
-    public void equipRangedWeapon(Ranged rangedWeapon){
-        equipment.equipRangedWeapon(rangedWeapon);
+    public void equipWeapon(Weapon weapon){
+        equipment.equipWeapon(weapon);
     }
 
     public void equipSlacks(Slacks slacks){
@@ -106,22 +98,10 @@ public class Inventory {
         pack.addItem(chestPlate);
     }
 
-    public void unequipOneHandedWeapon(){
-        Weapon oneHandedWeapon = equipment.getRightHandWeapon();
-        equipment.unequipOneHandedWeapon();
-        pack.addItem(oneHandedWeapon);
-    }
-
-    public void unequipTwoHandedWeapon(){
-        Weapon twoHandedWeapon = equipment.getRightHandWeapon();
-        equipment.unequipTwoHandedWeapon();
-        pack.addItem(twoHandedWeapon);
-    }
-
-    public void unequipRangedWeapon(){
-        Weapon rangedWeapon = equipment.getRightHandWeapon();
-        equipment.unequipRangedWeapon();
-        pack.addItem(rangedWeapon);
+    public void unequipWeapon(){
+        Weapon weapon = equipment.getWeapon();
+        equipment.unequipWeapon();
+        pack.addItem(weapon);
     }
 
     public void unequipSlacks(){

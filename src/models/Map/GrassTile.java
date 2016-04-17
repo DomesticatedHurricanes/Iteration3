@@ -18,19 +18,20 @@ public class GrassTile extends Tile {
 
     @Override
     public boolean visit(Avatar avatar) {
-        if(this.checkItem() && avatar.canWalk()){
+        // Temporarily commented out to test basic movement
+        if(checkHeightDifferential(avatar)){//this.checkItem() && avatar.canWalk() && checkEntities() &&
             this.insertEntity(avatar);
-            applyItems(avatar);
-            applyAreaEffect(avatar);
+            //applyItems(avatar);
+            //applyAreaEffect(avatar);
             return true;
         }
-
+        System.out.println("TOO HIGH");
         return avatar.canWalk();
     }
 
     @Override
     public boolean visit(Monster monster) {
-        if(this.checkItem() && monster.canWalk()){
+        if(this.checkItem() && monster.canWalk() && checkEntities() && checkHeightDifferential(monster)){
             this.insertEntity(monster);
             return true;
         }
@@ -40,7 +41,7 @@ public class GrassTile extends Tile {
 
     @Override
     public boolean visit(Pet pet) {
-        if(this.checkItem() && pet.canWalk()){
+        if(this.checkItem() && pet.canWalk() && checkEntities() && checkHeightDifferential(pet)){
             this.insertEntity(pet);
             return true;
         }

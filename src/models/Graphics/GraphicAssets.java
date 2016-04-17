@@ -6,6 +6,8 @@ import java.awt.image.BufferedImage;
  * Created by Michael on 3/30/16.
  */
 public class GraphicAssets {
+    public static final int VIEW_WIDTH = 800;
+    public static final int VIEW_HEIGHT = 600;
     public static final int TILE_PX_WIDTH = 60;
     public static final int TILE_PX_HEIGHT = 39;
 
@@ -28,12 +30,20 @@ public class GraphicAssets {
     public static BufferedImage h8;
     public static BufferedImage h9;
     public static BufferedImage h10;
+    public static BufferedImage startBackground;
+    public static BufferedImage startBackground2;
+    public static BufferedImage creationBackground;
+
 
     public static BufferedImage smasher;
     public static BufferedImage sneak;
     public static BufferedImage summoner;
 
-
+    public static BufferedImage smashPic;
+    public static BufferedImage sneakPic;
+    public static BufferedImage summonerPic;
+    public static BufferedImage rightArrow;
+    public static BufferedImage leftArrow;
     public static void init(){
 
         tile = ImageLoader.loadImage("/Resources/tile.png");
@@ -58,9 +68,22 @@ public class GraphicAssets {
         h9 = ImageLoader.loadImage("/Resources/9.png");
         h10 = ImageLoader.loadImage("/Resources/10.png");
 
+
+
+        //states stuff
+        startBackground = ImageLoader.loadImage("/Resources/back.jpg");
+        creationBackground = ImageLoader.loadImage("/Resources/back2.jpg");
+        smashPic = ImageLoader.loadImage("/Resources/Views/smasher.png");
+        sneakPic = ImageLoader.loadImage("/Resources/Views/bow.png");
+        summonerPic = ImageLoader.loadImage("/Resources/Views/staff.jpg");
+        rightArrow = ImageLoader.loadImage("/Resources/Views/arrow1.png");
+        leftArrow = ImageLoader.loadImage("/Resources/Views/arrow.png");
+
+        //
         smasher = ImageLoader.loadImage("/Resources/entitys/entity-smasher-S.png");
         summoner = ImageLoader.loadImage("/Resources/entitys/entity-summoner-S.png");
         sneak = ImageLoader.loadImage("/Resources/entitys/entity-sneak-S.png");
+
 
     }
 }

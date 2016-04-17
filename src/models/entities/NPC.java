@@ -1,9 +1,7 @@
-package models.entities;
-
-
-import models.stats.CharacterStats;
-import models.Inventory.Inventory;
-import models.stats.Stats;
+ package models.entities;
+ import models.stats.CharacterStats;
+ import models.Inventory.Inventory;
+ import models.stats.Stats;
 
 
 /**
@@ -13,7 +11,7 @@ import models.stats.Stats;
  */
 public abstract class NPC extends Entity {
 
-    protected CharacterStats npcStats;
+    protected Stats npcStats;
     protected Inventory inventory;
 
     @Override

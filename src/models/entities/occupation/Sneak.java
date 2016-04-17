@@ -20,10 +20,10 @@ public class Sneak implements Occupation{
         StatModifier initCurrentHp = StatModifier.makeCurrentHpModifier(20);
         StatModifier initStrength = StatModifier.makeStrengthModifier(10);
         StatModifier initHardiness = StatModifier.makeHardinessModifier(10);
-        StatModifier initLives = StatModifier.makeStrengthModifier(10);
+        StatModifier initLives = StatModifier.makeLivesModifier(10);
         StatModifier initAgility = StatModifier.makeAgilityModifier(10);
         StatModifier initIntellect = StatModifier.makeIntellectModifier(10);
-        StatModifier initLevel = StatModifier.makeStrengthModifier(1);
+        StatModifier initLevel = StatModifier.makeLevelModifier(1);
         StatModifier initMana = StatModifier.makeManaModifier(20);
 
         //Create a StatModifiers
@@ -41,7 +41,7 @@ public class Sneak implements Occupation{
     }
 
     @Override
-    public void initImage(BufferedImage bufferedImage) {
-        bufferedImage = GraphicAssets.sneak;
+    public BufferedImage initImage() {
+        return GraphicAssets.sneak;
     }
 }

@@ -19,8 +19,9 @@ public class RunGame {
         //making a frame
         //utilities.Renderer renderer;
         String title = "testing";
-        int width= 400;
-        int height= 600;
+
+        int width= GraphicAssets.VIEW_WIDTH;
+        int height= GraphicAssets.VIEW_HEIGHT;
 
 
         JFrame frame;
@@ -30,15 +31,19 @@ public class RunGame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //frame.setResizable(true);
         frame.setFocusable(true);
-        //frame.setLocationRelativeTo(null);
+
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
 
         canvas = new Canvas();
         canvas.setPreferredSize(new Dimension(width, height));
         canvas.setMaximumSize(new Dimension(width, height));
         canvas.setMinimumSize(new Dimension(width, height));
-
+        canvas.setFocusable(true);
         frame.add(canvas);
+        //frame.getRootPane().add(canvas, BorderLayout.CENTER);
+        frame.setVisible(true);
         frame.pack();
 
         // TODO Remove this and put in
