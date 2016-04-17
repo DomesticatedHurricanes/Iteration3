@@ -221,7 +221,7 @@ public class MovementHandler {
         // If the entity can move to that tile
         if (entity.accept(destinationTile)) {
             // Set the entities location to the new location
-            orientation.translate(destination);
+            entityTemp.setLocation(orientation.translate(destination));
 
             // Remove the entity from the previous tile
             originTile.removeEntity();

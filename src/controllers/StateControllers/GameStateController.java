@@ -6,6 +6,7 @@ import controllers.Controller;
 import controllers.Listener;
 import models.Interaction.MovementHandler;
 import models.entities.Avatar;
+import models.entities.Entity;
 import utilities.Settings;
 
 import javax.swing.*;
@@ -35,12 +36,12 @@ public class GameStateController extends Controller {
     }
 
     private void initListeners(){
-        getKeyMapping().put(Settings.Up,()->movementHandler.moveNorth(avatar));
-        getKeyMapping().put(Settings.UpRight,()->movementHandler.moveNorthEast(avatar));
-        getKeyMapping().put(Settings.UpLeft,()->movementHandler.moveNorthWest(avatar));
-        getKeyMapping().put(Settings.Down,()->movementHandler.moveSouth(avatar));
-        getKeyMapping().put(Settings.DownRight,()->movementHandler.moveSouthEast(avatar));
-        getKeyMapping().put(Settings.DownLeft,()->movementHandler.moveSouthWest(avatar));
+        getKeyMapping().put(Settings.Up,()->movementHandler.move(avatar, Entity.Orientation.NORTH));
+        getKeyMapping().put(Settings.UpRight,()->movementHandler.move(avatar, Entity.Orientation.NORTHEAST));
+        getKeyMapping().put(Settings.UpLeft,()->movementHandler.move(avatar, Entity.Orientation.NORTHWEST));
+        getKeyMapping().put(Settings.Down,()->movementHandler.move(avatar, Entity.Orientation.SOUTH));
+        getKeyMapping().put(Settings.DownRight,()->movementHandler.move(avatar, Entity.Orientation.SOUTHEAST));
+        getKeyMapping().put(Settings.DownLeft,()->movementHandler.move(avatar, Entity.Orientation.SOUTHWEST));
         getKeyMapping().put(Settings.INV,()->stateManager.changeToInventoryState());
 
 
