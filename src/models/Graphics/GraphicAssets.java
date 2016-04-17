@@ -75,7 +75,7 @@ public class GraphicAssets {
         creationBackground = ImageLoader.loadImage("/Resources/back2.jpg");
         smashPic = ImageLoader.loadImage("/Resources/Views/smasher.png");
         sneakPic = ImageLoader.loadImage("/Resources/Views/bow.png");
-        summonerPic = ImageLoader.loadImage("/Resources/Views/staff.jpg");
+        summonerPic = ImageLoader.loadImage("/Resources/Views/staff.png");
         rightArrow = ImageLoader.loadImage("/Resources/Views/arrow1.png");
         leftArrow = ImageLoader.loadImage("/Resources/Views/arrow.png");
 
