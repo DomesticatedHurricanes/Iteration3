@@ -8,6 +8,7 @@ import models.Map.Map;
 
 import State.StateManager;
 import models.entities.Avatar;
+import models.entities.occupation.Occupation;
 import models.entities.occupation.Smasher;
 import utilities.Point3D;
 
@@ -29,9 +30,10 @@ public class GameState extends State{
         super(stateManager, jFrame);
 
 
-        avatar = new Avatar(new Smasher());
+        Occupation occupation = new Smasher();
+        avatar = new Avatar(occupation);
+        avatar.getEntityImage();
         avatar.setLocation(new Point3D(1,1,1));
-        System.out.println("Image: " +  avatar.getEntityImage());
         map = new Map(10,10);
         movementHandler = new MovementHandler(map);
 
