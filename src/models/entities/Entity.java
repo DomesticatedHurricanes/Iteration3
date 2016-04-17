@@ -14,6 +14,7 @@ import java.awt.image.BufferedImage;
  */
 
 public abstract class Entity {
+
     Point3D location;
     BufferedImage entityImage;
     public Entity(){
@@ -33,7 +34,7 @@ public abstract class Entity {
 
     public abstract Stats getStats();
 
-    public abstract String getType();
+    //public abstract String getType();
 
     public Inventory getInventory(){
         return inventory;

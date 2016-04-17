@@ -10,12 +10,9 @@ import models.Map.Map3D;
 
 import models.effects.HemiConicalEffect;
 import models.effects.LinearEffect;
-import models.entities.Avatar;
-import models.entities.Entity;
-import models.entities.Monster;
+import models.entities.*;
 import models.entities.occupation.Smasher;
-import models.stats.StatModifier;
-import models.stats.StatModifiers;
+import models.stats.*;
 import utilities.Point3D;
 
 import java.util.ArrayList;
@@ -104,6 +101,14 @@ public class ConsoleTester {
         map3D.insertEnitity(avatar, 1, 1);
         movementHandler.moveNorthWest(avatar);
          **/
+
+        Pet npc = new Pet();
+        LivingStats monStats = npc.getStats();
+        System.out.println(monStats.getCurrentHp());
+        System.out.println(monStats.getJumpHeight());
+        System.out.println(monStats.getMaxHp());
+        System.out.println(monStats.getMovement());
+
 
     }
 }
