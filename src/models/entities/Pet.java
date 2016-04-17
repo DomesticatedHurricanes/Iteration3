@@ -1,6 +1,6 @@
 package models.entities;
 
-import models.Interaction.Observer;
+import models.Interaction.AIObserver;
 import models.Map.Tile;
 import models.stats.LivingStats;
 import models.Inventory.Inventory;
@@ -68,23 +68,23 @@ public class Pet extends AINpc implements Movement, TileVisitable {
     }
 
 
-    //Add Observer
-    public void addObserver(Observer observer){
-        observers.add(observer);
+    //Add AIObserver
+    public void addObserver(AIObserver aiObserver){
+        observers.add(aiObserver);
     }
 
-    //Observer Notifiers
+    //AIObserver Notifiers
 
     @Override
-    public void notifyMove(Point3D point3D) {
-        for(Observer observer: observers){
-            observer.processMove(this, point3D);
+    public void notifyMove(AINpc aiNpc) {
+        for(AIObserver observer: observers){
+            observer.processMove(this);
         }
     }
 
     @Override
-    public void notifyThought() {
-        for(Observer observer: observers){
+    public void notifyThought(AINpc aiNpc) {
+        for(AIObserver observer: observers){
             observer.processThought(this);
         }
     }
