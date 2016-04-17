@@ -176,29 +176,57 @@ public class MovementHandler {
         }
     }
 
-    public void moveNorthEast(TileVisitable entity){
+
+    public void moveNorthEast(TileVisitable entity) {
         //Need to check if the true/false stuff somehow
-        Entity entityTemp = (Entity)entity;
+        Entity entityTemp = (Entity) entity;
 
         // Set the destination tile
         setDestination(entityTemp.getLocation());
 
         // Get the original tile
-        Tile originTile = map2.getTile(((Entity) entity).getLocation().getX(),((Entity) entity).getLocation().getY());
+        Tile originTile = map2.getTile(((Entity) entity).getLocation().getX(), ((Entity) entity).getLocation().getY());
 
         // Get the destination point to check if valid
         Point3D dest = entityTemp.getLocation().getTranslateNorthEast();
         // Check the destination tile
-        Tile destinationTile = map2.getTile(dest.getX(),dest.getY());
+        Tile destinationTile = map2.getTile(dest.getX(), dest.getY());
 
         // If the entity can move to that tile
-        if(entity.accept(destinationTile)){
+        if (entity.accept(destinationTile)) {
             // Set the entities location to the new location
             destination.translateNorthEast();
 
             // Remove the entity from the previous tile
             originTile.removeEntity();
         }
+
+    }
+
+    public void move(TileVisitable entity, Entity.Orientation orientation){
+        //Need to check if the true/false stuff somehow
+        Entity entityTemp = (Entity) entity;
+
+        // Set the destination tile
+        setDestination(entityTemp.getLocation());
+
+        // Get the original tile
+        Tile originTile = map2.getTile(((Entity) entity).getLocation().getX(), ((Entity) entity).getLocation().getY());
+
+        // Get the destination point to check if valid
+        Point3D dest = orientation.translate(entityTemp.getLocation());
+        // Check the destination tile
+        Tile destinationTile = map2.getTile(dest.getX(), dest.getY());
+
+        // If the entity can move to that tile
+        if (entity.accept(destinationTile)) {
+            // Set the entities location to the new location
+            orientation.translate(destination);
+
+            // Remove the entity from the previous tile
+            originTile.removeEntity();
+        }
+    }
 
 //        David's code
 //        setDestination(entityTemp.getLocation());
@@ -208,6 +236,5 @@ public class MovementHandler {
 //        if(entity.accept(destinationTile)){
 //            originTile.removeEntity();
 //        }
-    }
-
 }
+
