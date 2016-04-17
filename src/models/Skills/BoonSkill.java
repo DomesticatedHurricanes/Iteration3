@@ -7,7 +7,7 @@ import models.stats.Stats;
 /**
  * Created by Breanna on 4/13/16.
  */
-public class BoonSkill implements ActiveSkill{
+public class BoonSkill extends Skill implements ActiveSkill{
 
     private CharacterStats characterStats;
 
@@ -39,4 +39,6 @@ public class BoonSkill implements ActiveSkill{
         characterStats.modifyStrength(-BUFF);
         characterStats.modifyHardiness(-BUFF);
     }
+
+
 }

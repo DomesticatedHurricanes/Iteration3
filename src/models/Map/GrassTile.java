@@ -31,7 +31,7 @@ public class GrassTile extends Tile {
 
     @Override
     public boolean visit(Monster monster) {
-        if(this.checkItem() && monster.canWalk() && checkEntities() && checkHeightDifferential(monster) && (monster.isTrapped()==false)){
+        if(this.checkItem() && monster.canWalk() && checkEntities() && checkHeightDifferential(monster)){
             this.insertEntity(monster);
             return true;
         }
@@ -41,7 +41,7 @@ public class GrassTile extends Tile {
 
     @Override
     public boolean visit(Pet pet) {
-        if(this.checkItem() && pet.canWalk() && checkEntities() && checkHeightDifferential(pet) && (pet.isTrapped()==false)){
+        if(this.checkItem() && pet.canWalk() && checkEntities() && checkHeightDifferential(pet)){
             this.insertEntity(pet);
             return true;
         }

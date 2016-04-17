@@ -26,17 +26,18 @@ public class Trap extends AreaEffect{
     }
 
     // TODO need to take into account Sneak's detect and remove skill
+    // TODO: Get rid of this or make it tie into sneak easy peasy
     public void activate(Entity entity){
         if (removed == false) {
             displayed = true;
-            entity.setTrapped(true);
-            timer.schedule(new TimedTrap(entity), 3000);  // gets frozen for 3 seconds
-            entity.setTrapped(false);
+            //entity.setTrapped(true);
+            //timer.schedule(new TimedTrap(entity), 3000);  // gets frozen for 3 seconds
+            //entity.setTrapped(false);
         }
 
     }
 
-    private class TimedTrap extends TimerTask {
+    /*private class TimedTrap extends TimerTask {
 
         private Entity en;
 
@@ -48,7 +49,7 @@ public class Trap extends AreaEffect{
         public void run() {
             removeTrap();
         }
-    }
+    }*/
 
 }
 

@@ -14,7 +14,9 @@ import java.util.Queue;
  */
 public class TwoHanded extends ProjectableSkill implements ActiveSkill{
 
-    public TwoHanded(){}
+    public TwoHanded(){
+        MANACOST = 0;
+    }
 
     @Override
     public void useSkill(Avatar avatar) {
