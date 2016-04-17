@@ -12,6 +12,7 @@ import utilities.Point3D;
  */
 //This class lets entity an entity check if something is there
 public class MovementHandler {
+
     Point3D origin;
     Point3D destination;
     Map3D map;
@@ -21,125 +22,88 @@ public class MovementHandler {
     public MovementHandler(Map3D map){
         this.map = map;
     }
-    public MovementHandler(Map map){this.map2 = map;}
 
     public void setDestination(Point3D origin){
         this.origin = origin;
         this.destination = origin;
     }
 
-//    public void moveSouth(TileVisitable entity){
-//        //Need to check if the true/false stuff somehow
-//        Entity entityTemp = (Entity)entity;
-//        setDestination(entityTemp.getLocation());
-//        Tile originTile = map.getRelevantTile(entityTemp.getLocation().getX(), entityTemp.getLocation().getY());
-//        destination.translateSouth();//Possible error.  origin and dest are linked together?
-//        Tile destinationTile = map.getRelevantTile(destination.getX(),destination.getY());
-//        if(entity.accept(destinationTile)){
-//            originTile.removeEntity();
-//        }
-//    }
+    public MovementHandler(Map map){this.map2 = map;}
 
     public void moveSouth(TileVisitable entity){
+        //Need to check if the true/false stuff somehow
         Entity entityTemp = (Entity)entity;
-        Point3D destination = ((Entity) entity).getLocation();
-        destination.translateSouth();
-        System.out.println("Location south of current: " + destination);
+        setDestination(entityTemp.getLocation());
+        Tile originTile = map.getRelevantTile(entityTemp.getLocation().getX(), entityTemp.getLocation().getY());
+        destination.translateSouth();//Possible error.  origin and dest are linked together?
+        Tile destinationTile = map.getRelevantTile(destination.getX(),destination.getY());
+        if(entity.accept(destinationTile)){
+            originTile.removeEntity();
+        }
     }
 
     public void moveSouthWest(TileVisitable entity){
+        //Need to check if the true/false stuff somehow
         Entity entityTemp = (Entity)entity;
-        Point3D destination = ((Entity) entity).getLocation();
-        destination.translateSouthWest();
+        setDestination(entityTemp.getLocation());
+        Tile originTile = map.getRelevantTile(entityTemp.getLocation().getX(), entityTemp.getLocation().getY());
+        destination.translateSouthWest();//Possible error.  origin and dest are linked together?
+        Tile destinationTile = map.getRelevantTile(destination.getX(),destination.getY());
+        if(entity.accept(destinationTile)){
+            originTile.removeEntity();
+        }
     }
 
     public void moveSouthEast(TileVisitable entity){
+        //Need to check if the true/false stuff somehow
         Entity entityTemp = (Entity)entity;
-        Point3D destination = ((Entity) entity).getLocation();
-        destination.translateSouthEast();
+        setDestination(entityTemp.getLocation());
+        Tile originTile = map.getRelevantTile(entityTemp.getLocation().getX(), entityTemp.getLocation().getY());
+        destination.translateSouthEast();//Possible error.  origin and dest are linked together?
+        Tile destinationTile = map.getRelevantTile(destination.getX(),destination.getY());
+        if(entity.accept(destinationTile)){
+            originTile.removeEntity();
+        }
     }
-
-    public void moveNorthEast(TileVisitable entity){
+    public void moveNorth(TileVisitable entity){
+        //Need to check if the true/false stuff somehow
         Entity entityTemp = (Entity)entity;
-        Point3D destination = ((Entity) entity).getLocation();
-        destination.translateNorthEast();
-        System.out.println("destination tile " + destination.getX() + " " +destination.getY() );
+        setDestination(entityTemp.getLocation());
+        Tile originTile = map.getRelevantTile(entityTemp.getLocation().getX(), entityTemp.getLocation().getY());
+        destination.translateNorth();//Possible error.  origin and dest are linked together?
+        Tile destinationTile = map.getRelevantTile(destination.getX(),destination.getY());
+        if(entity.accept(destinationTile)){
+            originTile.removeEntity();
+            System.out.println("Success");
+        }
+        else{
+            System.out.println(destinationTile.getType());
+        }
     }
 
     public void moveNorthWest(TileVisitable entity){
+        //Need to check if the true/false stuff somehow
         Entity entityTemp = (Entity)entity;
-        Point3D destination = ((Entity) entity).getLocation();
-        destination.translateNorthWest();
+        setDestination(entityTemp.getLocation());
+        Tile originTile = map.getRelevantTile(entityTemp.getLocation().getX(), entityTemp.getLocation().getY());
+        destination.translateNorthWest();//Possible error.  origin and dest are linked together?
+        Tile destinationTile = map.getRelevantTile(destination.getX(),destination.getY());
+        if(entity.accept(destinationTile)){
+            entityTemp.setLocation(destination);
+            originTile.removeEntity();
+        }
     }
 
-    public void moveNorth(TileVisitable entity){
+    public void moveNorthEast(TileVisitable entity){
+        //Need to check if the true/false stuff somehow
         Entity entityTemp = (Entity)entity;
-        Point3D destination = ((Entity) entity).getLocation();
-        destination.translateNorth();
+        setDestination(entityTemp.getLocation());
+        Tile originTile = map.getRelevantTile(entityTemp.getLocation().getX(), entityTemp.getLocation().getY());
+        destination.translateNorthEast();//Possible error.  origin and dest are linked together?
+        Tile destinationTile = map.getRelevantTile(destination.getX(),destination.getY());
+        if(entity.accept(destinationTile)){
+            originTile.removeEntity();
+        }
     }
-
-//    public void moveSouthWest(TileVisitable entity){
-//        //Need to check if the true/false stuff somehow
-//        Entity entityTemp = (Entity)entity;
-//        setDestination(entityTemp.getLocation());
-//        Tile originTile = map.getRelevantTile(entityTemp.getLocation().getX(), entityTemp.getLocation().getY());
-//        destination.translateSouthWest();//Possible error.  origin and dest are linked together?
-//        Tile destinationTile = map.getRelevantTile(destination.getX(),destination.getY());
-//        if(entity.accept(destinationTile)){
-//            originTile.removeEntity();
-//        }
-//    }
-
-//    public void moveSouthEast(TileVisitable entity){
-//        //Need to check if the true/false stuff somehow
-//        Entity entityTemp = (Entity)entity;
-//        setDestination(entityTemp.getLocation());
-//        Tile originTile = map.getRelevantTile(entityTemp.getLocation().getX(), entityTemp.getLocation().getY());
-//        destination.translateSouthEast();//Possible error.  origin and dest are linked together?
-//        Tile destinationTile = map.getRelevantTile(destination.getX(),destination.getY());
-//        if(entity.accept(destinationTile)){
-//            originTile.removeEntity();
-//        }
-//    }
-//    public void moveNorth(TileVisitable entity){
-//        //Need to check if the true/false stuff somehow
-//        Entity entityTemp = (Entity)entity;
-//        setDestination(entityTemp.getLocation());
-//        Tile originTile = map.getRelevantTile(entityTemp.getLocation().getX(), entityTemp.getLocation().getY());
-//        destination.translateNorth();//Possible error.  origin and dest are linked together?
-//        Tile destinationTile = map.getRelevantTile(destination.getX(),destination.getY());
-//        if(entity.accept(destinationTile)){
-//            originTile.removeEntity();
-//            System.out.println("Success");
-//        }
-//        else{
-//            System.out.println(destinationTile.getType());
-//        }
-//    }
-
-//    public void moveNorthWest(TileVisitable entity){
-//        //Need to check if the true/false stuff somehow
-//        Entity entityTemp = (Entity)entity;
-//        setDestination(entityTemp.getLocation());
-//        Tile originTile = map.getRelevantTile(entityTemp.getLocation().getX(), entityTemp.getLocation().getY());
-//        destination.translateNorthWest();//Possible error.  origin and dest are linked together?
-//        Tile destinationTile = map.getRelevantTile(destination.getX(),destination.getY());
-//        if(entity.accept(destinationTile)){
-//            entityTemp.setLocation(destination);
-//            originTile.removeEntity();
-//        }
-//    }
-
-//    public void moveNorthEast(TileVisitable entity){
-//        //Need to check if the true/false stuff somehow
-//        Entity entityTemp = (Entity)entity;
-//        setDestination(entityTemp.getLocation());
-//        Tile originTile = map.getRelevantTile(entityTemp.getLocation().getX(), entityTemp.getLocation().getY());
-//        destination.translateNorthEast();//Possible error.  origin and dest are linked together?
-//        Tile destinationTile = map.getRelevantTile(destination.getX(),destination.getY());
-//        if(entity.accept(destinationTile)){
-//            originTile.removeEntity();
-//        }
-//    }
 
 }
