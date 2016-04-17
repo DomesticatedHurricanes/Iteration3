@@ -107,6 +107,35 @@ public class Point3D {
 
     public void translateDown(){translate(0,0,-1);}
 
+    public Point3D getTranslateNorth(){
+        Point3D point = new Point3D(this.x,this.y-1,this.z);
+        return point;
+    }
+
+    public Point3D getTranslateSouth(){
+        Point3D point = new Point3D(this.x,this.y+1,this.z);
+        return point;
+    }
+
+    public Point3D getTranslateSouthEast(){
+        Point3D point = new Point3D(this.x+1,this.y + (int)Math.abs(Math.sin((Math.PI*x)/2)),this.z);
+        return point;
+    }
+
+    public Point3D getTranslateNorthEast(){
+        Point3D point = new Point3D(this.x+1,this.y + (-1 *(int)Math.abs(Math.cos((Math.PI*x)/2))),this.z);
+        return point;
+    }
+
+    public Point3D getTranslateNorthWest(){
+        Point3D point = new Point3D(this.x-1,this.y + (-1 *(int)Math.abs(Math.cos((Math.PI*x)/2))),this.z);
+        return point;
+    }
+
+    public Point3D getTranslateSouthWest(){
+        Point3D point = new Point3D(this.x-1,this.y + (int)Math.abs(Math.sin((Math.PI*x)/2)),this.z);
+        return point;
+    }
 
     public void translate(int x,int y,int z){
         this.x += x;
