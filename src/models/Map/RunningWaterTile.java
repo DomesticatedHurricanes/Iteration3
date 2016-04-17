@@ -1,9 +1,11 @@
 package models.Map;
 
 import models.Graphics.GraphicAssets;
+import models.Interaction.MovementHandler;
 import models.entities.Avatar;
 import models.entities.Monster;
 import models.entities.Pet;
+import models.Direction.Direction;
 import utilities.Point3D;
 
 /**
@@ -12,12 +14,13 @@ import utilities.Point3D;
  */
 public class RunningWaterTile extends Tile {
 
-    // private Direction dir
+    private Direction dir;
     private int speed;
 
-    public RunningWaterTile(Point3D point3D){
+    public RunningWaterTile(Point3D point3D, int speed){
         super(point3D);
         this.image = GraphicAssets.RunningWaterTile;
+        this.speed = speed;
     }
 
     public int getSpeed(){
@@ -29,8 +32,12 @@ public class RunningWaterTile extends Tile {
     public boolean visit(Avatar avatar) {
         if(this.checkItem() && avatar.canSwim() && checkEntities() && checkHeightDifferential(avatar) && (avatar.isTrapped()==false)){
             this.insertEntity(avatar);
-            applyItems(avatar);
-            applyAreaEffect(avatar);
+            if(avatar.getStats().getMovement() - speed > 0) {
+
+            }
+            avatar.setLocation(this.point3D.getTranslateSouth());
+           // applyItems(avatar);
+            //applyAreaEffect(avatar);
             return true;
         }
 

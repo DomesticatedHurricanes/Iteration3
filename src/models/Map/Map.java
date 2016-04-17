@@ -2,6 +2,7 @@ package models.Map;
 
 
 import models.Graphics.GraphicAssets;
+import models.Interaction.MovementHandler;
 import utilities.Point3D;
 
 /**
@@ -106,7 +107,7 @@ public class Map {
             for(int j = 0; j < 9; j++){
                 // Water
                 if (tileMap[i][j] == 0){
-                    world[i][j] = new StillWaterTile(new Point3D(i,j,i));
+                    world[i][j] = new RunningWaterTile(new Point3D(i,j,i), 1);
                 }
                 // Grass
                 if (tileMap[i][j] == 1){
