@@ -13,11 +13,18 @@ import java.util.Queue;
  * Created by Breanna on 4/13/16.
  */
 public class Bane extends ProjectableSkill implements ActiveSkill{
-    public Bane(){}
+    public Bane(){
+        MANACOST = 5;
+    }
 
     @Override
     public void useSkill(Avatar avatar) {
-        useBane(avatar);
+
+        if(checkManaCost(avatar,MANACOST)){
+            payManaCost(avatar,MANACOST);
+            useBane(avatar);
+        }
+
     }
 
     public void useBane(Avatar avatar) {
@@ -42,6 +49,8 @@ public class Bane extends ProjectableSkill implements ActiveSkill{
         return affectedPoints;
 
     }
+
+
 
     @Override
     public int calculateDamage(Avatar avatar) {

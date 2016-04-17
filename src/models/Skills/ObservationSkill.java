@@ -15,6 +15,10 @@ import java.util.ArrayList;
 public class ObservationSkill extends SearchableSkill implements PassiveSkill{
     private Entity target;
 
+    public ObservationSkill(){
+        MANACOST = 0;
+    }
+
     public ArrayList<Stats> useObservation(Avatar avatar){
         ArrayList<Point3D> affectedPoints = search();
         ArrayList<Entity> victims = findVictims(affectedPoints);

@@ -7,6 +7,7 @@ import models.Map.Map3D;
 import models.entities.Entity;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * Created by Michael on 4/14/16.
@@ -21,12 +22,16 @@ public class GameStateView  extends  StateView{
     private Point mapCameraCenter;
     private Point pxCameraCenter;
 
+    private ArrayList<Entity> entities;
     private Avatar avatar;
     private Map3D map;
 
-    public GameStateView(Map3D map, Avatar avatar){
+
+    public GameStateView(Map3D map, Avatar avatar, ArrayList<Entity> entities){
+
         this.map = map;
         this.avatar = avatar;
+        this.entities = entities;
         init();
 
         // Start the map in the top left corner.
@@ -75,6 +80,9 @@ public class GameStateView  extends  StateView{
     }
 
     private void renderPlayer(Graphics g){
+        for (Entity entity: entities){
+            utilities.Renderer.entityRenderer.render(g, entity, mapCameraCenter);
+        }
 //        for(Entity inViewEntity : inViewEntities) {
 //            // Get the offset amount
 //            Point pxRenderOffset = inViewEntityPxOffset.get(inViewEntity);
@@ -83,7 +91,7 @@ public class GameStateView  extends  StateView{
 //            int y = inViewEntity.getLocation().y;
 //            // Render it
 
-        utilities.Renderer.entityRenderer.render(g, avatar, mapCameraCenter);
+
     }
 //=======
 //        utilities.Renderer.mapRenderer.render(g, world3D, mapCameraCenter, mapStartX, mapEndX, mapStartY, mapEndY);
