@@ -39,7 +39,11 @@ public class GraphicAssets {
     public static BufferedImage sneak;
     public static BufferedImage summoner;
 
-
+    public static BufferedImage smashPic;
+    public static BufferedImage sneakPic;
+    public static BufferedImage summonerPic;
+    public static BufferedImage rightArrow;
+    public static BufferedImage leftArrow;
     public static void init(){
 
         tile = ImageLoader.loadImage("/Resources/tile.png");
@@ -68,9 +72,14 @@ public class GraphicAssets {
 
         //states stuff
         startBackground = ImageLoader.loadImage("/Resources/back.jpg");
-        startBackground2 = ImageLoader.loadImage("/Resources/back2.jpg");
+        creationBackground = ImageLoader.loadImage("/Resources/back2.jpg");
+        smashPic = ImageLoader.loadImage("/Resources/Views/smasher.png");
+        sneakPic = ImageLoader.loadImage("/Resources/Views/bow.png");
+        summonerPic = ImageLoader.loadImage("/Resources/Views/staff.jpg");
+        rightArrow = ImageLoader.loadImage("/Resources/Views/arrow1.png");
+        leftArrow = ImageLoader.loadImage("/Resources/Views/arrow.png");
 
-
+        //
         smasher = ImageLoader.loadImage("/Resources/entitys/entity-smasher-S.png");
         summoner = ImageLoader.loadImage("/Resources/entitys/entity-summoner-S.png");
         sneak = ImageLoader.loadImage("/Resources/entitys/entity-sneak-S.png");

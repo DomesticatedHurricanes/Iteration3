@@ -62,7 +62,7 @@ public class StartMenuState extends State {
 
         if(select==0){
             //System.out.println("game");
-            stateManager.changeToGameState();
+            stateManager.changeToCreationState();
         }
         else if(select==1){
             //System.out.println("going to load");
