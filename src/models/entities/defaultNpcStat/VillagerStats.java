@@ -15,10 +15,10 @@ public class VillagerStats implements NPCInitialStats {
         StatModifier initCurrentHp = StatModifier.makeCurrentHpModifier(5);
         StatModifier initStrength = StatModifier.makeStrengthModifier(1);
         StatModifier initHardiness = StatModifier.makeHardinessModifier(1);
-        StatModifier initLives = StatModifier.makeStrengthModifier(1);
+        StatModifier initLives = StatModifier.makeLivesModifier(1);
         StatModifier initAgility = StatModifier.makeAgilityModifier(1);
         StatModifier initIntellect = StatModifier.makeIntellectModifier(1);
-        StatModifier initLevel = StatModifier.makeStrengthModifier(1);
+        StatModifier initLevel = StatModifier.makeLevelModifier(1);
         StatModifier initMana = StatModifier.makeManaModifier(1);
 
         //Create a StatModifiers

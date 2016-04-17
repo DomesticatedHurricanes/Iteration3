@@ -14,7 +14,7 @@ public class PetStats implements NPCInitialStats {
         StatModifier initCurrentHp = StatModifier.makeCurrentHpModifier(10);
         StatModifier initStrength = StatModifier.makeStrengthModifier(1);
         StatModifier initHardiness = StatModifier.makeHardinessModifier(5);
-        StatModifier initLives = StatModifier.makeStrengthModifier(1);
+        StatModifier initLives = StatModifier.makeLivesModifier(1);
 
         //Create a StatModifiers
         StatModifiers initialStats = new StatModifiers(initMovement, initMaxHP,

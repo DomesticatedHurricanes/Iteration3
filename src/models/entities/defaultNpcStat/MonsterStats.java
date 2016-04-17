@@ -15,10 +15,10 @@ public class MonsterStats implements NPCInitialStats {
         StatModifier initCurrentHp = StatModifier.makeCurrentHpModifier(15);
         StatModifier initStrength = StatModifier.makeStrengthModifier(10);
         StatModifier initHardiness = StatModifier.makeHardinessModifier(5);
-        StatModifier initLives = StatModifier.makeStrengthModifier(1);
+        StatModifier initLives = StatModifier.makeLivesModifier(1);
         StatModifier initAgility = StatModifier.makeAgilityModifier(10);
         StatModifier initIntellect = StatModifier.makeIntellectModifier(10);
-        StatModifier initLevel = StatModifier.makeStrengthModifier(1);
+        StatModifier initLevel = StatModifier.makeLevelModifier(1);
         StatModifier initMana = StatModifier.makeManaModifier(10);
 
         //Create a StatModifiers

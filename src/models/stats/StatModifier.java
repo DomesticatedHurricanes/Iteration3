@@ -18,16 +18,14 @@ public class StatModifier{
     private static Modifier modifyMaxHp = new Modifier() {
         @Override
         public void apply(Stats stats, int delta) {
-            LivingStats ls = (LivingStats)stats;
-            ls.modifyMaxHp(delta);
+            stats.modifyMaxHp(delta);
         }
     };
 
     private static Modifier modifyCurrentHp = new Modifier() {
         @Override
         public void apply(Stats stats, int delta) {
-            LivingStats ls = (LivingStats)stats;
-            ls.modifyCurrentHp(delta);
+            stats.modifyCurrentHp(delta);
         }
     };
 

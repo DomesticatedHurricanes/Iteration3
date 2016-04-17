@@ -29,17 +29,30 @@ import java.util.ArrayList;
 public class ConsoleTester {
     public static void main(String args[]){
         Monster monster = new Monster();
-        Stats monsterStats = monster.getStats();
         Pet pet = new Pet();
-        Stats petStats = pet.getStats();
         Villager villager = new Villager();
+
+
+        Stats monsterStats = monster.getStats();
+        Stats petStats = pet.getStats();
         CharacterStats villagerStats = villager.getStats();
 
-        System.out.println(villagerStats.getAgility());
+        System.out.println("Villager movement: " + villagerStats.getMovement());
+        System.out.println("Villager armor rating: " + villagerStats.getArmorRating());
+        System.out.println("Villager experience: " + villagerStats.getExperience());
+        System.out.println("Villager intellect: " + villagerStats.getIntellect());
+        System.out.println("Villager level: " + villagerStats.getLevel());
+        System.out.println("Villager stats: " + villagerStats.getAgility());
+        System.out.println("Villager current HP: " + villagerStats.getCurrentHp());
+        System.out.println("Villager mana: " + villagerStats.getMana());
+        System.out.println("Villager hardiness: " + villagerStats.getHardiness());
+        System.out.println("Villager jump hardiness: " + villagerStats.getJumpHeight());
+        System.out.println("Villager max HP: " + villagerStats.getMaxHp());
+        System.out.println("Villager strength: " + villagerStats.getStrength());
+        System.out.println("Villager offensive rating: " + villagerStats.getOffensiveRating());
+        System.out.println("Villager defensive rating: " + villagerStats.getDefensiveRating());
 
-        System.out.println(petStats.getMovement());
-
-        System.out.println(monsterStats.getMovement());
+        System.out.println("Monster max HP: " + monsterStats.getMaxHp());
 
 
 

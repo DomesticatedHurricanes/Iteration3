@@ -53,10 +53,6 @@ public class Monster extends AINpc implements Movement {
         return false;
     }
 
-    @Override
-    public CharacterStats getStats() {
-        return (CharacterStats)npcStats;
-    }
 
     /**
     *       Getters and Setters
@@ -85,7 +81,7 @@ public class Monster extends AINpc implements Movement {
 
     @Override//Originally this was public Stats getStats()
     public CharacterStats getStats() {
-        return npcStats;
+        return (CharacterStats)npcStats;
     }
 
     //Add Observer
