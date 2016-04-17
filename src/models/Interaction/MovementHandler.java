@@ -115,14 +115,14 @@ public class MovementHandler {
         Tile originTile = map2.getTile(((Entity) entity).getLocation().getX(),((Entity) entity).getLocation().getY());
 
         // Get the destination point to check if valid
-        Point3D dest = entityTemp.getLocation().getTranslateNorthEast();
+        Point3D dest = entityTemp.getLocation().getTranslateNorth();
         // Check the destination tile
         Tile destinationTile = map2.getTile(dest.getX(),dest.getY());
 
         // If the entity can move to that tile
         if(entity.accept(destinationTile)){
             // Set the entities location to the new location
-            destination.translateNorthEast();
+            destination.translateNorth();
 
             // Remove the entity from the previous tile
             originTile.removeEntity();
@@ -187,14 +187,14 @@ public class MovementHandler {
         Tile originTile = map2.getTile(((Entity) entity).getLocation().getX(),((Entity) entity).getLocation().getY());
 
         // Get the destination point to check if valid
-        Point3D dest = entityTemp.getLocation().getTranslateNorth();
+        Point3D dest = entityTemp.getLocation().getTranslateNorthEast();
         // Check the destination tile
         Tile destinationTile = map2.getTile(dest.getX(),dest.getY());
 
         // If the entity can move to that tile
         if(entity.accept(destinationTile)){
             // Set the entities location to the new location
-            destination.translateNorth();
+            destination.translateNorthEast();
 
             // Remove the entity from the previous tile
             originTile.removeEntity();
