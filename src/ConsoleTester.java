@@ -11,6 +11,7 @@ import models.effects.HemiConicalEffect;
 import models.effects.LinearEffect;
 import models.entities.Avatar;
 import models.entities.Entity;
+import models.entities.Monster;
 import models.entities.occupation.Smasher;
 import models.stats.StatModifier;
 import models.stats.StatModifiers;
@@ -36,7 +37,7 @@ public class ConsoleTester {
         map3D.testMap();
          **/
 
-
+        /**
         Avatar testing = new Avatar(new Smasher());
         StatModifier agilityMod = StatModifier.makeAgilityModifier(5);
         StatModifier strMod = StatModifier.makeStrengthModifier(5);
@@ -92,6 +93,9 @@ public class ConsoleTester {
         testing.removeItem(consumable);
         testing.removeItem(helmet);
         System.out.println(testing.getInventory().getPack().getPackContents());
+         **/
+        
+
 
     }
 }

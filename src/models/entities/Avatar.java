@@ -64,7 +64,7 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
         inventory.equipChestPlate(chestPlate);
     }
 
-    public void equipWeapon(Weapon weapon){inventory.equipWeapon(weapon);}
+    public void equipWeapon(Weapon weapon){inventory.equipWeapon(weapon);   }
 
     public void equipSlacks(Slacks slacks){
         inventory.equipSlacks(slacks);
