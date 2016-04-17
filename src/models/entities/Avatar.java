@@ -27,6 +27,7 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
         this.inventory = new Inventory(16);
         this.occupation = occupation;
         stats = new CharacterStats();
+        occupation.initStats(stats);
         this.occupation.initStats(stats);
         this.entityImage = occupation.initImage();
     }
@@ -72,7 +73,7 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
         inventory.equipBoots(boots);
     }
 
-    public void equipGloves(Gloves gloves){inventory.equipGloves(gloves);}
+    public void equipGloves(Gloves gloves){ inventory.equipGloves(gloves); }
 
     //Unequipping functions
     public void unequipHelmet(){
