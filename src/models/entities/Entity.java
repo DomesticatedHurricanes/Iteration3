@@ -18,6 +18,7 @@ public abstract class Entity {
     Point3D location;
     BufferedImage entityImage;
     StatusEffect.statusEffect statusEffect;
+    StatusEffect statusEffects;
     public Entity(){
         location =null;
         entityImage = null;
@@ -44,8 +45,9 @@ public abstract class Entity {
 
     public void setStatusEffect(StatusEffect.statusEffect statusEffect){
         this.statusEffect = statusEffect;
-        //TODO:PUT A TIMER HERE THAT SETS THE STATUS EFFECT BACK TO NONE
-        //TODO:IMPLEMENT A APPLY EFFECT AND HAVE IT RESET
+        //Not sure if this is going to work
+        statusEffects.applyStatusEffect(this);
+
     }
 
     public Inventory getInventory(){

@@ -40,8 +40,5 @@ public class BoonSkill extends Skill implements ActiveSkill{
         characterStats.modifyHardiness(-BUFF);
     }
 
-    @Override
-    public void setManaCost() {
-        MANACOST = 0;
-    }
+
 }
