@@ -1,13 +1,11 @@
 package models.entities;
-
-
+import models.entities.occupation.Occupation;
+import models.stats.CharacterStats;
 import models.Inventory.Inventory;
 import models.Item.Item;
 import models.Item.Takeable.Equippable.*;
 import models.Item.Takeable.TakeableItemVisitor;
 import models.Map.Tile;
-import models.entities.occupation.Occupation;
-import models.stats.CharacterStats;
 import utilities.Point3D;
 
 import java.awt.image.BufferedImage;
@@ -19,12 +17,11 @@ import java.awt.image.BufferedImage;
  */
 
 
-
 public class Avatar extends Entity implements Movement, Attack, TileVisitable, TakeableItemVisitable{
+
     private Occupation occupation;
     private CharacterStats stats;
     //private Inventory inventory;
-
 
     public Avatar(Occupation occupation){
         this.inventory = new Inventory(16);
@@ -65,11 +62,7 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
         inventory.equipChestPlate(chestPlate);
     }
 
-    public void equipOneHandedWeapon(OneHandedWeapon oneHandedWeapon){ inventory.equipOneHandedWeapon(oneHandedWeapon);}
-
-    public void equipRangedWeapon(Ranged rangedWeapon){
-        inventory.equipRangedWeapon(rangedWeapon);
-    }
+    public void equipWeapon(Weapon weapon){inventory.equipWeapon(weapon);   }
 
     public void equipSlacks(Slacks slacks){
         inventory.equipSlacks(slacks);
@@ -78,8 +71,6 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
     public void equipBoots(Boots boots){
         inventory.equipBoots(boots);
     }
-
-    public void equipTwoHandedWeapon(TwoHandedWeapon twoHandedWeapon){ inventory.equipTwoHandedWeapon(twoHandedWeapon);}
 
     public void equipGloves(Gloves gloves){inventory.equipGloves(gloves);}
 
@@ -92,11 +83,7 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
         inventory.unequipChestPlate();
     }
 
-    public void unequipOneHandedWeapon(){ inventory.unequipOneHandedWeapon();}
-
-    public void unequipRangedWeapon(){
-        inventory.unequipRangedWeapon();
-    }
+    public void unequipWeapon(){ inventory.unequipWeapon();}
 
     public void unequipSlacks(){
         inventory.unequipSlacks();
@@ -105,8 +92,6 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
     public void unequipBoots(){
         inventory.unequipBoots();
     }
-
-    public void unequipTwoHandedWeapon(){ inventory.unequipTwoHandedWeapon();}
 
     public void unequipGloves(){inventory.unequipGloves();}
 
@@ -130,7 +115,6 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
     public boolean canWalk() {
         return true;
     }
-
     @Override
     public boolean canFly() {
         return false;
@@ -142,11 +126,6 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
         return stats;
     }
 
-
-    @Override
-    public String getType() {
-        return "Avatar";
-    }
 
     public Inventory getInventory(){return inventory;}
 

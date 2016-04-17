@@ -17,7 +17,7 @@ public class OneHandedWeapon extends Weapon implements TakeableItemVisitor{
     @Override
     public void visit(Avatar avatar) {
         if (avatar.getStats().getLevel() >= lvlReq){
-            avatar.equipOneHandedWeapon(this);
+            avatar.equipWeapon(this);
             statModifiers.apply(avatar.getStats());
         }
     }

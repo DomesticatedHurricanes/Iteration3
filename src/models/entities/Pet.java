@@ -3,11 +3,13 @@ package models.entities;
 import models.Interaction.AIObserver;
 import models.Map.Tile;
 import models.stats.LivingStats;
+import models.stats.Stats;
 import models.Inventory.Inventory;
 
 import models.AI.PetBrain;
 import utilities.Point3D;
-
+import models.entities.defaultNpcStat.NPCInitialStats;
+import models.entities.defaultNpcStat.PetStats;
 
 /**
  * Created by Breanna on 4/13/16.
@@ -16,12 +18,15 @@ import utilities.Point3D;
 
 
 public class Pet extends AINpc implements Movement, TileVisitable {
-    private LivingStats stats;
+
     private PetBrain petBrain;
+    private NPCInitialStats initialStats;
 
     public Pet() {
         this.petBrain = new PetBrain();
-        this.stats = new LivingStats();
+        this.npcStats = new LivingStats();
+        initialStats = new PetStats();
+        initialStats.initStats(npcStats);
         this.inventory = new Inventory(16);
     }
     @Override
@@ -58,12 +63,13 @@ public class Pet extends AINpc implements Movement, TileVisitable {
 
     @Override
     public LivingStats getStats() {
-        return stats;
+        return (LivingStats)npcStats;
     }
 
 
     //AI functions
     public void makeMove(){
+       // notifyMove(petBrain.changeDirection());
 
     }
 
@@ -89,8 +95,5 @@ public class Pet extends AINpc implements Movement, TileVisitable {
         }
     }
 
-    @Override
-    public String getType() {
-        return "Pet";
-    }
+
 }

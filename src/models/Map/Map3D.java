@@ -68,8 +68,6 @@ public class Map3D {
             }
         }
 
-
-
     }
 
     public void initTopologicalMap(){

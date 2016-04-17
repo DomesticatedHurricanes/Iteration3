@@ -9,9 +9,7 @@ public class Equipment {
 
     Helmet helmet;
     ChestPlate chestPlate;
-    //weapon?
-    Weapon leftHand;
-    Weapon rightHand;
+    Weapon weapon;
     Slacks slacks;
     Boots boots;
     Gloves gloves;
@@ -29,9 +27,7 @@ public class Equipment {
         return this.chestPlate;
     }
 
-    public Weapon getLeftHandWeapon(){return this.leftHand;}
-
-    public Weapon getRightHandWeapon(){return this.rightHand;}
+    public Weapon getWeapon(){return this.weapon;}
 
     public Slacks getSlacks(){
         return this.slacks;
@@ -54,18 +50,8 @@ public class Equipment {
         this.chestPlate = chestPlate;
     }
 
-    public void equipOneHandedWeapon(OneHandedWeapon oneHandedWeapon){
-        this.rightHand = oneHandedWeapon;
-    }
-
-    public void equipTwoHandedWeapon(TwoHandedWeapon twoHandedWeapon){
-        this.leftHand = twoHandedWeapon;
-        this.rightHand = twoHandedWeapon;
-    }
-
-    public void equipRangedWeapon(Ranged rangedWeapon){
-        this.leftHand = rangedWeapon;
-        this.rightHand = rangedWeapon;
+    public void equipWeapon(Weapon weapon){
+        this.weapon = weapon;
     }
 
     public void equipSlacks(Slacks slacks){
@@ -89,18 +75,8 @@ public class Equipment {
         this.chestPlate = null;
     }
 
-    public void unequipOneHandedWeapon(){
-        this.rightHand = null;
-    }
-
-    public void unequipTwoHandedWeapon(){
-        this.leftHand = null;
-        this.rightHand = null;
-    }
-
-    public void unequipRangedWeapon(){
-        this.leftHand = null;
-        this.rightHand = null;
+    public void unequipWeapon(){
+        this.weapon = null;
     }
 
     public void unequipSlacks(){
@@ -119,8 +95,7 @@ public class Equipment {
     public void printInventoryContents(){
         System.out.println("Helmet: " + helmet);
         System.out.println("Chest Plate: " + chestPlate);
-        System.out.println("Left Hand: " +leftHand);
-        System.out.println("Right Hand: " + rightHand);
+        System.out.println("Weapon: " + weapon);
         System.out.println("Slacks: " + slacks);
         System.out.println("Boots: " + boots);
         System.out.println("Gloves: " + gloves);

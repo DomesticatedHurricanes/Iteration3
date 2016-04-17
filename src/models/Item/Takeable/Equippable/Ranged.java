@@ -16,7 +16,7 @@ public class Ranged extends Weapon implements TakeableItemVisitor {
     @Override
     public void visit(Avatar avatar) {
         if (avatar.getStats().getLevel() >= lvlReq){
-            avatar.equipRangedWeapon(this);
+            avatar.equipWeapon(this);
             statModifiers.apply(avatar.getStats());
         }
     }
