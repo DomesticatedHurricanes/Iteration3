@@ -108,4 +108,9 @@ public class Monster extends AINpc implements Movement {
             observer.processThought(this);
         }
     }
+
+    @Override
+    public void onInteract(Avatar avatar) {
+
+    }
 }

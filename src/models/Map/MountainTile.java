@@ -3,6 +3,7 @@ package models.Map;
 import models.Graphics.GraphicAssets;
 import models.entities.Avatar;
 import models.entities.Monster;
+import models.entities.NPC;
 import models.entities.Pet;
 import utilities.Point3D;
 
@@ -23,6 +24,11 @@ public class MountainTile extends Tile {
             applyItems(avatar);
             applyAreaEffect(avatar);
             return true;
+        }
+
+        else if(checkEntities() && checkHeightDifferential(avatar)){
+            NPC npc = (NPC)(getEntity());
+            npc.onInteract(avatar);
         }
 
         return avatar.canTraverse();
