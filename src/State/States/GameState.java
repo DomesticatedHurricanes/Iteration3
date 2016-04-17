@@ -7,6 +7,7 @@ import models.Interaction.MovementHandler;
 import models.Map.Map;
 
 import State.StateManager;
+import models.Map.Map3D;
 import models.entities.Avatar;
 import models.entities.Entity;
 import models.entities.NPC;
@@ -28,14 +29,20 @@ public class GameState extends State{
     private GameStateController gameStateController;
     private MovementHandler movementHandler;
     private Avatar avatar;
+
+    private Map3D map;
+
     private Villager villager;
     private ArrayList<Entity> entities;
-    private Map map;
+
 
     public GameState(StateManager stateManager, JFrame jFrame, Occupation occupation){
         super(stateManager, jFrame);
         avatar = new Avatar(occupation);
         avatar.setLocation(new Point3D(1,1,1));
+
+        map = new Map3D(5);
+
 
         villager = new Villager();
         villager.setLocation(new Point3D(12,12,1));
@@ -45,8 +52,9 @@ public class GameState extends State{
         entities.add(avatar);
         entities.add(villager);
 
-        map = new Map(25,25);
-        map.getTile(12,12).insertEntity(villager);
+        //map = new Map(25,25);
+        map.getRelevantTile(12,12).insertEntity(villager);
+
 
         movementHandler = new MovementHandler(map);
         gameStateView = new GameStateView(map,avatar,entities);

@@ -3,6 +3,7 @@ package utilities;
 import View.View;
 import models.Graphics.GraphicAssets;
 import models.Map.Map;
+import models.Map.Map3D;
 import models.Map.Tile;
 import models.entities.Entity;
 
@@ -47,7 +48,7 @@ public class Renderer {
                         pxCenterPoint = new Point(pxX, pxY);
 //                        System.out.println("even: " + pxCenterPoint);
                     }
-                    tileRenderer.render(g, map.getTile(x, y), pxCenterPoint);
+                    tileRenderer.render(g, map.getTile(y, x), pxCenterPoint);
                 }
             }
         }
@@ -78,36 +79,36 @@ public class Renderer {
 //            }
 //        }
 //
-//        public static void render(Graphics g, Map3D map, Point mapCenterPoint, int mapStartX, int mapEndX, int mapStartY, int mapEndY) {
-//            for(int y = mapStartY; y < mapEndY; y++){
-//                for(int x = mapEndX - 1; x  >= mapStartX; x--){
-//                    Point pxCenterPoint;
-//                    int offset;
-//
-//                    // calculate the offset to render images of different size
-//                    if (map.getRelevantTile(x,y).getImageHeight().getHeight() != GraphicAssets.TILE_PX_HEIGHT){
-//                        offset = map.getRelevantTile(x,y).getImageHeight().getHeight() - GraphicAssets.TILE_PX_HEIGHT;
-//                    } else{
-//                        offset = 0;
-//                    }
-//
-//                    //System.out.println("offset: " + offset);
-//
-//                    if(x % 2 != 0) {
-//                        int pxX = (int)((x - mapCenterPoint.x)*(0.75* GraphicAssets.TILE_PX_WIDTH)) + view.getWidth()/2;
-//                        int pxY = ((mapCenterPoint.x % 2 == 0)? GraphicAssets.TILE_PX_HEIGHT/2 : 0) + ((y - mapCenterPoint.y)* GraphicAssets.TILE_PX_HEIGHT) + view.getHeight()/2 - offset/2;
-//                        pxCenterPoint = new Point(pxX, pxY);
+        public static void render(Graphics g, Map3D map, Point mapCenterPoint, int mapStartX, int mapEndX, int mapStartY, int mapEndY) {
+            for(int y = mapStartY; y < mapEndY; y++){
+                for(int x = mapEndX - 1; x  >= mapStartX; x--){
+                    Point pxCenterPoint;
+                    int offset;
+
+                    // calculate the offset to render images of different size
+                    if (map.getRelevantTile(y,x).getImageHeight().getHeight() != GraphicAssets.TILE_PX_HEIGHT){
+                        offset = map.getRelevantTile(y,x).getImageHeight().getHeight() - GraphicAssets.TILE_PX_HEIGHT;
+                    } else{
+                        offset = 0;
+                    }
+
+                    //System.out.println("offset: " + offset);
+
+                    if(x % 2 != 0) {
+                        int pxX = (int)((x - mapCenterPoint.x)*(0.75* GraphicAssets.TILE_PX_WIDTH)) + view.getWidth()/2;
+                        int pxY = ((mapCenterPoint.x % 2 == 0)? GraphicAssets.TILE_PX_HEIGHT/2 : 0) + ((y - mapCenterPoint.y)* GraphicAssets.TILE_PX_HEIGHT) + view.getHeight()/2 - offset/2;
+                        pxCenterPoint = new Point(pxX, pxY);
 ////                        System.out.println("odd: " + pxCenterPoint);
-//                    } else {
-//                        int pxX = (int)((x - mapCenterPoint.x)*(0.75* GraphicAssets.TILE_PX_WIDTH)) + view.getWidth()/2;
-//                        int pxY = ((mapCenterPoint.x % 2 != 0)? -1 * GraphicAssets.TILE_PX_HEIGHT/2 : 0) + ((y - mapCenterPoint.y)* GraphicAssets.TILE_PX_HEIGHT) + view.getHeight()/2 - offset/2;
-//                        pxCenterPoint = new Point(pxX, pxY);
-////                        System.out.println("even: " + pxCenterPoint);
-//                    }
-//                    tileRenderer.render(g, map.getRelevantTile(x, y), pxCenterPoint);
-//                }
-//            }
-//        }
+                    } else {
+                        int pxX = (int)((x - mapCenterPoint.x)*(0.75* GraphicAssets.TILE_PX_WIDTH)) + view.getWidth()/2;
+                        int pxY = ((mapCenterPoint.x % 2 != 0)? -1 * GraphicAssets.TILE_PX_HEIGHT/2 : 0) + ((y - mapCenterPoint.y)* GraphicAssets.TILE_PX_HEIGHT) + view.getHeight()/2 - offset/2;
+                        pxCenterPoint = new Point(pxX, pxY);
+//                        System.out.println("even: " + pxCenterPoint);
+                    }
+                    tileRenderer.render(g, map.getRelevantTile(y, x), pxCenterPoint);
+                }
+            }
+        }
 //>>>>>>> master
     }
 

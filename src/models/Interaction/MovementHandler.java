@@ -211,12 +211,12 @@ public class MovementHandler {
         setDestination(entityTemp.getLocation());
 
         // Get the original tile
-        Tile originTile = map2.getTile(((Entity) entity).getLocation().getX(), ((Entity) entity).getLocation().getY());
+        Tile originTile = map.getRelevantTile(((Entity) entity).getLocation().getY(),((Entity) entity).getLocation().getX());
 
         // Get the destination point to check if valid
         Point3D dest = orientation.translate(entityTemp.getLocation());
         // Check the destination tile
-        Tile destinationTile = map2.getTile(dest.getX(), dest.getY());
+        Tile destinationTile = map.getRelevantTile(dest.getY(),dest.getX());
 
         // If the entity can move to that tile
         if (entity.accept(destinationTile)) {

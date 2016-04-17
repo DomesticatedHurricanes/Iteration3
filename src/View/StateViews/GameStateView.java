@@ -24,9 +24,11 @@ public class GameStateView  extends  StateView{
 
     private ArrayList<Entity> entities;
     private Avatar avatar;
-    private Map map;
+    private Map3D map;
 
-    public GameStateView(Map map, Avatar avatar, ArrayList<Entity> entities){
+
+    public GameStateView(Map3D map, Avatar avatar, ArrayList<Entity> entities){
+
         this.map = map;
         this.avatar = avatar;
         this.entities = entities;
