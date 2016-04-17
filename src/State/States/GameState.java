@@ -46,6 +46,8 @@ public class GameState extends State{
         entities.add(villager);
 
         map = new Map(25,25);
+        map.getTile(12,12).insertEntity(villager);
+
         movementHandler = new MovementHandler(map);
         gameStateView = new GameStateView(map,avatar,entities);
         gameStateController = new GameStateController(this.stateManager,this,jFrame, movementHandler,avatar);

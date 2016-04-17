@@ -29,17 +29,20 @@ public class RunningWaterTile extends Tile {
     @Override
     public boolean visit(Avatar avatar) {
         if(this.checkItem() && avatar.canSwim() && checkEntities() && checkHeightDifferential(avatar)){
+            System.out.println(checkEntities());
             this.insertEntity(avatar);
             applyItems(avatar);
             applyAreaEffect(avatar);
             return true;
         }
-        else if(checkEntities() && checkHeightDifferential(avatar)){
+        else if(!checkEntities()){
             NPC npc = (NPC)(getEntity());
             npc.onInteract(avatar);
+            return false;
         }
-
-        return avatar.canSwim();
+        else{
+            return false;
+        }
     }
 
     @Override
