@@ -141,11 +141,5 @@ public abstract class Tile implements TileVisitor {
     }
 
 
-
-
-
-
-    public abstract String getType();
-
-
+    public String getType(){ return "type";}
 }

@@ -17,6 +17,9 @@ public abstract class Entity {
 
     Point3D location;
     BufferedImage entityImage;
+    private boolean isTrapped = false;  // used for trap areaEffect
+
+
     public Entity(){
         location =null;
         entityImage = null;
@@ -30,6 +33,14 @@ public abstract class Entity {
         SOUTHWEST,
         SOUTH,
         SOUTHEAST
+    }
+
+    public void setTrapped(boolean trap){
+        isTrapped = trap;
+    }
+
+    public boolean isTrapped(){
+        return isTrapped;
     }
 
     public abstract Stats getStats();

@@ -18,10 +18,10 @@ public class GrassTile extends Tile {
 
     @Override
     public boolean visit(Avatar avatar) {
-        if(this.checkItem() && avatar.canWalk() && checkEntities() && checkHeightDifferential(avatar)){
+        if(this.checkItem() && avatar.canWalk() && checkEntities() && checkHeightDifferential(avatar) && (avatar.isTrapped()==false)){
             this.insertEntity(avatar);
             applyItems(avatar);
-            applyAreaEffect(avatar);
+//            applyAreaEffect(avatar);
             return true;
         }
         System.out.println("TOO HIGH");
@@ -30,7 +30,7 @@ public class GrassTile extends Tile {
 
     @Override
     public boolean visit(Monster monster) {
-        if(this.checkItem() && monster.canWalk() && checkEntities() && checkHeightDifferential(monster)){
+        if(this.checkItem() && monster.canWalk() && checkEntities() && checkHeightDifferential(monster) && (monster.isTrapped()==false)){
             this.insertEntity(monster);
             return true;
         }
@@ -40,7 +40,7 @@ public class GrassTile extends Tile {
 
     @Override
     public boolean visit(Pet pet) {
-        if(this.checkItem() && pet.canWalk() && checkEntities() && checkHeightDifferential(pet)){
+        if(this.checkItem() && pet.canWalk() && checkEntities() && checkHeightDifferential(pet) && (pet.isTrapped()==false)){
             this.insertEntity(pet);
             return true;
         }
