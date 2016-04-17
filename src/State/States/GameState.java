@@ -29,10 +29,9 @@ public class GameState extends State{
     public GameState(StateManager stateManager, JFrame jFrame, Occupation occupation){
         super(stateManager, jFrame);
 
-
         avatar = new Avatar(occupation);
+        avatar.getEntityImage();
         avatar.setLocation(new Point3D(1,1,1));
-        System.out.println("Image: " +  avatar.getEntityImage());
         map = new Map(10,10);
         movementHandler = new MovementHandler(map);
 

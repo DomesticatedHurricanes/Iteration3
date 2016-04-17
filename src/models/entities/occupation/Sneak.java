@@ -41,7 +41,7 @@ public class Sneak implements Occupation{
     }
 
     @Override
-    public void initImage(BufferedImage bufferedImage) {
-        bufferedImage = GraphicAssets.sneak;
+    public BufferedImage initImage() {
+        return GraphicAssets.sneak;
     }
 }

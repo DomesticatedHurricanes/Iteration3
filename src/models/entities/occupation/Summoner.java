@@ -41,7 +41,7 @@ public class Summoner implements Occupation{
     }
 
     @Override
-    public void initImage(BufferedImage bufferedImage) {
-        bufferedImage = GraphicAssets.summoner;
+    public BufferedImage initImage( ) {
+        return GraphicAssets.summoner;
     }
 }
