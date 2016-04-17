@@ -44,6 +44,8 @@ public abstract class Entity {
 
     public void setStatusEffect(StatusEffect.statusEffect statusEffect){
         this.statusEffect = statusEffect;
+        //TODO:PUT A TIMER HERE THAT SETS THE STATUS EFFECT BACK TO NONE
+        //TODO:IMPLEMENT A APPLY EFFECT AND HAVE IT RESET
     }
 
     public Inventory getInventory(){

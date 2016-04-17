@@ -57,6 +57,11 @@ public class Brawling extends ProjectableSkill implements ActiveSkill, ActiveMon
         return affectedPoints;
     }
 
+    @Override
+    public void setManaCost() {
+        MANACOST = 0;
+    }
+
     public int calculateDamage(Monster monster){return(monster.getStats().getOffensiveRating());}
 
     @Override
