@@ -96,13 +96,14 @@ public class ConsoleTester {
         System.out.println(testing.getInventory().getPack().getPackContents());
          **/
         
-        
+        /**
         Map3D map3D = new Map3D(10);
         Avatar avatar = new Avatar(new Smasher());
         avatar.setLocation(new Point3D(1,1,1));
         MovementHandler movementHandler = new MovementHandler(map3D);
         map3D.insertEnitity(avatar, 1, 1);
         movementHandler.moveNorthWest(avatar);
+         **/
 
     }
 }
