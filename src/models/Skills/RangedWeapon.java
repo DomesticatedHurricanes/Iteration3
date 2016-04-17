@@ -14,6 +14,10 @@ import java.util.Queue;
  */
 public class RangedWeapon extends ProjectableSkill implements ActiveSkill{
 
+    public RangedWeapon(){
+        MANACOST = 0;
+    }
+
     @Override
     public void useSkill(Avatar avatar) {
         useRangedWeapon(avatar);
@@ -37,6 +41,8 @@ public class RangedWeapon extends ProjectableSkill implements ActiveSkill{
 
         return affectedPoints;
     }
+
+
 
     @Override
     public int calculateDamage(Avatar avatar) {

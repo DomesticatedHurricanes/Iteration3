@@ -19,7 +19,7 @@ public class AirTile extends Tile {
     @Override
     public boolean visit(Avatar avatar) {
         //TODO: Remember to remove avatar from previous tile in interaction handler
-        if(this.checkItem() && avatar.canSwim() && checkEntities() && checkHeightDifferential(avatar) && (avatar.isTrapped()==false)){
+        if(this.checkItem() && avatar.canSwim() && checkEntities() && checkHeightDifferential(avatar)){
             this.insertEntity(avatar);
             applyItems(avatar);
             applyAreaEffect(avatar);
@@ -30,7 +30,7 @@ public class AirTile extends Tile {
 
     @Override
     public boolean visit(Monster monster) {
-        if(this.checkItem() && monster.canFly() && checkEntities() && checkHeightDifferential(monster) && (monster.isTrapped()==false)){
+        if(this.checkItem() && monster.canFly() && checkEntities() && checkHeightDifferential(monster)){
             this.insertEntity(monster);
             return true;
         }
@@ -40,7 +40,7 @@ public class AirTile extends Tile {
 
     @Override
     public boolean visit(Pet pet) {
-        if(this.checkItem() && pet.canFly() && checkEntities() && checkHeightDifferential(pet) && (pet.isTrapped()==false)){
+        if(this.checkItem() && pet.canFly() && checkEntities() && checkHeightDifferential(pet)){
             this.insertEntity(pet);
             return true;
         }

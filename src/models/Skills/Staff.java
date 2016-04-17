@@ -13,6 +13,10 @@ import java.util.Queue;
  * Created by Breanna on 4/13/16.
  */
 public class Staff extends ProjectableSkill {
+
+    public Staff(){
+        MANACOST = 0;
+    }
     public void useStaff() {
         //Example of Ring of Operations!
         ArrayList<Point3D> affectedPoints = search();
@@ -20,6 +24,8 @@ public class Staff extends ProjectableSkill {
         projectile = new Projectile(10, StatusEffect.statusEffect.NONE);
         victimize(victims,projectile);
     }
+
+
 
     @Override
     public ArrayList<Point3D> search() {
@@ -31,6 +37,8 @@ public class Staff extends ProjectableSkill {
 
         return affectedPoints;
     }
+
+
 
     @Override
     public int calculateDamage(Avatar avatar) {

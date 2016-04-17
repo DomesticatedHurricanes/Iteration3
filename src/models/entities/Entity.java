@@ -4,6 +4,7 @@ package models.entities;
 
 import models.Direction.Direction;
 import models.Inventory.Inventory;
+import models.stats.StatusEffect;
 import utilities.Point3D;
 import models.stats.Stats;
 
@@ -18,15 +19,25 @@ public abstract class Entity {
 
     Point3D location;
     BufferedImage entityImage;
+
+    StatusEffect.statusEffect statusEffect;
+    StatusEffect statusEffects;
     Orientation orientation;
-    private boolean isTrapped = false;  // used for trap areaEffect
+    public Entity() {
+        location = null;
+        entityImage = null;
+        statusEffect = StatusEffect.statusEffect.NONE;
+        orientation = Orientation.SOUTH;
+        //Orientation orientation;
+        //private boolean isTrapped = false;  // used for trap areaEffect
+    }
 
-
-    public Entity(){
+    /*public Entity(){
         location =null;
         entityImage = null;
         orientation = Orientation.SOUTH;
-    }
+
+    }*/
 
     Inventory inventory;//This needs to be initialized in the specfic implementation details
     public enum Orientation{
@@ -64,17 +75,21 @@ public abstract class Entity {
         public abstract Point3D translate(Point3D point3D);
     }
 
-    public void setTrapped(boolean trap){
-        isTrapped = trap;
-    }
-
-    public boolean isTrapped(){
-        return isTrapped;
-    }
 
     public abstract Stats getStats();
 
     //public abstract String getType();
+
+    public StatusEffect.statusEffect getStatusEffect(){
+        return statusEffect;
+    }
+
+    public void setStatusEffect(StatusEffect.statusEffect statusEffect){
+        this.statusEffect = statusEffect;
+        //Not sure if this is going to work
+        statusEffects.applyStatusEffect(this);
+
+    }
 
     public Inventory getInventory(){
         return inventory;

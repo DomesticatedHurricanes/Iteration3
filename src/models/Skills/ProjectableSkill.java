@@ -24,6 +24,7 @@ public abstract class ProjectableSkill extends SearchableSkill{
             //get stats from victim and them modify it!
             //modify based on projectile!
             vicitim.getStats().modifyCurrentHp(damage);//
+            vicitim.setStatusEffect(StatusEffect.statusEffect.NONE);
             //given from projectile
 
 

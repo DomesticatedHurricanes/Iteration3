@@ -21,6 +21,8 @@ public class PickPocketSkill extends SearchableSkill implements ActiveSkill{
         return new Queue<Point3D>();
     }*/
 
+    public PickPocketSkill(){MANACOST = 0;}
+
     @Override
     public void useSkill(Avatar avatar) {
         usePickPocket(avatar);
@@ -61,6 +63,7 @@ public class PickPocketSkill extends SearchableSkill implements ActiveSkill{
 
         return affectedPoints;
     }
+
 
 
 }
