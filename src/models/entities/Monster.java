@@ -1,6 +1,6 @@
 package models.entities;
 
-import models.Interaction.Observer;
+import models.Interaction.AIObserver;
 
 import models.AI.MonsterBrain;
 
@@ -9,6 +9,8 @@ import models.stats.CharacterStats;
 import models.Inventory.Inventory;
 import utilities.Point3D;
 import models.entities.defaultNpcStat.MonsterStats;
+
+import java.util.Observer;
 
 public class Monster extends AINpc implements Movement {
 
@@ -79,28 +81,27 @@ public class Monster extends AINpc implements Movement {
         return monsterBrain.getAggression();
     }
 
+
+
     @Override//Originally this was public Stats getStats()
     public CharacterStats getStats() {
         return (CharacterStats)npcStats;
     }
 
-    //Add Observer
-    public void addObserver(Observer observer){
-        observers.add(observer);
-    }
 
-    //Observer Notifiers
+
+    //AIObserver Notifiers
 
     @Override
-    public void notifyMove(Point3D point3D) {
-        for(Observer observer: observers){
-            observer.processMove(this, point3D);
+    public void notifyMove(AINpc aiNpc) {
+        for(AIObserver observer: observers){
+            observer.processMove(this);
         }
     }
 
     @Override
-    public void notifyThought() {
-        for(Observer observer: observers){
+    public void notifyThought(AINpc aiNpc) {
+        for(AIObserver observer: observers){
             observer.processThought(this);
         }
     }
