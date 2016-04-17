@@ -3,6 +3,7 @@ package models.Item.Takeable.Equippable;
 import models.Item.Takeable.Takeable;
 import models.Item.Takeable.TakeableItemVisitor;
 import models.entities.Avatar;
+import models.stats.StatModifier;
 import models.stats.StatModifiers;
 
 /**
@@ -10,8 +11,8 @@ import models.stats.StatModifiers;
  */
 public class OneHandedWeapon extends Weapon implements TakeableItemVisitor{
 
-    public OneHandedWeapon(String name, StatModifiers statModifiers, int price){
-        super(name, statModifiers, price);
+    public OneHandedWeapon(String name, StatModifiers statModifiers, int price, StatModifiers enemyEffect){
+        super(name, statModifiers, price, enemyEffect);
     }
 
     @Override
