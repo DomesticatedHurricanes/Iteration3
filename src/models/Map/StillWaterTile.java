@@ -3,6 +3,7 @@ package models.Map;
 import models.Graphics.GraphicAssets;
 import models.entities.Avatar;
 import models.entities.Monster;
+import models.entities.NPC;
 import models.entities.Pet;
 import utilities.Point3D;
 
@@ -26,6 +27,12 @@ public class StillWaterTile extends Tile implements TileVisitor {
             applyAreaEffect(avatar);
             return true;
         }
+
+        else if(checkEntities() && checkHeightDifferential(avatar)){
+            NPC npc = (NPC)(getEntity());
+            npc.onInteract(avatar);
+        }
+
         System.out.println("FAILED");
         return avatar.canSwim();
     }
@@ -36,6 +43,7 @@ public class StillWaterTile extends Tile implements TileVisitor {
             this.insertEntity(monster);
             return true;
         }
+
 
         return monster.canTraverse();
     }

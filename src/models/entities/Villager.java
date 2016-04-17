@@ -26,4 +26,7 @@ public class Villager extends NPC {
         return (CharacterStats)npcStats;
     }
 
+    @Override
+    public void onInteract(Avatar avatar) {
+    }
 }

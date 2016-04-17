@@ -95,5 +95,8 @@ public class Pet extends AINpc implements Movement, TileVisitable {
         }
     }
 
+    @Override
+    public void onInteract(Avatar avatar) {
 
+    }
 }
