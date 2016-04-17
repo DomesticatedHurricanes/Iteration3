@@ -10,12 +10,14 @@ public class StatusEffect {
 
     public enum statusEffect{
         SLEEP,
+        INVISIBLE,
         NONE
     }
 
     public StatusEffect(){
 
     }
+
 
     public void normalizeEffects(){
         //used to normalize statusEffects
