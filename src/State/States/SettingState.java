@@ -33,7 +33,7 @@ public class SettingState extends State {
     }
 
     @Override
-    protected void render(Graphics g){
+    public void render(Graphics g){
 
     }
 }

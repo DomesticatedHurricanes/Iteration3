@@ -1,6 +1,7 @@
 package State;
 
 import State.States.*;
+import models.entities.occupation.Occupation;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,51 +30,57 @@ public class StateManager {
 
     private static JFrame jFrame;
     private static StateManager instance;
-    private StateManager(JFrame jFrame){
-        this.jFrame=jFrame;
+
+    private StateManager(JFrame jFrame) {
+        this.jFrame = jFrame;
         this.states = new ArrayList<>();
     }
 
-    public static synchronized StateManager getInstance(JFrame jFrame){
-        if (instance == null){
+    public static synchronized StateManager getInstance(JFrame jFrame) {
+        if (instance == null) {
             instance = new StateManager(jFrame);
             init();
         }
         return instance;
     }
 
-    private static void init(){
+    private static void init() {
         // Create states here
 
-        gameState = new GameState(instance, jFrame);
-        inventoryState = new InventoryState(instance,jFrame);
-        creationState = new CreationState(instance,jFrame);
-        startMenuState = new StartMenuState(instance,jFrame);
-        pauseMenuState = new PauseMenuState(instance,jFrame);
-        saveState = new SaveState(instance,jFrame);
-        equipmentState = new EquipmentState(instance,jFrame);
-        gameOverState = new GameOverState(instance,jFrame);
-        loadState = new LoadState(instance,jFrame);
-        settingState = new SettingState(instance,jFrame);
-        skillTreeState = new SkillTreeState(instance,jFrame);
-        tradeState = new TradeState(instance,jFrame);
+        //gameState = new GameState(instance, jFrame);
+        inventoryState = new InventoryState(instance, jFrame);
+        creationState = new CreationState(instance, jFrame);
+        startMenuState = new StartMenuState(instance, jFrame);
+        pauseMenuState = new PauseMenuState(instance, jFrame);
+        saveState = new SaveState(instance, jFrame);
+        equipmentState = new EquipmentState(instance, jFrame);
+        gameOverState = new GameOverState(instance, jFrame);
+        loadState = new LoadState(instance, jFrame);
+        settingState = new SettingState(instance, jFrame);
+        skillTreeState = new SkillTreeState(instance, jFrame);
+        tradeState = new TradeState(instance, jFrame);
 
 
         // Set the current state
-        currentState = gameState;
+        currentState = startMenuState;
         currentState.setActive();
         // Add states to the list
         states.add(gameState);
         states.add(inventoryState);
 
         //Initialize the states
-        initStates();
+        //initStates();
     }
 
-    private static void initStates(){
-        for(State s: states){
+    private static void initStates() {
+        for (State s : states) {
             s.init();
         }
+    }
+
+    public void makeGameState(Occupation occupation) {
+
+        this.gameState=new GameState(instance,jFrame,occupation);
     }
 
     public void setJframe(JFrame jframe){
@@ -122,15 +129,19 @@ public class StateManager {
 
     public void changeToCreationState(){
         if (currentState != creationState){
+            currentState.setInactive();
             System.out.println("Changing to creationstate");
             currentState = creationState;
+            currentState.setActive();
         }
     }
 
     public void changeToStartMenuState(){
         if (currentState != startMenuState){
+            currentState.setInactive();
             System.out.println("Changing to startmenustate");
             currentState = startMenuState;
+            currentState.setActive();
         }
     }
 
@@ -140,7 +151,12 @@ public class StateManager {
             currentState = saveState;
         }
     }
-
+    public void changeToLoadState(){
+        if (currentState != loadState){
+            System.out.println("Changing to savestate");
+            currentState = loadState;
+        }
+    }
     public void changeToEquipmentState(){
         if (currentState != equipmentState){
             System.out.println("Changing to equipmentstate");
@@ -175,6 +191,10 @@ public class StateManager {
             currentState = tradeState;
         }
     }
+
+    public void renderMap(Graphics g){
+        gameState.render(g);
+    };
 
     public State getCurrentState(){
         return currentState;

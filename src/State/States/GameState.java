@@ -26,11 +26,9 @@ public class GameState extends State{
     private Avatar avatar;
     private Map map;
 
-    public GameState(StateManager stateManager, JFrame jFrame){
+    public GameState(StateManager stateManager, JFrame jFrame, Occupation occupation){
         super(stateManager, jFrame);
 
-
-        Occupation occupation = new Smasher();
         avatar = new Avatar(occupation);
         avatar.getEntityImage();
         avatar.setLocation(new Point3D(1,1,1));
@@ -64,7 +62,7 @@ public class GameState extends State{
     }
 
     @Override
-    protected void render(Graphics g){
+    public void render(Graphics g){
         gameStateView.render(g);
     }
 

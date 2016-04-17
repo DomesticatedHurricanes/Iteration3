@@ -15,7 +15,7 @@ public class SkillTreeState extends State {
 
     public SkillTreeState(StateManager stateManager, JFrame jFrame){
         super(stateManager, jFrame);
-        skillTreeController = new SkillTreeController(stateManager);
+        skillTreeController = new SkillTreeController(stateManager,this, jFrame);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class SkillTreeState extends State {
     }
 
     @Override
-    protected void render(Graphics g){
+    public void render(Graphics g){
 
     }
 }

@@ -52,11 +52,11 @@ public class GameStateController extends Controller {
         getBindings().add(new Listener(Settings.UpLeft, getKeyMapping().get(Settings.UpLeft)));
         getBindings().add(new Listener(Settings.DownLeft, getKeyMapping().get(Settings.DownLeft)));
 
-        getBindings().add(new Listener(Settings.UP, getKeyMapping().get(Settings.UP)));
-        getBindings().add(new Listener(Settings.DOWN, getKeyMapping().get(Settings.DOWN)));
-        getBindings().add(new Listener(Settings.LEFT, getKeyMapping().get(Settings.LEFT)));
-        getBindings().add(new Listener(Settings.RIGHT, getKeyMapping().get(Settings.RIGHT)));
-        getBindings().add(new Listener(Settings.INV, getKeyMapping().get(Settings.INV)));
+        //getBindings().add(new Listener(Settings.UP, getKeyMapping().get(Settings.UP)));
+        //getBindings().add(new Listener(Settings.DOWN, getKeyMapping().get(Settings.DOWN)));
+        //getBindings().add(new Listener(Settings.LEFT, getKeyMapping().get(Settings.LEFT)));
+        //getBindings().add(new Listener(Settings.RIGHT, getKeyMapping().get(Settings.RIGHT)));
+        //getBindings().add(new Listener(Settings.INV, getKeyMapping().get(Settings.INV)));
 
     }
 
