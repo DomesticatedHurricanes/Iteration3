@@ -32,6 +32,10 @@ public class Stats {
 
     public int getJumpHeight(){return jumpHeight;}
 
+    public void setJumpHeight(int x){
+        this.jumpHeight = x;
+    }
+
     public void modifyMovement(int movement) {
         this.movement += movement;
     }

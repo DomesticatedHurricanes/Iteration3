@@ -75,6 +75,7 @@ public abstract class Tile implements TileVisitor {
     }
 
     public boolean checkHeightDifferential(Entity entity){
+        System.out.println("jump height: " + entity.getStats().getJumpHeight() + "point z: " + point3D.getZ() + "entity height : " + entity.getLocation().getZ());
        if(entity.getStats().getJumpHeight() >= Math.abs((point3D.getZ() - entity.getLocation().getZ())))
            return true;
         else
