@@ -22,19 +22,20 @@ public class StillWaterTile extends Tile implements TileVisitor {
     public boolean visit(Avatar avatar) {
         //TODO: Remember to remove avatar from previous tile in interaction handler
         if(this.checkItem() && avatar.canSwim() && checkEntities() && checkHeightDifferential(avatar)){
+            System.out.println(checkEntities());
             this.insertEntity(avatar);
             applyItems(avatar);
             applyAreaEffect(avatar);
             return true;
         }
-
-        else if(checkEntities() && checkHeightDifferential(avatar)){
+        else if(!checkEntities()){
             NPC npc = (NPC)(getEntity());
             npc.onInteract(avatar);
+            return false;
         }
-
-        System.out.println("FAILED");
-        return avatar.canSwim();
+        else{
+            return false;
+        }
     }
 
     @Override

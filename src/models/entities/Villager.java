@@ -30,6 +30,6 @@ public class Villager extends NPC {
 
     @Override
     public void onInteract(Avatar avatar) {
-        System.out.println("We did you; now fuck off!");
+        System.out.println("We did it yo; now fuck off!");
     }
 }
