@@ -6,6 +6,7 @@ import models.Item.Takeable.Equippable.ChestPlate;
 import models.Item.Takeable.Equippable.Ranged;
 import models.stats.StatModifier;
 import models.stats.StatModifiers;
+import utilities.Unit;
 
 import java.awt.image.BufferedImage;
 
@@ -13,11 +14,11 @@ import java.awt.image.BufferedImage;
  * Created by mazumderm on 4/17/2016.
  */
 public enum RangedWeaponFactory {
-    BLUE_BOWANDARROW(new Ranged("Blue Bow and Arrow", new StatModifiers(StatModifier.makeAgilityModifier(3)), 3,
+    BLUE_BOWANDARROW(new Ranged("Blue Bow and Arrow", new StatModifiers(StatModifier.makeAgilityModifier(Unit.BLUE * Unit.RANGEDWEAPON)), 3,
                 new StatModifiers(StatModifier.makeCurrentHpModifier(-3)) ), GraphicAssets.h1),
-    RED_BOWANDARROW(new Ranged("Red Bow and Arrow", new StatModifiers(StatModifier.makeAgilityModifier(3)), 3,
+    RED_BOWANDARROW(new Ranged("Red Bow and Arrow", new StatModifiers(StatModifier.makeAgilityModifier(Unit.RED * Unit.RANGEDWEAPON)), 3,
                 new StatModifiers(StatModifier.makeCurrentHpModifier(-5)) ), GraphicAssets.h1),
-    GREEN_BOWANDARROW(new Ranged("Green Bow and Arrow", new StatModifiers(StatModifier.makeAgilityModifier(3)), 3,
+    GREEN_BOWANDARROW(new Ranged("Green Bow and Arrow", new StatModifiers(StatModifier.makeAgilityModifier(Unit.GREEN * Unit.RANGEDWEAPON)), 3,
                 new StatModifiers(StatModifier.makeCurrentHpModifier(-5)) ), GraphicAssets.h1);
 
     private final Ranged item;
