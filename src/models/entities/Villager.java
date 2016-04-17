@@ -1,4 +1,5 @@
 package models.entities;
+import models.Graphics.GraphicAssets;
 import models.entities.defaultNpcStat.NPCInitialStats;
 import models.entities.defaultNpcStat.VillagerStats;
 import models.stats.CharacterStats;
@@ -18,6 +19,7 @@ public class Villager extends NPC {
         this.inventory = new Inventory(16);
         this.npcStats = new CharacterStats();
         this.initialStats = new VillagerStats();
+        this.entityImage = GraphicAssets.smasher;
         initialStats.initStats(npcStats);
     }
 
