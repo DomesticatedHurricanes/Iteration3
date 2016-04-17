@@ -22,9 +22,9 @@ public class GameStateView  extends  StateView{
     private Point pxCameraCenter;
 
     private Avatar avatar;
-    private Map map;
+    private Map3D map;
 
-    public GameStateView(Map map, Avatar avatar){
+    public GameStateView(Map3D map, Avatar avatar){
         this.map = map;
         this.avatar = avatar;
         init();

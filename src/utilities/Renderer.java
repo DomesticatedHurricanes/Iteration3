@@ -48,7 +48,7 @@ public class Renderer {
                         pxCenterPoint = new Point(pxX, pxY);
 //                        System.out.println("even: " + pxCenterPoint);
                     }
-                    tileRenderer.render(g, map.getTile(x, y), pxCenterPoint);
+                    tileRenderer.render(g, map.getTile(y, x), pxCenterPoint);
                 }
             }
         }
@@ -86,8 +86,8 @@ public class Renderer {
                     int offset;
 
                     // calculate the offset to render images of different size
-                    if (map.getRelevantTile(x,y).getImageHeight().getHeight() != GraphicAssets.TILE_PX_HEIGHT){
-                        offset = map.getRelevantTile(x,y).getImageHeight().getHeight() - GraphicAssets.TILE_PX_HEIGHT;
+                    if (map.getRelevantTile(y,x).getImageHeight().getHeight() != GraphicAssets.TILE_PX_HEIGHT){
+                        offset = map.getRelevantTile(y,x).getImageHeight().getHeight() - GraphicAssets.TILE_PX_HEIGHT;
                     } else{
                         offset = 0;
                     }
@@ -105,7 +105,7 @@ public class Renderer {
                         pxCenterPoint = new Point(pxX, pxY);
 //                        System.out.println("even: " + pxCenterPoint);
                     }
-                    tileRenderer.render(g, map.getRelevantTile(x, y), pxCenterPoint);
+                    tileRenderer.render(g, map.getRelevantTile(y, x), pxCenterPoint);
                 }
             }
         }

@@ -7,6 +7,7 @@ import models.Interaction.MovementHandler;
 import models.Map.Map;
 
 import State.StateManager;
+import models.Map.Map3D;
 import models.entities.Avatar;
 import models.entities.occupation.Occupation;
 import models.entities.occupation.Smasher;
@@ -24,13 +25,13 @@ public class GameState extends State{
     private GameStateController gameStateController;
     private MovementHandler movementHandler;
     private Avatar avatar;
-    private Map map;
+    private Map3D map;
 
     public GameState(StateManager stateManager, JFrame jFrame, Occupation occupation){
         super(stateManager, jFrame);
         avatar = new Avatar(occupation);
         avatar.setLocation(new Point3D(1,1,1));
-        map = new Map(25,25);
+        map = new Map3D(5);
         movementHandler = new MovementHandler(map);
         gameStateView = new GameStateView(map,avatar);
         gameStateController = new GameStateController(this.stateManager,this,jFrame, movementHandler,avatar);
