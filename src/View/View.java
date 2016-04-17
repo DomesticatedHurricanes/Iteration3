@@ -171,4 +171,5 @@ public class View implements Runnable{
     public int getHeight(){
         return frame.getHeight();
     }
+
 }

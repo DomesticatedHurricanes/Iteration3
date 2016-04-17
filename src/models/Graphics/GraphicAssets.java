@@ -6,6 +6,8 @@ import java.awt.image.BufferedImage;
  * Created by Michael on 3/30/16.
  */
 public class GraphicAssets {
+    public static final int VIEW_HEIGHT = 600;
+    public static final int VIEW_WIDTH = 400;
     public static final int TILE_PX_WIDTH = 60;
     public static final int TILE_PX_HEIGHT = 39;
 
@@ -33,6 +35,10 @@ public class GraphicAssets {
     public static BufferedImage creationBackground;
 
 
+    public static BufferedImage smasher;
+    public static BufferedImage sneak;
+    public static BufferedImage summoner;
+
 
     public static void init(){
 
@@ -59,8 +65,16 @@ public class GraphicAssets {
         h10 = ImageLoader.loadImage("/Resources/10.png");
 
 
+
         //states stuff
         startBackground = ImageLoader.loadImage("/Resources/back.jpg");
         startBackground2 = ImageLoader.loadImage("/Resources/back2.jpg");
+
+
+        smasher = ImageLoader.loadImage("/Resources/entitys/entity-smasher-S.png");
+        summoner = ImageLoader.loadImage("/Resources/entitys/entity-summoner-S.png");
+        sneak = ImageLoader.loadImage("/Resources/entitys/entity-sneak-S.png");
+
+
     }
 }

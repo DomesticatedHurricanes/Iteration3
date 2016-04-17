@@ -50,7 +50,36 @@ public class Point3D {
         this.y += y;
     }
     //I LOVE RING OF OPERATIONS!!!!!
-    public void translateNorth(){
+//    public void translateNorth(){
+//        translate(0,-1);
+//    }
+//
+//    public void translateSouth(){
+//        translate(0,1);
+//    }
+//
+//    public void translateNorthWest(){
+//        translate(-1,0);
+//    }
+//
+////    public void translateSouthWest(){
+////        translate(-1,1);
+////    }
+////
+////    public void translateSouthEast(){
+////        translate(1,0);
+////    }
+////
+////    public void translateNorthEast(){
+////        translate(1,-1);
+////    }
+////
+////    public void translateUp(){translate(0,0,1);}
+////
+////    public void translateDown(){translate(0,0,-1);}
+
+
+   public void translateNorth(){
         translate(0,-1);
     }
 
@@ -59,53 +88,24 @@ public class Point3D {
     }
 
     public void translateNorthWest(){
-        translate(-1,0);
+        translate(-1,-1 *(int)Math.abs(Math.cos((Math.PI*x)/2)));
     }
 
     public void translateSouthWest(){
-        translate(-1,1);
+        translate(-1,(int)Math.abs(Math.sin((Math.PI*x)/2)));
     }
 
     public void translateSouthEast(){
-        translate(1,0);
+        translate(1,(int)Math.abs(Math.sin((Math.PI*x)/2)));
     }
 
     public void translateNorthEast(){
-        translate(1,-1);
+        translate(1, -1 *(int)Math.abs(Math.cos((Math.PI*x)/2)));
     }
 
     public void translateUp(){translate(0,0,1);}
 
     public void translateDown(){translate(0,0,-1);}
-
-
-   /* public void translateNorth(){
-        translate(0,1);
-    }
-
-    public void translateSouth(){
-        translate(0,-1);
-    }
-
-    public void translateNorthWest(){
-        translate(0,(int)Math.abs(Math.cos((Math.PI*y)/2)));
-    }
-
-    public void translateSouthWest(){
-        translate(0,-1*(int)Math.abs(Math.sin((Math.PI*y)/2)));
-    }
-
-    public void translateSouthEast(){
-        translate(0,-1*(int)(Math.abs(Math.sin(Math.PI*y)/2)));
-    }
-
-    public void translateNorthEast(){
-        translate(0, (int)Math.abs(Math.cos((Math.PI*y)/2)));
-    }
-
-    public void translateUp(){translate(0,0,1);}
-
-    public void translateDown(){translate(0,0,-1);}*/
 
 
     public void translate(int x,int y,int z){

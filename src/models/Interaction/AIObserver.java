@@ -7,7 +7,8 @@ import utilities.Point3D;
 /**
  * Created by david on 4/14/16.
  */
-public interface Observer {
-    void processMove(NPC npc, Point3D point3D);
+public interface AIObserver {
+
+    void processMove(NPC npc);
     void processThought(NPC npc);
 }

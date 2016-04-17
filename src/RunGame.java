@@ -30,8 +30,10 @@ public class RunGame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //frame.setResizable(true);
         frame.setFocusable(true);
-        //frame.setLocationRelativeTo(null);
-        //frame.setVisible(true);
+
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+
 
         canvas = new Canvas();
         canvas.setPreferredSize(new Dimension(width, height));
