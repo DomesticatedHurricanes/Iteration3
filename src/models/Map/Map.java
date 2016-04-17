@@ -102,8 +102,8 @@ public class Map {
                 {0, 1, 1, 1, 0, 1, 3, 2, 4, 4},
                 {0, 1, 1, 0, 0, 0, 3, 3, 4, 4}
         };
-        for(int i = 0; i < 9; i++){
-            for(int j = 0; j < 9; j++){
+        for(int i = 0; i < width; i++){
+            for(int j = 0; j < height; j++){
                 // Water
                 if (tileMap[i][j] == 0){
                     world[i][j] = new StillWaterTile(new Point3D(i,j,i));

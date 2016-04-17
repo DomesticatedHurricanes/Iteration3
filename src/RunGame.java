@@ -19,8 +19,8 @@ public class RunGame {
         //making a frame
         //utilities.Renderer renderer;
         String title = "testing";
-        int width= 400;
-        int height= 600;
+        int width= GraphicAssets.VIEW_WIDTH;
+        int height= GraphicAssets.VIEW_HEIGHT;
 
 
         JFrame frame;
