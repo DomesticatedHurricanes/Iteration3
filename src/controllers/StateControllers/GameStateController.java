@@ -4,6 +4,8 @@ import State.StateManager;
 import State.States.GameState;
 import controllers.Controller;
 import controllers.Listener;
+import models.Interaction.MovementHandler;
+import models.entities.Avatar;
 import utilities.Settings;
 
 import javax.swing.*;
@@ -12,26 +14,32 @@ import javax.swing.*;
  * Created by Michael on 4/14/16.
  */
 public class GameStateController extends Controller {
+    private MovementHandler movementHandler;
+    private StateManager stateManager;
+    private Avatar avatar;
+    private GameState state;
+    private JFrame jFrame;
 
-    StateManager stateManager;
-    GameState state;
-    JFrame jFrame;
-    public GameStateController(StateManager stateManager, GameState state, JFrame jFrame) {
+    public GameStateController(StateManager stateManager, GameState state, JFrame jFrame, MovementHandler movementHandler, Avatar avatar) {
         super(jFrame);
         this.stateManager = stateManager;
         this.state=state;
         this.jFrame=jFrame;
-        //System.out.println("we made a game state controller");
-        //getKeyMapping().put(Settings.UP,()->System.out.println("up"));
-        getKeyMapping().put(Settings.DOWN,()->System.out.println("down"));
-        getKeyMapping().put(Settings.LEFT,()->System.out.println("left"));
-        getKeyMapping().put(Settings.RIGHT,()->System.out.println("right"));
-        getKeyMapping().put(Settings.INV,()->stateManager.changeToInventoryState());
-//        System.out.println("StateManager: " + manager);
-//        System.out.println("Current state: " + manager.getCurrentState());
+        this.avatar = avatar;
+        this.movementHandler = movementHandler;
 
-//        getKeyMapping().put(Settings.ESCAPE,()->stateManager.changeToInventoryState());
-        getKeyMapping().put(Settings.UP,()->stateManager.testFunction());
+        initListeners();
+    }
+
+    public void init(){
+    }
+
+    private void initListeners(){
+        getKeyMapping().put(Settings.DOWN,()->movementHandler.moveSouth(avatar));
+        getKeyMapping().put(Settings.LEFT,()->movementHandler.moveNorthWest(avatar));
+        getKeyMapping().put(Settings.RIGHT,()->movementHandler.moveNorthEast(avatar));
+        getKeyMapping().put(Settings.UP,()->movementHandler.moveNorth(avatar));
+        getKeyMapping().put(Settings.INV,()->stateManager.changeToInventoryState());
 
 
         getBindings().add(new Listener(Settings.UP, getKeyMapping().get(Settings.UP)));
@@ -39,11 +47,7 @@ public class GameStateController extends Controller {
         getBindings().add(new Listener(Settings.LEFT, getKeyMapping().get(Settings.LEFT)));
         getBindings().add(new Listener(Settings.RIGHT, getKeyMapping().get(Settings.RIGHT)));
         getBindings().add(new Listener(Settings.INV, getKeyMapping().get(Settings.INV)));
-        //getBindings().add(new Listener(Settings.ESCAPE, getKeyMapping().get(Settings.ESCAPE)));
-//        System.out.println("bindings: " + getBindings());
-    }
 
-    public void init(){
     }
 
     @Override

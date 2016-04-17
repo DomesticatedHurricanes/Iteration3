@@ -80,27 +80,27 @@ public class Point3D {
 
 
    public void translateNorth(){
-        translate(0,1);
-    }
-
-    public void translateSouth(){
         translate(0,-1);
     }
 
+    public void translateSouth(){
+        translate(0,1);
+    }
+
     public void translateNorthWest(){
-        translate(1,(int)Math.abs(Math.cos((Math.PI*y)/2)));
+        translate(-1,-1 *(int)Math.abs(Math.cos((Math.PI*x)/2)));
     }
 
     public void translateSouthWest(){
-        translate(1,-1*(int)Math.abs(Math.sin((Math.PI*y)/2)));
+        translate(-1,(int)Math.abs(Math.sin((Math.PI*x)/2)));
     }
 
     public void translateSouthEast(){
-        translate(-1,-1*(int)(Math.abs(Math.sin(Math.PI*y)/2)));
+        translate(1,(int)Math.abs(Math.sin((Math.PI*x)/2)));
     }
 
     public void translateNorthEast(){
-        translate(-1, (int)Math.abs(Math.cos((Math.PI*y)/2)));
+        translate(1, -1 *(int)Math.abs(Math.cos((Math.PI*x)/2)));
     }
 
     public void translateUp(){translate(0,0,1);}

@@ -3,6 +3,7 @@ package State.States;
 import State.State;
 import View.StateViews.GameStateView;
 import controllers.StateControllers.GameStateController;
+import models.Interaction.MovementHandler;
 import models.Map.Map;
 
 import State.StateManager;
@@ -19,6 +20,7 @@ import java.awt.*;
 public class GameState extends State{
     private GameStateView gameStateView;
     private GameStateController gameStateController;
+    private MovementHandler movementHandler;
     private Avatar avatar;
     private Map map;
 
@@ -31,9 +33,10 @@ public class GameState extends State{
         avatar.setLocation(new Point3D(1,1,1));
         System.out.println("Image: " +  avatar.getEntityImage());
         map = new Map(10,10);
+        movementHandler = new MovementHandler(map);
 
         gameStateView = new GameStateView(map,avatar);
-        gameStateController = new GameStateController(this.stateManager,this,jFrame);
+        gameStateController = new GameStateController(this.stateManager,this,jFrame, movementHandler,avatar);
     }
 
     public void setActive(){
