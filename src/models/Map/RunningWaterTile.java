@@ -28,7 +28,7 @@ public class RunningWaterTile extends Tile {
 
     @Override
     public boolean visit(Avatar avatar) {
-        if(this.checkItem() && avatar.canSwim() && checkEntities() && checkHeightDifferential(avatar) && (avatar.isTrapped()==false)){
+        if(this.checkItem() && avatar.canSwim() && checkEntities() && checkHeightDifferential(avatar)){
             this.insertEntity(avatar);
             applyItems(avatar);
             applyAreaEffect(avatar);
@@ -44,7 +44,7 @@ public class RunningWaterTile extends Tile {
 
     @Override
     public boolean visit(Monster monster) {
-        if(this.checkItem() && monster.canSwim() && checkEntities() && checkHeightDifferential(monster) && (monster.isTrapped()==false)){
+        if(this.checkItem() && monster.canSwim() && checkEntities() && checkHeightDifferential(monster)){
             this.insertEntity(monster);
             return true;
         }
@@ -54,7 +54,7 @@ public class RunningWaterTile extends Tile {
 
     @Override
     public boolean visit(Pet pet) {
-        if(this.checkItem() && pet.canSwim() && checkEntities() && checkHeightDifferential(pet) && (pet.isTrapped()==false)){
+        if(this.checkItem() && pet.canSwim() && checkEntities() && checkHeightDifferential(pet)){
             this.insertEntity(pet);
             return true;
         }
