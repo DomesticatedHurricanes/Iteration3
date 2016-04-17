@@ -18,12 +18,12 @@ import java.awt.*;
  * Created by Dartyx on 4/13/2016.
  */
 public class GameState extends State{
+
     private GameStateView gameStateView;
     private GameStateController gameStateController;
     private MovementHandler movementHandler;
     private Avatar avatar;
     private Map map;
-
 
     public GameState(StateManager stateManager, JFrame jFrame){
         super(stateManager, jFrame);

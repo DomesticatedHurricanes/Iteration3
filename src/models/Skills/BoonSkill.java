@@ -19,8 +19,8 @@ public class BoonSkill implements ActiveSkill{
         useBoon(avatar);
     }
 
-    public BoonSkill(Avatar avatar){
-        characterStats = avatar.getStats();
+    public BoonSkill(){
+        //characterStats = avatar.getStats();
     }
 
     public void useBoon(Avatar avatar){

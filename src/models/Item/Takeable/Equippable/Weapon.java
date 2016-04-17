@@ -7,7 +7,13 @@ import models.stats.StatModifiers;
  */
 public class Weapon extends Equippable {
 
-    public Weapon(String name, StatModifiers statModifiers, int price){
+    StatModifiers enemyEffect;
+    public Weapon(String name, StatModifiers statModifiers, int price, StatModifiers enemyEffect){
         super(name, statModifiers, price);
+        this.enemyEffect = enemyEffect;
+    }
+
+    public StatModifiers getEnemyEffect(){
+        return this.enemyEffect;
     }
 }

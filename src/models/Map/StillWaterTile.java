@@ -20,7 +20,7 @@ public class StillWaterTile extends Tile implements TileVisitor {
     @Override
     public boolean visit(Avatar avatar) {
         //TODO: Remember to remove avatar from previous tile in interaction handler
-        if(this.checkItem() && avatar.canSwim() && checkEntities() && checkHeightDifferential(avatar)){
+        if(this.checkItem() && avatar.canSwim() && checkEntities() && checkHeightDifferential(avatar) && (avatar.isTrapped()==false)){
             this.insertEntity(avatar);
             applyItems(avatar);
             applyAreaEffect(avatar);
@@ -32,7 +32,7 @@ public class StillWaterTile extends Tile implements TileVisitor {
 
     @Override
     public boolean visit(Monster monster) {
-        if(this.checkItem() && monster.canSwim() && checkEntities() && checkHeightDifferential(monster)){
+        if(this.checkItem() && monster.canSwim() && checkEntities() && checkHeightDifferential(monster) && (monster.isTrapped()==false)){
             this.insertEntity(monster);
             return true;
         }
@@ -42,7 +42,7 @@ public class StillWaterTile extends Tile implements TileVisitor {
 
     @Override
     public boolean visit(Pet pet) {
-        if(this.checkItem() && pet.canSwim() && checkEntities() && checkHeightDifferential(pet)){
+        if(this.checkItem() && pet.canSwim() && checkEntities() && checkHeightDifferential(pet) && (pet.isTrapped()==false)){
             this.insertEntity(pet);
             return true;
         }
