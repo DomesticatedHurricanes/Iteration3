@@ -3,6 +3,7 @@ package models.Map;
 import models.Graphics.GraphicAssets;
 import models.entities.Avatar;
 import models.entities.Monster;
+import models.entities.NPC;
 import models.entities.Pet;
 import utilities.Point3D;
 
@@ -19,12 +20,18 @@ public class GrassTile extends Tile {
     @Override
     public boolean visit(Avatar avatar) {
         // Temporarily commented out to test basic movement
-        if(checkHeightDifferential(avatar)){//this.checkItem() && avatar.canWalk() && checkEntities() &&
+        if(checkHeightDifferential(avatar) && this.checkItem() && avatar.canWalk() && checkEntities()){
             this.insertEntity(avatar);
-            //applyItems(avatar);
-            //applyAreaEffect(avatar);
+            applyItems(avatar);
+            applyAreaEffect(avatar);
             return true;
         }
+
+        else if(checkEntities() && checkHeightDifferential(avatar)){
+            NPC npc = (NPC)(getEntity());
+            npc.onInteract(avatar);
+        }
+
         System.out.println("TOO HIGH");
         return avatar.canWalk();
     }

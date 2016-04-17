@@ -26,4 +26,8 @@ public class Villager extends NPC {
         return (CharacterStats)npcStats;
     }
 
+    @Override
+    public void onInteract(Avatar avatar) {
+        System.out.println("We did you; now fuck off!");
+    }
 }
