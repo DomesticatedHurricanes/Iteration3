@@ -190,6 +190,20 @@ public class Renderer {
             g.fillRect(x + (int) (width * perc / 100), y, (int) (width * (100 - perc) / 100), height);
 
 
+            Font infoFont = new Font("Calibri (Body)", Font.BOLD, 24);
+            g.setFont(infoFont);
+            FontMetrics fm = g.getFontMetrics();
+
+
+            Integer  level = stats.getLevel();
+            String title = " ( Level: " + level.toString() +")";
+
+            int width2 = fm.stringWidth(title);
+
+            g.setColor(new Color(0,252,250));
+            g.drawString(title,GraphicAssets.VIEW_WIDTH/2 - width2/2,fm.getHeight());
+            g.drawString(level.toString(),0,0);
+
         }
     }
 }
