@@ -25,6 +25,7 @@ public abstract class Skill{
         }
         return false;
     }
+    public abstract void activateSkill(Avatar avatar);
 }
 /*
     After mana cost is tested put this chunk of code everywhere

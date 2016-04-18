@@ -17,15 +17,21 @@ public class Staff extends ProjectableSkill {
     public Staff(){
         MANACOST = 0;
     }
-    public void useStaff() {
+    public void useStaff(Avatar avatar) {
         //Example of Ring of Operations!
         ArrayList<Point3D> affectedPoints = search();
+        System.out.println("33333");
         ArrayList<Entity> victims = findVictims(affectedPoints);
+        System.out.println("44444");
         projectile = new Projectile(10, StatusEffect.statusEffect.NONE);
         victimize(victims,projectile);
     }
 
-
+    @Override
+    public void activateSkill(Avatar avatar) {
+        System.out.println("22222");
+        useStaff(avatar);
+    }
 
     @Override
     public ArrayList<Point3D> search() {

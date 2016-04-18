@@ -216,7 +216,18 @@ public class Map3D {
     }
 
     public Tile getTile(Point3D point3D){
-        return hashWorld.get(point3D);
+        Set<Point3D> point = hashWorld.keySet();
+        for(Point3D finder:point){
+            System.out.println(finder.getX());
+            System.out.println(finder.getY());
+            System.out.println(finder.getZ());
+            if(finder.getX() == point3D.getX() &&finder.getY() == point3D.getY() &&finder.getZ() == point3D.getZ()){
+                System.out.println("Please work!!!!");
+                return hashWorld.get(finder);
+            }
+        }
+        //return hashWorld.get(point3D);
+        return null;
     }
 
     public Tile getTile(int x, int y, int z){

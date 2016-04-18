@@ -15,6 +15,11 @@ import java.util.ArrayList;
 public class ObservationSkill extends SearchableSkill implements PassiveSkill{
     private Entity target;
 
+    @Override
+    public void activateSkill(Avatar avatar) {
+
+    }
+
     public ObservationSkill(){
         MANACOST = 0;
     }

@@ -5,6 +5,7 @@ package models.entities;
 import com.sun.org.apache.xpath.internal.operations.Or;
 import models.Direction.Direction;
 import models.Inventory.Inventory;
+import models.Map.Map3D;
 import models.Map.Tile;
 import models.stats.StatusEffect;
 import utilities.Point3D;
@@ -29,6 +30,7 @@ public abstract class Entity {
     StatusEffect.statusEffect statusEffect;
     StatusEffect statusEffects;
     Orientation orientation;
+    Map3D map;
     public Entity() {
         location = null;
         entityImage = null;
@@ -40,6 +42,10 @@ public abstract class Entity {
         //private boolean isTrapped = false;  // used for trap areaEffect
     }
 
+    public void obtainMap(Map3D map){
+        this.map = map;
+    }
+
     /*public Entity(){
         location =null;
         entityImage = null;
@@ -47,12 +53,12 @@ public abstract class Entity {
 
     }*/
     public void initImages(){
-        orientationImages.put(Orientation.SOUTH,entityImages.get(0));
-        orientationImages.put(Orientation.SOUTHEAST,entityImages.get(1));
-        orientationImages.put(Orientation.SOUTHWEST,entityImages.get(2));
-        orientationImages.put(Orientation.NORTH,entityImages.get(3));
-        orientationImages.put(Orientation.NORTHEAST,entityImages.get(4));
-        orientationImages.put(Orientation.NORTHWEST,entityImages.get(5));
+//        orientationImages.put(Orientation.SOUTH,entityImages.get(0));
+ //       orientationImages.put(Orientation.SOUTHEAST,entityImages.get(1));
+   //     orientationImages.put(Orientation.SOUTHWEST,entityImages.get(2));
+     //   orientationImages.put(Orientation.NORTH,entityImages.get(3));
+     //   orientationImages.put(Orientation.NORTHEAST,entityImages.get(4));
+     //   orientationImages.put(Orientation.NORTHWEST,entityImages.get(5));
     }
 
     Inventory inventory;//This needs to be initialized in the specfic implementation details

@@ -11,6 +11,11 @@ public class BoonSkill extends Skill implements ActiveSkill{
 
     private CharacterStats characterStats;
 
+    @Override
+    public void activateSkill(Avatar avatar) {
+        useSkill(avatar);
+    }
+
     private final int BUFF = 5;
 
     @Override
@@ -24,20 +29,21 @@ public class BoonSkill extends Skill implements ActiveSkill{
     }
 
     public void useBoon(Avatar avatar){
-        useBuff();
+        useBuff(avatar);
         //TODO: Need a timer here
-        cancelBuff();
+        cancelBuff(avatar);
     }
 
-    public void useBuff(){
-        characterStats.modifyCurrentHp(BUFF);
-        characterStats.modifyStrength(BUFF);
-        characterStats.modifyHardiness(BUFF);
+    public void useBuff(Avatar avatar){
+        avatar.getStats().modifyCurrentHp(BUFF);
+        avatar.getStats().modifyHardiness(BUFF);
+        avatar.getStats().modifyStrength(BUFF);
     }
 
-    public void cancelBuff(){
-        characterStats.modifyStrength(-BUFF);
-        characterStats.modifyHardiness(-BUFF);
+    public void cancelBuff(Avatar avatar){
+        avatar.getStats().modifyHardiness(-BUFF);
+        avatar.getStats().modifyStrength(-BUFF);
+
     }
 
 

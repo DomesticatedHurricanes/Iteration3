@@ -66,6 +66,7 @@ public class GameState extends State{
 
         map = new Map3D(5);
 
+        avatar.obtainMap(map);
 
         boots = new Boots("boots",new StatModifiers(StatModifier.makeAgilityModifier(10)),10,GraphicAssets.blueSword);
 

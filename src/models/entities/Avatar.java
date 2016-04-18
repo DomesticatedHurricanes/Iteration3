@@ -1,5 +1,6 @@
 package models.entities;
 import models.Item.Takeable.Takeable;
+import models.Skills.Skill;
 import models.entities.occupation.Occupation;
 import models.stats.CharacterStats;
 import models.Inventory.Inventory;
@@ -8,6 +9,8 @@ import models.Item.Takeable.Equippable.*;
 import models.Item.Takeable.TakeableItemVisitor;
 import models.Map.Tile;
 import utilities.Point3D;
+
+import java.util.ArrayList;
 
 /**
  * Created by Breanna on 4/13/16.
@@ -23,6 +26,8 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
     private boolean isTeleported;
     //private Inventory inventory;
 
+    private ArrayList<Skill> skillList;
+
     public Avatar(Occupation occupation){
         this.isTeleported = false;
         this.inventory = new Inventory(16);
@@ -33,8 +38,17 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
         this.entityImage = occupation.initImage();
         this.entityImages = occupation.initImages();
         this.initImages();
+        skillList = new ArrayList<>();
+        this.occupation.initSkills(this);
     }
 
+    public ArrayList<Skill> getSkillList(){
+        return skillList;
+    }
+
+    public void addToSkillList(Skill skill){
+        skillList.add(skill);
+    }
 
     //called when an Avatar uses a skill
     public void useSkill() { }
@@ -47,12 +61,18 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
 
     //called when an Avatar does an attack
 
+
+
     //Attacking method
     @Override
     public void attack() {
 
     }
 
+    public void useSkillNumber(int i){
+        System.out.println("11111");
+        skillList.get(i).activateSkill(this);
+    }
 
 
     public void use(Takeable item) {
