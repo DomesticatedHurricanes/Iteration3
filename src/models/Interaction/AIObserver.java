@@ -1,6 +1,8 @@
 package models.Interaction;
 
 import models.Map.Tile;
+import models.entities.AINpc;
+import models.entities.Entity;
 import models.entities.NPC;
 import utilities.Point3D;
 
@@ -9,6 +11,6 @@ import utilities.Point3D;
  */
 public interface AIObserver {
 
-    void processMove(NPC npc);
-    void processThought(NPC npc);
+    void processMove(AINpc npc, Entity.Orientation orientation);
+    void processThought(AINpc npc);
 }

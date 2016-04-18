@@ -4,6 +4,7 @@ package models.entities;
 
 import models.Direction.Direction;
 import models.Inventory.Inventory;
+import models.Map.Tile;
 import models.stats.StatusEffect;
 import utilities.Point3D;
 import models.stats.Stats;
@@ -112,6 +113,7 @@ public abstract class Entity {
     public Inventory getInventory(){
         return inventory;
     }
+
 
     public void setLocation(Point3D point3D){
         location = point3D;

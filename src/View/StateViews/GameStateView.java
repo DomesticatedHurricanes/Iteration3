@@ -3,6 +3,7 @@ package View.StateViews;
 import models.AreaEffect.AreaEffect;
 import models.Graphics.GraphicAssets;
 import models.Map.Map;
+import models.entities.AINpc;
 import models.entities.Avatar;
 import models.Map.Map3D;
 import models.entities.Entity;
@@ -24,6 +25,7 @@ public class GameStateView  extends  StateView{
     private Point pxCameraCenter;
 
     private ArrayList<Entity> entities;
+    private ArrayList<AINpc> aiNpcs;
     private Avatar avatar;
     private Map3D map;
 

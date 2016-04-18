@@ -2,6 +2,7 @@ package models.Item.Takeable.Equippable;
 
 import models.Item.Takeable.TakeableItemVisitor;
 import models.entities.Avatar;
+import models.entities.Entity;
 import models.stats.StatModifiers;
 
 /**
@@ -14,10 +15,20 @@ public class ChestPlate extends Equippable implements TakeableItemVisitor{
     }
 
     @Override
-    public void visit(Avatar avatar) {
+    public void onUse(Entity entity) {
+        Avatar avatar = (Avatar)entity;
         if (avatar.getStats().getLevel() >= lvlReq){
             avatar.equipChestPlate(this);
             statModifiers.apply(avatar.getStats());
+        }
+    }
+
+    @Override
+    public void unEquip(Entity entity) {
+        Avatar avatar = (Avatar)entity;
+        if (avatar.getStats().getLevel() >= lvlReq){
+            avatar.unequipChestPlate();
+            statModifiers.remove(avatar.getStats());
         }
     }
 }

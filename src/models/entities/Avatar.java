@@ -1,4 +1,5 @@
 package models.entities;
+import models.Item.Takeable.Takeable;
 import models.entities.occupation.Occupation;
 import models.stats.CharacterStats;
 import models.Inventory.Inventory;
@@ -7,8 +8,6 @@ import models.Item.Takeable.Equippable.*;
 import models.Item.Takeable.TakeableItemVisitor;
 import models.Map.Tile;
 import utilities.Point3D;
-
-import java.awt.image.BufferedImage;
 
 /**
  * Created by Breanna on 4/13/16.
@@ -47,16 +46,25 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
     }
 
     //called when an Avatar does an attack
-    @Override
-    public void accept(TakeableItemVisitor takeableItemVisitor) {
-        takeableItemVisitor.visit(this);
-    }
 
     //Attacking method
     @Override
     public void attack() {
 
     }
+
+
+
+    public void use(Takeable item) {
+        item.onUse(this);
+    }
+
+    @Override
+    public void unequip(TakeableItemVisitable takeableItemVisitable) {
+        takeableItemVisitable.unequip(this);
+    }
+
+
 
     //Equipping functions
     public void equipHelmet(Helmet helmet){
@@ -104,7 +112,15 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
     public void addItem(Item item){inventory.addItem(item);}
 
     public void removeItem(Item item){inventory.removeItem(item);}
-    
+
+    public void move(Tile origin, Tile destination){
+        origin.removeEntity();
+        destination.insertEntity(this);
+        this.setLocation(destination.getPoint3D());
+        destination.applyItems(this);
+        destination.applyAreaEffect(this);
+    }
+
     //Movement booleans
     @Override
     public boolean canSwim() {
