@@ -7,6 +7,7 @@ import models.AreaEffect.*;
 import models.Graphics.GraphicAssets;
 import models.Interaction.MovementHandler;
 import models.Item.Takeable.Equippable.Boots;
+import models.Item.Takeable.Equippable.OneHandedWeapon;
 import models.Item.Takeable.Equippable.Ranged;
 import models.Map.Map;
 
@@ -50,6 +51,7 @@ public class GameState extends State{
     private Trap trap;
 
     public RangedWeaponFactory rangedWeaponFactory;
+    public OneHandedWeaponFactory oneHandedWeaponFactory;
 
 
 
@@ -80,10 +82,17 @@ public class GameState extends State{
         Item blueBow = rangedWeaponFactory.createBlueBow();
         Item redBow = rangedWeaponFactory.createRedBow();
 
+        Item redSword = oneHandedWeaponFactory.createRedSword();
+        Item blueSword = oneHandedWeaponFactory.createBlueSword();
+        Item greenSword = oneHandedWeaponFactory.createGreenSword();
+
         items = new ArrayList<>();
         items.add(greenBow);
         items.add(redBow);
         items.add(blueBow);
+        items.add(redSword);
+        items.add(blueSword);
+        items.add(greenSword);
 
         //AreaEffects
         areaEffects = new ArrayList<>();
@@ -121,6 +130,10 @@ public class GameState extends State{
         map.getRelevantTile(14,16).insertItem(greenBow);
         map.getRelevantTile(14,17).insertItem(blueBow);
         map.getRelevantTile(14,20).insertItem(redBow);
+
+        map.getRelevantTile(15,10).insertItem(redSword);
+        map.getRelevantTile(15,11).insertItem(blueSword);
+        map.getRelevantTile(15,17).insertItem(greenSword);
 
 
         movementHandler = new MovementHandler(map);

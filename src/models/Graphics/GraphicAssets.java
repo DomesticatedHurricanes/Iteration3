@@ -160,9 +160,9 @@ public class GraphicAssets {
         healDamage = ImageLoader.loadImage("/Resources/areaEffects/red-cross.png");
 
         //items
-//        redSword = ImageLoader.loadImage("Resources/RED_SWORD.png");
-//        blueSword = ImageLoader.loadImage("Resources/BLUE_SWORD.png");
-//        greenSword = ImageLoader.loadImage("Resources/GREEN_SWORD.png");
+        redSword = ImageLoader.loadImage("Resources/items/RED_SWORD.png");
+        blueSword = ImageLoader.loadImage("Resources/items/BLUE_SWORD.png");
+        greenSword = ImageLoader.loadImage("Resources/items/GREEN_SWORD.png");
 
         bow = ImageLoader.loadImage("/Resources/items/BOW.png");
         bow2 = ImageLoader.loadImage("/Resources/items/BOW2.png");
