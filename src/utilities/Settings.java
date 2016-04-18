@@ -21,6 +21,13 @@ public class Settings {
     public static int DownLeft = KeyEvent.VK_A;
     public static int Down = KeyEvent.VK_S;
     public static int DownRight = KeyEvent.VK_D;
+    public static int R = KeyEvent.VK_R;
+    public static int T = KeyEvent.VK_T;
+    public static int Y = KeyEvent.VK_Y;
+    public static int H = KeyEvent.VK_H;
+    public static int F = KeyEvent.VK_F;
+    public static int G = KeyEvent.VK_G;
+    public static int X = KeyEvent.VK_X;
     public static int ESCAPE = KeyEvent.VK_ESCAPE;
     public static int ATTACK1 = KeyEvent.VK_1;
     public static int ATTACK2 = KeyEvent.VK_2;
