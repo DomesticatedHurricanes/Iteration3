@@ -29,59 +29,79 @@ public class Inventory {
     public void equipHelmet(Helmet helmet){
         if(equipment.getHelmet() == null){
             equipment.equipHelmet(helmet);
+            pack.removeItem(helmet);
         }
         else{
             Helmet tmp = equipment.getHelmet();
             equipment.equipHelmet(helmet);
             pack.addItem(tmp);
+            pack.removeItem(helmet);
         }
     }
 
     public void equipChestPlate(ChestPlate chestPlate){
         if(equipment.getChestPlate() == null){
             equipment.equipChestPlate(chestPlate);
+            pack.removeItem(chestPlate);
         }
         else{
             ChestPlate tmp = equipment.getChestPlate();
             equipment.equipChestPlate(chestPlate);
             pack.addItem(tmp);
+            pack.removeItem(chestPlate);
         }
     }
 
     public void equipWeapon(Weapon weapon){
-        equipment.equipWeapon(weapon);
+        if(equipment.getSlacks() == null){
+            equipment.equipWeapon(weapon);
+            pack.removeItem(weapon);
+        }
+        else{
+            Slacks tmp = equipment.getSlacks();
+            equipment.equipWeapon(weapon);
+            pack.addItem(tmp);
+            pack.removeItem(weapon);
+        }
     }
+
 
     public void equipSlacks(Slacks slacks){
         if(equipment.getSlacks() == null){
             equipment.equipSlacks(slacks);
+            pack.removeItem(slacks);
         }
         else{
             Slacks tmp = equipment.getSlacks();
             equipment.equipSlacks(slacks);
             pack.addItem(tmp);
+            pack.removeItem(slacks);
         }
     }
 
     public void equipBoots(Boots boots){
         if(equipment.getBoots() == null){
             equipment.equipBoots(boots);
+            pack.removeItem(boots);
         }
         else{
             Boots tmp = equipment.getBoots();
             equipment.equipBoots(boots);
             pack.addItem(tmp);
+            pack.removeItem(boots);
         }
     }
 
     public void equipGloves(Gloves gloves){
         if(equipment.getGloves() == null){
             equipment.equipGloves(gloves);
+            pack.removeItem(gloves);
         }
         else{
             Gloves tmp = equipment.getGloves();
             equipment.equipGloves(gloves);
             pack.addItem(tmp);
+            pack.removeItem(gloves);
         }
     }
 
