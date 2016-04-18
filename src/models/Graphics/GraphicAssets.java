@@ -34,6 +34,10 @@ public class GraphicAssets {
     public static BufferedImage startBackground2;
     public static BufferedImage creationBackground;
 
+    public static BufferedImage col;
+    public static BufferedImage base;
+
+
 
     public static BufferedImage smasher;
     public static BufferedImage sneak;
@@ -71,6 +75,11 @@ public class GraphicAssets {
         h8 = ImageLoader.loadImage("/Resources/8.png");
         h9 = ImageLoader.loadImage("/Resources/9.png");
         h10 = ImageLoader.loadImage("/Resources/10.png");
+
+
+        //tile stuff
+        base = ImageLoader.loadImage("/Resources/tiles/base.png");
+        col = ImageLoader.loadImage("/Resources/tiles/col.png");
 
 
 
