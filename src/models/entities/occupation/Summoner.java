@@ -7,6 +7,7 @@ import models.stats.StatModifiers;
 import models.stats.Stats;
 
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 /**
  * Created by ben on 4/11/16.
@@ -43,5 +44,10 @@ public class Summoner implements Occupation{
     @Override
     public BufferedImage initImage( ) {
         return GraphicAssets.summoner;
+    }
+
+    @Override
+    public ArrayList<BufferedImage> initImages() {
+        return GraphicAssets.summonerAll;
     }
 }

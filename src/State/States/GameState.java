@@ -3,6 +3,8 @@ package State.States;
 import State.State;
 import View.StateViews.GameStateView;
 import controllers.StateControllers.GameStateController;
+import models.AreaEffect.AreaEffect;
+import models.AreaEffect.LevelUp;
 import models.Interaction.MovementHandler;
 import models.Map.Map;
 
@@ -35,6 +37,10 @@ public class GameState extends State{
     private Villager villager;
     private ArrayList<Entity> entities;
 
+    //AreaEffect
+    private LevelUp levelUp;
+    private ArrayList<AreaEffect> areaEffects;
+
 
     public GameState(StateManager stateManager, JFrame jFrame, Occupation occupation){
         super(stateManager, jFrame);
@@ -47,17 +53,30 @@ public class GameState extends State{
         villager = new Villager();
         villager.setLocation(new Point3D(12,12,1));
 
+
         entities = new ArrayList<>();
 
         entities.add(avatar);
         entities.add(villager);
 
+
+        //AreaEffects
+        areaEffects = new ArrayList<>();
+        levelUp = new LevelUp();
+        areaEffects.add(levelUp);
+
+        map = new Map3D(5);
+
+
         //map = new Map(25,25);
+        //Here is where you insert things into the map
+        levelUp.setLocation(map.getRelevantTile(2,2).getPoint3D());
         map.getRelevantTile(12,12).insertEntity(villager);
+        map.getRelevantTile(12,12).insertAreaEffect(levelUp);
 
 
         movementHandler = new MovementHandler(map);
-        gameStateView = new GameStateView(map,avatar,entities);
+        gameStateView = new GameStateView(map,avatar,entities,areaEffects);
         gameStateController = new GameStateController(this.stateManager,this,jFrame, movementHandler,avatar);
     }
 
