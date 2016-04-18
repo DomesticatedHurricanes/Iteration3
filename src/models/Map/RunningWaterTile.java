@@ -35,7 +35,7 @@ public class RunningWaterTile extends Tile {
 
     @Override
     public boolean visit(Avatar avatar) {
-        if(this.checkItem() && avatar.canSwim() && checkEntities() && checkHeightDifferential(avatar)){
+        if(this.checkItem() && avatar.canWalk() && checkEntities() && checkHeightDifferential(avatar)){
             this.insertEntity(avatar);
             long time = 1000;
             if(avatar.getOrientation() == orientation) {
