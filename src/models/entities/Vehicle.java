@@ -32,6 +32,10 @@ public class Vehicle extends Entity {
         return vehicleStats;
     }
 
+
+
+
+
     @Override
     public Stats getStats() {
         return vehicleStats;
@@ -44,6 +48,7 @@ public class Vehicle extends Entity {
     public void unmounted(Avatar avatar) {
         mounted = false;
         entityImage = GraphicAssets.laprasS;
+        this.location = avatar.getLocation();
         StatModifier SM = StatModifier.makeMovementModifier(-(vehicleStats.getMovement()));
         SM.apply(avatar.getStats());
 
@@ -51,7 +56,7 @@ public class Vehicle extends Entity {
 
     public void isMounted(Avatar avatar) {
         mounted = true;
-        //entityImage = null;
+        entityImage = null;
         this.setLocation(avatar.getLocation());
         StatModifier SM = StatModifier.makeMovementModifier(vehicleStats.getMovement());
         SM.apply(avatar.getStats());

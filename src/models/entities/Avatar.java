@@ -24,6 +24,7 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
     private Occupation occupation;
     private CharacterStats stats;
     private boolean isTeleported;
+    private boolean isRiding;
     //private Inventory inventory;
 
     public Avatar(Occupation occupation){
@@ -131,13 +132,16 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
 
     public void rideMount(Vehicle vehicle){
         vehicle.isMounted(this);
+        isRiding = true;
         this.entityImage = GraphicAssets.mountS;
         this.entityImages = GraphicAssets.laprasAll;
         this.initImages();
+
     }
 
     public void dismount(Vehicle vehicle) {
         vehicle.unmounted(this);
+        isRiding = false;
         this.entityImage = occupation.initImage();
         this.entityImages = occupation.initImages();
         this.initImages();
@@ -150,6 +154,7 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
         return stats;
     }
 
+    public boolean getIsRiding() { return isRiding; }
 
     public Inventory getInventory(){return inventory;}
 
