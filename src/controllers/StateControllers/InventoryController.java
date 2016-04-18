@@ -30,6 +30,7 @@ public class InventoryController extends Controller {
         getKeyMapping().put(Settings.DOWN,()->state.down());
         getKeyMapping().put(Settings.ENTER,()->state.interact());
         getKeyMapping().put(Settings.ESCAPE,()->state.escape());
+        getKeyMapping().put(Settings.INV,()->state.leave());
 
         getBindings().add(new Listener(Settings.LEFT, getKeyMapping().get(Settings.LEFT)));
         getBindings().add(new Listener(Settings.RIGHT, getKeyMapping().get(Settings.RIGHT)));
@@ -37,6 +38,7 @@ public class InventoryController extends Controller {
         getBindings().add(new Listener(Settings.DOWN, getKeyMapping().get(Settings.DOWN)));
         getBindings().add(new Listener(Settings.ENTER, getKeyMapping().get(Settings.ENTER)));
         getBindings().add(new Listener(Settings.ESCAPE, getKeyMapping().get(Settings.ESCAPE)));
+        getBindings().add(new Listener(Settings.INV, getKeyMapping().get(Settings.INV)));
     }
 
 

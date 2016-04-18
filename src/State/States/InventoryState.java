@@ -53,19 +53,22 @@ public class InventoryState extends State {
 
     @Override
     public void render(Graphics g){
-        inventoryStateView.render(g);
+        stateManager.renderMap(g);
+        inventoryStateView.render(g,select);
     }
     public void interact(){
-        avatar.use((Takeable) (avatar.getInventory().getPack().getItemAt(select)));
+        if(select<avatar.getInventory().getPack().getPackContents().size()) {
+            avatar.use((Takeable) (avatar.getInventory().getPack().getItemAt(select)));
+        }
     }
     public void right(){
         System.out.println(select);
         select++;
-        if(select%4==0)select = 0;
+        if(select%4==0)select -= 4;
     }
     public void left(){
         select--;
-        if(select%4==0)select = 3;
+        if(select%4==3||select<0)select += 4;
     }
     public void up(){
         select-=4;
@@ -73,23 +76,12 @@ public class InventoryState extends State {
     }
     public void down(){
         select+=4;
-        if(select>0)select-=16;
+        if(select>15)select-=16;
     }
-    public void enter(){
+    public void leave(){
         //System.out.println("enter");
+        stateManager.changeToGameState();
 
-        if(select==0){
-            stateManager.makeGameState(new Smasher());
-            stateManager.changeToGameState();
-        }
-        else if(select==1){
-            stateManager.makeGameState(new Sneak());
-            stateManager.changeToGameState();
-        }
-        else if(select==2){
-            stateManager.makeGameState(new Summoner());
-            stateManager.changeToGameState();
-        }
     }
     public void escape(){
         //System.out.println("huh");
