@@ -7,6 +7,8 @@ import models.entities.Entity;
 import models.stats.StatModifier;
 import models.stats.StatModifiers;
 
+import java.awt.image.BufferedImage;
+
 /**
  * Created by mazumderm on 4/13/2016.
  */
@@ -14,8 +16,8 @@ public class Equippable extends Takeable implements TakeableItemVisitor {
     protected StatModifiers statModifiers;
     protected int lvlReq;
 
-    public Equippable(String name, StatModifiers statModifiers, int price){
-        super(name, price);
+    public Equippable(String name, StatModifiers statModifiers, int price, BufferedImage bufferedImage){
+        super(name, price, bufferedImage);
         this.statModifiers = statModifiers;
     }
 
@@ -28,8 +30,9 @@ public class Equippable extends Takeable implements TakeableItemVisitor {
 
     }
 
+
     @Override
-    public void visit(Avatar avatar) {
+    public void unEquip(Entity entity) {
 
     }
 }

@@ -12,26 +12,14 @@ import java.awt.image.BufferedImage;
 /**
  * Created by mazumderm on 4/17/2016.
  */
-public enum BootsFactory {
-    BLUE_BOOTS(new Boots("Blue Boots", new StatModifiers(StatModifier.makeMovementModifier(Unit.BLUE * Unit.BOOTS)), 3), GraphicAssets.h1),
-    RED_BOOTS(new Boots("Red Boots", new StatModifiers(StatModifier.makeMovementModifier(Unit.RED * Unit.BOOTS)), 3), GraphicAssets.h1),
-    GREEN_BOOTS(new Boots("Green Boots", new StatModifiers(StatModifier.makeMovementModifier(Unit.GREEN * Unit.BOOTS)), 3), GraphicAssets.h1);
+public class BootsFactory {
+    public BootsFactory(){
 
-    private final Boots item;
-    private final BufferedImage bufferedImage;
-
-    BootsFactory(Boots item, BufferedImage bufferedImage){
-        this.item = item;
-        this.bufferedImage = bufferedImage;
     }
 
-    public Item getItem(){
-        return item;
+    public Item createBoots(){
+        return new Boots("Boots", new StatModifiers(StatModifier.makeMovementModifier(Unit.BLUE * Unit.BOOTS)), 3, GraphicAssets.boots);
     }
 
-
-    public BufferedImage getBufferedImage(){
-        return bufferedImage;
-    }
 
 }

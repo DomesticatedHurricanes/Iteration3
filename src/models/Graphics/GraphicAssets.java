@@ -1,5 +1,6 @@
 package models.Graphics;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.nio.Buffer;
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class GraphicAssets {
     public static BufferedImage test1;
     public static BufferedImage GroundGrassTile;
     public static BufferedImage GrassTile;
+    public static BufferedImage GrassTile2;
     public static BufferedImage GroundMountainTile;
     public static BufferedImage MountainTile;
     public static BufferedImage RunningWaterTile;
@@ -71,6 +73,7 @@ public class GraphicAssets {
     public static BufferedImage col;
     public static BufferedImage base;
 
+
     //Vehicle
     public static BufferedImage laprasS;
     public static BufferedImage laprasSE;
@@ -81,6 +84,8 @@ public class GraphicAssets {
     public static ArrayList<BufferedImage> laprasAll;
 
     public static BufferedImage mountS;
+
+    public static BufferedImage rock;
 
 
     public static BufferedImage smasher;
@@ -101,10 +106,15 @@ public class GraphicAssets {
     public static BufferedImage healDamage;
 
 
+    public static BufferedImage boots;
 
     public static BufferedImage redSword;
     public static BufferedImage blueSword;
     public static BufferedImage greenSword;
+
+    public static BufferedImage bow;
+    public static BufferedImage bow2;
+    public static BufferedImage slingshot;
 
     public static void init(){
 
@@ -112,12 +122,14 @@ public class GraphicAssets {
         test1 = ImageLoader.loadImage("/Resources/GroundGrassTile.png");
         GroundGrassTile = ImageLoader.loadImage("/Resources/GroundGrassTile.png");
         GrassTile = ImageLoader.loadImage("/Resources/GrassTile.png");
+        GrassTile2 = ImageLoader.loadImage("/Resources/GrassTile2.png");
         GroundMountainTile = ImageLoader.loadImage("/Resources/GroundMountainTile.png");
-        GroundMountainTile = ImageLoader.loadImage("/Resources/GroundMountainTile.png");
+        RunningWaterTile = ImageLoader.loadImage("/Resources/RunningWaterTile.png");
         MountainTile = ImageLoader.loadImage("/Resources/MountainTile.png");
         StillWaterTile = ImageLoader.loadImage("/Resources/StillWaterTile.png");
+//        RunningWaterTile = ImageLoader.loadImage("/Resources/StillWaterTile.png");
         RockTile = ImageLoader.loadImage("/Resources/RockTile.png");
-
+        RunningWaterTile = ImageLoader.loadImage("/Resources/StillWaterTile.png");
 
         // Loading in different tile heights
         h1 = ImageLoader.loadImage("/Resources/1.png");
@@ -161,9 +173,23 @@ public class GraphicAssets {
         healDamage = ImageLoader.loadImage("/Resources/areaEffects/red-cross.png");
 
         //items
+        redSword = ImageLoader.loadImage("/Resources/items/RED_SWORD.png");
+        blueSword = ImageLoader.loadImage("/Resources/items/BLUE_SWORD.png");
+        greenSword = ImageLoader.loadImage("/Resources/items/GREEN_SWORD.png");
+
+        boots = ImageLoader.loadImage("/Resources/items/BOOTS.png");
+        rock = ImageLoader.loadImage("/Resources/items/ROCK.png");
+
+        bow = ImageLoader.loadImage("/Resources/items/BOW.png");
+        bow2 = ImageLoader.loadImage("/Resources/items/BOW2.png");
+        slingshot = ImageLoader.loadImage("/Resources/items/SLINGSHOT.png");
+
+
+
         //redSword = ImageLoader.loadImage("Resources/RED_SWORD.png");
-       // blueSword = ImageLoader.loadImage("Resources/BLUE_SWORD.png");
+    //    blueSword = ImageLoader.loadImage("/Resources/BLUE_SWORD.png");
         //greenSword = ImageLoader.loadImage("Resources/GREEN_SWORD.png");
+
 
         // Loading in sneak
         sneakS = ImageLoader.loadImage("/Resources/entitys/entity-sneak-S.png");

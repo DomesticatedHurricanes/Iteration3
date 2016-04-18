@@ -1,5 +1,6 @@
 package models.entities;
 
+import models.Graphics.GraphicAssets;
 import models.Interaction.AIObserver;
 import models.Map.Tile;
 import models.stats.LivingStats;
@@ -28,6 +29,10 @@ public class Pet extends AINpc implements Movement, TileVisitable {
         initialStats = new PetStats();
         initialStats.initStats(npcStats);
         this.inventory = new Inventory(16);
+        orientation = Orientation.SOUTH;
+        entityImages = GraphicAssets.petAll;
+        initImages();
+        setEntityImage(orientation);
     }
     @Override
     public boolean accept(Tile tile) {
@@ -69,8 +74,7 @@ public class Pet extends AINpc implements Movement, TileVisitable {
 
     //AI functions
     public void makeMove(){
-       // notifyMove(petBrain.changeDirection());
-
+       notifyMove(this, petBrain.changeDirection());
     }
 
 
@@ -81,10 +85,11 @@ public class Pet extends AINpc implements Movement, TileVisitable {
 
     //AIObserver Notifiers
 
+
     @Override
-    public void notifyMove(AINpc aiNpc) {
+    public void notifyMove(AINpc aiNpc, Orientation orientation) {
         for(AIObserver observer: observers){
-            observer.processMove(this);
+            observer.processMove(this, orientation);
         }
     }
 
