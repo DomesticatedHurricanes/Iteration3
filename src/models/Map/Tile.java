@@ -4,6 +4,7 @@ import models.AreaEffect.AreaEffect;
 import models.Graphics.GraphicAssets;
 import models.Graphics.ImageLoader;
 import models.Item.Item;
+import models.entities.Avatar;
 import models.entities.Entity;
 import utilities.Point3D;
 
@@ -79,7 +80,7 @@ public abstract class Tile implements TileVisitor {
 
     public boolean checkHeightDifferential(Entity entity){
         System.out.println("jump height: " + entity.getStats().getJumpHeight() + " point z: " + point3D.getZ() + " entity height : " + entity.getLocation().getZ());
-       if(entity.getStats().getJumpHeight() >= Math.abs((point3D.getZ() - entity.getLocation().getZ())))
+       if(entity.getStats().getJumpHeight() >= (point3D.getZ() - entity.getLocation().getZ()))
            return true;
         else
            return false;
@@ -93,9 +94,9 @@ public abstract class Tile implements TileVisitor {
         }
     }
 
-    public void applyAreaEffect(Entity entity){
+    public void applyAreaEffect(Avatar avatar){
         if(areaEffect != null) {
-            this.areaEffect.activate(entity);
+            this.areaEffect.activate(avatar);
         }
     }
 
@@ -153,8 +154,19 @@ public abstract class Tile implements TileVisitor {
         return areaEffect;
     }
 
+    public ArrayList<Item> getItems(){
+        return items;
+    }
+
     public boolean hasAreaEffect(){
         if (areaEffect != null){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean hasItem(){
+        if (items != null){
             return true;
         }
         return false;

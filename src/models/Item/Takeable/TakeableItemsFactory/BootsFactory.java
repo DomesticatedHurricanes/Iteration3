@@ -21,7 +21,7 @@ public class BootsFactory {
         return new Boots("Blue Boots", new StatModifiers(StatModifier.makeMovementModifier(Unit.BLUE * Unit.BOOTS)), 3, GraphicAssets.h1);
     }
 
-    public Item createRedBoots(){
+    public Item createRedBoots() {
         return new Boots("Red Boots", new StatModifiers(StatModifier.makeMovementModifier(Unit.RED * Unit.BOOTS)), 3, GraphicAssets.h1);
     }
 

@@ -11,6 +11,7 @@ import java.awt.image.BufferedImage;
  */
 public abstract class Item {
 
+    protected BufferedImage image;
     String name;
     BufferedImage bufferedImage;
 
@@ -28,7 +29,7 @@ public abstract class Item {
 
     public abstract void apply(Entity entity);
 
-    public BufferedImage getBufferedImage(){
+    public BufferedImage getImage() {
         return this.bufferedImage;
     }
 }

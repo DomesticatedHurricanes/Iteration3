@@ -5,6 +5,7 @@ import View.StateViews.GameStateView;
 import controllers.StateControllers.GameStateController;
 import models.AreaEffect.*;
 import models.Interaction.MovementHandler;
+import models.Item.Takeable.Equippable.Boots;
 import models.Map.Map;
 
 import State.StateManager;
@@ -67,7 +68,7 @@ public class GameState extends State{
 
         //AreaEffects
         areaEffects = new ArrayList<>();
-        teleport = new Teleport(new Point3D(10,10,1));
+        teleport = new Teleport(map.getRelevantTile(10,10), map);
         takeDamage = new TakeDamage();
         healDamage = new HealDamage();
         instantDeath = new InstantDeath();
