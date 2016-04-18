@@ -9,6 +9,7 @@ import models.Map.Map;
 
 import State.StateManager;
 import models.Map.Map3D;
+import models.Skills.Projectile;
 import models.entities.Avatar;
 import models.entities.Entity;
 import models.entities.NPC;
@@ -46,6 +47,10 @@ public class GameState extends State{
 
     private ArrayList<AreaEffect> areaEffects;
 
+
+    //Projectile
+    private Projectile projectile;
+    private ArrayList<Projectile> projectiles;
 
     public GameState(StateManager stateManager, JFrame jFrame, Occupation occupation){
         super(stateManager, jFrame);

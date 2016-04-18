@@ -96,6 +96,8 @@ public class GraphicAssets {
     public static BufferedImage blueSword;
     public static BufferedImage greenSword;
 
+    public static BufferedImage fireball;
+
     public static void init(){
 
         tile = ImageLoader.loadImage("/Resources/tile.png");
@@ -214,5 +216,8 @@ public class GraphicAssets {
         petAll.add(petN);
         petAll.add(petNE);
         petAll.add(petNW);
+
+        //Loading in projectile
+        fireball = ImageLoader.loadImage("/Resources/projectiles/fireball.png");
     }
 }

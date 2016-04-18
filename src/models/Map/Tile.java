@@ -4,6 +4,7 @@ import models.AreaEffect.AreaEffect;
 import models.Graphics.GraphicAssets;
 import models.Graphics.ImageLoader;
 import models.Item.Item;
+import models.Skills.Projectile;
 import models.entities.Entity;
 import utilities.Point3D;
 
@@ -24,7 +25,7 @@ public abstract class Tile implements TileVisitor {
     protected Entity entity;
     protected ArrayList<Item> items = new ArrayList<>();
     protected AreaEffect areaEffect;
-
+    protected Projectile projectile;
     //Methods of a tile
     public Tile(Point3D point3D){
         this.point3D = point3D;
@@ -159,6 +160,12 @@ public abstract class Tile implements TileVisitor {
         }
         return false;
     }
+
+    public Projectile getProjectile(){return projectile;}
+
+    public boolean hasProjectile(){return (projectile!=null);}
+
+
 
     public String getType(){ return "type";}
 }
