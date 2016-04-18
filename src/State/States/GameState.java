@@ -96,7 +96,7 @@ public class GameState extends State{
 
 
         pet = new Pet();
-        pet.setLocation(map.getRelevantTile(15, 15).getPoint3D());
+        pet.setLocation(map.getRelevantTile(14, 14).getPoint3D());
 
 
         entities = new ArrayList<>();

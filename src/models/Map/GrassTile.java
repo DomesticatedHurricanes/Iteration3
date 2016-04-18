@@ -24,13 +24,13 @@ public class GrassTile extends Tile {
         cancelTimer();
         // Temporarily commented out to test basic movement
         if(checkHeightDifferential(avatar) && this.checkItem() && avatar.canWalk() && checkEntities()){
-            avatar.setLocation(this.point3D);
-
-            this.insertEntity(avatar);
             applyItems(avatar);
             applyAreaEffect(avatar);
             int heightDiff = this.point3D.getZ() - avatar.getLocation().getZ();
-            if( heightDiff < -1){
+            if( heightDiff < -1 ){
+                this.insertEntity(avatar);
+                avatar.setLocation(point3D);
+                System.out.println("WUT");
                 StatModifier fallDamage = StatModifier.makeCurrentHpModifier(heightDiff * 5);
                 fallDamage.apply(avatar.getStats());
             }

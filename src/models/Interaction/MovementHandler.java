@@ -1,5 +1,6 @@
 package models.Interaction;
 
+import models.AreaEffect.Teleport;
 import models.Graphics.GraphicAssets;
 import models.Map.Map;
 import models.Map.Map3D;
@@ -224,17 +225,19 @@ public class MovementHandler {
 //        entity.changeImage(orientation);
         // Check the destination tile
         Tile destinationTile = map.getRelevantTile(dest.getY(),dest.getX());
+        originTile.removeEntity();
 
         // If the entity can move to that tile
         if (entity.accept(destinationTile)) {
             // Set the entities location to the new location
             Point3D entityPoint = orientation.translate(destination);
+
             entityPoint.setZ(destinationTile.getDepth());
             entityTemp.setLocation(entityPoint);
 
 
             // Remove the entity from the previous tile
-            originTile.removeEntity();
+
         }
     }
 
