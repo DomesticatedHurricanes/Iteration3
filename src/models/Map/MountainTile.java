@@ -20,18 +20,20 @@ public class MountainTile extends Tile {
     @Override
     public boolean visit(Avatar avatar) {
         if(this.checkItem() && avatar.canTraverse() && checkEntities() && checkHeightDifferential(avatar)){
+            System.out.println(checkEntities());
             this.insertEntity(avatar);
             applyItems(avatar);
             applyAreaEffect(avatar);
             return true;
         }
-
-        else if(checkEntities() && checkHeightDifferential(avatar)){
+        else if(!checkEntities()){
             NPC npc = (NPC)(getEntity());
             npc.onInteract(avatar);
+            return false;
         }
-
-        return avatar.canTraverse();
+        else{
+            return false;
+        }
     }
 
     @Override

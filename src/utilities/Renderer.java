@@ -1,8 +1,10 @@
 package utilities;
 
 import View.View;
+import models.AreaEffect.AreaEffect;
 import models.Graphics.GraphicAssets;
 import models.Map.Map;
+import models.Map.Map3D;
 import models.Map.Tile;
 import models.entities.Entity;
 
@@ -47,7 +49,7 @@ public class Renderer {
                         pxCenterPoint = new Point(pxX, pxY);
 //                        System.out.println("even: " + pxCenterPoint);
                     }
-                    tileRenderer.render(g, map.getTile(x, y), pxCenterPoint);
+                    tileRenderer.render(g, map.getTile(y, x), pxCenterPoint);
                 }
             }
         }
@@ -78,36 +80,39 @@ public class Renderer {
 //            }
 //        }
 //
-//        public static void render(Graphics g, Map3D map, Point mapCenterPoint, int mapStartX, int mapEndX, int mapStartY, int mapEndY) {
-//            for(int y = mapStartY; y < mapEndY; y++){
-//                for(int x = mapEndX - 1; x  >= mapStartX; x--){
-//                    Point pxCenterPoint;
-//                    int offset;
-//
-//                    // calculate the offset to render images of different size
-//                    if (map.getRelevantTile(x,y).getImageHeight().getHeight() != GraphicAssets.TILE_PX_HEIGHT){
-//                        offset = map.getRelevantTile(x,y).getImageHeight().getHeight() - GraphicAssets.TILE_PX_HEIGHT;
-//                    } else{
-//                        offset = 0;
-//                    }
-//
-//                    //System.out.println("offset: " + offset);
-//
-//                    if(x % 2 != 0) {
-//                        int pxX = (int)((x - mapCenterPoint.x)*(0.75* GraphicAssets.TILE_PX_WIDTH)) + view.getWidth()/2;
-//                        int pxY = ((mapCenterPoint.x % 2 == 0)? GraphicAssets.TILE_PX_HEIGHT/2 : 0) + ((y - mapCenterPoint.y)* GraphicAssets.TILE_PX_HEIGHT) + view.getHeight()/2 - offset/2;
-//                        pxCenterPoint = new Point(pxX, pxY);
+        public static void render(Graphics g, Map3D map, Point mapCenterPoint, int mapStartX, int mapEndX, int mapStartY, int mapEndY) {
+            for(int y = mapStartY; y < mapEndY; y++){
+                for(int x = mapEndX - 1; x  >= mapStartX; x--){
+                    Point pxCenterPoint;
+                    int offset;
+
+                    // calculate the offset to render images of different size
+                    if (map.getRelevantTile(y,x).getImageHeight().getHeight() != GraphicAssets.TILE_PX_HEIGHT){
+                        offset = map.getRelevantTile(y,x).getImageHeight().getHeight() - GraphicAssets.TILE_PX_HEIGHT;
+                    } else{
+                        offset = 0;
+                    }
+
+                    //System.out.println("offset: " + offset);
+
+                    if(x % 2 != 0) {
+                        int pxX = (int)((x - mapCenterPoint.x)*(0.75* GraphicAssets.TILE_PX_WIDTH)) + view.getWidth()/2;
+                        int pxY = ((mapCenterPoint.x % 2 == 0)? GraphicAssets.TILE_PX_HEIGHT/2 : 0) + ((y - mapCenterPoint.y)* GraphicAssets.TILE_PX_HEIGHT) + view.getHeight()/2 - offset/2;
+                        pxCenterPoint = new Point(pxX, pxY);
 ////                        System.out.println("odd: " + pxCenterPoint);
-//                    } else {
-//                        int pxX = (int)((x - mapCenterPoint.x)*(0.75* GraphicAssets.TILE_PX_WIDTH)) + view.getWidth()/2;
-//                        int pxY = ((mapCenterPoint.x % 2 != 0)? -1 * GraphicAssets.TILE_PX_HEIGHT/2 : 0) + ((y - mapCenterPoint.y)* GraphicAssets.TILE_PX_HEIGHT) + view.getHeight()/2 - offset/2;
-//                        pxCenterPoint = new Point(pxX, pxY);
-////                        System.out.println("even: " + pxCenterPoint);
+                    } else {
+                        int pxX = (int)((x - mapCenterPoint.x)*(0.75* GraphicAssets.TILE_PX_WIDTH)) + view.getWidth()/2;
+                        int pxY = ((mapCenterPoint.x % 2 != 0)? -1 * GraphicAssets.TILE_PX_HEIGHT/2 : 0) + ((y - mapCenterPoint.y)* GraphicAssets.TILE_PX_HEIGHT) + view.getHeight()/2 - offset/2;
+                        pxCenterPoint = new Point(pxX, pxY);
+//                        System.out.println("even: " + pxCenterPoint);
+                    }
+                    tileRenderer.render(g, map.getRelevantTile(y, x), pxCenterPoint);
+//                    if (map.getRelevantTile(y,x).hasAreaEffect()){
+//                        areaEffectRenderer.render(g,map.getRelevantTile(y,x).getAreaEffect(),pxCenterPoint);
 //                    }
-//                    tileRenderer.render(g, map.getRelevantTile(x, y), pxCenterPoint);
-//                }
-//            }
-//        }
+                }
+            }
+        }
 //>>>>>>> master
     }
 
@@ -142,6 +147,9 @@ public class Renderer {
 //               // Integer point = tile.getPoint3D().getZ();
 //               // g.drawString(point.toString(),topLeft.x,topLeft.y);
 //>>>>>>> master
+                if (tile.hasAreaEffect()){
+                    areaEffectRenderer.render(g,tile.getAreaEffect(),topLeft);
+                }
             }
         }
     }
@@ -171,5 +179,36 @@ public class Renderer {
 
         }
     }
+
+    public static class areaEffectRenderer{
+        public static void render(Graphics g, AreaEffect areaEffect, Point pxTopLeftPoint){
+            g.drawImage(areaEffect.getAreaEffectImage(),pxTopLeftPoint.x,pxTopLeftPoint.y,null);
+        }
+    }
+//    public static class areaEffectRenderer {
+//        public static void render(Graphics g, AreaEffect areaEffect, Point mapCenterPoint) {
+//            Point pxCenterPoint;
+//            if (areaEffect.getLocation().getX() % 2 != 0) {
+//                int pxX = (int) ((areaEffect.getLocation().getX() - mapCenterPoint.x) * (0.75 * GraphicAssets.TILE_PX_WIDTH)) + view.getWidth() / 2;
+//                int pxY = ((mapCenterPoint.x % 2 == 0) ? GraphicAssets.TILE_PX_HEIGHT / 2 : 0) + ((areaEffect.getLocation().getY() - mapCenterPoint.y) * GraphicAssets.TILE_PX_HEIGHT) + view.getHeight() / 2;
+//                pxCenterPoint = new Point(pxX, pxY);
+//            } else {
+//                int pxX = (int) ((areaEffect.getLocation().getX() - mapCenterPoint.x) * (0.75 * GraphicAssets.TILE_PX_WIDTH)) + view.getWidth() / 2;
+//                int pxY = ((mapCenterPoint.x % 2 != 0) ? -1 * GraphicAssets.TILE_PX_HEIGHT / 2 : 0) + ((areaEffect.getLocation().getY() - mapCenterPoint.y) * GraphicAssets.TILE_PX_HEIGHT) + view.getHeight() / 2;
+//                pxCenterPoint = new Point(pxX, pxY);
+//            }
+//
+//
+//            // Calculate the top left corner from the center point
+//            //g.setColor(new Color(0, 0, 0));
+//            //g.fillOval(pxCenterPoint.x - 25, pxCenterPoint.y - 25, 45, 45);
+//            // render the correct image for the avatar's occupation.
+//
+//            // Calculate location that the tile needs to be rendered using the pxCenterPoint
+//            Point topLeft = new Point(pxCenterPoint.x - (GraphicAssets.TILE_PX_WIDTH / 2), pxCenterPoint.y - (GraphicAssets.TILE_PX_HEIGHT / 2));
+//            g.drawImage(areaEffect.getAreaEffectImage(), topLeft.x, topLeft.y, GraphicAssets.TILE_PX_WIDTH, GraphicAssets.TILE_PX_HEIGHT, null);
+//
+//        }
+//    }
 }
 

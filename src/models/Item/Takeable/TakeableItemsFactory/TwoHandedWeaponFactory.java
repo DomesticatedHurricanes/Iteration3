@@ -6,6 +6,7 @@ import models.Item.Takeable.Equippable.OneHandedWeapon;
 import models.Item.Takeable.Equippable.TwoHandedWeapon;
 import models.stats.StatModifier;
 import models.stats.StatModifiers;
+import utilities.Unit;
 
 import java.awt.image.BufferedImage;
 
@@ -13,11 +14,11 @@ import java.awt.image.BufferedImage;
  * Created by mazumderm on 4/17/2016.
  */
 public enum TwoHandedWeaponFactory {
-    BLUE_KNUCKLES(new TwoHandedWeapon("Blue Knuckles", new StatModifiers(StatModifier.makeStrengthModifier(3)), 3,
+    BLUE_KNUCKLES(new TwoHandedWeapon("Blue Knuckles", new StatModifiers(StatModifier.makeStrengthModifier(Unit.BLUE * Unit.TWOHANDEDWEAPON)), 3,
             new StatModifiers(StatModifier.makeCurrentHpModifier(-3))), GraphicAssets.h1),
-    RED_KNUCKLES(new TwoHandedWeapon("Red Knuckles", new StatModifiers(StatModifier.makeStrengthModifier(3)), 3,
+    RED_KNUCKLES(new TwoHandedWeapon("Red Knuckles", new StatModifiers(StatModifier.makeStrengthModifier(Unit.RED * Unit.TWOHANDEDWEAPON)), 3,
             new StatModifiers(StatModifier.makeCurrentHpModifier(-5))), GraphicAssets.h1),
-    GREEN_KNUCKLES(new TwoHandedWeapon("Green Knuckles", new StatModifiers(StatModifier.makeStrengthModifier(3)), 3,
+    GREEN_KNUCKLES(new TwoHandedWeapon("Green Knuckles", new StatModifiers(StatModifier.makeStrengthModifier(Unit.GREEN * Unit.TWOHANDEDWEAPON)), 3,
             new StatModifiers(StatModifier.makeCurrentHpModifier(-7)) ), GraphicAssets.h1);
 
     private final TwoHandedWeapon item;

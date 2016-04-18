@@ -44,12 +44,19 @@ public class GraphicAssets {
     public static BufferedImage summonerPic;
     public static BufferedImage rightArrow;
     public static BufferedImage leftArrow;
+
     //AreaEffects
     public static BufferedImage levelUp;
     public static BufferedImage takeDamage;
     public static BufferedImage trap;
     public static BufferedImage teleport;
     public static BufferedImage healDamage;
+
+
+
+    public static BufferedImage redSword;
+    public static BufferedImage blueSword;
+    public static BufferedImage greenSword;
 
     public static void init(){
 
@@ -83,7 +90,7 @@ public class GraphicAssets {
         creationBackground = ImageLoader.loadImage("/Resources/back2.jpg");
         smashPic = ImageLoader.loadImage("/Resources/Views/smasher.png");
         sneakPic = ImageLoader.loadImage("/Resources/Views/bow.png");
-        summonerPic = ImageLoader.loadImage("/Resources/Views/staff.jpg");
+        summonerPic = ImageLoader.loadImage("/Resources/Views/staff.png");
         rightArrow = ImageLoader.loadImage("/Resources/Views/arrow1.png");
         leftArrow = ImageLoader.loadImage("/Resources/Views/arrow.png");
 
@@ -92,12 +99,19 @@ public class GraphicAssets {
         summoner = ImageLoader.loadImage("/Resources/entitys/entity-summoner-S.png");
         sneak = ImageLoader.loadImage("/Resources/entitys/entity-sneak-S.png");
 
+
         //AreaEffects
         levelUp = ImageLoader.loadImage("/Resources/areaEffects/gold-star.png");
         takeDamage = ImageLoader.loadImage("/Resources/areaEffects/skull-and-crossbones.png");
         trap = ImageLoader.loadImage("/Resources/areaEffects/trap-sample.png");
         teleport = ImageLoader.loadImage("/Resources/areaEffects/teleport-sample.png");
         healDamage = ImageLoader.loadImage("/Resources/areaEffects/red-cross.png");
+
+        //items
+        //redSword = ImageLoader.loadImage("Resources/RED_SWORD.png");
+       // blueSword = ImageLoader.loadImage("Resources/BLUE_SWORD.png");
+        //greenSword = ImageLoader.loadImage("Resources/GREEN_SWORD.png");
+
 
 
     }

@@ -24,7 +24,7 @@ public class Stats {
     }
     //Stats all entities have
     protected int movement;
-    protected int jumpHeight;
+    protected int jumpHeight = 9;
     //Getter and modifiers for stats
     public int getMovement() {
         return movement;

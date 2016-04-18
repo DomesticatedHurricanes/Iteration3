@@ -13,8 +13,16 @@ public abstract class AreaEffect {
     //Methods for all AreaEffects
     public abstract void activate(Entity entity);
     public abstract BufferedImage initImage();
-    public Point3D location;
+    protected BufferedImage areaEffectImage;
+    private Point3D location;
+    public Point3D getLocation() {
+        return location;
+    }
     public void setLocation(Point3D location){
         this.location = location;
+    }
+
+    public BufferedImage getAreaEffectImage(){
+        return areaEffectImage;
     }
 }

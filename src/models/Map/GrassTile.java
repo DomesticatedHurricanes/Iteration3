@@ -21,19 +21,20 @@ public class GrassTile extends Tile {
     public boolean visit(Avatar avatar) {
         // Temporarily commented out to test basic movement
         if(checkHeightDifferential(avatar) && this.checkItem() && avatar.canWalk() && checkEntities()){
+            System.out.println(checkEntities());
             this.insertEntity(avatar);
             applyItems(avatar);
             applyAreaEffect(avatar);
             return true;
         }
-
-        else if(checkEntities() && checkHeightDifferential(avatar)){
+        else if(!checkEntities()){
             NPC npc = (NPC)(getEntity());
             npc.onInteract(avatar);
+            return false;
         }
-
-        System.out.println("TOO HIGH");
-        return avatar.canWalk();
+        else{
+            return false;
+        }
     }
 
     @Override
