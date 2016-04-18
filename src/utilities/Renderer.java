@@ -272,25 +272,42 @@ public class Renderer {
 
     public static class statsRenderer{
         public static void render(Graphics g, Avatar avatar, CharacterStats stats){
-            int max = stats.getMaxHp();
-            int now = stats.getCurrentHp();
+
+            renderHP(g,stats);
+            private static void renderHP(Graphics g, CharacterStats stats){
+                int max = stats.getMaxHp();
+                int now = stats.getCurrentHp();
 
 
 //            System.out.println("max health: " + stats.getMaxHp());
 //            System.out.println("curr health: " + stats.getCurrentHp());
+                int perc = (int) (100 * now / max);
 
-            int perc = (int)(100*now/max);
+                int x = 20;
+                int y = 10;
+                int width = 200;
+                int height = 20;
 
-            int x = 20;
-            int y = 10;
-            int width = 200;
-            int height = 20;
+                g.setColor(Color.RED);
+                g.fillRect(x, y, (int) (width * perc / 100), height);
+                g.setColor(Color.black);
+                g.fillRect(x + (int) (width * perc / 100), y, (int) (width * (100 - perc) / 100), height);
 
-            g.setColor(Color.RED);
-            g.fillRect(x,y,(int)(width*perc/100),height);
-            g.setColor(Color.black);
-            g.fillRect(x + (int)(width*perc/100), y, (int)(width*(100-perc)/100),height);
-
+            }
+//            private static void renderXP(Graphics g, CharacterStats stats) {
+//                stats = stats.getExperience();
+//
+//
+//                int x = 0;
+//                int y = 50;
+//                int width = WIDTH;
+//                int height = 10;
+//
+//                g.setColor(Color.yellow);
+//                g.fillRect(x, y, (int) (width * now / max), height);
+//                g.setColor(Color.black);
+//                g.fillRect(x + (int) (width * now / max), y, (int) (width * (100 - now / max) / 100), height);
+//            }
 
 //            double  max = stats.getExperience();
 //            double now = stats.getLevel();
