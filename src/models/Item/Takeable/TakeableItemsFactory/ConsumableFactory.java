@@ -2,6 +2,7 @@ package models.Item.Takeable.TakeableItemsFactory;
 
 import models.Graphics.GraphicAssets;
 import models.Item.Item;
+import models.Item.Takeable.Consumable;
 import models.Item.Takeable.Equippable.ChestPlate;
 import models.Item.Takeable.Equippable.Gloves;
 import models.stats.StatModifier;
@@ -14,14 +15,14 @@ import java.awt.image.BufferedImage;
  * Created by mazumderm on 4/17/2016.
  */
 public enum ConsumableFactory {
-    HEALTH_FACTORY(new Gloves("Blue Gloves", new StatModifiers(StatModifier.makeHardinessModifier(Unit.BLUE * Unit.GLOVES)), 3), GraphicAssets.h1),
-    RED_GLOVES(new Gloves("Red Gloves", new StatModifiers(StatModifier.makeHardinessModifier(Unit.RED * Unit.GLOVES)), 3), GraphicAssets.h1),
-    GREEN_GLOVES(new Gloves("Green Gloves", new StatModifiers(StatModifier.makeHardinessModifier(Unit.GREEN* Unit.GLOVES)), 3), GraphicAssets.h1);
+    HEALTH_POTION(new Consumable("Health Potion", new StatModifiers(StatModifier.makeCurrentHpModifier(5)), 3), GraphicAssets.h1),
+    MANA_POTION(new Consumable("Mana Potion", new StatModifiers(StatModifier.makeManaModifier(5)), 3), GraphicAssets.h1);
 
-    private final Gloves item;
+
+    private final Consumable item;
     private final BufferedImage bufferedImage;
 
-    ConsumableFactory(Gloves item, BufferedImage bufferedImage){
+    ConsumableFactory(Consumable item, BufferedImage bufferedImage){
         this.item = item;
         this.bufferedImage = bufferedImage;
     }
