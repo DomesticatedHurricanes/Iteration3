@@ -8,6 +8,7 @@ import models.Interaction.InteractionHandler;
 import models.Interaction.MovementHandler;
 import models.entities.Avatar;
 import models.entities.Entity;
+import models.entities.Pet;
 import utilities.Settings;
 
 import javax.swing.*;
@@ -20,14 +21,16 @@ public class GameStateController extends Controller {
     private StateManager stateManager;
     private Avatar avatar;
     private GameState state;
+    private Pet pet;
     private JFrame jFrame;
 
-    public GameStateController(StateManager stateManager, GameState state, JFrame jFrame, InteractionHandler interactionHandler, Avatar avatar) {
+    public GameStateController(StateManager stateManager, GameState state, JFrame jFrame, InteractionHandler interactionHandler, Avatar avatar, Pet pet) {
         super(jFrame);
         this.stateManager = stateManager;
         this.state=state;
         this.jFrame=jFrame;
         this.avatar = avatar;
+        this.pet = pet;
         this.interactionHandler = interactionHandler;
 
         getKeyMapping().put(Settings.Up,()->interactionHandler.move(avatar, Entity.Orientation.NORTH));
@@ -112,6 +115,7 @@ public class GameStateController extends Controller {
     }
 
     public void update(){
+
         //System.out.println("Game controller tick");
 
     }
