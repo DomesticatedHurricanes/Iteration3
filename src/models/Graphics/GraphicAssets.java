@@ -190,12 +190,12 @@ public class GraphicAssets {
         smasherAll.add(smasherNW);
 
         // Loading in pet
-        petS = ImageLoader.loadImage("/Resources/entitys/pet-samples.raichu/S.png");
-        petSW = ImageLoader.loadImage("/Resources/entitys/pet-samples.raichu/SW.png");
-        petSE = ImageLoader.loadImage("/Resources/entitys/pet-samples.raichu/SE.png");
-        petN = ImageLoader.loadImage("/Resources/entitys/pet-samples.raichu/N.png");
-        petNE = ImageLoader.loadImage("/Resources/entitys/pet-samples.raichu/NE.png");
-        petNW = ImageLoader.loadImage("/Resources/entitys/pet-samples.raichu/NW.png");
+        petS = ImageLoader.loadImage("/Resources/entitys/pet-samples/raichu/S.png");
+        petSW = ImageLoader.loadImage("/Resources/entitys/pet-samples/raichu/SW.png");
+        petSE = ImageLoader.loadImage("/Resources/entitys/pet-samples/raichu/SE.png");
+        petN = ImageLoader.loadImage("/Resources/entitys/pet-samples/raichu/N.png");
+        petNE = ImageLoader.loadImage("/Resources/entitys/pet-samples/raichu/NE.png");
+        petNW = ImageLoader.loadImage("/Resources/entitys/pet-samples/raichu/NW.png");
         petAll = new ArrayList<>();
         petAll.add(petS);
         petAll.add(petSE);
