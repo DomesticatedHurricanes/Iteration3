@@ -12,10 +12,13 @@ import java.awt.image.BufferedImage;
  */
 public class Teleport extends AreaEffect {
 
+
+
     private Point3D dest;//Probably will throw null pointer since dest
     //is not initialized
 
     public Teleport(Point3D destination){
+        this.areaEffectImage = GraphicAssets.teleport;
         this.dest = destination;
     }
 

@@ -11,6 +11,9 @@ import java.awt.image.BufferedImage;
  * Created by david on 4/12/16.
  */
 public class HealDamage extends AreaEffect {
+    public HealDamage(){
+        this.areaEffectImage = GraphicAssets.healDamage;
+    }
     @Override
     public void activate(Entity entity){
         StatModifier healDamage = StatModifier.makeCurrentHpModifier(10);

@@ -32,11 +32,11 @@ public class Renderer {
                     int offset;
 
                     // calculate the offset to render images of different size
-                    if (map.getTile(x, y).getImage().getHeight() != GraphicAssets.TILE_PX_HEIGHT) {
-                        offset = map.getTile(x, y).getImage().getHeight() - GraphicAssets.TILE_PX_HEIGHT;
-                    } else {
+                    //if (map.getTile(x, y).getImage().getHeight() != GraphicAssets.TILE_PX_HEIGHT) {
+                      //  offset = map.getTile(x, y).getImage().getHeight() - GraphicAssets.TILE_PX_HEIGHT;
+                    //} else {
                         offset = 0;
-                    }
+                    //}
 
                     //System.out.println("offset: " + offset);
 
@@ -156,7 +156,7 @@ public class Renderer {
 
                 }
 
-                else if(tile.getType()=="Water"){
+                else if(tile.getType()=="Water" || tile.getType()=="Grass"){
                     //
                     //System.out.println(topLeft.y);
                     g.drawImage(GraphicAssets.col,topLeft.x, topLeft.y+10+19,60,tile.getImageHeight()/2,null);
@@ -164,13 +164,14 @@ public class Renderer {
                     g.drawImage(tile.getImage(), topLeft.x, topLeft.y+10, tile.getImage().getWidth(), tile.getImage().getHeight(), null);
                 }
 
-                else if(tile.getType()=="Grass"){
-
-                    g.drawImage(GraphicAssets.col,topLeft.x, topLeft.y+19+21,60,tile.getImageHeight()/2,null);
-                    g.drawImage(GraphicAssets.base,topLeft.x, topLeft.y+19+19+tile.getImageHeight()/2,60,19,null);
-                    g.drawImage(tile.getImage(), topLeft.x, topLeft.y, tile.getImage().getWidth(), tile.getImage().getHeight(), null);
-
-                }
+//                else if(tile.getType()=="Grass"){
+//
+//
+//                    g.drawImage(GraphicAssets.col,topLeft.x, topLeft.y+19+21,60,tile.getImageHeight()/2,null);
+//                    g.drawImage(GraphicAssets.base,topLeft.x, topLeft.y+19+19+tile.getImageHeight()/2,60,19,null);
+//                    g.drawImage(tile.getImage(), topLeft.x, topLeft.y, tile.getImage().getWidth(), tile.getImage().getHeight(), null);
+//
+//                }
 
 
                 //
@@ -192,6 +193,9 @@ public class Renderer {
 //               // g.drawString(point.toString(),topLeft.x,topLeft.y);
 ////>>>>>>> master
 //>>>>>>> 95c34ff7cea9afa5e38b2ae4e504302ce42f26fb
+                if(tile.hasAreaEffect()){
+                    areaEffectRenderer.render(g,tile.getAreaEffect(),topLeft);
+                }
             }
         }
     }
@@ -199,7 +203,7 @@ public class Renderer {
     public static class areaEffectRenderer{
         public static void render(Graphics g, AreaEffect areaEffect, Point pxTopLeftPoint){
             System.out.println(areaEffect.getAreaEffectImage());
-            g.drawImage(areaEffect.getAreaEffectImage(),pxTopLeftPoint.x,pxTopLeftPoint.y,null);
+            g.drawImage(areaEffect.getAreaEffectImage(),pxTopLeftPoint.x,pxTopLeftPoint.y +10,null);
         }
     }
 
@@ -218,7 +222,7 @@ public class Renderer {
 
             // Calculate location that the tile needs to be rendered using the pxCenterPoint
             Point topLeft = new Point(pxCenterPoint.x - (GraphicAssets.TILE_PX_WIDTH / 2), pxCenterPoint.y - (GraphicAssets.TILE_PX_HEIGHT / 2));
-            g.drawImage(entity.getEntityImage(), topLeft.x, topLeft.y, GraphicAssets.TILE_PX_WIDTH, GraphicAssets.TILE_PX_HEIGHT, null);
+            g.drawImage(entity.getEntityImage(), topLeft.x, topLeft.y + 10, GraphicAssets.TILE_PX_WIDTH, GraphicAssets.TILE_PX_HEIGHT, null);
 
         }
     }

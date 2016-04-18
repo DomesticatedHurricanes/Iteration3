@@ -17,6 +17,7 @@ public class Trap extends AreaEffect{
     private boolean displayed;  // displayed only after first encounter
 
     public Trap(){
+        this.areaEffectImage = GraphicAssets.trap;
         timer = new Timer();
         removed = false;
         displayed = false;
