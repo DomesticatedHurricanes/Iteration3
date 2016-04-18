@@ -132,7 +132,7 @@ public class GameState extends State{
 
         //AreaEffects
         areaEffects = new ArrayList<>();
-        teleport = new Teleport(map.getRelevantTile(10,10), map);
+        teleport = new Teleport(map.getRelevantTile(20,20), map);
         takeDamage = new TakeDamage();
         healDamage = new HealDamage();
         instantDeath = new InstantDeath();

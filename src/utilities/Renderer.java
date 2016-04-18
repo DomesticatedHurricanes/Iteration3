@@ -204,6 +204,14 @@ public class Renderer {
             g.drawString(title,GraphicAssets.VIEW_WIDTH/2 - width2/2,fm.getHeight());
             g.drawString(level.toString(),0,0);
 
+
+            Integer lives = stats.getLives();
+            String title2 = " ( Lives: " + lives.toString() + ")";
+
+            g.setColor(new Color(0,252,250));
+            g.drawString(title2,GraphicAssets.VIEW_WIDTH- width2 - 30,fm.getHeight());
+            g.drawString(lives.toString(),0,0);
+
         }
     }
 }
