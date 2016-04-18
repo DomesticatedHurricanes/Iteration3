@@ -4,9 +4,11 @@ import State.StateManager;
 import State.States.GameState;
 import controllers.Controller;
 import controllers.Listener;
+import models.Interaction.InteractionHandler;
 import models.Interaction.MovementHandler;
 import models.entities.Avatar;
 import models.entities.Entity;
+import models.entities.Pet;
 import utilities.Settings;
 
 import javax.swing.*;
@@ -15,26 +17,28 @@ import javax.swing.*;
  * Created by Michael on 4/14/16.
  */
 public class GameStateController extends Controller {
-    private MovementHandler movementHandler;
+    private InteractionHandler interactionHandler;
     private StateManager stateManager;
     private Avatar avatar;
     private GameState state;
+    private Pet pet;
     private JFrame jFrame;
 
-    public GameStateController(StateManager stateManager, GameState state, JFrame jFrame, MovementHandler movementHandler, Avatar avatar) {
+    public GameStateController(StateManager stateManager, GameState state, JFrame jFrame, InteractionHandler interactionHandler, Avatar avatar, Pet pet) {
         super(jFrame);
         this.stateManager = stateManager;
         this.state=state;
         this.jFrame=jFrame;
         this.avatar = avatar;
-        this.movementHandler = movementHandler;
+        this.pet = pet;
+        this.interactionHandler = interactionHandler;
 
-        getKeyMapping().put(Settings.Up,()->movementHandler.move(avatar, Entity.Orientation.NORTH));
-        getKeyMapping().put(Settings.UpRight,()->movementHandler.move(avatar, Entity.Orientation.NORTHEAST));
-        getKeyMapping().put(Settings.UpLeft,()->movementHandler.move(avatar, Entity.Orientation.NORTHWEST));
-        getKeyMapping().put(Settings.Down,()->movementHandler.move(avatar, Entity.Orientation.SOUTH));
-        getKeyMapping().put(Settings.DownRight,()->movementHandler.move(avatar, Entity.Orientation.SOUTHEAST));
-        getKeyMapping().put(Settings.DownLeft,()->movementHandler.move(avatar, Entity.Orientation.SOUTHWEST));
+        getKeyMapping().put(Settings.Up,()->interactionHandler.move(avatar, Entity.Orientation.NORTH));
+        getKeyMapping().put(Settings.UpRight,()->interactionHandler.move(avatar, Entity.Orientation.NORTHEAST));
+        getKeyMapping().put(Settings.UpLeft,()->interactionHandler.move(avatar, Entity.Orientation.NORTHWEST));
+        getKeyMapping().put(Settings.Down,()->interactionHandler.move(avatar, Entity.Orientation.SOUTH));
+        getKeyMapping().put(Settings.DownRight,()->interactionHandler.move(avatar, Entity.Orientation.SOUTHEAST));
+        getKeyMapping().put(Settings.DownLeft,()->interactionHandler.move(avatar, Entity.Orientation.SOUTHWEST));
         getKeyMapping().put(Settings.INV,()->stateManager.changeToInventoryState());
         getKeyMapping().put(Settings.EQUIP, ()->stateManager.changeToEquipmentState());
         getKeyMapping().put(Settings.ESCAPE, ()->stateManager.changeToPauseMenuState());
@@ -57,15 +61,13 @@ public class GameStateController extends Controller {
     }
 
     private void initListeners(){
-        getKeyMapping().put(Settings.Up,()->movementHandler.move(avatar, Entity.Orientation.NORTH));
 
-
-        getKeyMapping().put(Settings.UpRight,()->movementHandler.move(avatar, Entity.Orientation.NORTHEAST));
-        getKeyMapping().put(Settings.UpLeft,()->movementHandler.move(avatar, Entity.Orientation.NORTHWEST));
-        getKeyMapping().put(Settings.Down,()->movementHandler.move(avatar, Entity.Orientation.SOUTH));
-        getKeyMapping().put(Settings.DownRight,()->movementHandler.move(avatar, Entity.Orientation.SOUTHEAST));
-        getKeyMapping().put(Settings.DownLeft,()->movementHandler.move(avatar, Entity.Orientation.SOUTHWEST));
-
+        getKeyMapping().put(Settings.Up,()->interactionHandler.move(avatar, Entity.Orientation.NORTH));
+        getKeyMapping().put(Settings.UpRight,()->interactionHandler.move(avatar, Entity.Orientation.NORTHEAST));
+        getKeyMapping().put(Settings.UpLeft,()->interactionHandler.move(avatar, Entity.Orientation.NORTHWEST));
+        getKeyMapping().put(Settings.Down,()->interactionHandler.move(avatar, Entity.Orientation.SOUTH));
+        getKeyMapping().put(Settings.DownRight,()->interactionHandler.move(avatar, Entity.Orientation.SOUTHEAST));
+        getKeyMapping().put(Settings.DownLeft,()->interactionHandler.move(avatar, Entity.Orientation.SOUTHWEST));
 
         getKeyMapping().put(Settings.R,()->state.moveViewNorthWest());
         getKeyMapping().put(Settings.T,()->state.moveViewNorth());
@@ -77,7 +79,7 @@ public class GameStateController extends Controller {
 
         getKeyMapping().put(Settings.X,()->state.stopViewMove());
 
-        getKeyMapping().put(Settings.INV,()->stateManager.changeToInventoryState());
+         getKeyMapping().put(Settings.INV,()->stateManager.changeToInventoryState());
 
 
         getBindings().add(new Listener(Settings.Up, getKeyMapping().get(Settings.Up)));
@@ -113,6 +115,7 @@ public class GameStateController extends Controller {
     }
 
     public void update(){
+
         //System.out.println("Game controller tick");
 
     }

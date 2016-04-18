@@ -117,7 +117,7 @@ public class GraphicAssets {
         StillWaterTile = ImageLoader.loadImage("/Resources/StillWaterTile.png");
 //        RunningWaterTile = ImageLoader.loadImage("/Resources/StillWaterTile.png");
         RockTile = ImageLoader.loadImage("/Resources/RockTile.png");
-
+        RunningWaterTile = ImageLoader.loadImage("/Resources/StillWaterTile.png");
 
         // Loading in different tile heights
         h1 = ImageLoader.loadImage("/Resources/1.png");
@@ -172,6 +172,11 @@ public class GraphicAssets {
         bow2 = ImageLoader.loadImage("/Resources/items/BOW2.png");
         slingshot = ImageLoader.loadImage("/Resources/items/SLINGSHOT.png");
 
+
+
+        //redSword = ImageLoader.loadImage("Resources/RED_SWORD.png");
+    //    blueSword = ImageLoader.loadImage("/Resources/BLUE_SWORD.png");
+        //greenSword = ImageLoader.loadImage("Resources/GREEN_SWORD.png");
 
 
         // Loading in sneak

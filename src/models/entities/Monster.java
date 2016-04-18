@@ -96,9 +96,9 @@ public class Monster extends AINpc implements Movement {
     //AIObserver Notifiers
 
 
-    public void notifyMove(AINpc aiNpc) {
+    public void notifyMove(AINpc aiNpc, Orientation orientation) {
         for(AIObserver observer: observers){
-            observer.processMove(this);
+            observer.processMove(this, orientation);
         }
     }
 

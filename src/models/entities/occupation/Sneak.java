@@ -22,15 +22,16 @@ public class Sneak implements Occupation{
         StatModifier initStrength = StatModifier.makeStrengthModifier(10);
         StatModifier initHardiness = StatModifier.makeHardinessModifier(10);
         StatModifier initLives = StatModifier.makeLivesModifier(10);
-        StatModifier initAgility = StatModifier.makeAgilityModifier(10);
+        StatModifier initAgility = StatModifier.makeAgilityModifier(30);
         StatModifier initIntellect = StatModifier.makeIntellectModifier(10);
         StatModifier initLevel = StatModifier.makeLevelModifier(1);
         StatModifier initMana = StatModifier.makeManaModifier(20);
+        StatModifier initExperience = StatModifier.makeExperienceModifier(0);
 
         //Create a StatModifiers
         StatModifiers initialStats = new StatModifiers(initMovement, initMaxHP,
                 initCurrentHp, initStrength, initHardiness, initLives,
-                initAgility, initIntellect, initLevel, initMana);
+                initAgility, initIntellect, initLevel, initMana, initExperience);
 
         //Apply all StatModifiers to Stat
         initialStats.apply(stats);
