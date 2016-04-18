@@ -8,6 +8,7 @@ import models.Interaction.InteractionHandler;
 import models.Graphics.GraphicAssets;
 import models.Interaction.MovementHandler;
 import models.Item.Takeable.Equippable.Boots;
+import models.Item.Takeable.Equippable.Ranged;
 import models.Map.Map;
 
 import State.StateManager;
@@ -15,6 +16,8 @@ import models.Map.Map3D;
 import models.entities.*;
 import models.entities.occupation.Occupation;
 import models.entities.occupation.Smasher;
+import models.stats.StatModifier;
+import models.stats.StatModifiers;
 import utilities.Point3D;
 
 import javax.swing.*;
@@ -48,6 +51,8 @@ public class GameState extends State{
     private HealDamage healDamage;
     private InstantDeath instantDeath;
     private Trap trap;
+    private Pet pet;
+    private Boots boots;
 
     private ArrayList<AreaEffect> areaEffects;
 
@@ -61,21 +66,24 @@ public class GameState extends State{
         map = new Map3D(5);
 
 
+        boots = new Boots("boots",new StatModifiers(StatModifier.makeAgilityModifier(10)),10,GraphicAssets.blueSword);
 
         villager = new Villager();
         villager.setLocation(new Point3D(12,12,1));
 
 
-        Pet pet = new Pet();
+        pet = new Pet();
         pet.setLocation(map.getRelevantTile(15, 15).getPoint3D());
 
 
         entities = new ArrayList<>();
-
+        aiNpcs = new ArrayList<>();
 
         entities.add(avatar);
         entities.add(villager);
         entities.add(pet);
+
+        aiNpcs.add(pet);
 
 
         //AreaEffects
@@ -111,13 +119,14 @@ public class GameState extends State{
         map.getRelevantTile(14,13).insertAreaEffect(healDamage);
         map.getRelevantTile(14,14).insertAreaEffect(instantDeath);
         map.getRelevantTile(14,15).insertAreaEffect(trap);
+        map.getRelevantTile(5,5).insertItem(boots);
 
 
 
         interactionHandler = new InteractionHandler(map);
         interactionHandler.subscribeToAI(pet);
         gameStateView = new GameStateView(map,avatar,entities,areaEffects);
-        gameStateController = new GameStateController(this.stateManager,this,jFrame, interactionHandler,avatar);
+        gameStateController = new GameStateController(this.stateManager,this,jFrame, interactionHandler,avatar,pet);
     }
 
     public void setActive(){

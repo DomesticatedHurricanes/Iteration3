@@ -156,7 +156,7 @@ public class GraphicAssets {
 
         //items
         //redSword = ImageLoader.loadImage("Resources/RED_SWORD.png");
-       // blueSword = ImageLoader.loadImage("Resources/BLUE_SWORD.png");
+        blueSword = ImageLoader.loadImage("/Resources/BLUE_SWORD.png");
         //greenSword = ImageLoader.loadImage("Resources/GREEN_SWORD.png");
 
         // Loading in sneak
