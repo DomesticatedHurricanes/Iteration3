@@ -2,6 +2,7 @@ package models.Item.Takeable.Equippable;
 
 import models.Item.Takeable.TakeableItemVisitor;
 import models.entities.Avatar;
+import models.entities.Entity;
 import models.stats.StatModifiers;
 
 import java.awt.image.BufferedImage;
@@ -16,10 +17,20 @@ public class TwoHandedWeapon extends Weapon implements TakeableItemVisitor {
     }
 
     @Override
-    public void visit(Avatar avatar) {
+    public void onUse(Entity entity) {
+        Avatar avatar = (Avatar)entity;
         if (avatar.getStats().getLevel() >= lvlReq){
             avatar.equipWeapon(this);
             statModifiers.apply(avatar.getStats());
+        }
+    }
+
+    @Override
+    public void unEquip(Entity entity) {
+        Avatar avatar = (Avatar)entity;
+        if (avatar.getStats().getLevel() >= lvlReq){
+            avatar.unequipWeapon();
+            statModifiers.remove(avatar.getStats());
         }
     }
 }

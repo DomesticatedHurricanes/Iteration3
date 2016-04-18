@@ -17,9 +17,20 @@ public class Helmet extends Equippable implements TakeableItemVisitor{
     }
 
     @Override
-    public void visit(Avatar avatar) {
-        if(avatar.getStats().getLevel() >= lvlReq)
+    public void onUse(Entity entity) {
+        Avatar avatar = (Avatar)entity;
+        if (avatar.getStats().getLevel() >= lvlReq){
             avatar.equipHelmet(this);
             statModifiers.apply(avatar.getStats());
+        }
+    }
+
+    @Override
+    public void unEquip(Entity entity) {
+        Avatar avatar = (Avatar)entity;
+        if (avatar.getStats().getLevel() >= lvlReq){
+            avatar.unequipHelmet();
+            statModifiers.remove(avatar.getStats());
+        }
     }
 }

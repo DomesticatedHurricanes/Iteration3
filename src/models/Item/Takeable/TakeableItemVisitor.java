@@ -8,5 +8,5 @@ import models.entities.Entity;
  * Created by david on 4/14/16.
  */
 public interface TakeableItemVisitor {
-    void visit(Avatar avatar);
+    void unEquip(Entity entity);
 }
