@@ -10,10 +10,13 @@ The constructor:
         gameStateView = new GameStateView();
         gameStateController = new GameStateController(this.stateManager)
      }
-The state class needs to override 4 methods
-    1. public void init(){
-        gameStateController.init();
-      }
+The state class needs to 5 methods
+    1.public void setActive(){
+        gameStateController.addToJframe();
+    }
+    2.public void setInactive(){
+        gameStateController.removeFromJframe();
+    }
     2. protected void addJFrame(JFrame jFrame){
         gameStateController.addJFrame(jFrame);
         }
@@ -26,21 +29,23 @@ The state class needs to override 4 methods
 
 2. In the Controller class is responsible for updating the State's logic and adding the keylisteners
 The constructor:
-  GameStateController(StateManager stateManager){
-    super();
+  GameStateController(StateManager stateManager, JFrame jframe){
+    super(jFrame);
     this.manager = stateManager;
+    
+    // creates keybindings for the controller here
+    getKeyMapping().put(Settings.UP, ()->manager.changeToInventoryState());   // the method changeToInventoryState is defined in the StateManager class
+    getBindings().add(new Listener(Settings.UP, getKeyMapping().get(Settings.UP)));
+    
+   
   }
 
-The Controller needs 3 methods:
-  1. public void init(){    // creates the Keybindings for the state
-      getKeyMapping().put(Settings.UP, ()->manager.changeToInventoryState());
-      getBindings().add(new Listener(Settings.UP, getKeyMapping().get(Settings.UP)));
-      }
-  2. public void addJFrame(Jframe jframe){  // Adds the jFrame to the State and attaches the keyListeners
+The Controller needs 2 methods:
+  1. public void addJFrame(Jframe jframe){  // Adds the jFrame to the State and attaches the keyListeners
         this.jFrame = jFrame;
         this.addToJFrame();
       }
-  3. public void update(){}    // this method will have the logic to update
+  2. public void update(){}    // this method will have the logic to update
 
 
 3. The View class is responsible for rendering the State's view
@@ -58,6 +63,15 @@ After these classes are done you'll need to create a state in the StateManager c
 2. initialize the state and add it to the states list:
   private static void init(){  (Be sure to follow the flow of logic laid out by the comments)
     // Create states here
-    gameState = new GameState(instance);
-    states.add(gameState);
+    gameState = new GameState(instance, frame);
   }
+  
+ An example of creating a switch between states:
+ 
+ public void changeToInventoryState(){
+        if (currentState != inventoryState){
+            currentState.setInactive();
+            currentState = inventoryState;
+            currentState.setActive();
+        }
+    }
