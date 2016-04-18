@@ -4,23 +4,26 @@ import State.State;
 import View.StateViews.GameStateView;
 import controllers.StateControllers.GameStateController;
 import models.AreaEffect.*;
+import models.Interaction.InteractionHandler;
+import models.Graphics.GraphicAssets;
 import models.Interaction.MovementHandler;
 import models.Item.Takeable.Equippable.Boots;
+import models.Item.Takeable.Equippable.Ranged;
 import models.Map.Map;
 
 import State.StateManager;
 import models.Map.Map3D;
-import models.entities.Avatar;
-import models.entities.Entity;
-import models.entities.NPC;
-import models.entities.Villager;
+import models.entities.*;
 import models.entities.occupation.Occupation;
 import models.entities.occupation.Smasher;
+import models.stats.StatModifier;
+import models.stats.StatModifiers;
 import utilities.Point3D;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.*;
+import java.util.Timer;
 
 /**
  * Created by Dartyx on 4/13/2016.
@@ -29,13 +32,17 @@ public class GameState extends State{
 
     private GameStateView gameStateView;
     private GameStateController gameStateController;
+    private InteractionHandler interactionHandler;
     private MovementHandler movementHandler;
     private Avatar avatar;
 
+    private long startTime;
+    private long endTime;
     private Map3D map;
 
     private Villager villager;
     private ArrayList<Entity> entities;
+    private ArrayList<AINpc> aiNpcs;
 
     //AreaEffect
     private LevelUp levelUp;
@@ -44,6 +51,8 @@ public class GameState extends State{
     private HealDamage healDamage;
     private InstantDeath instantDeath;
     private Trap trap;
+    private Pet pet;
+    private Boots boots;
 
     private ArrayList<AreaEffect> areaEffects;
 
@@ -52,19 +61,30 @@ public class GameState extends State{
         super(stateManager, jFrame);
         jFrame.getContentPane().setBackground(Color.BLACK);
         avatar = new Avatar(occupation);
+        startTime = System.currentTimeMillis();
         avatar.setLocation(new Point3D(1,1,1));
 
         map = new Map3D(5);
 
 
+        boots = new Boots("boots",new StatModifiers(StatModifier.makeAgilityModifier(10)),10,GraphicAssets.blueSword);
+
         villager = new Villager();
         villager.setLocation(new Point3D(12,12,1));
 
 
+        pet = new Pet();
+        pet.setLocation(map.getRelevantTile(15, 15).getPoint3D());
+
+
         entities = new ArrayList<>();
+        aiNpcs = new ArrayList<>();
 
         entities.add(avatar);
         entities.add(villager);
+        entities.add(pet);
+
+        aiNpcs.add(pet);
 
 
         //AreaEffects
@@ -93,17 +113,21 @@ public class GameState extends State{
         //teleport.setLocation(map.getRelevantTile());
 
         map.getRelevantTile(12,12).insertEntity(villager);
+        map.getRelevantTile(15,15).insertEntity(pet);
         map.getRelevantTile(14,10).insertAreaEffect(levelUp);
         map.getRelevantTile(14,11).insertAreaEffect(teleport);
         map.getRelevantTile(14,12).insertAreaEffect(takeDamage);
         map.getRelevantTile(14,13).insertAreaEffect(healDamage);
         map.getRelevantTile(14,14).insertAreaEffect(instantDeath);
         map.getRelevantTile(14,15).insertAreaEffect(trap);
+        map.getRelevantTile(5,5).insertItem(boots);
 
 
-        movementHandler = new MovementHandler(map);
+
+        interactionHandler = new InteractionHandler(map);
+        interactionHandler.subscribeToAI(pet);
         gameStateView = new GameStateView(map,avatar,entities,areaEffects);
-        gameStateController = new GameStateController(this.stateManager,this,jFrame, movementHandler,avatar);
+        gameStateController = new GameStateController(this.stateManager,this,jFrame, interactionHandler,avatar,pet);
     }
 
     public void setActive(){
@@ -126,6 +150,17 @@ public class GameState extends State{
 
     @Override
     protected void update() {
+        endTime = System.currentTimeMillis();
+        //System.out.println("START TIME: " + startTime);
+        //System.out.println("Sdad");
+        //System.out.println("END TIME: " + endTime);
+        if(endTime - startTime > 5000){
+            for(AINpc aiNpc: aiNpcs){
+                System.out.println("New start time");
+                aiNpc.makeMove();
+                startTime = System.currentTimeMillis();
+            }
+        }
         gameStateController.update();
     }
 
@@ -134,6 +169,33 @@ public class GameState extends State{
         gameStateView.render(g);
     }
 
+    public void moveViewNorth(){
+        gameStateView.moveViewNorth();
+    }
+
+    public void moveViewNorthEast(){
+        gameStateView.moveViewNorthEast();
+    }
+
+    public void moveViewNorthWest(){
+        gameStateView.moveViewNorthWest();
+    }
+
+    public void moveViewSouth(){
+        gameStateView.moveViewSouth();
+    }
+
+    public void moveViewSouthEast(){
+        gameStateView.moveViewSouthEast();
+    }
+
+    public void moveViewSouthWest(){
+        gameStateView.moveViewSouthWest();
+    }
+
+    public void stopViewMove(){
+        gameStateView.stopViewMove();
+    }
 
 
 }

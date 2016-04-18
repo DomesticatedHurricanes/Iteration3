@@ -30,8 +30,9 @@ public class Equippable extends Takeable implements TakeableItemVisitor {
 
     }
 
+
     @Override
-    public void visit(Avatar avatar) {
+    public void unEquip(Entity entity) {
 
     }
 }

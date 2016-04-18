@@ -1,5 +1,6 @@
 package models.AI;
 
+import models.entities.Entity;
 import utilities.Point3D;
 
 import java.util.Random;
@@ -15,13 +16,31 @@ public abstract class AIBrain {
 
     // randomly selects coordinates of direction
     // (0,0) (0,1) (1,0) (1,1) (0,-1), (-1,0) (-1,-1)
-    public Point3D changeDirection(){
+    public Entity.Orientation changeDirection() {
         random = new Random();
-        int x = random.nextInt(2)-random.nextInt(2);
-        int y = random.nextInt(2)-random.nextInt(2);
-
-        Point3D point = new Point3D(x, y, 0);
-        return point;
+        int orientationInt = random.nextInt(5);
+        Entity.Orientation orientation = Entity.Orientation.SOUTH;
+        switch (orientationInt) {
+            case 0:
+                orientation = Entity.Orientation.SOUTH;
+                return orientation;
+            case 1:
+                orientation = Entity.Orientation.SOUTHWEST;
+                return orientation;
+            case 2:
+                orientation = Entity.Orientation.SOUTHEAST;
+                return orientation;
+            case 3:
+                orientation = Entity.Orientation.NORTH;
+                return orientation;
+            case 4:
+                orientation = Entity.Orientation.NORTHEAST;
+                return orientation;
+            case 5:
+                orientation = Entity.Orientation.NORTHWEST;
+                return orientation;
+        }
+        return orientation;
     }
 
 }

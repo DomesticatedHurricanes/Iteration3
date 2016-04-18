@@ -1,11 +1,15 @@
 package models.Interaction;
 
+import models.Graphics.GraphicAssets;
 import models.Map.Map;
 import models.Map.Map3D;
 import models.Map.Tile;
+import models.entities.Avatar;
 import models.entities.Entity;
 import models.entities.TileVisitable;
 import utilities.Point3D;
+
+import java.awt.*;
 
 /**
  * Created by ben on 4/15/16.
@@ -233,6 +237,8 @@ public class MovementHandler {
             originTile.removeEntity();
         }
     }
+
+
 
 //        David's code
 //        setDestination(entityTemp.getLocation());

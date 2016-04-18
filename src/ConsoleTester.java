@@ -1,8 +1,5 @@
 
-import models.AreaEffect.AreaEffect;
-import models.AreaEffect.HealDamage;
-import models.AreaEffect.Teleport;
-import models.AreaEffect.Trap;
+import models.AreaEffect.*;
 import models.Interaction.MovementHandler;
 import models.Item.Takeable.Consumable;
 import models.Item.Takeable.Equippable.ChestPlate;
@@ -34,6 +31,7 @@ public class ConsoleTester {
         System.out.println(avatar.getStats().getCurrentHp());
         healDamage.activate(avatar);
         System.out.println(avatar.getStats().getCurrentHp());
+
 
     }
 }

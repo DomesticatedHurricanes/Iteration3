@@ -186,19 +186,25 @@ public class Renderer {
 //                    areaEffectRenderer.render(g, tile.getAreaEffect(), topLeft);
 //                }
 //=======
-                    if (tile.getType() == "Mountain") {
+                if(tile.getType()=="Mountain"){
 
-                        g.drawImage(GraphicAssets.col, topLeft.x, topLeft.y + 19 + 21, 60, tile.getImageHeight() / 2, null);
-                        g.drawImage(GraphicAssets.base, topLeft.x, topLeft.y + 19 + 19 + tile.getImageHeight() / 2, 60, 19, null);
-                        g.drawImage(tile.getImage(), topLeft.x, topLeft.y, tile.getImage().getWidth(), tile.getImage().getHeight(), null);
+                    g.drawImage(GraphicAssets.col,topLeft.x, topLeft.y+19+21,60,tile.getImageHeight()/2,null);
+                    g.drawImage(GraphicAssets.base,topLeft.x, topLeft.y+19+19+tile.getImageHeight()/2,60,19,null);
+                    g.drawImage(tile.getImage(), topLeft.x, topLeft.y, tile.getImage().getWidth(), tile.getImage().getHeight(), null);
 
-                    } else if (tile.getType() == "Water" || tile.getType() == "Grass") {
-                        //
-                        //System.out.println(topLeft.y);
-                        g.drawImage(GraphicAssets.col, topLeft.x, topLeft.y + 10 + 19, 60, tile.getImageHeight() / 2, null);
-                        g.drawImage(GraphicAssets.base, topLeft.x, topLeft.y + 10 + 19 + tile.getImageHeight() / 2, 60, 19, null);
-                        g.drawImage(tile.getImage(), topLeft.x, topLeft.y + 10, tile.getImage().getWidth(), tile.getImage().getHeight(), null);
-                    }
+                }
+
+                else if(tile.getType()=="Water" || tile.getType()=="Grass" || tile.getType()=="Running"){
+                    //
+                    //System.out.println(topLeft.y);
+                    g.drawImage(GraphicAssets.col,topLeft.x, topLeft.y+10+19,60,tile.getImageHeight()/2,null);
+                    g.drawImage(GraphicAssets.base,topLeft.x, topLeft.y+10+19+tile.getImageHeight()/2,60,19,null);
+                    g.drawImage(tile.getImage(), topLeft.x, topLeft.y+10, tile.getImage().getWidth(), tile.getImage().getHeight(), null);
+                }else {
+                    g.drawImage(GraphicAssets.col,topLeft.x, topLeft.y+10+19,60,tile.getImageHeight()/2,null);
+                    g.drawImage(GraphicAssets.base,topLeft.x, topLeft.y+10+19+tile.getImageHeight()/2,60,19,null);
+                    g.drawImage(tile.getImage(), topLeft.x, topLeft.y+10, tile.getImage().getWidth(), tile.getImage().getHeight(), null);
+                }
 
 //                else if(tile.getType()=="Grass"){
 //
