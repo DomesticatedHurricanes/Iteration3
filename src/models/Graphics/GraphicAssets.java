@@ -86,7 +86,7 @@ public class GraphicAssets {
     public static BufferedImage mountS;
 
     public static BufferedImage rock;
-
+    public static BufferedImage oneshot;
 
     public static BufferedImage smasher;
     public static BufferedImage sneak;
@@ -177,6 +177,7 @@ public class GraphicAssets {
         blueSword = ImageLoader.loadImage("/Resources/items/BLUE_SWORD.png");
         greenSword = ImageLoader.loadImage("/Resources/items/GREEN_SWORD.png");
 
+        oneshot = ImageLoader.loadImage("/Resources/items/ONESHOT.png");
         boots = ImageLoader.loadImage("/Resources/items/BOOTS.png");
         rock = ImageLoader.loadImage("/Resources/items/ROCK.png");
 

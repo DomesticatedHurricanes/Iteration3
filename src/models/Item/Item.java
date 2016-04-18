@@ -27,6 +27,8 @@ public abstract class Item {
 
     public abstract boolean onTouch();
 
+    public abstract void apply(Avatar avatar);
+
     public abstract void apply(Entity entity);
 
     public BufferedImage getImage() {

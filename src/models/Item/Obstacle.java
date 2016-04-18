@@ -19,8 +19,11 @@ public class Obstacle extends Item {
         return false;
     }
 
-    public void apply(Entity entity){
+
+    public void apply(Avatar avatar){
 
     }
+
+    public void apply(Entity entity){}
 
 }
