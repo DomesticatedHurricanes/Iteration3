@@ -1,6 +1,9 @@
 package models.entities.occupation;
 
 import models.Graphics.GraphicAssets;
+import models.Skills.Brawling;
+import models.Skills.OneHanded;
+import models.Skills.TwoHanded;
 import models.entities.Avatar;
 import models.stats.StatModifier;
 import models.stats.StatModifiers;
@@ -38,6 +41,11 @@ public class Smasher implements Occupation{
 
     @Override
     public void initSkills(Avatar avatar) {
+
+        new Brawling();
+        new OneHanded();
+        new TwoHanded();
+
 
     }
 

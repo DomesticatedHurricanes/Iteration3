@@ -14,6 +14,11 @@ public class BoonSkill extends Skill implements ActiveSkill{
     private final int BUFF = 5;
 
     @Override
+    public void activateSkill(Avatar avatar) {
+
+    }
+
+    @Override
     public void useSkill(Avatar avatar) {
         //Need to put in avatar?  But depends on how we are activating skills
         useBoon(avatar);

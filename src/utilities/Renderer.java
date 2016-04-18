@@ -7,6 +7,7 @@ import models.Item.Item;
 import models.Map.Map;
 import models.Map.Map3D;
 import models.Map.Tile;
+import models.Skills.Projectile;
 import models.entities.Entity;
 
 import java.awt.*;
@@ -212,6 +213,9 @@ public class Renderer {
                         itemRenderer.render(g,item,topLeft);
                     }
                 }
+                if(tile.hasProjectile()){
+                    projectileRenderer.render(g,tile.getProjectile(),topLeft);
+                }
             }
         }
     }
@@ -220,6 +224,13 @@ public class Renderer {
         public static void render(Graphics g, AreaEffect areaEffect, Point pxTopLeftPoint){
             //System.out.println(areaEffect.getAreaEffectImage());
             g.drawImage(areaEffect.getAreaEffectImage(),pxTopLeftPoint.x+10,pxTopLeftPoint.y +10,null);
+        }
+    }
+
+    public static class projectileRenderer{
+        public static void render(Graphics g, Projectile projectile, Point pxTopLeftPoint){
+            //System.out.println(areaEffect.getAreaEffectImage());
+            g.drawImage(projectile.getProjectileImage(),pxTopLeftPoint.x+10,pxTopLeftPoint.y +10,null);
         }
     }
 

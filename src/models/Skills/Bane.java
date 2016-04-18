@@ -18,6 +18,12 @@ public class Bane extends ProjectableSkill implements ActiveSkill{
     }
 
     @Override
+    public void activateSkill(Avatar avatar) {
+        System.out.println("Skill activated!");
+        useSkill(avatar);
+    }
+
+    @Override
     public void useSkill(Avatar avatar) {
 
         if(checkManaCost(avatar,MANACOST)){

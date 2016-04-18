@@ -1,4 +1,5 @@
 package models.entities;
+import models.Skills.Skill;
 import models.entities.occupation.Occupation;
 import models.stats.CharacterStats;
 import models.Inventory.Inventory;
@@ -9,6 +10,7 @@ import models.Map.Tile;
 import utilities.Point3D;
 
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 /**
  * Created by Breanna on 4/13/16.
@@ -21,6 +23,7 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
 
     private Occupation occupation;
     private CharacterStats stats;
+    private ArrayList<Skill> skillList;
     //private Inventory inventory;
 
     public Avatar(Occupation occupation){
@@ -31,10 +34,14 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
         this.occupation.initStats(stats);
         this.entityImage = occupation.initImage();
         this.entityImages = occupation.initImages();
-        this.initImages();
+        //this.initImages(); TODO:Uncomment this
+        skillList = new ArrayList<>();
+        this.occupation.initSkills(this);
     }
 
-
+    public void useSkillNumber(int i){
+        skillList.get(i).activateSkill(this);
+    }
     //called when an Avatar uses a skill
     public void useSkill() { }
 
@@ -54,6 +61,14 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
     @Override
     public void attack() {
 
+    }
+
+    public ArrayList<Skill> getSkillList(){
+        return skillList;
+    }
+
+    public void addToSkillList(Skill skill){
+        skillList.add(skill);
     }
 
     //Equipping functions

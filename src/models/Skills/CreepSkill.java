@@ -20,6 +20,10 @@ public class CreepSkill extends ProjectableSkill implements ActiveSkill{
         //else use back stab
     }
 
+    @Override
+    public void activateSkill(Avatar avatar) {
+        useSkill(avatar);
+    }
 
     public void useCreep(Avatar avatar){
         if(avatar.getStatusEffect() != StatusEffect.statusEffect.INVISIBLE){

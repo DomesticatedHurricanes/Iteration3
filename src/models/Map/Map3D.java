@@ -213,6 +213,7 @@ public class Map3D {
     }
 
     public Tile getTile(Point3D point3D){
+
         return hashWorld.get(point3D);
     }
 

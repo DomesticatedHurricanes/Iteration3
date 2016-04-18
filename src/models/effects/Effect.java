@@ -1,5 +1,6 @@
 package models.effects;
 
+import models.Map.Tile;
 import models.entities.Entity;
 import utilities.Point3D;
 
@@ -56,7 +57,7 @@ public abstract class Effect {
     class PointNode {
         public Point3D target;
         public int range;
-
+        //public Tile tile;
         public PointNode(Point3D point3D, int range) {
             target = new Point3D(point3D);
             this.range = range;

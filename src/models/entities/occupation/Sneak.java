@@ -1,6 +1,10 @@
 package models.entities.occupation;
 
 import models.Graphics.GraphicAssets;
+import models.Skills.CreepSkill;
+import models.Skills.DetectAndRemoveTrapSkill;
+import models.Skills.PickPocketSkill;
+import models.Skills.RangedWeapon;
 import models.entities.Avatar;
 import models.stats.StatModifier;
 import models.stats.StatModifiers;
@@ -38,7 +42,10 @@ public class Sneak implements Occupation{
 
     @Override
     public void initSkills(Avatar avatar) {
-
+        new RangedWeapon();
+        new CreepSkill();
+        new PickPocketSkill();
+        new DetectAndRemoveTrapSkill();
     }
 
     @Override

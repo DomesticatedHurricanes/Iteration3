@@ -8,6 +8,10 @@ import models.entities.Avatar;
 public class BargainSkill extends Skill implements PassiveSkill{
     private final int DISCOUNT_CONST = 4;
 
+    @Override
+    public void activateSkill(Avatar avatar) {
+
+    }
 
     @Override
     public void onUpdate(Avatar avatar) {

@@ -24,6 +24,13 @@ public abstract class SearchableSkill extends Skill {
     public ArrayList<Entity> findVictims(ArrayList<Point3D> tilePoints){
         ArrayList<Entity> victims = new ArrayList<>();
         for(Point3D currentPoint:tilePoints){
+            currentPoint.setX(5);
+            currentPoint.setY(5);
+            currentPoint.setZ(5);
+            System.out.println(currentPoint.getX());
+            System.out.println(currentPoint.getY());
+            System.out.println(currentPoint.getZ());
+            System.out.println(map3D.getTile(currentPoint));
             Tile tile = map3D.getTile(currentPoint);
             if(tile.hasEntity()){
                 Entity entity = tile.getEntity();

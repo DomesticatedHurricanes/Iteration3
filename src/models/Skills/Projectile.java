@@ -32,7 +32,7 @@ public class Projectile {
         return status;
     }
 
-    public BufferedImage getBufferedImage(){
+    public BufferedImage getProjectileImage(){
         return bufferedImage;
     }
 

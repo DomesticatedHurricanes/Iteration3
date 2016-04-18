@@ -43,6 +43,7 @@ public class GameStateController extends Controller {
         getKeyMapping().put(Settings.DownRight,()->movementHandler.move(avatar, Entity.Orientation.SOUTHEAST));
         getKeyMapping().put(Settings.DownLeft,()->movementHandler.move(avatar, Entity.Orientation.SOUTHWEST));
         getKeyMapping().put(Settings.INV,()->stateManager.changeToInventoryState());
+        //getKeyMapping().put(Settings.ATTACK1,()->avatar.)
 
 
         getBindings().add(new Listener(Settings.Up, getKeyMapping().get(Settings.Up)));

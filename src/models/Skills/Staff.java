@@ -12,12 +12,23 @@ import java.util.Queue;
 /**
  * Created by Breanna on 4/13/16.
  */
-public class Staff extends ProjectableSkill {
+public class Staff extends ProjectableSkill implements ActiveSkill{
 
     public Staff(){
         MANACOST = 0;
     }
-    public void useStaff() {
+
+    @Override
+    public void activateSkill(Avatar avatar) {
+        useSkill(avatar);
+    }
+
+    @Override
+    public void useSkill(Avatar avatar) {
+        useStaff(avatar);
+    }
+
+    public void useStaff(Avatar avatar) {
         //Example of Ring of Operations!
         ArrayList<Point3D> affectedPoints = search();
         ArrayList<Entity> victims = findVictims(affectedPoints);
