@@ -52,10 +52,17 @@ public abstract class Tile implements TileVisitor {
         this.entity = entity;
     }
 
+    public void insertAreaEffect(AreaEffect areaEffect){
+        this.areaEffect = areaEffect;
+    }
+
     public void removeEntity(){
         this.entity = null;
     }
 
+    public void removeAreaEffect(AreaEffect areaEffect){
+        this.areaEffect = null;
+    }
 
     //Checks if you can pass on the item on the tile.
     public boolean checkItem(){
@@ -142,6 +149,16 @@ public abstract class Tile implements TileVisitor {
         return imageHeight;
     }
 
+    public AreaEffect getAreaEffect(){
+        return areaEffect;
+    }
+
+    public boolean hasAreaEffect(){
+        if (areaEffect != null){
+            return true;
+        }
+        return false;
+    }
 
     public String getType(){ return "type";}
 }

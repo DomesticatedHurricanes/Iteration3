@@ -215,6 +215,10 @@ public class MovementHandler {
 
         // Get the destination point to check if valid
         Point3D dest = orientation.translate(entityTemp.getLocation());
+
+        //Set entity orientation
+        ((Entity) entity).setEntityImage(orientation);
+//        entity.changeImage(orientation);
         // Check the destination tile
         Tile destinationTile = map.getRelevantTile(dest.getY(),dest.getX());
 
