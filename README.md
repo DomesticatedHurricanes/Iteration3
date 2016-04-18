@@ -1,5 +1,11 @@
 # Iteration3
 
+TO RUN THE GAME:
+
+Go to out > artifiacts > iteration3_jar > Iteration3.jar
+
+
+
 Controls
 
 
