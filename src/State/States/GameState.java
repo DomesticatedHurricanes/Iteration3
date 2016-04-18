@@ -150,12 +150,12 @@ public class GameState extends State{
     @Override
     protected void update() {
         endTime = System.currentTimeMillis();
-        System.out.println("START TIME: " + startTime);
-        System.out.println("Sdad");
-        System.out.println("END TIME: " + endTime);
+        //System.out.println("START TIME: " + startTime);
+        //System.out.println("Sdad");
+        //System.out.println("END TIME: " + endTime);
         if(endTime - startTime > 5000){
             for(AINpc aiNpc: aiNpcs){
-                System.out.println("New start time");
+          //      System.out.println("New start time");
                 aiNpc.makeMove();
                 startTime = System.currentTimeMillis();
             }

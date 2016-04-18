@@ -35,7 +35,7 @@ public class GrassTile extends Tile {
             }
             return true;
         }
-        else if(!checkEntities()){
+        else if(getEntity() instanceof NPC){
             NPC npc = (NPC)(getEntity());
             npc.onInteract(avatar);
             return false;

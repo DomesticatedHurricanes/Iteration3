@@ -30,7 +30,7 @@ public class Teleport extends AreaEffect {
     @Override
     public void activate(Avatar avatar){
         Tile origin = map3D.getRelevantTile(avatar.getLocation().getX(), avatar.getLocation().getY());
-        dest.insertEntity(avatar);
+        //dest.insertEntity(avatar);
         origin.removeEntity();
         avatar.accept(dest);
     }

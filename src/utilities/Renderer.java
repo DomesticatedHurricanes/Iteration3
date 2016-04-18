@@ -9,7 +9,10 @@ import models.Map.Map3D;
 import models.Map.Tile;
 import models.effects.Effect;
 import models.effects.RadialEffect;
+import models.entities.Avatar;
 import models.entities.Entity;
+import models.stats.CharacterStats;
+import models.stats.Stats;
 import utilities.Point3D;
 
 import java.awt.*;
@@ -264,6 +267,44 @@ public class Renderer {
     public static class itemRenderer {
         public static void render(Graphics g, Item item, Point pxTopLeft) {
             g.drawImage(item.getImage(), pxTopLeft.x+5, pxTopLeft.y, GraphicAssets.TILE_PX_WIDTH-20,GraphicAssets.TILE_PX_HEIGHT-10, null);
+        }
+    }
+
+    public static class statsRenderer{
+        public static void render(Graphics g, Avatar avatar, CharacterStats stats){
+            int max = stats.getMaxHp();
+            int now = stats.getCurrentHp();
+
+
+//            System.out.println("max health: " + stats.getMaxHp());
+//            System.out.println("curr health: " + stats.getCurrentHp());
+
+            int perc = (int)(100*now/max);
+
+            int x = 20;
+            int y = 10;
+            int width = 200;
+            int height = 20;
+
+            g.setColor(Color.RED);
+            g.fillRect(x,y,(int)(width*perc/100),height);
+            g.setColor(Color.black);
+            g.fillRect(x + (int)(width*perc/100), y, (int)(width*(100-perc)/100),height);
+
+
+//            double  max = stats.getExperience();
+//            double now = stats.getLevel();
+//
+//
+//            int x = 0;
+//            int y = 50;
+//            int width = WIDTH;
+//            int height = 10;
+//
+//            g.setColor(Color.yellow);
+//            g.fillRect(x,y,(int)(width*now/max),height);
+//            g.setColor(Color.black);
+//            g.fillRect(x + (int)(width*now/max), y, (int)(width*(100-now/max)/100),height);
         }
     }
 //

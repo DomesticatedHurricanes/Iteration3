@@ -18,7 +18,7 @@ public class Interactable extends Item {
     }
 
     public boolean onTouch(){
-        return false;
+        return true;
     }
 
     public void apply(Entity entity){

@@ -31,6 +31,9 @@ public class StatModifier{
                 CharacterStats cs = (CharacterStats) stats;
                 cs.modifyLives(-1);
             }
+            else{
+                stats.modifyCurrentHp(delta);
+            }
         }
     };
 

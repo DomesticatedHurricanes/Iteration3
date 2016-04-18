@@ -66,6 +66,7 @@ public class GameStateView  extends  StateView{
         update();
         renderMap(g);
         renderPlayer(g);
+        renderStats(g);
         //renderAreaEffect(g);
     }
 
@@ -104,11 +105,8 @@ public class GameStateView  extends  StateView{
 //            // Render it
     }
 
-    private void renderAreaEffect(Graphics g){
-
-        for(AreaEffect areaEffect:areaEffects){
-            utilities.Renderer.areaEffectRenderer.render(g,areaEffect,mapCameraCenter);
-        }
+    private void renderStats(Graphics g){
+        utilities.Renderer.statsRenderer.render(g,avatar,avatar.getStats());
     }
 
     public void moveViewNorth(){

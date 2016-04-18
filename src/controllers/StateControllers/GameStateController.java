@@ -40,9 +40,27 @@ public class GameStateController extends Controller {
         getKeyMapping().put(Settings.DownRight,()->interactionHandler.move(avatar, Entity.Orientation.SOUTHEAST));
         getKeyMapping().put(Settings.DownLeft,()->interactionHandler.move(avatar, Entity.Orientation.SOUTHWEST));
         getKeyMapping().put(Settings.INV,()->stateManager.changeToInventoryState());
-        getKeyMapping().put(Settings.EQUIP, ()->stateManager.changeToEquipmentState());
+        //getKeyMapping().put(Settings.EQUIP, ()->stateManager.changeToEquipmentState());
         getKeyMapping().put(Settings.ESCAPE, ()->stateManager.changeToPauseMenuState());
 
+
+        getKeyMapping().put(Settings.X,()->state.stopViewMove());
+        getKeyMapping().put(Settings.R,()->state.moveViewNorthWest());
+        getKeyMapping().put(Settings.T,()->state.moveViewNorth());
+        getKeyMapping().put(Settings.Y,()->state.moveViewNorthEast());
+        getKeyMapping().put(Settings.F,()->state.moveViewSouthWest());
+        getKeyMapping().put(Settings.G,()->state.moveViewSouth());
+        getKeyMapping().put(Settings.H,()->state.moveViewSouthEast());
+
+
+        getBindings().add(new Listener(Settings.X,getKeyMapping().get(Settings.X)));
+
+        getBindings().add(new Listener(Settings.R,getKeyMapping().get(Settings.R)));
+        getBindings().add(new Listener(Settings.T,getKeyMapping().get(Settings.T)));
+        getBindings().add(new Listener(Settings.Y,getKeyMapping().get(Settings.Y)));
+        getBindings().add(new Listener(Settings.F,getKeyMapping().get(Settings.F)));
+        getBindings().add(new Listener(Settings.G,getKeyMapping().get(Settings.G)));
+        getBindings().add(new Listener(Settings.H,getKeyMapping().get(Settings.H)));
 
         getBindings().add(new Listener(Settings.Up, getKeyMapping().get(Settings.Up)));
         getBindings().add(new Listener(Settings.Down, getKeyMapping().get(Settings.Down)));
