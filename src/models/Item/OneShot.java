@@ -23,6 +23,7 @@ public class OneShot extends Item {
     }
 
     public boolean onTouch(){
+
         return true;
     }
 

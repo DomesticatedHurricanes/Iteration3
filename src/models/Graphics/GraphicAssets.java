@@ -73,7 +73,7 @@ public class GraphicAssets {
     public static BufferedImage col;
     public static BufferedImage base;
 
-
+    public static BufferedImage rock;
 
 
     public static BufferedImage smasher;
@@ -94,6 +94,7 @@ public class GraphicAssets {
     public static BufferedImage healDamage;
 
 
+    public static BufferedImage boots;
 
     public static BufferedImage redSword;
     public static BufferedImage blueSword;
@@ -160,9 +161,12 @@ public class GraphicAssets {
         healDamage = ImageLoader.loadImage("/Resources/areaEffects/red-cross.png");
 
         //items
-        redSword = ImageLoader.loadImage("Resources/items/RED_SWORD.png");
-        blueSword = ImageLoader.loadImage("Resources/items/BLUE_SWORD.png");
-        greenSword = ImageLoader.loadImage("Resources/items/GREEN_SWORD.png");
+        redSword = ImageLoader.loadImage("/Resources/items/RED_SWORD.png");
+        blueSword = ImageLoader.loadImage("/Resources/items/BLUE_SWORD.png");
+        greenSword = ImageLoader.loadImage("/Resources/items/GREEN_SWORD.png");
+
+        boots = ImageLoader.loadImage("/Resources/items/BOOTS.png");
+        rock = ImageLoader.loadImage("/Resources/items/ROCK.png");
 
         bow = ImageLoader.loadImage("/Resources/items/BOW.png");
         bow2 = ImageLoader.loadImage("/Resources/items/BOW2.png");

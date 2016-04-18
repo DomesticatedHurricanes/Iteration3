@@ -51,6 +51,7 @@ public class GameState extends State{
     private Trap trap;
 
     public RangedWeaponFactory rangedWeaponFactory;
+    public BootsFactory bootsFactory;
     public OneHandedWeaponFactory oneHandedWeaponFactory;
 
 
@@ -62,6 +63,7 @@ public class GameState extends State{
     public GameState(StateManager stateManager, JFrame jFrame, Occupation occupation){
         super(stateManager, jFrame);
         rangedWeaponFactory = new RangedWeaponFactory();
+        bootsFactory = new BootsFactory();
         avatar = new Avatar(occupation);
         avatar.setLocation(new Point3D(1,1,1));
 
@@ -81,18 +83,22 @@ public class GameState extends State{
         Item greenBow = rangedWeaponFactory.createGreenBow();
         Item blueBow = rangedWeaponFactory.createBlueBow();
         Item redBow = rangedWeaponFactory.createRedBow();
+        Item boots = bootsFactory.createBoots();
+        Item rock = new Interactable("rock", GraphicAssets.rock);
 
-        Item redSword = oneHandedWeaponFactory.createRedSword();
-        Item blueSword = oneHandedWeaponFactory.createBlueSword();
-        Item greenSword = oneHandedWeaponFactory.createGreenSword();
+//        Item redSword = oneHandedWeaponFactory.createRedSword();
+//        Item blueSword = oneHandedWeaponFactory.createBlueSword();
+//        Item greenSword = oneHandedWeaponFactory.createGreenSword();
 
         items = new ArrayList<>();
+        items.add(boots);
         items.add(greenBow);
         items.add(redBow);
         items.add(blueBow);
-        items.add(redSword);
-        items.add(blueSword);
-        items.add(greenSword);
+        items.add(rock);
+//        items.add(redSword);
+//        items.add(blueSword);
+//        items.add(greenSword);
 
         //AreaEffects
         areaEffects = new ArrayList<>();
@@ -127,13 +133,17 @@ public class GameState extends State{
         map.getRelevantTile(14,14).insertAreaEffect(instantDeath);
         map.getRelevantTile(14,15).insertAreaEffect(trap);
 
-        map.getRelevantTile(14,16).insertItem(greenBow);
+     //   map.getRelevantTile(14,16).insertItem(greenBow);
         map.getRelevantTile(14,17).insertItem(blueBow);
         map.getRelevantTile(14,20).insertItem(redBow);
+        map.getRelevantTile(14,16).insertItem(boots);
 
-        map.getRelevantTile(15,10).insertItem(redSword);
-        map.getRelevantTile(15,11).insertItem(blueSword);
-        map.getRelevantTile(15,17).insertItem(greenSword);
+        // interactive item is a rock
+        map.getRelevantTile(4,4).insertItem(rock);
+
+//        map.getRelevantTile(15,10).insertItem(redSword);
+//        map.getRelevantTile(15,11).insertItem(blueSword);
+//        map.getRelevantTile(15,17).insertItem(greenSword);
 
 
         movementHandler = new MovementHandler(map);
