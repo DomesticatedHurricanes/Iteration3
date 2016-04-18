@@ -27,6 +27,8 @@ public class Consumable extends Takeable {
     public void onUse(Entity entity) {
         statModifiers.apply(entity.getStats());
     }
+
+    public void apply(Avatar avatar){}
 }
 
 

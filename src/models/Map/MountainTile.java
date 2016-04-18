@@ -21,7 +21,6 @@ public class MountainTile extends Tile {
     public boolean visit(Avatar avatar) {
         cancelTimer();
         if(this.checkItem() && avatar.canTraverse() && checkEntities() && checkHeightDifferential(avatar)){
-            System.out.println(checkEntities());
             this.insertEntity(avatar);
             applyItems(avatar);
             applyAreaEffect(avatar);
