@@ -4,16 +4,14 @@ import State.State;
 import View.StateViews.GameStateView;
 import controllers.StateControllers.GameStateController;
 import models.AreaEffect.*;
+import models.Graphics.GraphicAssets;
 import models.Interaction.MovementHandler;
 import models.Item.Takeable.Equippable.Boots;
 import models.Map.Map;
 
 import State.StateManager;
 import models.Map.Map3D;
-import models.entities.Avatar;
-import models.entities.Entity;
-import models.entities.NPC;
-import models.entities.Villager;
+import models.entities.*;
 import models.entities.occupation.Occupation;
 import models.entities.occupation.Smasher;
 import utilities.Point3D;
@@ -34,8 +32,11 @@ public class GameState extends State{
 
     private Map3D map;
 
+    private Vehicle vehicle;
     private Villager villager;
     private ArrayList<Entity> entities;
+
+    private boolean mounted = false;
 
     //AreaEffect
     private LevelUp levelUp;
@@ -59,11 +60,16 @@ public class GameState extends State{
         villager = new Villager();
         villager.setLocation(new Point3D(12,12,1));
 
+        vehicle = new Vehicle(10);
+        vehicle.setLocation(new Point3D(4,6,4));
+
+
 
         entities = new ArrayList<>();
 
         entities.add(avatar);
         entities.add(villager);
+        entities.add(vehicle);
 
 
         //AreaEffects
@@ -92,6 +98,7 @@ public class GameState extends State{
         //teleport.setLocation(map.getRelevantTile());
 
         map.getRelevantTile(12,12).insertEntity(villager);
+        map.getRelevantTile(4,4).insertEntity(vehicle);
         map.getRelevantTile(14,10).insertAreaEffect(levelUp);
         map.getRelevantTile(14,11).insertAreaEffect(teleport);
         map.getRelevantTile(14,12).insertAreaEffect(takeDamage);
@@ -133,6 +140,21 @@ public class GameState extends State{
         gameStateView.render(g);
     }
 
+    public void vehicleInteraction(){ // add check that vehicle is nextdoor
+      // if((avatar.getLocation() == vehicle.getLocation())
+        {
+            if (!mounted) {
+                mounted = true;
+                avatar.rideMount(vehicle);
+                System.out.print("Riding mount");
+
+            } else {
+                mounted = false;
+                avatar.dismount(vehicle);
+                System.out.print("Dismounted");
+            }
+        }
+    }
 
 
 }

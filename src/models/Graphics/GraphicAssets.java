@@ -1,6 +1,7 @@
 package models.Graphics;
 
 import java.awt.image.BufferedImage;
+import java.nio.Buffer;
 import java.util.ArrayList;
 
 /**
@@ -70,7 +71,16 @@ public class GraphicAssets {
     public static BufferedImage col;
     public static BufferedImage base;
 
+    //Vehicle
+    public static BufferedImage laprasS;
+    public static BufferedImage laprasSE;
+    public static BufferedImage laprasSW;
+    public static BufferedImage laprasN;
+    public static BufferedImage laprasNE;
+    public static BufferedImage laprasNW;
+    public static ArrayList<BufferedImage> laprasAll;
 
+    public static BufferedImage mountS;
 
 
     public static BufferedImage smasher;
@@ -214,5 +224,24 @@ public class GraphicAssets {
         petAll.add(petN);
         petAll.add(petNE);
         petAll.add(petNW);
+
+
+        // loading in vehicle
+        // Loading in summoner
+        laprasS = ImageLoader.loadImage("/Resources/entitys/entity-lapras-S.png");
+        laprasSW = ImageLoader.loadImage("/Resources/entitys/entity-lapras-SW.png");
+        laprasSE = ImageLoader.loadImage("/Resources/entitys/entity-lapras-SE.png");
+        laprasN = ImageLoader.loadImage("/Resources/entitys/entity-lapras-N.png");
+        laprasNE = ImageLoader.loadImage("/Resources/entitys/entity-lapras-NE.png");
+        laprasNW = ImageLoader.loadImage("/Resources/entitys/entity-lapras-NW.png");
+        laprasAll = new ArrayList<>();
+        laprasAll.add(laprasS);
+        laprasAll.add(laprasSE);
+        laprasAll.add(laprasSW);
+        laprasAll.add(laprasN);
+        laprasAll.add(laprasNE);
+        laprasAll.add(laprasNW);
+
+        mountS = ImageLoader.loadImage("/Resources/entitys/mountS.png");
     }
 }

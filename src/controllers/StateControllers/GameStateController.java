@@ -43,7 +43,7 @@ public class GameStateController extends Controller {
         getKeyMapping().put(Settings.DownRight,()->movementHandler.move(avatar, Entity.Orientation.SOUTHEAST));
         getKeyMapping().put(Settings.DownLeft,()->movementHandler.move(avatar, Entity.Orientation.SOUTHWEST));
         getKeyMapping().put(Settings.INV,()->stateManager.changeToInventoryState());
-
+        getKeyMapping().put(Settings.Z,()->state.vehicleInteraction());
 
         getBindings().add(new Listener(Settings.Up, getKeyMapping().get(Settings.Up)));
         getBindings().add(new Listener(Settings.Down, getKeyMapping().get(Settings.Down)));
@@ -52,6 +52,7 @@ public class GameStateController extends Controller {
         getBindings().add(new Listener(Settings.UpRight, getKeyMapping().get(Settings.UpRight)));
         getBindings().add(new Listener(Settings.UpLeft, getKeyMapping().get(Settings.UpLeft)));
         getBindings().add(new Listener(Settings.DownLeft, getKeyMapping().get(Settings.DownLeft)));
+        getBindings().add(new Listener(Settings.Z, getKeyMapping().get(Settings.Z)));
 
         //getBindings().add(new Listener(Settings.UP, getKeyMapping().get(Settings.UP)));
         //getBindings().add(new Listener(Settings.DOWN, getKeyMapping().get(Settings.DOWN)));

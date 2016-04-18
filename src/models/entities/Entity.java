@@ -102,7 +102,6 @@ public abstract class Entity {
         this.statusEffect = statusEffect;
         //Not sure if this is going to work
         statusEffects.applyStatusEffect(this);
-
     }
 
     public void setEntityImage(Orientation orientation){

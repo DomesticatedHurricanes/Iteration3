@@ -1,4 +1,5 @@
 package models.entities;
+import models.Graphics.GraphicAssets;
 import models.entities.occupation.Occupation;
 import models.stats.CharacterStats;
 import models.Inventory.Inventory;
@@ -8,6 +9,7 @@ import models.Item.Takeable.TakeableItemVisitor;
 import models.Map.Tile;
 import utilities.Point3D;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 /**
@@ -125,6 +127,17 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
         return false;
     }
 
+
+
+    public void rideMount(Vehicle vehicle){
+        vehicle.isMounted(this);
+        this.entityImage = GraphicAssets.mountS;
+    }
+
+    public void dismount(Vehicle vehicle) {
+        vehicle.unmounted(this);
+        this.entityImage = occupation.initImage();
+    }
 
 
     //Getters
