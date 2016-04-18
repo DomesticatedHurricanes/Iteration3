@@ -34,6 +34,7 @@ public class Settings {
     public static int ATTACK3 = KeyEvent.VK_3;
     public static int ENTER = KeyEvent.VK_ENTER;
     public static int P = KeyEvent.VK_P;
+    public static int Z = KeyEvent.VK_Z;
 
 
 
