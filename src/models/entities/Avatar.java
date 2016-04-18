@@ -23,6 +23,10 @@ import java.awt.image.BufferedImage;
 
 public class Avatar extends Entity implements Movement, Attack, TileVisitable, TakeableItemVisitable{
 
+    public Occupation getOccupation() {
+        return occupation;
+    }
+
     private Occupation occupation;
     private CharacterStats stats;
     private boolean isTeleported;

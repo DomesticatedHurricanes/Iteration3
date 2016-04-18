@@ -36,6 +36,6 @@ public class Settings {
     public static int P = KeyEvent.VK_P;
     public static int Z = KeyEvent.VK_Z;
 
-
+    public static int L = KeyEvent.VK_L;
 
 }
