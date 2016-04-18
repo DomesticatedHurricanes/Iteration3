@@ -136,6 +136,14 @@ public class Renderer {
             // Calculate the location of the tile that needs to be rendered
             Point topLeft = new Point(pxCenterPoint.x - (tile.getImage().getWidth() / 2), pxCenterPoint.y - (tile.getImage().getHeight() / 2));
             if (value >= 0) {
+
+
+                     // g.drawImage(tile.getImage(), topLeft.x, topLeft.y, GraphicAssets.TILE_PX_WIDTH, GraphicAssets.TILE_PX_HEIGHT, null);
+                        // Draw the image given the height and width of the image
+                       // g.drawImage(tile.getImage(), topLeft.x, topLeft.y, tile.getImage().getWidth(), tile.getImage().getHeight(), null);
+                        // Integer point = tile.getPoint3D().getZ();
+                        // g.drawString(point.toString(),topLeft.x,topLeft.y);
+
 //                g.drawImage(tile.getImage(), topLeft.x, topLeft.y, GraphicAssets.TILE_PX_WIDTH, GraphicAssets.TILE_PX_HEIGHT, null);
                 // Draw the image given the height and width of the image
 //<<<<<<< HEAD
@@ -179,6 +187,7 @@ public class Renderer {
                 //g.drawImage(tile.getImage(), topLeft.x, topLeft.y, tile.getImage().getWidth(), tile.getImage().getHeight(), null);
                 // Integer point = tile.getPoint3D().getZ();
                 // g.drawString(point.toString(),topLeft.x,topLeft.y);
+
 //=======
 //            Point topLeft = new Point(pxCenterPoint.x - (tile.getImageHeight().getWidth()/2 ), pxCenterPoint.y - (tile.getImageHeight().getWidth()/2));
 //            if(value >= 0) {
