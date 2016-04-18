@@ -1,5 +1,6 @@
 package models.Graphics;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -96,6 +97,10 @@ public class GraphicAssets {
     public static BufferedImage blueSword;
     public static BufferedImage greenSword;
 
+    public static BufferedImage bow;
+    public static BufferedImage bow2;
+    public static BufferedImage slingshot;
+
     public static void init(){
 
         tile = ImageLoader.loadImage("/Resources/tile.png");
@@ -152,9 +157,15 @@ public class GraphicAssets {
         healDamage = ImageLoader.loadImage("/Resources/areaEffects/red-cross.png");
 
         //items
-        //redSword = ImageLoader.loadImage("Resources/RED_SWORD.png");
-       // blueSword = ImageLoader.loadImage("Resources/BLUE_SWORD.png");
-        //greenSword = ImageLoader.loadImage("Resources/GREEN_SWORD.png");
+//        redSword = ImageLoader.loadImage("Resources/RED_SWORD.png");
+//        blueSword = ImageLoader.loadImage("Resources/BLUE_SWORD.png");
+//        greenSword = ImageLoader.loadImage("Resources/GREEN_SWORD.png");
+
+        bow = ImageLoader.loadImage("/Resources/items/BOW.png");
+        bow2 = ImageLoader.loadImage("/Resources/items/BOW2.png");
+        slingshot = ImageLoader.loadImage("/Resources/items/SLINGSHOT.png");
+
+
 
         // Loading in sneak
         sneakS = ImageLoader.loadImage("/Resources/entitys/entity-sneak-S.png");

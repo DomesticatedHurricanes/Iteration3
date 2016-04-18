@@ -259,7 +259,7 @@ public class Renderer {
 
     public static class itemRenderer {
         public static void render(Graphics g, Item item, Point pxTopLeft) {
-            g.drawImage(item.getImage(), pxTopLeft.x+5, pxTopLeft.y, GraphicAssets.TILE_PX_WIDTH-20,GraphicAssets.TILE_PX_HEIGHT-10, null);
+            g.drawImage(item.getImage(), pxTopLeft.x, pxTopLeft.y, GraphicAssets.TILE_PX_WIDTH,GraphicAssets.TILE_PX_HEIGHT, null);
         }
     }
 //

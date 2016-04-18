@@ -185,6 +185,9 @@ public abstract class Tile implements TileVisitor {
         return false;
     }
 
+    public void insertItem(Item item){
+        items.add(item);
+    }
 
     public String getType(){ return "type";}
 }

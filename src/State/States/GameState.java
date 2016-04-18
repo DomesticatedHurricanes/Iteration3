@@ -6,6 +6,7 @@ import controllers.StateControllers.GameStateController;
 import models.AreaEffect.*;
 import models.Interaction.MovementHandler;
 import models.Item.Takeable.Equippable.Boots;
+import models.Item.Takeable.Equippable.Ranged;
 import models.Map.Map;
 
 import State.StateManager;
@@ -17,6 +18,8 @@ import models.entities.Villager;
 import models.entities.occupation.Occupation;
 import models.entities.occupation.Smasher;
 import utilities.Point3D;
+import models.Item.*;
+import models.Item.Takeable.TakeableItemsFactory.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -45,11 +48,17 @@ public class GameState extends State{
     private InstantDeath instantDeath;
     private Trap trap;
 
+    public RangedWeaponFactory rangedWeaponFactory;
+
+
+
     private ArrayList<AreaEffect> areaEffects;
+    private ArrayList<Item> items;
 
 
     public GameState(StateManager stateManager, JFrame jFrame, Occupation occupation){
         super(stateManager, jFrame);
+        rangedWeaponFactory = new RangedWeaponFactory();
         avatar = new Avatar(occupation);
         avatar.setLocation(new Point3D(1,1,1));
 
@@ -65,6 +74,15 @@ public class GameState extends State{
         entities.add(avatar);
         entities.add(villager);
 
+        //Items
+        Item greenBow = rangedWeaponFactory.createGreenBow();
+        Item blueBow = rangedWeaponFactory.createBlueBow();
+        Item redBow = rangedWeaponFactory.createRedBow();
+
+        items = new ArrayList<>();
+        items.add(greenBow);
+        items.add(redBow);
+        items.add(blueBow);
 
         //AreaEffects
         areaEffects = new ArrayList<>();
@@ -98,6 +116,10 @@ public class GameState extends State{
         map.getRelevantTile(14,13).insertAreaEffect(healDamage);
         map.getRelevantTile(14,14).insertAreaEffect(instantDeath);
         map.getRelevantTile(14,15).insertAreaEffect(trap);
+
+        map.getRelevantTile(14,16).insertItem(greenBow);
+        map.getRelevantTile(14,17).insertItem(blueBow);
+        map.getRelevantTile(14,20).insertItem(redBow);
 
 
         movementHandler = new MovementHandler(map);
