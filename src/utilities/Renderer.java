@@ -8,6 +8,8 @@ import models.Map.Tile;
 import models.entities.Entity;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.awt.image.RescaleOp;
 
 /**
  * Created by Michael on 3/30/16.
@@ -172,5 +174,14 @@ public class Renderer {
 
         }
     }
+//
+//    public static class areaEffectRenderer{
+//        public static void render(Graphics g, AreaEffect areaEffect, Point pxTopLeftPoint){
+//            render(g,areaEffect,pxTopLeftPoint,1f);
+//        }
+//        public static void render(Graphics g, AreaEffect areaEffect, Point pxTopLeftPoint,float value){
+//            g.drawImage(img,pxTopLeftPoint.x,pxTopLeftPoint.y,null);
+//        }
+//    }
 }
 

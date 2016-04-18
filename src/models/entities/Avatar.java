@@ -30,6 +30,8 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
         occupation.initStats(stats);
         this.occupation.initStats(stats);
         this.entityImage = occupation.initImage();
+        this.entityImages = occupation.initImages();
+        this.initImages();
     }
 
 
