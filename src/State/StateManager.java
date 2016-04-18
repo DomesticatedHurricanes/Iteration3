@@ -2,6 +2,9 @@ package State;
 
 import State.States.*;
 import models.entities.occupation.Occupation;
+import models.entities.occupation.Smasher;
+import models.entities.occupation.Sneak;
+import models.entities.occupation.Summoner;
 
 import javax.swing.*;
 import java.awt.*;
@@ -57,7 +60,7 @@ public class StateManager {
         gameOverState = new GameOverState(instance, jFrame);
         loadState = new LoadState(instance, jFrame);
         settingState = new SettingState(instance, jFrame);
-        skillTreeState = new SkillTreeState(instance, jFrame);
+
         tradeState = new TradeState(instance, jFrame);
 
 
@@ -82,6 +85,11 @@ public class StateManager {
 
         this.gameState=new GameState(instance,jFrame,occupation);
         inventoryState = new InventoryState(instance, jFrame, gameState);
+        int ayy=0;
+        if(gameState.getAvatar().getOccupation() instanceof Summoner)ayy=0;
+        else  if(gameState.getAvatar().getOccupation() instanceof Sneak)ayy=1;
+        else  if(gameState.getAvatar().getOccupation() instanceof Smasher)ayy=2;
+        skillTreeState = new SkillTreeState(instance, jFrame,ayy);
     }
 
     public void setJframe(JFrame jframe){
