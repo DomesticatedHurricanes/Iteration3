@@ -29,6 +29,7 @@ public enum BootsFactory {
         return item;
     }
 
+
     public BufferedImage getBufferedImage(){
         return bufferedImage;
     }

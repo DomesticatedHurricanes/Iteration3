@@ -4,11 +4,14 @@ import models.entities.Avatar;
 import models.entities.Entity;
 import models.entities.Pet;
 
+import java.awt.image.BufferedImage;
+
 /**
  * Created by mazumderm on 4/13/2016.
  */
 public abstract class Item {
 
+    protected BufferedImage image;
     String name;
 
     //constructor
@@ -23,4 +26,8 @@ public abstract class Item {
     public abstract boolean onTouch();
 
     public abstract void apply(Entity entity);
+
+    public BufferedImage getImage(){
+        return image;
+    }
 }
