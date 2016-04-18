@@ -111,7 +111,7 @@ public class GraphicAssets {
         StillWaterTile = ImageLoader.loadImage("/Resources/StillWaterTile.png");
 //        RunningWaterTile = ImageLoader.loadImage("/Resources/StillWaterTile.png");
         RockTile = ImageLoader.loadImage("/Resources/RockTile.png");
-
+        RunningWaterTile = ImageLoader.loadImage("/Resources/StillWaterTile.png");
 
         // Loading in different tile heights
         h1 = ImageLoader.loadImage("/Resources/1.png");

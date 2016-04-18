@@ -1,6 +1,8 @@
 package models.Item.Takeable;
 
+import models.entities.Avatar;
 import models.entities.Entity;
+import models.entities.TakeableItemVisitable;
 import models.stats.StatModifiers;
 
 import java.awt.image.BufferedImage;
@@ -10,6 +12,7 @@ import java.awt.image.BufferedImage;
  */
 public class Consumable extends Takeable {
     private StatModifiers statModifiers;
+
 
     public Consumable(String name, StatModifiers statModifiers, int price, BufferedImage bufferedImage){
         super(name, price, bufferedImage);
@@ -25,3 +28,5 @@ public class Consumable extends Takeable {
         statModifiers.apply(entity.getStats());
     }
 }
+
+
