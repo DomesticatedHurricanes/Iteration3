@@ -27,7 +27,6 @@ public class Equippable extends Takeable implements TakeableItemVisitor {
 
     @Override
     public void onUse(Entity entity) {
-
     }
 
 

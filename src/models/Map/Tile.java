@@ -4,6 +4,8 @@ import models.AreaEffect.AreaEffect;
 import models.Graphics.GraphicAssets;
 import models.Graphics.ImageLoader;
 import models.Item.Item;
+import models.Item.OneShot;
+import models.Item.Takeable.Takeable;
 import models.entities.Avatar;
 import models.entities.Entity;
 import utilities.Point3D;
@@ -76,6 +78,10 @@ public abstract class Tile implements TileVisitor {
         return true;
     }
 
+    public void removeItem(Item item){
+        items.remove(item);
+    }
+
     public boolean checkEntities(){
         return entity == null;
     }
@@ -92,6 +98,9 @@ public abstract class Tile implements TileVisitor {
         if(items.size() != 0) {
             for (Item item : items) {
                 item.apply(entity);
+                if((item instanceof Takeable) || (item instanceof OneShot)){
+                    removeItem(item);
+                }
             }
         }
     }
