@@ -25,6 +25,7 @@ public class GrassTile extends Tile {
         // Temporarily commented out to test basic movement
         if(checkHeightDifferential(avatar) && this.checkItem() && avatar.canWalk() && checkEntities()){
             avatar.setLocation(this.point3D);
+
             this.insertEntity(avatar);
             applyItems(avatar);
             applyAreaEffect(avatar);

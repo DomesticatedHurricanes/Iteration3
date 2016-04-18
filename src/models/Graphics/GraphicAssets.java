@@ -1,5 +1,6 @@
 package models.Graphics;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.nio.Buffer;
 import java.util.ArrayList;
@@ -73,6 +74,18 @@ public class GraphicAssets {
     public static BufferedImage base;
 
 
+    //Vehicle
+    public static BufferedImage laprasS;
+    public static BufferedImage laprasSE;
+    public static BufferedImage laprasSW;
+    public static BufferedImage laprasN;
+    public static BufferedImage laprasNE;
+    public static BufferedImage laprasNW;
+    public static ArrayList<BufferedImage> laprasAll;
+
+    public static BufferedImage mountS;
+
+    public static BufferedImage rock;
 
 
     public static BufferedImage smasher;
@@ -93,10 +106,15 @@ public class GraphicAssets {
     public static BufferedImage healDamage;
 
 
+    public static BufferedImage boots;
 
     public static BufferedImage redSword;
     public static BufferedImage blueSword;
     public static BufferedImage greenSword;
+
+    public static BufferedImage bow;
+    public static BufferedImage bow2;
+    public static BufferedImage slingshot;
 
     public static void init(){
 
@@ -155,9 +173,23 @@ public class GraphicAssets {
         healDamage = ImageLoader.loadImage("/Resources/areaEffects/red-cross.png");
 
         //items
+        redSword = ImageLoader.loadImage("/Resources/items/RED_SWORD.png");
+        blueSword = ImageLoader.loadImage("/Resources/items/BLUE_SWORD.png");
+        greenSword = ImageLoader.loadImage("/Resources/items/GREEN_SWORD.png");
+
+        boots = ImageLoader.loadImage("/Resources/items/BOOTS.png");
+        rock = ImageLoader.loadImage("/Resources/items/ROCK.png");
+
+        bow = ImageLoader.loadImage("/Resources/items/BOW.png");
+        bow2 = ImageLoader.loadImage("/Resources/items/BOW2.png");
+        slingshot = ImageLoader.loadImage("/Resources/items/SLINGSHOT.png");
+
+
+
         //redSword = ImageLoader.loadImage("Resources/RED_SWORD.png");
-        blueSword = ImageLoader.loadImage("/Resources/BLUE_SWORD.png");
+    //    blueSword = ImageLoader.loadImage("/Resources/BLUE_SWORD.png");
         //greenSword = ImageLoader.loadImage("Resources/GREEN_SWORD.png");
+
 
         // Loading in sneak
         sneakS = ImageLoader.loadImage("/Resources/entitys/entity-sneak-S.png");
@@ -218,5 +250,24 @@ public class GraphicAssets {
         petAll.add(petN);
         petAll.add(petNE);
         petAll.add(petNW);
+
+
+        // loading in vehicle
+        // Loading in summoner
+        laprasS = ImageLoader.loadImage("/Resources/entitys/entity-lapras-S.png");
+        laprasSW = ImageLoader.loadImage("/Resources/entitys/entity-lapras-SW.png");
+        laprasSE = ImageLoader.loadImage("/Resources/entitys/entity-lapras-SE.png");
+        laprasN = ImageLoader.loadImage("/Resources/entitys/entity-lapras-N.png");
+        laprasNE = ImageLoader.loadImage("/Resources/entitys/entity-lapras-NE.png");
+        laprasNW = ImageLoader.loadImage("/Resources/entitys/entity-lapras-NW.png");
+        laprasAll = new ArrayList<>();
+        laprasAll.add(laprasS);
+        laprasAll.add(laprasSE);
+        laprasAll.add(laprasSW);
+        laprasAll.add(laprasN);
+        laprasAll.add(laprasNE);
+        laprasAll.add(laprasNW);
+
+        mountS = ImageLoader.loadImage("/Resources/entitys/mountS.png");
     }
 }

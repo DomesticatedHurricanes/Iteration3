@@ -47,7 +47,7 @@ public abstract class Tile implements TileVisitor {
     public Point3D getPoint3D(){
         return this.point3D;
     }
-    //The coressponding tile's point3d
+    //The coresponding tile's point3d
 
     public Entity getEntity(){ return entity; }
 

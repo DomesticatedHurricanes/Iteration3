@@ -15,7 +15,7 @@ import java.awt.image.BufferedImage;
  */
 public class OneHandedWeaponFactory {
 
-    OneHandedWeaponFactory(){
+    public OneHandedWeaponFactory(){
 
     }
 

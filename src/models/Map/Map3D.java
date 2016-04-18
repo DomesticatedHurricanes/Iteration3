@@ -6,6 +6,7 @@ import models.entities.occupation.Smasher;
 import utilities.Point3D;
 
 import java.util.HashMap;
+import java.util.Set;
 
 /**
  * Created by david on 4/15/16.
@@ -220,7 +221,14 @@ public class Map3D {
 
     public Tile getTile(int x, int y, int z){
         Point3D point3D = new Point3D(x,y,z);
-        return hashWorld.get(point3D);
+        Set<Point3D> point = hashWorld.keySet();
+        for(Point3D finder:point){
+            if(finder.getX() == x &&finder.getY() == y&&finder.getZ() == z){
+                return hashWorld.get(finder);
+            }
+        }
+        //return hashWorld.get(point3D);
+        return null;
     }
 
     //Gets the highest non-AirTile
