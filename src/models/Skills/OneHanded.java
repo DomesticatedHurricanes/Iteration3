@@ -25,7 +25,9 @@ public class OneHanded extends ProjectableSkill implements ActiveSkill{
 
     @Override
     public void useSkill(Avatar avatar) {
+        this.avatar = avatar;
         useOneHanded(avatar);
+
     }
 
     public void useOneHanded(Avatar avatar) {

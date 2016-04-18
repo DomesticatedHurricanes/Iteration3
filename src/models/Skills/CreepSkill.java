@@ -22,7 +22,9 @@ public class CreepSkill extends ProjectableSkill implements ActiveSkill{
 
     @Override
     public void activateSkill(Avatar avatar) {
+        this.avatar = avatar;
         useSkill(avatar);
+
     }
 
     public void useCreep(Avatar avatar){

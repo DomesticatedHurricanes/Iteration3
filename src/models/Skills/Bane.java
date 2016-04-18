@@ -19,7 +19,10 @@ public class Bane extends ProjectableSkill implements ActiveSkill{
 
     @Override
     public void activateSkill(Avatar avatar) {
+        this.avatar = avatar;
+        System.out.println("bane is used");
         useSkill(avatar);
+
     }
 
     @Override
@@ -36,6 +39,7 @@ public class Bane extends ProjectableSkill implements ActiveSkill{
         //Example of Ring of Operations!
         //Used to calculate damage for avatar
         damage = calculateDamage(avatar);
+        damage = 12;
         ArrayList<Point3D> affectedPoints = search();
         ArrayList<Entity> victims = findVictims(affectedPoints);
         //TODO:When ready, replace the number 10 with damage variable

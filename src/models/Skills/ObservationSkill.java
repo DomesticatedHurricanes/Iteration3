@@ -17,7 +17,7 @@ public class ObservationSkill extends SearchableSkill implements PassiveSkill{
 
     @Override
     public void activateSkill(Avatar avatar) {
-
+        this.avatar = avatar;
     }
 
     public ObservationSkill(){

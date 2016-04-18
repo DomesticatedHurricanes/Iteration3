@@ -1,6 +1,7 @@
 package models.entities.occupation;
 
 import models.Graphics.GraphicAssets;
+import models.Skills.Bane;
 import models.entities.Avatar;
 import models.stats.StatModifier;
 import models.stats.StatModifiers;
@@ -39,6 +40,7 @@ public class Sneak implements Occupation{
 
     @Override
     public void initSkills(Avatar avatar) {
+        avatar.addToSkillList(new Bane());
 
     }
 

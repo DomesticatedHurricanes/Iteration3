@@ -29,10 +29,12 @@ public class Enchantment extends ProjectableSkill implements ActiveSkill{
     @Override
     public void activateSkill(Avatar avatar) {
         useSkill(avatar);
+        this.avatar = avatar;
     }
 
     @Override
     public void useSkill(Avatar avatar) {
+        this.avatar = avatar;
         useEnchantment(avatar);
     }
 

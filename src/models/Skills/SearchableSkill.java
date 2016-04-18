@@ -28,6 +28,7 @@ public abstract class SearchableSkill extends Skill {
         if(map3D==null){
             System.out.println("PLEASE WORK");
         }
+        map3D = avatar.getMap();
 
         ArrayList<Entity> victims = new ArrayList<>();
         for(Point3D currentPoint:tilePoints){

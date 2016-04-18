@@ -11,6 +11,7 @@ public abstract class Skill{
     protected int skillLv;//TODO:Factor this in the projectile damage
     protected Entity.Orientation orientation;
     protected int MANACOST;
+    protected Avatar avatar;
     public Entity.Orientation getOrientation(){
         return orientation;
     }
@@ -25,6 +26,7 @@ public abstract class Skill{
         }
         return false;
     }
+
     public abstract void activateSkill(Avatar avatar);
 }
 /*

@@ -45,6 +45,9 @@ public abstract class Entity {
     public void obtainMap(Map3D map){
         this.map = map;
     }
+    public Map3D getMap(){
+        return map;
+    }
 
     /*public Entity(){
         location =null;

@@ -23,7 +23,9 @@ public class PickPocketSkill extends SearchableSkill implements ActiveSkill{
 
     @Override
     public void activateSkill(Avatar avatar) {
+        this.avatar = avatar;
         useSkill(avatar);
+
     }
 
     public PickPocketSkill(){MANACOST = 0;}

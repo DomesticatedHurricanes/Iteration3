@@ -130,7 +130,7 @@ public class Renderer {
                         ArrayList<Tile> tiles = new ArrayList<Tile>();
                         for(int i = 0; i < points.size(); ++i){
                             tiles.add(map.getTile(points.get(i).getX(), points.get(i).getY(), points.get(i).getZ()));
-                            System.out.println("HH" + tiles.get(i));
+                            //System.out.println("HH" + tiles.get(i));
                         }
                             tileRenderer.render(g, map.getRelevantTile(y, x), pxCenterPoint);
                     //}

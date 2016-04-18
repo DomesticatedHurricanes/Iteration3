@@ -29,6 +29,7 @@ public class Brawling extends ProjectableSkill implements ActiveSkill, ActiveMon
     @Override
     public void useSkill(Monster monster) {
         useBrawling(monster);
+        //this.avatar = avatar;
     }
 
     public void useBrawling(Avatar avatar) {

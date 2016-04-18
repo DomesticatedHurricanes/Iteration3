@@ -42,7 +42,9 @@ public class GameStateController extends Controller {
         getKeyMapping().put(Settings.INV,()->stateManager.changeToInventoryState());
         getKeyMapping().put(Settings.EQUIP, ()->stateManager.changeToEquipmentState());
         getKeyMapping().put(Settings.ESCAPE, ()->stateManager.changeToPauseMenuState());
-
+        getKeyMapping().put(Settings.ATTACK1, ()-> avatar.useSkillNumber(0));
+        getKeyMapping().put(Settings.ATTACK2, ()-> avatar.useSkillNumber(1));
+        getKeyMapping().put(Settings.ATTACK3, ()-> avatar.useSkillNumber(2));
 
         getBindings().add(new Listener(Settings.Up, getKeyMapping().get(Settings.Up)));
         getBindings().add(new Listener(Settings.Down, getKeyMapping().get(Settings.Down)));
@@ -55,6 +57,7 @@ public class GameStateController extends Controller {
         getBindings().add(new Listener(Settings.INV, getKeyMapping().get(Settings.INV)));
         getBindings().add(new Listener(Settings.EQUIP, getKeyMapping().get(Settings.EQUIP)));
         getBindings().add(new Listener(Settings.ESCAPE, getKeyMapping().get(Settings.ESCAPE)));
+        getBindings().add(new Listener(Settings.ATTACK1, getKeyMapping().get(Settings.ATTACK1)));
     }
 
     public void init(){

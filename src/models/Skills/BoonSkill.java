@@ -13,7 +13,9 @@ public class BoonSkill extends Skill implements ActiveSkill{
 
     @Override
     public void activateSkill(Avatar avatar) {
+        this.avatar = avatar;
         useSkill(avatar);
+
     }
 
     private final int BUFF = 5;

@@ -30,7 +30,9 @@ public class Staff extends ProjectableSkill {
     @Override
     public void activateSkill(Avatar avatar) {
         System.out.println("22222");
+        this.avatar = avatar;
         useStaff(avatar);
+
     }
 
     @Override

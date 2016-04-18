@@ -10,7 +10,7 @@ public class BargainSkill extends Skill implements PassiveSkill{
 
     @Override
     public void activateSkill(Avatar avatar) {
-
+        this.avatar = avatar;
     }
     @Override
     public void onUpdate(Avatar avatar) {

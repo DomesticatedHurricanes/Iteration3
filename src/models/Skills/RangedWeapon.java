@@ -25,7 +25,9 @@ public class RangedWeapon extends ProjectableSkill implements ActiveSkill{
 
     @Override
     public void useSkill(Avatar avatar) {
+        this.avatar = avatar;
         useRangedWeapon(avatar);
+
     }
 
     public void useRangedWeapon(Avatar avatar) {
