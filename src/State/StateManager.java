@@ -122,8 +122,10 @@ public class StateManager {
 
     public void changeToPauseMenuState(){
         if (currentState != pauseMenuState){
+            currentState.setInactive();
             System.out.println("Changing to pausemenustate");
             currentState = pauseMenuState;
+            currentState.setActive();
         }
     }
 
@@ -147,48 +149,62 @@ public class StateManager {
 
     public void changeToSaveState(){
         if (currentState != saveState){
+            currentState.setInactive();
             System.out.println("Changing to savestate");
             currentState = saveState;
+            currentState.setActive();
         }
     }
     public void changeToLoadState(){
         if (currentState != loadState){
+            currentState.setInactive();
             System.out.println("Changing to savestate");
             currentState = loadState;
+            currentState.setActive();
         }
     }
     public void changeToEquipmentState(){
         if (currentState != equipmentState){
+            currentState.setInactive();
             System.out.println("Changing to equipmentstate");
             currentState = equipmentState;
+            currentState.setActive();
         }
     }
 
     public void changeToGameOverState(){
         if (currentState != gameOverState){
+            currentState.setInactive();
             System.out.println("Changing to gameoverstate");
             currentState = gameOverState;
+            currentState.setInactive();
         }
     }
 
     public void changeToSettingState(){
         if (currentState != settingState){
+            currentState.setInactive();
             System.out.println("Changing to settingstate");
             currentState = settingState;
+            currentState.setActive();
         }
     }
 
     public void changeToSkillTreeState(){
         if (currentState != skillTreeState){
+            currentState.setInactive();
             System.out.println("Changing to skilltreestate");
             currentState = skillTreeState;
+            currentState.setActive();
         }
     }
 
     public void changeToTradeState(){
         if (currentState != tradeState){
+            currentState.setInactive();
             System.out.println("Changing to tradestate");
             currentState = tradeState;
+            currentState.setActive();
         }
     }
 
