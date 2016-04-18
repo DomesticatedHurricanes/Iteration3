@@ -4,8 +4,10 @@ import models.AreaEffect.AreaEffect;
 import models.Graphics.GraphicAssets;
 import models.Graphics.ImageLoader;
 import models.Item.Item;
+import models.entities.Avatar;
 import models.entities.Entity;
 import utilities.Point3D;
+import java.util.Timer;
 
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ public abstract class Tile implements TileVisitor {
     protected Entity entity;
     protected ArrayList<Item> items = new ArrayList<>();
     protected AreaEffect areaEffect;
+    protected static Timer timer;
 
     //Methods of a tile
     public Tile(Point3D point3D){
@@ -79,7 +82,7 @@ public abstract class Tile implements TileVisitor {
 
     public boolean checkHeightDifferential(Entity entity){
         System.out.println("jump height: " + entity.getStats().getJumpHeight() + " point z: " + point3D.getZ() + " entity height : " + entity.getLocation().getZ());
-       if(entity.getStats().getJumpHeight() >= Math.abs((point3D.getZ() - entity.getLocation().getZ())))
+       if(entity.getStats().getJumpHeight() >= (point3D.getZ() - entity.getLocation().getZ()))
            return true;
         else
            return false;
@@ -93,9 +96,9 @@ public abstract class Tile implements TileVisitor {
         }
     }
 
-    public void applyAreaEffect(Entity entity){
+    public void applyAreaEffect(Avatar avatar){
         if(areaEffect != null) {
-            this.areaEffect.activate(entity);
+            this.areaEffect.activate(avatar);
         }
     }
 
@@ -149,8 +152,23 @@ public abstract class Tile implements TileVisitor {
         return imageHeight;
     }
 
+
+    public void cancelTimer() {
+        if (timer != null) {
+            System.out.println("Timer cancelled");
+            timer.cancel();
+            timer.purge();
+        }
+        timer = null;
+    }
+
+
     public AreaEffect getAreaEffect(){
         return areaEffect;
+    }
+
+    public ArrayList<Item> getItems(){
+        return items;
     }
 
     public boolean hasAreaEffect(){
@@ -159,6 +177,14 @@ public abstract class Tile implements TileVisitor {
         }
         return false;
     }
+
+    public boolean hasItem(){
+        if (items != null){
+            return true;
+        }
+        return false;
+    }
+
 
     public String getType(){ return "type";}
 }

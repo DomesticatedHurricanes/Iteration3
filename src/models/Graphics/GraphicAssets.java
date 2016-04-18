@@ -106,6 +106,7 @@ public class GraphicAssets {
         GroundMountainTile = ImageLoader.loadImage("/Resources/GroundMountainTile.png");
         MountainTile = ImageLoader.loadImage("/Resources/MountainTile.png");
         StillWaterTile = ImageLoader.loadImage("/Resources/StillWaterTile.png");
+        RunningWaterTile = ImageLoader.loadImage("/Resources/StillWaterTile.png");
         RockTile = ImageLoader.loadImage("/Resources/RockTile.png");
 
 

@@ -2,6 +2,7 @@ package models.AreaEffect;
 
 import com.sun.org.apache.bcel.internal.generic.IXOR;
 import models.Graphics.GraphicAssets;
+import models.entities.Avatar;
 import models.entities.Entity;
 import models.stats.StatModifier;
 import models.stats.Stats;
@@ -16,9 +17,9 @@ public class InstantDeath extends AreaEffect {
         this.areaEffectImage = GraphicAssets.takeDamage;
     }
     @Override
-    public void activate(Entity entity){
+    public void activate(Avatar avatar){
         StatModifier instantDeath = StatModifier.makeLivesModifier(-1);
-        Stats enitityStats = entity.getStats();
+        Stats enitityStats = avatar.getStats();
         instantDeath.apply(enitityStats);
     }
 

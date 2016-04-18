@@ -3,14 +3,19 @@ package utilities;
 import View.View;
 import models.AreaEffect.AreaEffect;
 import models.Graphics.GraphicAssets;
+import models.Item.Item;
 import models.Map.Map;
 import models.Map.Map3D;
 import models.Map.Tile;
+import models.effects.Effect;
+import models.effects.RadialEffect;
 import models.entities.Entity;
+import utilities.Point3D;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.RescaleOp;
+import java.util.*;
 
 /**
  * Created by Michael on 3/30/16.
@@ -95,6 +100,7 @@ public class Renderer {
                         offset = 0;
                     }
 
+
                     //System.out.println("offset: " + offset);
 
                     if(x % 2 != 0) {
@@ -108,7 +114,15 @@ public class Renderer {
                         pxCenterPoint = new Point(pxX, pxY);
 //                        System.out.println("even: " + pxCenterPoint);
                     }
-//<<<<<<< HEAD
+                    //**************************************************************************************************************************
+                    //System.out.println("HH" + mapCenterPoint.getX() + mapCenterPoint.getY());
+                    //System.out.println("II" + ((int) mapCenterPoint.getX()));
+                    //System.out.println("JJ" + ((int) mapCenterPoint.getY()));
+                   // RadialEffect tileSearch = new RadialEffect(new Point3D(((int) mapCenterPoint.getX(),((int) mapCenterPoint.getY()))), 2));
+                    // **************************************************************************************************************************
+
+
+
                     tileRenderer.render(g, map.getRelevantTile(y, x), pxCenterPoint);
 //                    if (map.getRelevantTile(y,x).hasAreaEffect()){
 //                        areaEffectRenderer.render(g,map.getRelevantTile(y,x).getAreaEffect(),pxCenterPoint);
@@ -205,14 +219,21 @@ public class Renderer {
                 if(tile.hasAreaEffect()){
                     areaEffectRenderer.render(g,tile.getAreaEffect(),topLeft);
                 }
+
+                if(tile.hasItem()){
+                    for (Item item: tile.getItems()){
+                        itemRenderer.render(g,item,topLeft);
+                    }
+                }
             }
         }
     }
 
     public static class areaEffectRenderer{
         public static void render(Graphics g, AreaEffect areaEffect, Point pxTopLeftPoint){
-            //System.out.println(areaEffect.getAreaEffectImage());
+
             g.drawImage(areaEffect.getAreaEffectImage(),pxTopLeftPoint.x+10,pxTopLeftPoint.y +10,null);
+
         }
     }
 
@@ -233,6 +254,12 @@ public class Renderer {
             Point topLeft = new Point(pxCenterPoint.x - (GraphicAssets.TILE_PX_WIDTH / 2), pxCenterPoint.y - (GraphicAssets.TILE_PX_HEIGHT / 2));
             g.drawImage(entity.getEntityImage(), topLeft.x, topLeft.y + 10, GraphicAssets.TILE_PX_WIDTH, GraphicAssets.TILE_PX_HEIGHT, null);
 
+        }
+    }
+
+    public static class itemRenderer {
+        public static void render(Graphics g, Item item, Point pxTopLeft) {
+            g.drawImage(item.getImage(), pxTopLeft.x+5, pxTopLeft.y, GraphicAssets.TILE_PX_WIDTH-20,GraphicAssets.TILE_PX_HEIGHT-10, null);
         }
     }
 //
