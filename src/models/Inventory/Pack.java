@@ -9,11 +9,13 @@ import java.util.ArrayList;
  */
 public class Pack {
     ArrayList<Item> items;
+    int money;
     int sizeOfPack;
 
     public Pack(int sizeOfPack){
         items = new ArrayList<>();
         this.sizeOfPack = sizeOfPack;
+        this.money = 100;
     }
 
     public boolean isNotFull(){
@@ -43,4 +45,20 @@ public class Pack {
     }
 
     public int getAmountOfItemsInPack(){return getPackContents().size();}
+
+    public int getMoney(){
+        return this.money;
+    }
+
+    public void setMoney(int money){
+        this.money = money;
+    }
+
+    public void addMoney(int addAmount){
+        this.money = this.money + addAmount;
+    }
+
+    public void deductMoney(int deductAmount){
+        this.money = this.money - deductAmount;
+    }
 }
