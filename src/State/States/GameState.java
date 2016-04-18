@@ -5,6 +5,7 @@ import View.StateViews.GameStateView;
 import controllers.StateControllers.GameStateController;
 import models.AreaEffect.*;
 import models.Interaction.MovementHandler;
+import models.Item.Takeable.Equippable.Boots;
 import models.Map.Map;
 
 import State.StateManager;

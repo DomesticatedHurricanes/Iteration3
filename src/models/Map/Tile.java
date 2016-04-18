@@ -153,8 +153,19 @@ public abstract class Tile implements TileVisitor {
         return areaEffect;
     }
 
+    public ArrayList<Item> getItems(){
+        return items;
+    }
+
     public boolean hasAreaEffect(){
         if (areaEffect != null){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean hasItem(){
+        if (items != null){
             return true;
         }
         return false;
