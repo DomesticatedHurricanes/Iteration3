@@ -3,6 +3,7 @@ package utilities;
 import View.View;
 import models.AreaEffect.AreaEffect;
 import models.Graphics.GraphicAssets;
+import models.Item.Item;
 import models.Map.Map;
 import models.Map.Map3D;
 import models.Map.Tile;
@@ -205,6 +206,12 @@ public class Renderer {
                 if(tile.hasAreaEffect()){
                     areaEffectRenderer.render(g,tile.getAreaEffect(),topLeft);
                 }
+
+                if(tile.hasItem()){
+                    for (Item item: tile.getItems()){
+                        itemRenderer.render(g,item,topLeft);
+                    }
+                }
             }
         }
     }
@@ -234,6 +241,12 @@ public class Renderer {
             Point topLeft = new Point(pxCenterPoint.x - (GraphicAssets.TILE_PX_WIDTH / 2), pxCenterPoint.y - (GraphicAssets.TILE_PX_HEIGHT / 2));
             g.drawImage(entity.getEntityImage(), topLeft.x, topLeft.y + 10, GraphicAssets.TILE_PX_WIDTH, GraphicAssets.TILE_PX_HEIGHT, null);
 
+        }
+    }
+
+    public static class itemRenderer {
+        public static void render(Graphics g, Item item, Point pxTopLeft) {
+            g.drawImage(item.getImage(), pxTopLeft.x+5, pxTopLeft.y, GraphicAssets.TILE_PX_WIDTH-20,GraphicAssets.TILE_PX_HEIGHT-10, null);
         }
     }
 //
