@@ -3,8 +3,12 @@
  */
 import State.StateManager;
 import View.View;
+import models.AreaEffect.AreaEffect;
+import models.AreaEffect.LevelUp;
 import models.Graphics.GraphicAssets;
 import models.effects.RadialEffect;
+import models.entities.Avatar;
+import models.entities.occupation.Smasher;
 import utilities.Point3D;
 
 import javax.swing.*;
