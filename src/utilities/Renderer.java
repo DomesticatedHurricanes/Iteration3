@@ -81,7 +81,7 @@ public class Renderer {
 //
         public static void render(Graphics g, Map3D map, Point mapCenterPoint, int mapStartX, int mapEndX, int mapStartY, int mapEndY) {
             for(int y = mapStartY; y < mapEndY; y++){
-                for(int x = mapStartX; x  <mapEndX; x+=2){
+                for(int x = mapStartX; x  <mapEndX; x++){
                     Point pxCenterPoint;
                     int offset;
 
