@@ -30,13 +30,6 @@ public class GameStateController extends Controller {
         this.avatar = avatar;
         this.interactionHandler = interactionHandler;
 
-        initListeners();
-    }
-
-    public void init(){
-    }
-
-    private void initListeners(){
         getKeyMapping().put(Settings.Up,()->interactionHandler.move(avatar, Entity.Orientation.NORTH));
         getKeyMapping().put(Settings.UpRight,()->interactionHandler.move(avatar, Entity.Orientation.NORTHEAST));
         getKeyMapping().put(Settings.UpLeft,()->interactionHandler.move(avatar, Entity.Orientation.NORTHWEST));
@@ -44,6 +37,8 @@ public class GameStateController extends Controller {
         getKeyMapping().put(Settings.DownRight,()->interactionHandler.move(avatar, Entity.Orientation.SOUTHEAST));
         getKeyMapping().put(Settings.DownLeft,()->interactionHandler.move(avatar, Entity.Orientation.SOUTHWEST));
         getKeyMapping().put(Settings.INV,()->stateManager.changeToInventoryState());
+        getKeyMapping().put(Settings.EQUIP, ()->stateManager.changeToEquipmentState());
+        getKeyMapping().put(Settings.ESCAPE, ()->stateManager.changeToPauseMenuState());
 
 
         getBindings().add(new Listener(Settings.Up, getKeyMapping().get(Settings.Up)));
@@ -53,6 +48,53 @@ public class GameStateController extends Controller {
         getBindings().add(new Listener(Settings.UpRight, getKeyMapping().get(Settings.UpRight)));
         getBindings().add(new Listener(Settings.UpLeft, getKeyMapping().get(Settings.UpLeft)));
         getBindings().add(new Listener(Settings.DownLeft, getKeyMapping().get(Settings.DownLeft)));
+
+        getBindings().add(new Listener(Settings.INV, getKeyMapping().get(Settings.INV)));
+        getBindings().add(new Listener(Settings.EQUIP, getKeyMapping().get(Settings.EQUIP)));
+        getBindings().add(new Listener(Settings.ESCAPE, getKeyMapping().get(Settings.ESCAPE)));
+    }
+
+    public void init(){
+    }
+
+    private void initListeners(){
+
+        getKeyMapping().put(Settings.Up,()->interactionHandler.move(avatar, Entity.Orientation.NORTH));
+        getKeyMapping().put(Settings.UpRight,()->interactionHandler.move(avatar, Entity.Orientation.NORTHEAST));
+        getKeyMapping().put(Settings.UpLeft,()->interactionHandler.move(avatar, Entity.Orientation.NORTHWEST));
+        getKeyMapping().put(Settings.Down,()->interactionHandler.move(avatar, Entity.Orientation.SOUTH));
+        getKeyMapping().put(Settings.DownRight,()->interactionHandler.move(avatar, Entity.Orientation.SOUTHEAST));
+        getKeyMapping().put(Settings.DownLeft,()->interactionHandler.move(avatar, Entity.Orientation.SOUTHWEST));
+
+        getKeyMapping().put(Settings.R,()->state.moveViewNorthWest());
+        getKeyMapping().put(Settings.T,()->state.moveViewNorth());
+        getKeyMapping().put(Settings.Y,()->state.moveViewNorthEast());
+        getKeyMapping().put(Settings.F,()->state.moveViewSouthWest());
+        getKeyMapping().put(Settings.G,()->state.moveViewSouth());
+        getKeyMapping().put(Settings.H,()->state.moveViewSouthEast());
+
+
+        getKeyMapping().put(Settings.X,()->state.stopViewMove());
+
+         getKeyMapping().put(Settings.INV,()->stateManager.changeToInventoryState());
+
+
+        getBindings().add(new Listener(Settings.Up, getKeyMapping().get(Settings.Up)));
+        getBindings().add(new Listener(Settings.Down, getKeyMapping().get(Settings.Down)));
+        getBindings().add(new Listener(Settings.DownRight, getKeyMapping().get(Settings.DownRight)));
+
+        getBindings().add(new Listener(Settings.UpRight, getKeyMapping().get(Settings.UpRight)));
+        getBindings().add(new Listener(Settings.UpLeft, getKeyMapping().get(Settings.UpLeft)));
+        getBindings().add(new Listener(Settings.DownLeft, getKeyMapping().get(Settings.DownLeft)));
+        getBindings().add(new Listener(Settings.X,getKeyMapping().get(Settings.X)));
+
+        getBindings().add(new Listener(Settings.R,getKeyMapping().get(Settings.R)));
+        getBindings().add(new Listener(Settings.T,getKeyMapping().get(Settings.T)));
+        getBindings().add(new Listener(Settings.Y,getKeyMapping().get(Settings.Y)));
+        getBindings().add(new Listener(Settings.F,getKeyMapping().get(Settings.F)));
+        getBindings().add(new Listener(Settings.G,getKeyMapping().get(Settings.G)));
+        getBindings().add(new Listener(Settings.H,getKeyMapping().get(Settings.H)));
+
 
         //getBindings().add(new Listener(Settings.UP, getKeyMapping().get(Settings.UP)));
         //getBindings().add(new Listener(Settings.DOWN, getKeyMapping().get(Settings.DOWN)));

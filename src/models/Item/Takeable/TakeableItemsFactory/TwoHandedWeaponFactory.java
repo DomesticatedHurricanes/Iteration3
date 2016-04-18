@@ -13,27 +13,25 @@ import java.awt.image.BufferedImage;
 /**
  * Created by mazumderm on 4/17/2016.
  */
-public enum TwoHandedWeaponFactory {
-    BLUE_KNUCKLES(new TwoHandedWeapon("Blue Knuckles", new StatModifiers(StatModifier.makeStrengthModifier(Unit.BLUE * Unit.TWOHANDEDWEAPON)), 3,
-            new StatModifiers(StatModifier.makeCurrentHpModifier(-3))), GraphicAssets.h1),
-    RED_KNUCKLES(new TwoHandedWeapon("Red Knuckles", new StatModifiers(StatModifier.makeStrengthModifier(Unit.RED * Unit.TWOHANDEDWEAPON)), 3,
-            new StatModifiers(StatModifier.makeCurrentHpModifier(-5))), GraphicAssets.h1),
-    GREEN_KNUCKLES(new TwoHandedWeapon("Green Knuckles", new StatModifiers(StatModifier.makeStrengthModifier(Unit.GREEN * Unit.TWOHANDEDWEAPON)), 3,
-            new StatModifiers(StatModifier.makeCurrentHpModifier(-7)) ), GraphicAssets.h1);
+public class TwoHandedWeaponFactory {
 
-    private final TwoHandedWeapon item;
-    private final BufferedImage bufferedImage;
+    TwoHandedWeaponFactory(){
 
-    TwoHandedWeaponFactory(TwoHandedWeapon item, BufferedImage bufferedImage){
-        this.item = item;
-        this.bufferedImage = bufferedImage;
+    };
+
+
+    public Item createBlueKnuckles(){
+        return new TwoHandedWeapon("Blue Knuckles", new StatModifiers(StatModifier.makeStrengthModifier(Unit.BLUE * Unit.TWOHANDEDWEAPON)), 3,
+                new StatModifiers(StatModifier.makeCurrentHpModifier(-3)), GraphicAssets.h1);
     }
 
-    public Item getItem(){
-        return item;
+    public Item createRedKnuckles(){
+        return new TwoHandedWeapon("Red Knuckles", new StatModifiers(StatModifier.makeStrengthModifier(Unit.RED * Unit.TWOHANDEDWEAPON)), 3,
+                new StatModifiers(StatModifier.makeCurrentHpModifier(-5)), GraphicAssets.h1);
     }
 
-    public BufferedImage getBufferedImage(){
-        return bufferedImage;
+    public Item createGreenKnuckles(){
+        return new TwoHandedWeapon("Red Knuckles", new StatModifiers(StatModifier.makeStrengthModifier(Unit.RED * Unit.TWOHANDEDWEAPON)), 3,
+                new StatModifiers(StatModifier.makeCurrentHpModifier(-5)), GraphicAssets.h1);
     }
 }

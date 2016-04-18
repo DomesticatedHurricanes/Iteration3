@@ -5,6 +5,7 @@ import View.StateViews.GameStateView;
 import controllers.StateControllers.GameStateController;
 import models.AreaEffect.*;
 import models.Interaction.InteractionHandler;
+import models.Graphics.GraphicAssets;
 import models.Interaction.MovementHandler;
 import models.Item.Takeable.Equippable.Boots;
 import models.Map.Map;
@@ -158,6 +159,33 @@ public class GameState extends State{
         gameStateView.render(g);
     }
 
+    public void moveViewNorth(){
+        gameStateView.moveViewNorth();
+    }
+
+    public void moveViewNorthEast(){
+        gameStateView.moveViewNorthEast();
+    }
+
+    public void moveViewNorthWest(){
+        gameStateView.moveViewNorthWest();
+    }
+
+    public void moveViewSouth(){
+        gameStateView.moveViewSouth();
+    }
+
+    public void moveViewSouthEast(){
+        gameStateView.moveViewSouthEast();
+    }
+
+    public void moveViewSouthWest(){
+        gameStateView.moveViewSouthWest();
+    }
+
+    public void stopViewMove(){
+        gameStateView.stopViewMove();
+    }
 
 
 }

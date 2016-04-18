@@ -7,11 +7,15 @@ import models.Item.Item;
 import models.Map.Map;
 import models.Map.Map3D;
 import models.Map.Tile;
+import models.effects.Effect;
+import models.effects.RadialEffect;
 import models.entities.Entity;
+import utilities.Point3D;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.RescaleOp;
+import java.util.*;
 
 /**
  * Created by Michael on 3/30/16.
@@ -96,6 +100,7 @@ public class Renderer {
                         offset = 0;
                     }
 
+
                     //System.out.println("offset: " + offset);
 
                     if(x % 2 != 0) {
@@ -109,7 +114,15 @@ public class Renderer {
                         pxCenterPoint = new Point(pxX, pxY);
 //                        System.out.println("even: " + pxCenterPoint);
                     }
-//<<<<<<< HEAD
+                    //**************************************************************************************************************************
+                    //System.out.println("HH" + mapCenterPoint.getX() + mapCenterPoint.getY());
+                    //System.out.println("II" + ((int) mapCenterPoint.getX()));
+                    //System.out.println("JJ" + ((int) mapCenterPoint.getY()));
+                   // RadialEffect tileSearch = new RadialEffect(new Point3D(((int) mapCenterPoint.getX(),((int) mapCenterPoint.getY()))), 2));
+                    // **************************************************************************************************************************
+
+
+
                     tileRenderer.render(g, map.getRelevantTile(y, x), pxCenterPoint);
 //                    if (map.getRelevantTile(y,x).hasAreaEffect()){
 //                        areaEffectRenderer.render(g,map.getRelevantTile(y,x).getAreaEffect(),pxCenterPoint);
@@ -165,9 +178,13 @@ public class Renderer {
 
                 }
 
-                else if(tile.getType()=="Water" || tile.getType()=="Grass"){
+                else if(tile.getType()=="Water" || tile.getType()=="Grass" || tile.getType()=="Running"){
                     //
                     //System.out.println(topLeft.y);
+                    g.drawImage(GraphicAssets.col,topLeft.x, topLeft.y+10+19,60,tile.getImageHeight()/2,null);
+                    g.drawImage(GraphicAssets.base,topLeft.x, topLeft.y+10+19+tile.getImageHeight()/2,60,19,null);
+                    g.drawImage(tile.getImage(), topLeft.x, topLeft.y+10, tile.getImage().getWidth(), tile.getImage().getHeight(), null);
+                }else {
                     g.drawImage(GraphicAssets.col,topLeft.x, topLeft.y+10+19,60,tile.getImageHeight()/2,null);
                     g.drawImage(GraphicAssets.base,topLeft.x, topLeft.y+10+19+tile.getImageHeight()/2,60,19,null);
                     g.drawImage(tile.getImage(), topLeft.x, topLeft.y+10, tile.getImage().getWidth(), tile.getImage().getHeight(), null);

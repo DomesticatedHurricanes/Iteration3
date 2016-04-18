@@ -1,6 +1,7 @@
 package models.Graphics;
 
 import java.awt.image.BufferedImage;
+import java.nio.Buffer;
 import java.util.ArrayList;
 
 /**
@@ -16,6 +17,7 @@ public class GraphicAssets {
     public static BufferedImage test1;
     public static BufferedImage GroundGrassTile;
     public static BufferedImage GrassTile;
+    public static BufferedImage GrassTile2;
     public static BufferedImage GroundMountainTile;
     public static BufferedImage MountainTile;
     public static BufferedImage RunningWaterTile;
@@ -102,10 +104,12 @@ public class GraphicAssets {
         test1 = ImageLoader.loadImage("/Resources/GroundGrassTile.png");
         GroundGrassTile = ImageLoader.loadImage("/Resources/GroundGrassTile.png");
         GrassTile = ImageLoader.loadImage("/Resources/GrassTile.png");
+        GrassTile2 = ImageLoader.loadImage("/Resources/GrassTile2.png");
         GroundMountainTile = ImageLoader.loadImage("/Resources/GroundMountainTile.png");
-        GroundMountainTile = ImageLoader.loadImage("/Resources/GroundMountainTile.png");
+        RunningWaterTile = ImageLoader.loadImage("/Resources/RunningWaterTile.png");
         MountainTile = ImageLoader.loadImage("/Resources/MountainTile.png");
         StillWaterTile = ImageLoader.loadImage("/Resources/StillWaterTile.png");
+//        RunningWaterTile = ImageLoader.loadImage("/Resources/StillWaterTile.png");
         RockTile = ImageLoader.loadImage("/Resources/RockTile.png");
         RunningWaterTile = ImageLoader.loadImage("/Resources/StillWaterTile.png");
 

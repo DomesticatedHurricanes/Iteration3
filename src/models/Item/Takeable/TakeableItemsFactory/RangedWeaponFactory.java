@@ -14,26 +14,24 @@ import java.awt.image.BufferedImage;
  * Created by mazumderm on 4/17/2016.
  */
 public enum RangedWeaponFactory {
-    BLUE_BOWANDARROW(new Ranged("Blue Bow and Arrow", new StatModifiers(StatModifier.makeAgilityModifier(Unit.BLUE * Unit.RANGEDWEAPON)), 3,
-                new StatModifiers(StatModifier.makeCurrentHpModifier(-3)) ), GraphicAssets.h1),
-    RED_BOWANDARROW(new Ranged("Red Bow and Arrow", new StatModifiers(StatModifier.makeAgilityModifier(Unit.RED * Unit.RANGEDWEAPON)), 3,
-                new StatModifiers(StatModifier.makeCurrentHpModifier(-5)) ), GraphicAssets.h1),
-    GREEN_BOWANDARROW(new Ranged("Green Bow and Arrow", new StatModifiers(StatModifier.makeAgilityModifier(Unit.GREEN * Unit.RANGEDWEAPON)), 3,
-                new StatModifiers(StatModifier.makeCurrentHpModifier(-5)) ), GraphicAssets.h1);
+    RangedWeaponFactory(){
 
-    private final Ranged item;
-    private final BufferedImage bufferedImage;
+    };
 
-    RangedWeaponFactory(Ranged item, BufferedImage bufferedImage){
-        this.item = item;
-        this.bufferedImage = bufferedImage;
+
+    public Item createBlueBow(){
+        return new Ranged("Blue Bow and Arrow", new StatModifiers(StatModifier.makeAgilityModifier(Unit.BLUE * Unit.RANGEDWEAPON)), 3,
+                new StatModifiers(StatModifier.makeCurrentHpModifier(-3)), GraphicAssets.h1);
     }
 
-    public Item getItem(){
-        return item;
+    public Item createRedBow(){
+        return new Ranged("Red Bow and Arrow", new StatModifiers(StatModifier.makeAgilityModifier(Unit.RED * Unit.RANGEDWEAPON)), 3,
+                new StatModifiers(StatModifier.makeCurrentHpModifier(-5)), GraphicAssets.h1);
     }
 
-    public BufferedImage getBufferedImage(){
-        return bufferedImage;
+    public Item createGreenBow(){
+        return new Ranged("Green Bow and Arrow", new StatModifiers(StatModifier.makeAgilityModifier(Unit.GREEN * Unit.RANGEDWEAPON)), 3,
+                new StatModifiers(StatModifier.makeCurrentHpModifier(-5)), GraphicAssets.h1);
     }
+
 }

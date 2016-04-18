@@ -7,6 +7,7 @@ import models.entities.AINpc;
 import models.entities.Avatar;
 import models.Map.Map3D;
 import models.entities.Entity;
+import utilities.Point3D;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -23,6 +24,8 @@ public class GameStateView  extends  StateView{
     private int mapEndY;
     private Point mapCameraCenter;
     private Point pxCameraCenter;
+    private Point3D currentPoint;
+    private boolean movingView = false;
 
     private ArrayList<Entity> entities;
     private ArrayList<AINpc> aiNpcs;
@@ -68,7 +71,10 @@ public class GameStateView  extends  StateView{
 
     public void update(){
         // Update the camera center
-        mapCameraCenter = new Point(avatar.getLocation().getX(),avatar.getLocation().getY());
+        if (!movingView){
+            mapCameraCenter = new Point(avatar.getLocation().getX(),avatar.getLocation().getY());
+        }
+        currentPoint = new Point3D(mapCameraCenter.x,mapCameraCenter.y,0);
 
         // update the map start and end
         mapStartX = (int)Math.max(0, (mapCameraCenter.x - (pxCameraCenter.x/(0.75*GraphicAssets.TILE_PX_WIDTH))) - 2);
@@ -103,6 +109,50 @@ public class GameStateView  extends  StateView{
         for(AreaEffect areaEffect:areaEffects){
             utilities.Renderer.areaEffectRenderer.render(g,areaEffect,mapCameraCenter);
         }
+    }
+
+    public void moveViewNorth(){
+        movingView();
+        Point3D nextPoint = currentPoint.getTranslateNorth();
+        mapCameraCenter = new Point(nextPoint.getX(),nextPoint.getY());
+    }
+
+    public void moveViewNorthEast(){
+        movingView();
+        Point3D nextPoint = currentPoint.getTranslateNorthEast();
+        mapCameraCenter = new Point(nextPoint.getX(),nextPoint.getY());
+    }
+
+    public void moveViewNorthWest(){
+        movingView();
+        Point3D nextPoint = currentPoint.getTranslateNorthWest();
+        mapCameraCenter = new Point(nextPoint.getX(),nextPoint.getY());
+    }
+
+    public void moveViewSouth(){
+        movingView();
+        Point3D nextPoint = currentPoint.getTranslateSouth();
+        mapCameraCenter = new Point(nextPoint.getX(),nextPoint.getY());
+    }
+
+    public void moveViewSouthEast(){
+        movingView();
+        Point3D nextPoint = currentPoint.getTranslateSouthEast();
+        mapCameraCenter = new Point(nextPoint.getX(),nextPoint.getY());
+    }
+
+    public void moveViewSouthWest(){
+        movingView();
+        Point3D nextPoint = currentPoint.getTranslateSouthWest();
+        mapCameraCenter = new Point(nextPoint.getX(),nextPoint.getY());
+    }
+
+    private void movingView(){
+        movingView = true;
+    }
+
+    public void stopViewMove(){
+        movingView = false;
     }
 //=======
 //        utilities.Renderer.mapRenderer.render(g, world3D, mapCameraCenter, mapStartX, mapEndX, mapStartY, mapEndY);
