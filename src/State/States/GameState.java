@@ -64,6 +64,10 @@ public class GameState extends State{
     private ArrayList<Item> items;
 
 
+    public Avatar getAvatar() {
+        return avatar;
+    }
+
     public GameState(StateManager stateManager, JFrame jFrame, Occupation occupation){
         super(stateManager, jFrame);
         rangedWeaponFactory = new RangedWeaponFactory();
@@ -199,7 +203,7 @@ public class GameState extends State{
         //System.out.println("END TIME: " + endTime);
         if(endTime - startTime > 5000){
             for(AINpc aiNpc: aiNpcs){
-                System.out.println("New start time");
+                //System.out.println("New start time");
                 aiNpc.makeMove();
                 startTime = System.currentTimeMillis();
             }

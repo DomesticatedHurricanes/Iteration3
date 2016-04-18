@@ -14,7 +14,7 @@ public class Settings {
     public static int RIGHT = KeyEvent.VK_RIGHT;
     public static int DOWN = KeyEvent.VK_DOWN;
     public static int INV = KeyEvent.VK_I;
-    public static int EQUIP = KeyEvent.VK_E;
+    public static int EQUIP = KeyEvent.VK_O;
     public static int UpLeft = KeyEvent.VK_Q;
     public static int Up = KeyEvent.VK_W;
     public static int UpRight = KeyEvent.VK_E;
