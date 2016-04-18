@@ -222,7 +222,7 @@ public class Map3D {
     }
 
     //Gets the highest non-AirTile
-    public Tile     getRelevantTile(int x, int y) {
+    public Tile getRelevantTile(int x, int y) {
         return topologicalMap[x][y];
     }
 

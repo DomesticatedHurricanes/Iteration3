@@ -1,5 +1,6 @@
 
 import models.AreaEffect.AreaEffect;
+import models.AreaEffect.HealDamage;
 import models.AreaEffect.Teleport;
 import models.AreaEffect.Trap;
 import models.Interaction.MovementHandler;
@@ -27,7 +28,12 @@ import java.util.ArrayList;
  */
 public class ConsoleTester {
     public static void main(String args[]){
-        //BootsFactory bootsFactory = new BootsFactory();
+
+        HealDamage healDamage = new HealDamage();
+        Avatar avatar = new Avatar(new Smasher());
+        System.out.println(avatar.getStats().getCurrentHp());
+        healDamage.activate(avatar);
+        System.out.println(avatar.getStats().getCurrentHp());
 
     }
 }

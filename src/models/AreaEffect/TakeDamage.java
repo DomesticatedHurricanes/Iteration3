@@ -1,6 +1,7 @@
 package models.AreaEffect;
 
 import models.Graphics.GraphicAssets;
+import models.entities.Avatar;
 import models.entities.Entity;
 import models.stats.StatModifier;
 import models.stats.StatModifiers;
@@ -16,9 +17,9 @@ public class TakeDamage extends AreaEffect {
         this.areaEffectImage = GraphicAssets.takeDamage;
     }
     @Override
-    public void activate(Entity entity){
+    public void activate(Avatar avatar){
         StatModifier takeDamage = StatModifier.makeCurrentHpModifier(-10);
-        Stats entityStats = entity.getStats();
+        Stats entityStats = avatar.getStats();
         takeDamage.apply(entityStats);
     }
 
