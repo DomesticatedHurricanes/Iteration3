@@ -4,6 +4,7 @@ import models.AreaEffect.AreaEffect;
 import models.Graphics.GraphicAssets;
 import models.Graphics.ImageLoader;
 import models.Item.Item;
+import models.entities.Avatar;
 import models.entities.Entity;
 import utilities.Point3D;
 import java.util.Timer;
@@ -21,7 +22,7 @@ public abstract class Tile implements TileVisitor {
     //Properties of tile
     protected Point3D point3D;
     protected BufferedImage image;
-    protected BufferedImage imageHeight;
+    protected int imageHeight;
     protected Entity entity;
     protected ArrayList<Item> items = new ArrayList<>();
     protected AreaEffect areaEffect;
@@ -54,10 +55,17 @@ public abstract class Tile implements TileVisitor {
         this.entity = entity;
     }
 
+    public void insertAreaEffect(AreaEffect areaEffect){
+        this.areaEffect = areaEffect;
+    }
+
     public void removeEntity(){
         this.entity = null;
     }
 
+    public void removeAreaEffect(AreaEffect areaEffect){
+        this.areaEffect = null;
+    }
 
     //Checks if you can pass on the item on the tile.
     public boolean checkItem(){
@@ -74,7 +82,7 @@ public abstract class Tile implements TileVisitor {
 
     public boolean checkHeightDifferential(Entity entity){
         System.out.println("jump height: " + entity.getStats().getJumpHeight() + " point z: " + point3D.getZ() + " entity height : " + entity.getLocation().getZ());
-       if(entity.getStats().getJumpHeight() >= Math.abs((point3D.getZ() - entity.getLocation().getZ())))
+       if(entity.getStats().getJumpHeight() >= (point3D.getZ() - entity.getLocation().getZ()))
            return true;
         else
            return false;
@@ -88,9 +96,9 @@ public abstract class Tile implements TileVisitor {
         }
     }
 
-    public void applyAreaEffect(Entity entity){
+    public void applyAreaEffect(Avatar avatar){
         if(areaEffect != null) {
-            this.areaEffect.activate(entity);
+            this.areaEffect.activate(avatar);
         }
     }
 
@@ -103,7 +111,8 @@ public abstract class Tile implements TileVisitor {
 
     public void setImageHeight(){
 
-        switch (point3D.getZ()) {
+        imageHeight=point3D.getZ()*10;
+        /*switch (point3D.getZ()) {
             case 0:
                 imageHeight = GraphicAssets.h1;
                 break;
@@ -136,12 +145,13 @@ public abstract class Tile implements TileVisitor {
                 break;
 
 
-        }
+        }*/
     }
 
-    public BufferedImage getImageHeight(){
+    public int getImageHeight(){
         return imageHeight;
     }
+
 
     public void cancelTimer() {
         if (timer != null) {
@@ -150,6 +160,29 @@ public abstract class Tile implements TileVisitor {
             timer.purge();
         }
         timer = null;
+    }
+
+
+    public AreaEffect getAreaEffect(){
+        return areaEffect;
+    }
+
+    public ArrayList<Item> getItems(){
+        return items;
+    }
+
+    public boolean hasAreaEffect(){
+        if (areaEffect != null){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean hasItem(){
+        if (items != null){
+            return true;
+        }
+        return false;
     }
 
 

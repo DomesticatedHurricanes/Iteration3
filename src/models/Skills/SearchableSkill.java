@@ -15,7 +15,7 @@ import utilities.Point3D;
  * Created by Breanna on 4/13/16.
  */
 public abstract class SearchableSkill extends Skill {
-    protected Effect effect;
+    //protected Effect effect;
     protected Map3D map3D;
     //Currently map is null since it is not connected to anything
     //map is in interaction? Skill inherits from Interaction? Or has its own map its passed when init?

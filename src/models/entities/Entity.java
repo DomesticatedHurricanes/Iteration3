@@ -10,6 +10,8 @@ import utilities.Point3D;
 import models.stats.Stats;
 
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 
 /**
@@ -19,7 +21,9 @@ import java.awt.image.BufferedImage;
 public abstract class Entity {
 
     Point3D location;
+    ArrayList<BufferedImage> entityImages;
     BufferedImage entityImage;
+    HashMap<Orientation, BufferedImage> orientationImages;
 
     StatusEffect.statusEffect statusEffect;
     StatusEffect statusEffects;
@@ -27,8 +31,10 @@ public abstract class Entity {
     public Entity() {
         location = null;
         entityImage = null;
+        entityImages = null;
         statusEffect = StatusEffect.statusEffect.NONE;
         orientation = Orientation.SOUTH;
+        orientationImages = new HashMap<>();
         //Orientation orientation;
         //private boolean isTrapped = false;  // used for trap areaEffect
     }
@@ -39,6 +45,14 @@ public abstract class Entity {
         orientation = Orientation.SOUTH;
 
     }*/
+    public void initImages(){
+        orientationImages.put(Orientation.SOUTH,entityImages.get(0));
+        orientationImages.put(Orientation.SOUTHEAST,entityImages.get(1));
+        orientationImages.put(Orientation.SOUTHWEST,entityImages.get(2));
+        orientationImages.put(Orientation.NORTH,entityImages.get(3));
+        orientationImages.put(Orientation.NORTHEAST,entityImages.get(4));
+        orientationImages.put(Orientation.NORTHWEST,entityImages.get(5));
+    }
 
     Inventory inventory;//This needs to be initialized in the specfic implementation details
     public enum Orientation{
@@ -90,6 +104,10 @@ public abstract class Entity {
         //Not sure if this is going to work
         statusEffects.applyStatusEffect(this);
 
+    }
+
+    public void setEntityImage(Orientation orientation){
+        this.entityImage = orientationImages.get(orientation);
     }
 
     public Inventory getInventory(){

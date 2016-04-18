@@ -200,7 +200,6 @@ public class MovementHandler {
             // Remove the entity from the previous tile
             originTile.removeEntity();
         }
-
     }
 
     public void move(TileVisitable entity, Entity.Orientation orientation){
@@ -215,13 +214,20 @@ public class MovementHandler {
 
         // Get the destination point to check if valid
         Point3D dest = orientation.translate(entityTemp.getLocation());
+
+        //Set entity orientation
+        ((Entity) entity).setEntityImage(orientation);
+//        entity.changeImage(orientation);
         // Check the destination tile
         Tile destinationTile = map.getRelevantTile(dest.getY(),dest.getX());
 
         // If the entity can move to that tile
         if (entity.accept(destinationTile)) {
             // Set the entities location to the new location
-            entityTemp.setLocation(orientation.translate(destination));
+            Point3D entityPoint = orientation.translate(destination);
+            entityPoint.setZ(destinationTile.getDepth());
+            entityTemp.setLocation(entityPoint);
+
 
             // Remove the entity from the previous tile
             originTile.removeEntity();

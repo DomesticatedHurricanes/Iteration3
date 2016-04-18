@@ -21,7 +21,7 @@ public class AirTile extends Tile {
     public boolean visit(Avatar avatar) {
         cancelTimer();
         //TODO: Remember to remove avatar from previous tile in interaction handler
-        if(this.checkItem() && avatar.canSwim() && checkEntities() && checkHeightDifferential(avatar)){
+        if(this.checkItem() && avatar.canSwim() && checkEntities()){
             System.out.println(checkEntities());
             this.insertEntity(avatar);
             applyItems(avatar);

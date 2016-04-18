@@ -21,15 +21,19 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
 
     private Occupation occupation;
     private CharacterStats stats;
+    private boolean isTeleported;
     //private Inventory inventory;
 
     public Avatar(Occupation occupation){
+        this.isTeleported = false;
         this.inventory = new Inventory(16);
         this.occupation = occupation;
         stats = new CharacterStats();
         occupation.initStats(stats);
         this.occupation.initStats(stats);
         this.entityImage = occupation.initImage();
+        this.entityImages = occupation.initImages();
+        this.initImages();
     }
 
 
@@ -121,6 +125,8 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
         return false;
     }
 
+
+
     //Getters
     @Override
     public CharacterStats getStats(){
@@ -130,6 +136,10 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
 
     public Inventory getInventory(){return inventory;}
 
+
+    public boolean getIsTeleported(){ return isTeleported; }
+
+    public void setTeleported(){ isTeleported = !isTeleported; }
 
     public void setLocation(Point3D point3D){
         this.location = point3D;

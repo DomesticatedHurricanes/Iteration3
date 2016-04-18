@@ -1,7 +1,10 @@
 package models.AreaEffect;
 
+import models.Graphics.GraphicAssets;
+import models.entities.Avatar;
 import models.entities.Entity;
 
+import java.awt.image.BufferedImage;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -15,6 +18,7 @@ public class Trap extends AreaEffect{
     private boolean displayed;  // displayed only after first encounter
 
     public Trap(){
+        this.areaEffectImage = GraphicAssets.trap;
         timer = new Timer();
         removed = false;
         displayed = false;
@@ -27,7 +31,8 @@ public class Trap extends AreaEffect{
 
     // TODO need to take into account Sneak's detect and remove skill
     // TODO: Get rid of this or make it tie into sneak easy peasy
-    public void activate(Entity entity){
+    @Override
+    public void activate(Avatar avatar){
         if (removed == false) {
             displayed = true;
             //entity.setTrapped(true);
@@ -35,6 +40,11 @@ public class Trap extends AreaEffect{
             //entity.setTrapped(false);
         }
 
+    }
+
+    @Override
+    public BufferedImage initImage() {
+        return GraphicAssets.trap;
     }
 
     /*private class TimedTrap extends TimerTask {
