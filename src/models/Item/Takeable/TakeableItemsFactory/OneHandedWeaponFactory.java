@@ -13,27 +13,24 @@ import java.awt.image.BufferedImage;
 /**
  * Created by mazumderm on 4/17/2016.
  */
-public enum OneHandedWeaponFactory {
-    BLUE_SWORD(new OneHandedWeapon("Blue Sword", new StatModifiers(StatModifier.makeStrengthModifier(Unit.BLUE * Unit.ONEHANDEDWEAPON * Unit.SWORD)), 3,
-            new StatModifiers(StatModifier.makeCurrentHpModifier(-3))), GraphicAssets.blueSword),
-    RED_SWORD(new OneHandedWeapon("Red Sword", new StatModifiers(StatModifier.makeStrengthModifier(Unit.RED * Unit.ONEHANDEDWEAPON * Unit.SWORD)), 3,
-            new StatModifiers(StatModifier.makeCurrentHpModifier(-5))), GraphicAssets.redSword),
-    GREEN_SWORD(new OneHandedWeapon("Green Sword", new StatModifiers(StatModifier.makeStrengthModifier(Unit.GREEN * Unit.ONEHANDEDWEAPON * Unit.SWORD)), 3,
-            new StatModifiers(StatModifier.makeCurrentHpModifier(-7)) ), GraphicAssets.greenSword);
+public class OneHandedWeaponFactory {
 
-    private final OneHandedWeapon item;
-    private final BufferedImage bufferedImage;
+    OneHandedWeaponFactory(){
 
-    OneHandedWeaponFactory(OneHandedWeapon item, BufferedImage bufferedImage){
-        this.item = item;
-        this.bufferedImage = bufferedImage;
     }
 
-    public Item getItem(){
-        return item;
+    public Item createBlueSword(){
+        return new OneHandedWeapon("Blue Sword", new StatModifiers(StatModifier.makeStrengthModifier(Unit.BLUE * Unit.ONEHANDEDWEAPON * Unit.SWORD)), 3,
+                new StatModifiers(StatModifier.makeCurrentHpModifier(-3)), GraphicAssets.blueSword);
     }
 
-    public BufferedImage getBufferedImage(){
-        return bufferedImage;
+    public Item createRedSword(){
+        return new OneHandedWeapon("Red Sword", new StatModifiers(StatModifier.makeStrengthModifier(Unit.RED * Unit.ONEHANDEDWEAPON * Unit.SWORD)), 3,
+                new StatModifiers(StatModifier.makeCurrentHpModifier(-5)), GraphicAssets.redSword);
+    }
+
+    public Item createGreenSword(){
+        return new OneHandedWeapon("Green Sword", new StatModifiers(StatModifier.makeStrengthModifier(Unit.GREEN * Unit.ONEHANDEDWEAPON * Unit.SWORD)), 3,
+                new StatModifiers(StatModifier.makeCurrentHpModifier(-7)), GraphicAssets.greenSword);
     }
 }
