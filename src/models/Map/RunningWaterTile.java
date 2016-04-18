@@ -36,14 +36,13 @@ public class RunningWaterTile extends Tile {
     @Override
     public boolean visit(Avatar avatar) {
         if(this.checkItem() && avatar.canSwim() && checkEntities() && checkHeightDifferential(avatar)){
-            System.out.println(checkEntities());
             this.insertEntity(avatar);
-            /*if(avatar.getOrientation() == orientation) {
-                avatar.getStats().modifyMovement(speed);
-            }*/
+            long time = 1000;
+            if(avatar.getOrientation() == orientation) {
+                time = time/(avatar.getStats().getMovement()+speed);
+            }
 
             if(timer == null) {
-                System.out.println("Creating a new timer");
                 timer = new Timer();
 
                 timer.schedule(new TimerTask() {
@@ -51,7 +50,7 @@ public class RunningWaterTile extends Tile {
                     public void run() {
                         moveEntity(avatar);
                     }
-                }, 0, 2000);
+                }, 0, time);
             }
 
 
@@ -59,11 +58,11 @@ public class RunningWaterTile extends Tile {
             applyAreaEffect(avatar);
             return true;
         }
-        else if(!checkEntities()){
+       /* else if(!checkEntities()){
             NPC npc = (NPC)(getEntity());
             npc.onInteract(avatar);
             return false;
-        }
+        }*/
         else{
             return false;
         }
@@ -94,9 +93,6 @@ public class RunningWaterTile extends Tile {
         return "Running";
     }
 
-    public boolean canSwim(Entity entity){
-        return entity.getStats().getMovement() > speed;
-    }
 
     public void moveEntity(Entity entity) {
         entity.setLocation(orientation.translate(entity.getLocation()));

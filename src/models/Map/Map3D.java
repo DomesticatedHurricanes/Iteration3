@@ -185,7 +185,7 @@ public class Map3D {
                 if(terrainMap[i][j] == 1)
                     topologicalMap[i][j] = new GrassTile(new Point3D(i, j, baseMap[i][j]));
                 else if(terrainMap[i][j] == 2)
-                    topologicalMap[i][j] = new RunningWaterTile(new Point3D(i, j, baseMap[i][j]), 1, Entity.Orientation.NORTH);
+                    topologicalMap[i][j] = new RunningWaterTile(new Point3D(i, j, baseMap[i][j]), 1, Entity.Orientation.NORTHWEST);
                 else if(terrainMap[i][j] == 3)
                     topologicalMap[i][j] = new MountainTile(new Point3D(i, j, baseMap[i][j]));
             }
