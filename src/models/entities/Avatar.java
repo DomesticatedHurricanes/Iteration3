@@ -130,6 +130,7 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
 
     public Inventory getInventory(){return inventory;}
 
+
     public void setLocation(Point3D point3D){
         this.location = point3D;
     }

@@ -6,6 +6,7 @@ import models.Graphics.ImageLoader;
 import models.Item.Item;
 import models.entities.Entity;
 import utilities.Point3D;
+import java.util.Timer;
 
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ public abstract class Tile implements TileVisitor {
     protected Entity entity;
     protected ArrayList<Item> items = new ArrayList<>();
     protected AreaEffect areaEffect;
+    protected static Timer timer;
 
     //Methods of a tile
     public Tile(Point3D point3D){
@@ -143,6 +145,15 @@ public abstract class Tile implements TileVisitor {
 
     public BufferedImage getImageHeight(){
         return imageHeight;
+    }
+
+    public void cancelTimer() {
+        if (timer != null) {
+            System.out.println("Timer cancelled");
+            timer.cancel();
+            timer.purge();
+        }
+        timer = null;
     }
 
 

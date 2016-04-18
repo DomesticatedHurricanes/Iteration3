@@ -1,12 +1,14 @@
 package models.Map;
 
 import models.Graphics.GraphicAssets;
-import models.Interaction.MovementHandler;
 import models.entities.Avatar;
+import models.entities.Entity;
 import models.entities.Monster;
 import models.entities.Pet;
-import models.Direction.Direction;
 import utilities.Point3D;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by Michael on 4/7/16.
@@ -14,13 +16,15 @@ import utilities.Point3D;
  */
 public class RunningWaterTile extends Tile {
 
-    private Direction dir;
+    private Entity.Orientation orientation;
     private int speed;
+    private Date date = new Date();
 
-    public RunningWaterTile(Point3D point3D, int speed){
+    public RunningWaterTile(Point3D point3D, int speed, Entity.Orientation orientation){
         super(point3D);
         this.image = GraphicAssets.RunningWaterTile;
         this.speed = speed;
+        this.orientation = orientation;
     }
 
     public int getSpeed(){
@@ -30,14 +34,29 @@ public class RunningWaterTile extends Tile {
 
     @Override
     public boolean visit(Avatar avatar) {
-        if(this.checkItem() && avatar.canSwim() && checkEntities() && checkHeightDifferential(avatar) && (avatar.isTrapped()==false)){
-            this.insertEntity(avatar);
-            if(avatar.getStats().getMovement() - speed > 0) {
 
+        if(this.checkItem() && avatar.canSwim() && checkEntities() && checkHeightDifferential(avatar) && (avatar.isTrapped()==false)){
+            System.out.println("inside if conditional");
+            this.insertEntity(avatar);
+            /*if(avatar.getOrientation() == orientation) {
+                avatar.getStats().modifyMovement(speed);
+            }*/
+
+            if(timer == null) {
+                System.out.println("Creating a new timer");
+                timer = new Timer();
+
+                timer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        moveEntity(avatar);
+                    }
+                }, 0, 2000);
             }
-            avatar.setLocation(this.point3D.getTranslateSouth());
-           // applyItems(avatar);
-            //applyAreaEffect(avatar);
+
+
+            applyItems(avatar);
+            applyAreaEffect(avatar);
             return true;
         }
 
@@ -68,4 +87,14 @@ public class RunningWaterTile extends Tile {
     public String getType() {
         return "Running";
     }
+
+    public boolean canSwim(Entity entity){
+        return entity.getStats().getMovement() > speed;
+    }
+
+    public void moveEntity(Entity entity) {
+        entity.setLocation(orientation.translate(entity.getLocation()));
+    }
+
+
 }

@@ -18,6 +18,7 @@ public class MountainTile extends Tile {
 
     @Override
     public boolean visit(Avatar avatar) {
+        cancelTimer();
         if(this.checkItem() && avatar.canTraverse() && checkEntities() && checkHeightDifferential(avatar) && (avatar.isTrapped()==false)){
             this.insertEntity(avatar);
             applyItems(avatar);
@@ -30,6 +31,7 @@ public class MountainTile extends Tile {
 
     @Override
     public boolean visit(Monster monster) {
+        cancelTimer();
         if(this.checkItem() && monster.canTraverse() && checkEntities() && checkHeightDifferential(monster) && (monster.isTrapped()==false)){
             this.insertEntity(monster);
             return true;
@@ -40,6 +42,7 @@ public class MountainTile extends Tile {
 
     @Override
     public boolean visit(Pet pet) {
+        cancelTimer();
         if(this.checkItem() && pet.canTraverse() && checkEntities() && checkHeightDifferential(pet) && (pet.isTrapped()==false)){
             this.insertEntity(pet);
 

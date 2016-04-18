@@ -18,6 +18,8 @@ public class GrassTile extends Tile {
 
     @Override
     public boolean visit(Avatar avatar) {
+        System.out.println("grass visit called");
+        cancelTimer();
         // Temporarily commented out to test basic movement
         if(checkHeightDifferential(avatar)){//this.checkItem() && avatar.canWalk() && checkEntities() &&
             this.insertEntity(avatar);
@@ -31,6 +33,7 @@ public class GrassTile extends Tile {
 
     @Override
     public boolean visit(Monster monster) {
+        cancelTimer();
         if(this.checkItem() && monster.canWalk() && checkEntities() && checkHeightDifferential(monster) && (monster.isTrapped()==false)){
             this.insertEntity(monster);
             return true;
@@ -41,6 +44,7 @@ public class GrassTile extends Tile {
 
     @Override
     public boolean visit(Pet pet) {
+        cancelTimer();
         if(this.checkItem() && pet.canWalk() && checkEntities() && checkHeightDifferential(pet) && (pet.isTrapped()==false)){
             this.insertEntity(pet);
             return true;
@@ -48,6 +52,7 @@ public class GrassTile extends Tile {
 
         return pet.canWalk();
     }
+
 
     public String getType(){
         return "Grass";
