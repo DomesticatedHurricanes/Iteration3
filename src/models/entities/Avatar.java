@@ -1,4 +1,5 @@
 package models.entities;
+import models.Graphics.GraphicAssets;
 import models.Item.Takeable.Takeable;
 import models.Skills.Skill;
 import models.entities.occupation.Occupation;
@@ -12,6 +13,7 @@ import utilities.Point3D;
 
 import java.util.ArrayList;
 
+
 /**
  * Created by Breanna on 4/13/16.
  * This class represents the player controlled Entity in the game
@@ -24,6 +26,7 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
     private Occupation occupation;
     private CharacterStats stats;
     private boolean isTeleported;
+    private boolean isRiding;
     //private Inventory inventory;
 
     private ArrayList<Skill> skillList;
@@ -163,12 +166,31 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
 
 
 
+    public void rideMount(Vehicle vehicle){
+        vehicle.isMounted(this);
+        isRiding = true;
+        this.entityImage = GraphicAssets.mountS;
+        this.entityImages = GraphicAssets.laprasAll;
+        this.initImages();
+
+    }
+
+    public void dismount(Vehicle vehicle) {
+        vehicle.unmounted(this);
+        isRiding = false;
+        this.entityImage = occupation.initImage();
+        this.entityImages = occupation.initImages();
+        this.initImages();
+    }
+
+
     //Getters
     @Override
     public CharacterStats getStats(){
         return stats;
     }
 
+    public boolean getIsRiding() { return isRiding; }
 
     public Inventory getInventory(){return inventory;}
 

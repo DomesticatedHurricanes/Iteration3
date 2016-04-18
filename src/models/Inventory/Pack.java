@@ -24,6 +24,7 @@ public class Pack {
 
     public void addItem(Item item){
         if(isNotFull()){ //if pack is already full you cannot add the item to the pack
+            System.out.print("in pack");
             items.add(item);
         }
         else{

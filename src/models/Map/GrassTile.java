@@ -25,6 +25,7 @@ public class GrassTile extends Tile {
         // Temporarily commented out to test basic movement
         if(checkHeightDifferential(avatar) && this.checkItem() && avatar.canWalk() && checkEntities()){
             avatar.setLocation(this.point3D);
+
             this.insertEntity(avatar);
             applyItems(avatar);
             applyAreaEffect(avatar);
@@ -35,7 +36,7 @@ public class GrassTile extends Tile {
             }
             return true;
         }
-        else if(!checkEntities()){
+        else if(getEntity() instanceof NPC){
             NPC npc = (NPC)(getEntity());
             npc.onInteract(avatar);
             return false;

@@ -6,6 +6,7 @@ import models.Skills.BoonSkill;
 import models.Skills.Enchantment;
 import models.Skills.Staff;
 import models.entities.Avatar;
+import models.stats.CharacterStats;
 import models.stats.StatModifier;
 import models.stats.StatModifiers;
 import models.stats.Stats;
@@ -19,10 +20,11 @@ import java.util.ArrayList;
 public class Smasher implements Occupation{
     @Override
     public void initStats(Stats stats) {
+        CharacterStats cs = (CharacterStats)stats;
         //Create all the individual StatModifier classes
         StatModifier initMovement = StatModifier.makeMovementModifier(5);
         StatModifier initMaxHP = StatModifier.makeMaxHpModifier(20);
-        StatModifier initCurrentHp = StatModifier.makeCurrentHpModifier(10);
+        StatModifier initCurrentHp = StatModifier.makeCurrentHpModifier(20);
         StatModifier initStrength = StatModifier.makeStrengthModifier(30);
         StatModifier initHardiness = StatModifier.makeHardinessModifier(10);
         StatModifier initLives = StatModifier.makeLivesModifier(10);
@@ -38,7 +40,7 @@ public class Smasher implements Occupation{
                 initAgility, initIntellect, initLevel, initMana, initExperience);
 
         //Apply all StatModifiers to Stat
-        initialStats.apply(stats);
+        initialStats.apply(cs);
     }
 
     @Override
@@ -48,6 +50,9 @@ public class Smasher implements Occupation{
         avatar.addToSkillList(new Staff());
         avatar.addToSkillList(new Enchantment());
     }
+
+
+
 
     @Override
     public BufferedImage initImage() {

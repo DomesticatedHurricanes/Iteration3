@@ -23,7 +23,10 @@ public abstract class ProjectableSkill extends SearchableSkill{
         for(Entity vicitim:victims){
             //get stats from victim and them modify it!
             //modify based on projectile!
+
             vicitim.getStats().modifyCurrentHp(damage);//
+            System.out.println("Found a victim! You dealt 12 damage");
+            System.out.println("Victim's health is "+vicitim.getStats().getCurrentHp());
             vicitim.setStatusEffect(StatusEffect.statusEffect.NONE);
             //given from projectile
 

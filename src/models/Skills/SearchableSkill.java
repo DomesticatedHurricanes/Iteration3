@@ -26,7 +26,7 @@ public abstract class SearchableSkill extends Skill {
         System.out.println(map3D);
         System.out.println("HH");
         if(map3D==null){
-            System.out.println("PLEASE WORK");
+            //System.out.println("PLEASE WORK");
         }
         map3D = avatar.getMap();
 

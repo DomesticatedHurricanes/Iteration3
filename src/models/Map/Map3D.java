@@ -235,7 +235,7 @@ public class Map3D {
         Set<Point3D> point = hashWorld.keySet();
         for(Point3D finder:point){
             if(finder.getX() == x &&finder.getY() == y&&finder.getZ() == z){
-                //System.out.println("Please work");
+
                 return hashWorld.get(finder);
             }
         }

@@ -4,6 +4,7 @@ import models.entities.Avatar;
 import models.entities.Entity;
 import models.entities.Pet;
 
+import javax.swing.*;
 import java.awt.image.BufferedImage;
 
 /**
@@ -18,6 +19,7 @@ public class Interactable extends Item {
     }
 
     public boolean onTouch(){
+        JOptionPane.showMessageDialog(null, "My Goodness, this is so concise!");
         return false;
     }
 

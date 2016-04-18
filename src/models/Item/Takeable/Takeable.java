@@ -28,11 +28,13 @@ public abstract class Takeable extends Item{
     }
 
     public boolean onTouch(){
-        return false;
+        return true;
     }
 
     public void apply(Entity entity){
-
+        System.out.print("Applying item");
+        Avatar avatar = (Avatar)entity;
+        avatar.addItem(this);
     }
 
     public abstract void onUse(Entity entity);
