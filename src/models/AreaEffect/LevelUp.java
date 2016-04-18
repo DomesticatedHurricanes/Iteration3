@@ -11,6 +11,11 @@ import java.awt.image.BufferedImage;
  * Created by david on 4/12/16.
  */
 public class LevelUp extends AreaEffect {
+
+    public LevelUp(){
+        this.areaEffectImage = GraphicAssets.levelUp;
+    }
+
     @Override
     public void activate(Entity entity) {
         StatModifier levelUp = StatModifier.makeLevelModifier(1);

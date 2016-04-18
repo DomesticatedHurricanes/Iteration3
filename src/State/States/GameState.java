@@ -38,7 +38,6 @@ public class GameState extends State{
     private ArrayList<Entity> entities;
 
     //AreaEffect
-    private AreaEffect areaEffect;
     private LevelUp levelUp;
     private ArrayList<AreaEffect> areaEffects;
 
@@ -72,9 +71,8 @@ public class GameState extends State{
         //map = new Map(25,25);
         //Here is where you insert things into the map
         levelUp.setLocation(map.getRelevantTile(2,2).getPoint3D());
-
         map.getRelevantTile(12,12).insertEntity(villager);
-        map.getRelevantTile(2,2).insertAreaEffect(levelUp);
+        map.getRelevantTile(12,12).insertAreaEffect(levelUp);
 
 
         movementHandler = new MovementHandler(map);

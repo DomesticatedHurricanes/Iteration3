@@ -9,6 +9,8 @@ import models.Map.Tile;
 import models.entities.Entity;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.awt.image.RescaleOp;
 
 /**
  * Created by Michael on 3/30/16.
@@ -132,25 +134,21 @@ public class Renderer {
 //                g.drawImage(tile.getImage(), topLeft.x, topLeft.y, GraphicAssets.TILE_PX_WIDTH, GraphicAssets.TILE_PX_HEIGHT, null);
                 // Draw the image given the height and width of the image
                 g.drawImage(tile.getImage(), topLeft.x, topLeft.y, tile.getImage().getWidth(), tile.getImage().getHeight(), null);
-                // Integer point = tile.getPoint3D().getZ();
-                // g.drawString(point.toString(),topLeft.x,topLeft.y);
-//=======
-//            Point topLeft = new Point(pxCenterPoint.x - (tile.getImageHeight().getWidth()/2 ), pxCenterPoint.y - (tile.getImageHeight().getWidth()/2));
-//            if(value >= 0) {
-//                System.out.println("Did it");
-////                g.drawImage(tile.getImage(), topLeft.x, topLeft.y, GraphicAssets.TILE_PX_WIDTH, GraphicAssets.TILE_PX_HEIGHT, null);
-//                // Draw the image given the height and width of the image
-//                g.drawImage(tile.getImageHeight(), topLeft.x, topLeft.y, tile.getImageHeight().getWidth(), tile.getImageHeight().getHeight(), null);
-//                if(tile.getEntity() != null){
-//                   // g.drawImage(tile.getEntity().getEntityImage(), 5, 5, tile.getEntity().getEntityImage().getWidth(), tile.getEntity().getEntityImage().getHeight(), null);
-//                }
-//               // Integer point = tile.getPoint3D().getZ();
-//               // g.drawString(point.toString(),topLeft.x,topLeft.y);
-//>>>>>>> master
-                if (tile.hasAreaEffect()){
-                    areaEffectRenderer.render(g,tile.getAreaEffect(),topLeft);
+
+
+                if (tile.hasAreaEffect()) {
+                    // Render HealDamage AreaEffect
+                    System.out.println("Has areaeffect");
+                    areaEffectRenderer.render(g, tile.getAreaEffect(), topLeft);
                 }
             }
+        }
+    }
+
+    public static class areaEffectRenderer{
+        public static void render(Graphics g, AreaEffect areaEffect, Point pxTopLeftPoint){
+            System.out.println(areaEffect.getAreaEffectImage());
+            g.drawImage(areaEffect.getAreaEffectImage(),pxTopLeftPoint.x,pxTopLeftPoint.y,null);
         }
     }
 
@@ -167,48 +165,11 @@ public class Renderer {
                 pxCenterPoint = new Point(pxX, pxY);
             }
 
-
-            // Calculate the top left corner from the center point
-            //g.setColor(new Color(0, 0, 0));
-            //g.fillOval(pxCenterPoint.x - 25, pxCenterPoint.y - 25, 45, 45);
-            // render the correct image for the avatar's occupation.
-
             // Calculate location that the tile needs to be rendered using the pxCenterPoint
             Point topLeft = new Point(pxCenterPoint.x - (GraphicAssets.TILE_PX_WIDTH / 2), pxCenterPoint.y - (GraphicAssets.TILE_PX_HEIGHT / 2));
             g.drawImage(entity.getEntityImage(), topLeft.x, topLeft.y, GraphicAssets.TILE_PX_WIDTH, GraphicAssets.TILE_PX_HEIGHT, null);
 
         }
     }
-
-    public static class areaEffectRenderer{
-        public static void render(Graphics g, AreaEffect areaEffect, Point pxTopLeftPoint){
-            g.drawImage(areaEffect.getAreaEffectImage(),pxTopLeftPoint.x,pxTopLeftPoint.y,null);
-        }
-    }
-//    public static class areaEffectRenderer {
-//        public static void render(Graphics g, AreaEffect areaEffect, Point mapCenterPoint) {
-//            Point pxCenterPoint;
-//            if (areaEffect.getLocation().getX() % 2 != 0) {
-//                int pxX = (int) ((areaEffect.getLocation().getX() - mapCenterPoint.x) * (0.75 * GraphicAssets.TILE_PX_WIDTH)) + view.getWidth() / 2;
-//                int pxY = ((mapCenterPoint.x % 2 == 0) ? GraphicAssets.TILE_PX_HEIGHT / 2 : 0) + ((areaEffect.getLocation().getY() - mapCenterPoint.y) * GraphicAssets.TILE_PX_HEIGHT) + view.getHeight() / 2;
-//                pxCenterPoint = new Point(pxX, pxY);
-//            } else {
-//                int pxX = (int) ((areaEffect.getLocation().getX() - mapCenterPoint.x) * (0.75 * GraphicAssets.TILE_PX_WIDTH)) + view.getWidth() / 2;
-//                int pxY = ((mapCenterPoint.x % 2 != 0) ? -1 * GraphicAssets.TILE_PX_HEIGHT / 2 : 0) + ((areaEffect.getLocation().getY() - mapCenterPoint.y) * GraphicAssets.TILE_PX_HEIGHT) + view.getHeight() / 2;
-//                pxCenterPoint = new Point(pxX, pxY);
-//            }
-//
-//
-//            // Calculate the top left corner from the center point
-//            //g.setColor(new Color(0, 0, 0));
-//            //g.fillOval(pxCenterPoint.x - 25, pxCenterPoint.y - 25, 45, 45);
-//            // render the correct image for the avatar's occupation.
-//
-//            // Calculate location that the tile needs to be rendered using the pxCenterPoint
-//            Point topLeft = new Point(pxCenterPoint.x - (GraphicAssets.TILE_PX_WIDTH / 2), pxCenterPoint.y - (GraphicAssets.TILE_PX_HEIGHT / 2));
-//            g.drawImage(areaEffect.getAreaEffectImage(), topLeft.x, topLeft.y, GraphicAssets.TILE_PX_WIDTH, GraphicAssets.TILE_PX_HEIGHT, null);
-//
-//        }
-//    }
 }
 
