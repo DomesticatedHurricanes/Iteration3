@@ -29,6 +29,7 @@ public class Consumable extends Takeable {
     }
 
     public void apply(Avatar avatar){}
+
 }
 
 

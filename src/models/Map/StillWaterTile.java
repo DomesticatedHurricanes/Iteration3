@@ -23,7 +23,6 @@ public class StillWaterTile extends Tile implements TileVisitor {
         cancelTimer();
         //TODO: Remember to remove avatar from previous tile in interaction handler
         if(this.checkItem() && avatar.canSwim() || (avatar.getIsRiding()) && checkEntities() && checkHeightDifferential(avatar)){
-
             this.insertEntity(avatar);
             applyItems(avatar);
             applyAreaEffect(avatar);

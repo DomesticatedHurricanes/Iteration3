@@ -6,6 +6,7 @@ package models.Skills;
 public class DetectAndRemoveTrapSkill {
 
     public boolean detect() { return false; }
-
     public void remove() {}
+
 }
+
