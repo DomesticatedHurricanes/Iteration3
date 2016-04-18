@@ -132,11 +132,15 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
     public void rideMount(Vehicle vehicle){
         vehicle.isMounted(this);
         this.entityImage = GraphicAssets.mountS;
+        this.entityImages = GraphicAssets.laprasAll;
+        this.initImages();
     }
 
     public void dismount(Vehicle vehicle) {
         vehicle.unmounted(this);
         this.entityImage = occupation.initImage();
+        this.entityImages = occupation.initImages();
+        this.initImages();
     }
 
 
