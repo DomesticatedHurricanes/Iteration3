@@ -44,6 +44,10 @@ public class GraphicAssets {
     public static BufferedImage summonerPic;
     public static BufferedImage rightArrow;
     public static BufferedImage leftArrow;
+
+    public static BufferedImage redSword;
+    public static BufferedImage blueSword;
+    public static BufferedImage greenSword;
     public static void init(){
 
         tile = ImageLoader.loadImage("/Resources/tile.png");
@@ -76,7 +80,7 @@ public class GraphicAssets {
         creationBackground = ImageLoader.loadImage("/Resources/back2.jpg");
         smashPic = ImageLoader.loadImage("/Resources/Views/smasher.png");
         sneakPic = ImageLoader.loadImage("/Resources/Views/bow.png");
-        summonerPic = ImageLoader.loadImage("/Resources/Views/staff.jpg");
+        summonerPic = ImageLoader.loadImage("/Resources/Views/staff.png");
         rightArrow = ImageLoader.loadImage("/Resources/Views/arrow1.png");
         leftArrow = ImageLoader.loadImage("/Resources/Views/arrow.png");
 
@@ -84,6 +88,11 @@ public class GraphicAssets {
         smasher = ImageLoader.loadImage("/Resources/entitys/entity-smasher-S.png");
         summoner = ImageLoader.loadImage("/Resources/entitys/entity-summoner-S.png");
         sneak = ImageLoader.loadImage("/Resources/entitys/entity-sneak-S.png");
+
+        //items
+        //redSword = ImageLoader.loadImage("Resources/RED_SWORD.png");
+       // blueSword = ImageLoader.loadImage("Resources/BLUE_SWORD.png");
+        //greenSword = ImageLoader.loadImage("Resources/GREEN_SWORD.png");
 
 
     }

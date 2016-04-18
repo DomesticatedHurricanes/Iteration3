@@ -4,6 +4,7 @@ import models.Graphics.GraphicAssets;
 import models.entities.Avatar;
 import models.entities.Entity;
 import models.entities.Monster;
+import models.entities.NPC;
 import models.entities.Pet;
 import utilities.Point3D;
 import java.util.Date;
@@ -34,9 +35,8 @@ public class RunningWaterTile extends Tile {
 
     @Override
     public boolean visit(Avatar avatar) {
-
-        if(this.checkItem() && avatar.canSwim() && checkEntities() && checkHeightDifferential(avatar) && (avatar.isTrapped()==false)){
-            System.out.println("inside if conditional");
+        if(this.checkItem() && avatar.canSwim() && checkEntities() && checkHeightDifferential(avatar)){
+            System.out.println(checkEntities());
             this.insertEntity(avatar);
             /*if(avatar.getOrientation() == orientation) {
                 avatar.getStats().modifyMovement(speed);
@@ -59,13 +59,19 @@ public class RunningWaterTile extends Tile {
             applyAreaEffect(avatar);
             return true;
         }
-
-        return avatar.canSwim();
+        else if(!checkEntities()){
+            NPC npc = (NPC)(getEntity());
+            npc.onInteract(avatar);
+            return false;
+        }
+        else{
+            return false;
+        }
     }
 
     @Override
     public boolean visit(Monster monster) {
-        if(this.checkItem() && monster.canSwim() && checkEntities() && checkHeightDifferential(monster) && (monster.isTrapped()==false)){
+        if(this.checkItem() && monster.canSwim() && checkEntities() && checkHeightDifferential(monster)){
             this.insertEntity(monster);
             return true;
         }
@@ -75,7 +81,7 @@ public class RunningWaterTile extends Tile {
 
     @Override
     public boolean visit(Pet pet) {
-        if(this.checkItem() && pet.canSwim() && checkEntities() && checkHeightDifferential(pet) && (pet.isTrapped()==false)){
+        if(this.checkItem() && pet.canSwim() && checkEntities() && checkHeightDifferential(pet)){
             this.insertEntity(pet);
             return true;
         }

@@ -24,7 +24,7 @@ import java.util.Queue;
 
 public class Enchantment extends ProjectableSkill implements ActiveSkill{
 
-    public Enchantment(){}
+    public Enchantment(){MANACOST = 0;}
 
     @Override
     public void useSkill(Avatar avatar) {
@@ -49,6 +49,8 @@ public class Enchantment extends ProjectableSkill implements ActiveSkill{
 
         return affectedPoints;
     }
+
+
 
     @Override
     public int calculateDamage(Avatar avatar) {

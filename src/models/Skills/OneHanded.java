@@ -14,6 +14,10 @@ import java.util.Queue;
  */
 public class OneHanded extends ProjectableSkill implements ActiveSkill{
 
+    public OneHanded(){
+        MANACOST = 0;
+    }
+
     @Override
     public void useSkill(Avatar avatar) {
         useOneHanded(avatar);
@@ -37,6 +41,7 @@ public class OneHanded extends ProjectableSkill implements ActiveSkill{
 
         return affectedPoints;
     }
+
 
     @Override//This function should not be called since it needs an entity
     public int calculateDamage(Avatar avatar) {

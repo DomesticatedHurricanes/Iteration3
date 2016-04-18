@@ -3,6 +3,7 @@ package models.Map;
 import models.Graphics.GraphicAssets;
 import models.entities.Avatar;
 import models.entities.Monster;
+import models.entities.NPC;
 import models.entities.Pet;
 import utilities.Point3D;
 
@@ -20,19 +21,27 @@ public class AirTile extends Tile {
     public boolean visit(Avatar avatar) {
         cancelTimer();
         //TODO: Remember to remove avatar from previous tile in interaction handler
-        if(this.checkItem() && avatar.canSwim() && checkEntities() && checkHeightDifferential(avatar) && (avatar.isTrapped()==false)){
+        if(this.checkItem() && avatar.canSwim() && checkEntities() && checkHeightDifferential(avatar)){
+            System.out.println(checkEntities());
             this.insertEntity(avatar);
             applyItems(avatar);
             applyAreaEffect(avatar);
             return true;
         }
-        return avatar.canFly();
+        else if(!checkEntities()){
+            NPC npc = (NPC)(getEntity());
+            npc.onInteract(avatar);
+            return false;
+        }
+        else{
+            return false;
+        }
     }
 
     @Override
     public boolean visit(Monster monster) {
         cancelTimer();
-        if(this.checkItem() && monster.canFly() && checkEntities() && checkHeightDifferential(monster) && (monster.isTrapped()==false)){
+        if(this.checkItem() && monster.canFly() && checkEntities() && checkHeightDifferential(monster)){
             this.insertEntity(monster);
             return true;
         }
@@ -43,7 +52,7 @@ public class AirTile extends Tile {
     @Override
     public boolean visit(Pet pet) {
         cancelTimer();
-        if(this.checkItem() && pet.canFly() && checkEntities() && checkHeightDifferential(pet) && (pet.isTrapped()==false)){
+        if(this.checkItem() && pet.canFly() && checkEntities() && checkHeightDifferential(pet)){
             this.insertEntity(pet);
             return true;
         }

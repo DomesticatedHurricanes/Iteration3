@@ -18,5 +18,7 @@ public abstract class NPC extends Entity {
     public Stats getStats() {
         return npcStats;
     }
+
+    public abstract void onInteract(Avatar avatar);
 }
 
