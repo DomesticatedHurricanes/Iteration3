@@ -13,25 +13,25 @@ import java.awt.image.BufferedImage;
 /**
  * Created by mazumderm on 4/17/2016.
  */
-public enum RangedWeaponFactory {
-    RangedWeaponFactory(){
+public class RangedWeaponFactory {
+    public RangedWeaponFactory(){
 
     };
 
 
     public Item createBlueBow(){
         return new Ranged("Blue Bow and Arrow", new StatModifiers(StatModifier.makeAgilityModifier(Unit.BLUE * Unit.RANGEDWEAPON)), 3,
-                new StatModifiers(StatModifier.makeCurrentHpModifier(-3)), GraphicAssets.h1);
+                new StatModifiers(StatModifier.makeCurrentHpModifier(-3)), GraphicAssets.slingshot);
     }
 
     public Item createRedBow(){
         return new Ranged("Red Bow and Arrow", new StatModifiers(StatModifier.makeAgilityModifier(Unit.RED * Unit.RANGEDWEAPON)), 3,
-                new StatModifiers(StatModifier.makeCurrentHpModifier(-5)), GraphicAssets.h1);
+                new StatModifiers(StatModifier.makeCurrentHpModifier(-5)), GraphicAssets.bow2);
     }
 
     public Item createGreenBow(){
         return new Ranged("Green Bow and Arrow", new StatModifiers(StatModifier.makeAgilityModifier(Unit.GREEN * Unit.RANGEDWEAPON)), 3,
-                new StatModifiers(StatModifier.makeCurrentHpModifier(-5)), GraphicAssets.h1);
+                new StatModifiers(StatModifier.makeCurrentHpModifier(-5)), GraphicAssets.bow);
     }
 
 }

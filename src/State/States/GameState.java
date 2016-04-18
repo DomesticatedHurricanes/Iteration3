@@ -8,8 +8,6 @@ import models.Interaction.InteractionHandler;
 import models.Graphics.GraphicAssets;
 import models.Interaction.MovementHandler;
 import models.Item.Takeable.Equippable.Boots;
-import models.Item.Takeable.Equippable.Ranged;
-import models.Map.Map;
 
 import State.StateManager;
 import models.Map.Map3D;
@@ -19,11 +17,13 @@ import models.entities.occupation.Smasher;
 import models.stats.StatModifier;
 import models.stats.StatModifiers;
 import utilities.Point3D;
+import models.Item.*;
+import models.Item.Takeable.TakeableItemsFactory.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;
-import java.util.Timer;
+
 
 /**
  * Created by Dartyx on 4/13/2016.
@@ -54,7 +54,14 @@ public class GameState extends State{
     private Pet pet;
     private Boots boots;
 
+    public RangedWeaponFactory rangedWeaponFactory;
+    public BootsFactory bootsFactory;
+    public OneHandedWeaponFactory oneHandedWeaponFactory;
+
+
+
     private ArrayList<AreaEffect> areaEffects;
+    private ArrayList<Item> items;
 
 
     public Avatar getAvatar() {
@@ -63,7 +70,11 @@ public class GameState extends State{
 
     public GameState(StateManager stateManager, JFrame jFrame, Occupation occupation){
         super(stateManager, jFrame);
+        rangedWeaponFactory = new RangedWeaponFactory();
+        bootsFactory = new BootsFactory();
+
         jFrame.getContentPane().setBackground(Color.BLACK);
+
         avatar = new Avatar(occupation);
         startTime = System.currentTimeMillis();
         avatar.setLocation(new Point3D(1,1,1));
@@ -90,6 +101,26 @@ public class GameState extends State{
 
         aiNpcs.add(pet);
 
+        //Items
+        Item greenBow = rangedWeaponFactory.createGreenBow();
+        Item blueBow = rangedWeaponFactory.createBlueBow();
+        Item redBow = rangedWeaponFactory.createRedBow();
+        Item boots = bootsFactory.createBoots();
+        Item rock = new Interactable("rock", GraphicAssets.rock);
+
+//        Item redSword = oneHandedWeaponFactory.createRedSword();
+//        Item blueSword = oneHandedWeaponFactory.createBlueSword();
+//        Item greenSword = oneHandedWeaponFactory.createGreenSword();
+
+        items = new ArrayList<>();
+        items.add(boots);
+        items.add(greenBow);
+        items.add(redBow);
+        items.add(blueBow);
+        items.add(rock);
+//        items.add(redSword);
+//        items.add(blueSword);
+//        items.add(greenSword);
 
         //AreaEffects
         areaEffects = new ArrayList<>();
@@ -126,6 +157,18 @@ public class GameState extends State{
         map.getRelevantTile(14,15).insertAreaEffect(trap);
         map.getRelevantTile(5,5).insertItem(boots);
 
+
+     //   map.getRelevantTile(14,16).insertItem(greenBow);
+        map.getRelevantTile(14,17).insertItem(blueBow);
+        map.getRelevantTile(14,20).insertItem(redBow);
+        map.getRelevantTile(14,16).insertItem(boots);
+
+        // interactive item is a rock
+        map.getRelevantTile(4,4).insertItem(rock);
+
+//        map.getRelevantTile(15,10).insertItem(redSword);
+//        map.getRelevantTile(15,11).insertItem(blueSword);
+//        map.getRelevantTile(15,17).insertItem(greenSword);
 
 
         interactionHandler = new InteractionHandler(map);
