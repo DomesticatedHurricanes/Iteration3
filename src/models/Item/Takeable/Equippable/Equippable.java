@@ -35,4 +35,7 @@ public class Equippable extends Takeable implements TakeableItemVisitor {
     public void unEquip(Entity entity) {
 
     }
+
+    public void apply(Entity entity){}
+    public void apply(Avatar avatar){}
 }

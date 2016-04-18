@@ -42,6 +42,7 @@ public class GameStateController extends Controller {
         getKeyMapping().put(Settings.INV,()->stateManager.changeToInventoryState());
         getKeyMapping().put(Settings.EQUIP, ()->stateManager.changeToEquipmentState());
         getKeyMapping().put(Settings.ESCAPE, ()->stateManager.changeToPauseMenuState());
+        getKeyMapping().put(Settings.Z,()->state.vehicleInteraction());
 
 
         getBindings().add(new Listener(Settings.Up, getKeyMapping().get(Settings.Up)));
@@ -55,12 +56,18 @@ public class GameStateController extends Controller {
         getBindings().add(new Listener(Settings.INV, getKeyMapping().get(Settings.INV)));
         getBindings().add(new Listener(Settings.EQUIP, getKeyMapping().get(Settings.EQUIP)));
         getBindings().add(new Listener(Settings.ESCAPE, getKeyMapping().get(Settings.ESCAPE)));
+
+        getBindings().add(new Listener(Settings.Z, getKeyMapping().get(Settings.Z)));
     }
 
     public void init(){
     }
 
     private void initListeners(){
+
+        getKeyMapping().put(Settings.INV,()->stateManager.changeToInventoryState());
+        getKeyMapping().put(Settings.Z,()->state.vehicleInteraction());
+
 
         getKeyMapping().put(Settings.Up,()->interactionHandler.move(avatar, Entity.Orientation.NORTH));
         getKeyMapping().put(Settings.UpRight,()->interactionHandler.move(avatar, Entity.Orientation.NORTHEAST));
@@ -89,6 +96,8 @@ public class GameStateController extends Controller {
         getBindings().add(new Listener(Settings.UpRight, getKeyMapping().get(Settings.UpRight)));
         getBindings().add(new Listener(Settings.UpLeft, getKeyMapping().get(Settings.UpLeft)));
         getBindings().add(new Listener(Settings.DownLeft, getKeyMapping().get(Settings.DownLeft)));
+        getBindings().add(new Listener(Settings.Z, getKeyMapping().get(Settings.Z)));
+
         getBindings().add(new Listener(Settings.X,getKeyMapping().get(Settings.X)));
 
         getBindings().add(new Listener(Settings.R,getKeyMapping().get(Settings.R)));

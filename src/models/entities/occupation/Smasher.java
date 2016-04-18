@@ -38,9 +38,7 @@ public class Smasher implements Occupation{
     }
 
     @Override
-    public void initSkills(Avatar avatar) {
-
-    }
+    public void initSkills(Avatar avatar) {}
 
     @Override
     public BufferedImage initImage() {

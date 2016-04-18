@@ -24,13 +24,10 @@ public class OneShot extends Item {
     }
 
     public boolean onTouch(){
-
+        bufferedImage = null;
         return true;
     }
 
-    public void apply(Entity entity){
-        getModifer().apply(entity.getStats());
-    }
 
     public void apply(Avatar avatar){
         StatModifier healDamage = StatModifier.makeCurrentHpModifier(avatar.getStats().getMaxHp());
@@ -38,6 +35,8 @@ public class OneShot extends Item {
         healDamage.apply(avatar.getStats());
         System.out.println(avatar.getStats().getCurrentHp());
     }
+
+    public void apply(Entity entity){}
 
     public void apply(Pet pet){
 
