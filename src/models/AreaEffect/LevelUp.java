@@ -1,6 +1,7 @@
 package models.AreaEffect;
 
 import models.Graphics.GraphicAssets;
+import models.entities.Avatar;
 import models.entities.Entity;
 import models.stats.StatModifier;
 import models.stats.Stats;
@@ -17,9 +18,9 @@ public class LevelUp extends AreaEffect {
     }
 
     @Override
-    public void activate(Entity entity) {
+    public void activate(Avatar avatar) {
         StatModifier levelUp = StatModifier.makeLevelModifier(1);
-        Stats enitityStats = entity.getStats();
+        Stats enitityStats = avatar.getStats();
         levelUp.apply(enitityStats);
     }
 

@@ -1,5 +1,6 @@
 package models.AreaEffect;
 
+import models.entities.Avatar;
 import models.entities.Entity;
 import utilities.Point3D;
 
@@ -10,7 +11,7 @@ import java.awt.image.BufferedImage;
  */
 public abstract class AreaEffect {
     //Methods for all AreaEffects
-    public abstract void activate(Entity entity);
+    public abstract void activate(Avatar avatar);
     public abstract BufferedImage initImage();
     protected BufferedImage areaEffectImage;
     private Point3D location;

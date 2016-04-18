@@ -25,7 +25,12 @@ public class StatModifier{
     private static Modifier modifyCurrentHp = new Modifier() {
         @Override
         public void apply(Stats stats, int delta) {
-            stats.modifyCurrentHp(delta);
+            if(stats.getCurrentHp()+ delta > stats.getMaxHp())
+                stats.modifyCurrentHp(stats.getMaxHp() - stats.getCurrentHp());
+            else if(stats.getCurrentHp() + delta < 0) {
+                CharacterStats cs = (CharacterStats) stats;
+                cs.modifyLives(-1);
+            }
         }
     };
 
@@ -133,6 +138,13 @@ public class StatModifier{
         }
     };;
 
+    private static Modifier modifyJumpHeight = new Modifier() {
+        @Override
+        public void apply(Stats stats, int delta) {
+            stats.modifyJumpHeight(delta);
+        }
+    };;
+
     private int myDelta;
     private Modifier myModifier;
 
@@ -191,6 +203,8 @@ public class StatModifier{
     public static StatModifier makeAttackRangeModifier(int delta){return new StatModifier(delta, modifyAttackRange);}
 
     public static StatModifier makeAttackCooldownModifier(int delta){return new StatModifier(delta, modifyAttackCooldowm);}
+
+    public static StatModifier makeJumpHeightModifier(int delta){return new StatModifier(delta, modifyJumpHeight);}
 
 
     //How to apply the modifier to an Entities Stats
