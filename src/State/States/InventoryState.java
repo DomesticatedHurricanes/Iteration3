@@ -4,6 +4,11 @@ import State.State;
 import State.StateManager;
 import View.StateViews.InventoryStateView;
 import controllers.StateControllers.InventoryController;
+import models.Inventory.Inventory;
+import models.entities.Avatar;
+import models.entities.occupation.Smasher;
+import models.entities.occupation.Sneak;
+import models.entities.occupation.Summoner;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,11 +19,14 @@ import java.awt.*;
 public class InventoryState extends State {
     private InventoryStateView inventoryStateView;
     private InventoryController inventoryController;
-
-    public InventoryState(StateManager stateManager, JFrame jFrame){
+    int select;
+    private Avatar avatar;
+    public InventoryState(StateManager stateManager, JFrame jFrame, GameState gameState){
         super(stateManager, jFrame);
-        inventoryStateView = new InventoryStateView();
+        this.avatar=gameState.getAvatar();
+        inventoryStateView = new InventoryStateView(gameState.getAvatar().getInventory());
         inventoryController = new InventoryController(this.stateManager, this, jFrame);
+        select = 0;
     }
     public void setActive(){
         inventoryController.addToJframe();
@@ -45,5 +53,37 @@ public class InventoryState extends State {
     @Override
     public void render(Graphics g){
         inventoryStateView.render(g);
+    }
+    public void interact(){
+        //avatar.use(avatar.getInventory().getPack().getItemAt(select));
+    }
+    public void right(){
+        System.out.println(select);
+        select++;
+        if(select>2)select = 0;
+    }
+    public void left(){
+        select--;
+        if(select<0)select = 2;
+    }
+    public void enter(){
+        //System.out.println("enter");
+
+        if(select==0){
+            stateManager.makeGameState(new Smasher());
+            stateManager.changeToGameState();
+        }
+        else if(select==1){
+            stateManager.makeGameState(new Sneak());
+            stateManager.changeToGameState();
+        }
+        else if(select==2){
+            stateManager.makeGameState(new Summoner());
+            stateManager.changeToGameState();
+        }
+    }
+    public void escape(){
+        //System.out.println("huh");
+        stateManager.changeToPauseMenuState();
     }
 }

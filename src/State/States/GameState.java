@@ -48,6 +48,10 @@ public class GameState extends State{
     private ArrayList<AreaEffect> areaEffects;
 
 
+    public Avatar getAvatar() {
+        return avatar;
+    }
+
     public GameState(StateManager stateManager, JFrame jFrame, Occupation occupation){
         super(stateManager, jFrame);
         avatar = new Avatar(occupation);

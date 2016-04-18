@@ -48,7 +48,7 @@ public class StateManager {
         // Create states here
 
         //gameState = new GameState(instance, jFrame);
-        inventoryState = new InventoryState(instance, jFrame);
+
         creationState = new CreationState(instance, jFrame);
         startMenuState = new StartMenuState(instance, jFrame);
         pauseMenuState = new PauseMenuState(instance, jFrame);
@@ -81,6 +81,7 @@ public class StateManager {
     public void makeGameState(Occupation occupation) {
 
         this.gameState=new GameState(instance,jFrame,occupation);
+        inventoryState = new InventoryState(instance, jFrame, gameState);
     }
 
     public void setJframe(JFrame jframe){
