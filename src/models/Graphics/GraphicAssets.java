@@ -77,9 +77,19 @@ public class GraphicAssets {
     public static BufferedImage rightArrow;
     public static BufferedImage leftArrow;
 
+    //AreaEffects
+    public static BufferedImage levelUp;
+    public static BufferedImage takeDamage;
+    public static BufferedImage trap;
+    public static BufferedImage teleport;
+    public static BufferedImage healDamage;
+
+
+
     public static BufferedImage redSword;
     public static BufferedImage blueSword;
     public static BufferedImage greenSword;
+
     public static void init(){
 
         tile = ImageLoader.loadImage("/Resources/tile.png");
@@ -91,6 +101,7 @@ public class GraphicAssets {
         MountainTile = ImageLoader.loadImage("/Resources/MountainTile.png");
         StillWaterTile = ImageLoader.loadImage("/Resources/StillWaterTile.png");
         RockTile = ImageLoader.loadImage("/Resources/RockTile.png");
+
 
         // Loading in different tile heights
         h1 = ImageLoader.loadImage("/Resources/1.png");
@@ -119,6 +130,14 @@ public class GraphicAssets {
         smasher = ImageLoader.loadImage("/Resources/entitys/entity-smasher-S.png");
         summoner = ImageLoader.loadImage("/Resources/entitys/entity-summoner-S.png");
         sneak = ImageLoader.loadImage("/Resources/entitys/entity-sneak-S.png");
+
+
+        //AreaEffects
+        levelUp = ImageLoader.loadImage("/Resources/areaEffects/gold-star.png");
+        takeDamage = ImageLoader.loadImage("/Resources/areaEffects/skull-and-crossbones.png");
+        trap = ImageLoader.loadImage("/Resources/areaEffects/trap-sample.png");
+        teleport = ImageLoader.loadImage("/Resources/areaEffects/teleport-sample.png");
+        healDamage = ImageLoader.loadImage("/Resources/areaEffects/red-cross.png");
 
         //items
         //redSword = ImageLoader.loadImage("Resources/RED_SWORD.png");

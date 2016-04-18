@@ -1,5 +1,6 @@
 package View.StateViews;
 
+import models.AreaEffect.AreaEffect;
 import models.Graphics.GraphicAssets;
 import models.Map.Map;
 import models.entities.Avatar;
@@ -26,12 +27,14 @@ public class GameStateView  extends  StateView{
     private Avatar avatar;
     private Map3D map;
 
+    private ArrayList<AreaEffect> areaEffects;
 
-    public GameStateView(Map3D map, Avatar avatar, ArrayList<Entity> entities){
+    public GameStateView(Map3D map, Avatar avatar, ArrayList<Entity> entities,ArrayList<AreaEffect> areaEffects){
 
         this.map = map;
         this.avatar = avatar;
         this.entities = entities;
+        this.areaEffects = areaEffects;
         init();
 
         // Start the map in the top left corner.
@@ -58,6 +61,7 @@ public class GameStateView  extends  StateView{
         update();
         renderMap(g);
         renderPlayer(g);
+        //renderAreaEffect(g);
     }
 
     public void update(){
@@ -90,8 +94,13 @@ public class GameStateView  extends  StateView{
 //            int x = inViewEntity.getLocation().x;
 //            int y = inViewEntity.getLocation().y;
 //            // Render it
+    }
 
+    private void renderAreaEffect(Graphics g){
 
+        for(AreaEffect areaEffect:areaEffects){
+            utilities.Renderer.areaEffectRenderer.render(g,areaEffect,mapCameraCenter);
+        }
     }
 //=======
 //        utilities.Renderer.mapRenderer.render(g, world3D, mapCameraCenter, mapStartX, mapEndX, mapStartY, mapEndY);
@@ -106,3 +115,5 @@ public class GameStateView  extends  StateView{
 //>>>>>>> master
 
 }
+
+
