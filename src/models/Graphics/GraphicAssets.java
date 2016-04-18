@@ -106,11 +106,10 @@ public class GraphicAssets {
         GrassTile = ImageLoader.loadImage("/Resources/GrassTile.png");
         GrassTile2 = ImageLoader.loadImage("/Resources/GrassTile2.png");
         GroundMountainTile = ImageLoader.loadImage("/Resources/GroundMountainTile.png");
-        GroundMountainTile = ImageLoader.loadImage("/Resources/GroundMountainTile.png");
         RunningWaterTile = ImageLoader.loadImage("/Resources/RunningWaterTile.png");
         MountainTile = ImageLoader.loadImage("/Resources/MountainTile.png");
         StillWaterTile = ImageLoader.loadImage("/Resources/StillWaterTile.png");
-        RunningWaterTile = ImageLoader.loadImage("/Resources/StillWaterTile.png");
+//        RunningWaterTile = ImageLoader.loadImage("/Resources/StillWaterTile.png");
         RockTile = ImageLoader.loadImage("/Resources/RockTile.png");
 
 
