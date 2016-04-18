@@ -3,6 +3,7 @@ package models.Item;
 import models.entities.Avatar;
 import models.entities.Entity;
 import models.entities.Pet;
+import models.stats.StatModifier;
 import models.stats.StatModifiers;
 
 import java.awt.image.BufferedImage;
@@ -32,7 +33,10 @@ public class OneShot extends Item {
     }
 
     public void apply(Avatar avatar){
-
+        StatModifier healDamage = StatModifier.makeCurrentHpModifier(avatar.getStats().getMaxHp());
+        System.out.println(avatar.getStats().getCurrentHp());
+        healDamage.apply(avatar.getStats());
+        System.out.println(avatar.getStats().getCurrentHp());
     }
 
     public void apply(Pet pet){

@@ -103,6 +103,8 @@ public class GameState extends State{
         Item redBow = rangedWeaponFactory.createRedBow();
         Item boots = bootsFactory.createBoots();
         Item rock = new Interactable("rock", GraphicAssets.rock);
+        StatModifiers SM = new StatModifiers(StatModifier.makeCurrentHpModifier(avatar.getStats().getMaxHp()));
+        Item oneShot = new OneShot("shot", SM, GraphicAssets.oneshot);
 
 //        Item redSword = oneHandedWeaponFactory.createRedSword();
 //        Item blueSword = oneHandedWeaponFactory.createBlueSword();
@@ -114,6 +116,7 @@ public class GameState extends State{
         items.add(redBow);
         items.add(blueBow);
         items.add(rock);
+        items.add(oneShot);
 //        items.add(redSword);
 //        items.add(blueSword);
 //        items.add(greenSword);
@@ -152,6 +155,7 @@ public class GameState extends State{
         map.getRelevantTile(14,14).insertAreaEffect(instantDeath);
         map.getRelevantTile(14,15).insertAreaEffect(trap);
         map.getRelevantTile(5,5).insertItem(boots);
+        map.getRelevantTile(7,7).insertItem(oneShot);
 
 
      //   map.getRelevantTile(14,16).insertItem(greenBow);
