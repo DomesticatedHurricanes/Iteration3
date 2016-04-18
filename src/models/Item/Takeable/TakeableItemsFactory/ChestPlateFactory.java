@@ -13,24 +13,21 @@ import java.awt.image.BufferedImage;
 /**
  * Created by mazumderm on 4/17/2016.
  */
-public enum ChestPlateFactory {
-    BLUE_CHEST_PLATE(new ChestPlate("Blue Chest Plate", new StatModifiers(StatModifier.makeHardinessModifier(Unit.BLUE * Unit.CHESTPLATE)), 3), GraphicAssets.h1),
-    RED_CHEST_PLATE(new ChestPlate("Red Chest Plate", new StatModifiers(StatModifier.makeHardinessModifier(Unit.RED * Unit.CHESTPLATE)), 3), GraphicAssets.h1),
-    GREEN_CHEST_PLATE(new ChestPlate("Green Chest Plate", new StatModifiers(StatModifier.makeHardinessModifier(Unit.GREEN * Unit.CHESTPLATE)), 3), GraphicAssets.h1);
+public class ChestPlateFactory {
+    ChestPlateFactory(){
 
-    private final ChestPlate item;
-    private final BufferedImage bufferedImage;
+    };
 
-    ChestPlateFactory(ChestPlate item, BufferedImage bufferedImage){
-        this.item = item;
-        this.bufferedImage = bufferedImage;
+
+    public Item createBlueChestPlate(){
+        return new ChestPlate("Blue Chest Plate", new StatModifiers(StatModifier.makeHardinessModifier(Unit.BLUE * Unit.CHESTPLATE)), 3, GraphicAssets.h1);
     }
 
-    public Item getItem(){
-        return item;
+    public Item createRedChestPlate(){
+        return new ChestPlate("Red Chest Plate", new StatModifiers(StatModifier.makeHardinessModifier(Unit.RED * Unit.CHESTPLATE)), 3, GraphicAssets.h1);
     }
 
-    public BufferedImage getBufferedImage(){
-        return bufferedImage;
+    public Item createGreenChestPlate(){
+        return new ChestPlate("Green Chest Plate", new StatModifiers(StatModifier.makeHardinessModifier(Unit.GREEN * Unit.CHESTPLATE)), 3, GraphicAssets.h1);
     }
 }

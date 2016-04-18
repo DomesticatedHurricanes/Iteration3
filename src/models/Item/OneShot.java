@@ -5,14 +5,16 @@ import models.entities.Entity;
 import models.entities.Pet;
 import models.stats.StatModifiers;
 
+import java.awt.image.BufferedImage;
+
 /**
  * Created by mazumderm on 4/13/2016.
  */
 public class OneShot extends Item {
     private StatModifiers statModifiers;
 
-    public OneShot(String name, StatModifiers statModifier){
-        super(name);
+    public OneShot(String name, StatModifiers statModifier, BufferedImage bufferedImage){
+        super(name, bufferedImage);
         this.statModifiers = statModifier;
     }
 
