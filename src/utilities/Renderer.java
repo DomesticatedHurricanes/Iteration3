@@ -211,8 +211,8 @@ public class Renderer {
 
     public static class areaEffectRenderer{
         public static void render(Graphics g, AreaEffect areaEffect, Point pxTopLeftPoint){
-            System.out.println(areaEffect.getAreaEffectImage());
-            g.drawImage(areaEffect.getAreaEffectImage(),pxTopLeftPoint.x,pxTopLeftPoint.y +10,null);
+            //System.out.println(areaEffect.getAreaEffectImage());
+            g.drawImage(areaEffect.getAreaEffectImage(),pxTopLeftPoint.x+10,pxTopLeftPoint.y +10,null);
         }
     }
 
