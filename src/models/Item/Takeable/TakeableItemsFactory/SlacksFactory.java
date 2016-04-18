@@ -3,6 +3,7 @@ package models.Item.Takeable.TakeableItemsFactory;
 import models.Graphics.GraphicAssets;
 import models.Item.Item;
 import models.Item.Takeable.Equippable.Boots;
+import models.Item.Takeable.Equippable.Helmet;
 import models.Item.Takeable.Equippable.Slacks;
 import models.stats.StatModifier;
 import models.stats.StatModifiers;
@@ -13,24 +14,21 @@ import java.awt.image.BufferedImage;
 /**
  * Created by mazumderm on 4/17/2016.
  */
-public enum SlacksFactory {
-    BLUE_SLACKS(new Slacks("Blue Slacks", new StatModifiers(StatModifier.makeMovementModifier(Unit.BLUE * Unit.SLACKS)), 3), GraphicAssets.h1),
-    RED_SLACKS(new Slacks("Red Slacks", new StatModifiers(StatModifier.makeMovementModifier(Unit.RED * Unit.SLACKS)), 3), GraphicAssets.h1),
-    GREEN_SLACKS(new Slacks("Green Slacks", new StatModifiers(StatModifier.makeMovementModifier(Unit.GREEN * Unit.SLACKS)), 3), GraphicAssets.h1);
+public class SlacksFactory {
 
-    private final Slacks item;
-    private final BufferedImage bufferedImage;
+    SlacksFactory() {
+    };
 
-    SlacksFactory(Slacks item, BufferedImage bufferedImage){
-        this.item = item;
-        this.bufferedImage = bufferedImage;
+
+    public Item createBlueSlacks(){
+        return new Slacks("Blue Slacks", new StatModifiers(StatModifier.makeMovementModifier(Unit.BLUE * Unit.SLACKS)), 3, GraphicAssets.h1);
     }
 
-    public Item getItem(){
-        return item;
+    public Item createRedSlacks(){
+        return new Slacks("Red Slacks", new StatModifiers(StatModifier.makeMovementModifier(Unit.RED * Unit.SLACKS)), 3, GraphicAssets.h1);
     }
 
-    public BufferedImage getBufferedImage(){
-        return bufferedImage;
+    public Item createGreenSlacks(){
+        return new Slacks("Green Slacks", new StatModifiers(StatModifier.makeMovementModifier(Unit.GREEN * Unit.SLACKS)), 3, GraphicAssets.h1);
     }
 }

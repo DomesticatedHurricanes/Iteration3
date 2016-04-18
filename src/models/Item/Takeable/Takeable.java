@@ -6,14 +6,16 @@ import models.entities.Entity;
 import models.entities.Pet;
 import models.entities.TakeableItemVisitable;
 
+import java.awt.image.BufferedImage;
+
 /**
  * Created by mazumderm on 4/13/2016.
  */
 public abstract class Takeable extends Item{
     private int price;
 
-    public Takeable(String name, int price){
-        super(name);
+    public Takeable(String name, int price, BufferedImage bufferedImage){
+        super(name, bufferedImage);
         this.price = price;
     }
 
