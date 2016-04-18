@@ -108,7 +108,7 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
     //Movement booleans
     @Override
     public boolean canSwim() {
-        return false;
+        return true;
     }
 
     @Override
@@ -135,6 +135,7 @@ public class Avatar extends Entity implements Movement, Attack, TileVisitable, T
 
 
     public Inventory getInventory(){return inventory;}
+
 
     public boolean getIsTeleported(){ return isTeleported; }
 

@@ -2,6 +2,7 @@ package models.entities;
 
 
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import models.Direction.Direction;
 import models.Inventory.Inventory;
 import models.stats.StatusEffect;
@@ -112,6 +113,8 @@ public abstract class Entity {
     public Inventory getInventory(){
         return inventory;
     }
+
+    public Orientation getOrientation() { return orientation; }
 
     public void setLocation(Point3D point3D){
         location = point3D;
