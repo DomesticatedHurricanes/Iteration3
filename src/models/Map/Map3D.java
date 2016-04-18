@@ -1,6 +1,5 @@
 package models.Map;
 
-import models.Graphics.GraphicAssets;
 import models.entities.Avatar;
 import models.entities.Entity;
 import models.entities.occupation.Smasher;

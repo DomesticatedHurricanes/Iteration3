@@ -14,7 +14,7 @@ public class GrassTile extends Tile {
 
     public GrassTile(Point3D point3D){
         super(point3D);
-        this.image = GraphicAssets.GrassTile;
+        this.image = GraphicAssets.GroundGrassTile;
     }
 
     @Override

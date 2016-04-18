@@ -3,8 +3,7 @@ package State.States;
 import State.State;
 import View.StateViews.GameStateView;
 import controllers.StateControllers.GameStateController;
-import models.AreaEffect.AreaEffect;
-import models.AreaEffect.LevelUp;
+import models.AreaEffect.*;
 import models.Interaction.MovementHandler;
 import models.Map.Map;
 
@@ -39,6 +38,12 @@ public class GameState extends State{
 
     //AreaEffect
     private LevelUp levelUp;
+    private Teleport teleport;
+    private TakeDamage takeDamage;
+    private HealDamage healDamage;
+    private InstantDeath instantDeath;
+    private Trap trap;
+
     private ArrayList<AreaEffect> areaEffects;
 
 
@@ -62,17 +67,36 @@ public class GameState extends State{
 
         //AreaEffects
         areaEffects = new ArrayList<>();
+        teleport = new Teleport(new Point3D(10,10,1));
+        takeDamage = new TakeDamage();
+        healDamage = new HealDamage();
+        instantDeath = new InstantDeath();
         levelUp = new LevelUp();
+        trap = new Trap();
+
         areaEffects.add(levelUp);
+        areaEffects.add(teleport);
+        areaEffects.add(takeDamage);
+        areaEffects.add(healDamage);
+        areaEffects.add(instantDeath);
+        areaEffects.add(trap);
 
         map = new Map3D(5);
 
 
         //map = new Map(25,25);
         //Here is where you insert things into the map
-        levelUp.setLocation(map.getRelevantTile(2,2).getPoint3D());
+
+        //levelUp.setLocation(map.getRelevantTile(2,2).getPoint3D());
+        //teleport.setLocation(map.getRelevantTile());
+
         map.getRelevantTile(12,12).insertEntity(villager);
-        map.getRelevantTile(12,12).insertAreaEffect(levelUp);
+        map.getRelevantTile(14,10).insertAreaEffect(levelUp);
+        map.getRelevantTile(14,11).insertAreaEffect(teleport);
+        map.getRelevantTile(14,12).insertAreaEffect(takeDamage);
+        map.getRelevantTile(14,13).insertAreaEffect(healDamage);
+        map.getRelevantTile(14,14).insertAreaEffect(instantDeath);
+        map.getRelevantTile(14,15).insertAreaEffect(trap);
 
 
         movementHandler = new MovementHandler(map);
