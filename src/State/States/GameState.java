@@ -59,6 +59,7 @@ public class GameState extends State{
 
     public GameState(StateManager stateManager, JFrame jFrame, Occupation occupation){
         super(stateManager, jFrame);
+        jFrame.getContentPane().setBackground(Color.BLACK);
         avatar = new Avatar(occupation);
         startTime = System.currentTimeMillis();
         avatar.setLocation(new Point3D(1,1,1));
@@ -150,9 +151,9 @@ public class GameState extends State{
     @Override
     protected void update() {
         endTime = System.currentTimeMillis();
-        System.out.println("START TIME: " + startTime);
-        System.out.println("Sdad");
-        System.out.println("END TIME: " + endTime);
+        //System.out.println("START TIME: " + startTime);
+        //System.out.println("Sdad");
+        //System.out.println("END TIME: " + endTime);
         if(endTime - startTime > 5000){
             for(AINpc aiNpc: aiNpcs){
                 System.out.println("New start time");
