@@ -20,8 +20,12 @@ public abstract class SearchableSkill extends Skill {
     //Currently map is null since it is not connected to anything
     //map is in interaction? Skill inherits from Interaction? Or has its own map its passed when init?
     public abstract ArrayList<Point3D> search();
-
     public ArrayList<Entity> findVictims(ArrayList<Point3D> tilePoints){
+        System.out.println(map3D);
+        System.out.println("HH");
+        if(map3D==null){
+            System.out.println("PLEASE WORK");
+        }
         ArrayList<Entity> victims = new ArrayList<>();
         for(Point3D currentPoint:tilePoints){
             Tile tile = map3D.getTile(currentPoint);

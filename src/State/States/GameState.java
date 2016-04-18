@@ -50,6 +50,7 @@ public class GameState extends State{
 
     public GameState(StateManager stateManager, JFrame jFrame, Occupation occupation){
         super(stateManager, jFrame);
+        jFrame.getContentPane().setBackground(Color.BLACK);
         avatar = new Avatar(occupation);
         avatar.setLocation(new Point3D(1,1,1));
 
