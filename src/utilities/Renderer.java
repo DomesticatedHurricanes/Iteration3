@@ -281,6 +281,7 @@ public class Renderer {
             public static void render(Graphics g, Item item, Point pxTopLeft) {
                 g.drawImage(item.getImage(), pxTopLeft.x + 5, pxTopLeft.y, GraphicAssets.TILE_PX_WIDTH - 20, GraphicAssets.TILE_PX_HEIGHT - 10, null);
             }
+
         }
 //
 //    public static class areaEffectRenderer{
