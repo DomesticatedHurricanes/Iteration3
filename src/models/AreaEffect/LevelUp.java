@@ -22,6 +22,7 @@ public class LevelUp extends AreaEffect {
         StatModifier levelUp = StatModifier.makeLevelModifier(1);
         Stats enitityStats = avatar.getStats();
         levelUp.apply(enitityStats);
+        avatar.getStats().modifyExperience(10);
     }
 
     @Override
