@@ -81,13 +81,13 @@ public class Renderer {
 //
         public static void render(Graphics g, Map3D map, Point mapCenterPoint, int mapStartX, int mapEndX, int mapStartY, int mapEndY) {
             for(int y = mapStartY; y < mapEndY; y++){
-                for(int x = mapEndX - 1; x  >= mapStartX; x--){
+                for(int x = mapStartX; x  <mapEndX; x+=2){
                     Point pxCenterPoint;
                     int offset;
 
                     // calculate the offset to render images of different size
-                    if (map.getRelevantTile(y,x).getImageHeight().getHeight() != GraphicAssets.TILE_PX_HEIGHT){
-                        offset = map.getRelevantTile(y,x).getImageHeight().getHeight() - GraphicAssets.TILE_PX_HEIGHT;
+                    if (map.getRelevantTile(y,x).getImageHeight() != GraphicAssets.TILE_PX_HEIGHT){
+                        offset = map.getRelevantTile(y,x).getImageHeight() - GraphicAssets.TILE_PX_HEIGHT;
                     } else{
                         offset = 0;
                     }
@@ -105,7 +105,8 @@ public class Renderer {
                         pxCenterPoint = new Point(pxX, pxY);
 //                        System.out.println("even: " + pxCenterPoint);
                     }
-                    tileRenderer.render(g, map.getRelevantTile(y, x), pxCenterPoint);
+                     tileRenderer.render(g, map.getRelevantTile(y, x), pxCenterPoint);
+                    //if(x==mapEndX-1)x=mapStartX+1;
                 }
             }
         }
@@ -126,11 +127,46 @@ public class Renderer {
             Point topLeft = new Point(pxCenterPoint.x - (tile.getImage().getWidth() / 2), pxCenterPoint.y - (tile.getImage().getHeight() / 2));
             if (value >= 0) {
 
-                      g.drawImage(tile.getImage(), topLeft.x, topLeft.y, GraphicAssets.TILE_PX_WIDTH, GraphicAssets.TILE_PX_HEIGHT, null);
+
+                     // g.drawImage(tile.getImage(), topLeft.x, topLeft.y, GraphicAssets.TILE_PX_WIDTH, GraphicAssets.TILE_PX_HEIGHT, null);
                         // Draw the image given the height and width of the image
-                        g.drawImage(tile.getImage(), topLeft.x, topLeft.y, tile.getImage().getWidth(), tile.getImage().getHeight(), null);
+                       // g.drawImage(tile.getImage(), topLeft.x, topLeft.y, tile.getImage().getWidth(), tile.getImage().getHeight(), null);
                         // Integer point = tile.getPoint3D().getZ();
                         // g.drawString(point.toString(),topLeft.x,topLeft.y);
+
+//                g.drawImage(tile.getImage(), topLeft.x, topLeft.y, GraphicAssets.TILE_PX_WIDTH, GraphicAssets.TILE_PX_HEIGHT, null);
+                // Draw the image given the height and width of the image
+                if(tile.getType()=="Mountain"){
+
+                    g.drawImage(GraphicAssets.col,topLeft.x, topLeft.y+19+21,60,tile.getImageHeight()/2,null);
+                    g.drawImage(GraphicAssets.base,topLeft.x, topLeft.y+19+19+tile.getImageHeight()/2,60,19,null);
+                    g.drawImage(tile.getImage(), topLeft.x, topLeft.y, tile.getImage().getWidth(), tile.getImage().getHeight(), null);
+
+                }
+
+                else if(tile.getType()=="Water"){
+                    //
+                    //System.out.println(topLeft.y);
+                    g.drawImage(GraphicAssets.col,topLeft.x, topLeft.y+10+19,60,tile.getImageHeight()/2,null);
+                    g.drawImage(GraphicAssets.base,topLeft.x, topLeft.y+10+19+tile.getImageHeight()/2,60,19,null);
+                    g.drawImage(tile.getImage(), topLeft.x, topLeft.y+10, tile.getImage().getWidth(), tile.getImage().getHeight(), null);
+                }
+
+                else if(tile.getType()=="Grass"){
+
+                    g.drawImage(GraphicAssets.col,topLeft.x, topLeft.y+19+21,60,tile.getImageHeight()/2,null);
+                    g.drawImage(GraphicAssets.base,topLeft.x, topLeft.y+19+19+tile.getImageHeight()/2,60,19,null);
+                    g.drawImage(tile.getImage(), topLeft.x, topLeft.y, tile.getImage().getWidth(), tile.getImage().getHeight(), null);
+
+                }
+
+
+                //
+                // System.out.println(topLeft.y);
+                //g.drawImage(tile.getImage(), topLeft.x, topLeft.y, tile.getImage().getWidth(), tile.getImage().getHeight(), null);
+                // Integer point = tile.getPoint3D().getZ();
+                // g.drawString(point.toString(),topLeft.x,topLeft.y);
+
 //=======
 //            Point topLeft = new Point(pxCenterPoint.x - (tile.getImageHeight().getWidth()/2 ), pxCenterPoint.y - (tile.getImageHeight().getWidth()/2));
 //            if(value >= 0) {
