@@ -5,6 +5,7 @@ import State.StateManager;
 import View.StateViews.InventoryStateView;
 import controllers.StateControllers.InventoryController;
 import models.Inventory.Inventory;
+import models.Item.Takeable.Takeable;
 import models.entities.Avatar;
 import models.entities.occupation.Smasher;
 import models.entities.occupation.Sneak;
@@ -55,16 +56,24 @@ public class InventoryState extends State {
         inventoryStateView.render(g);
     }
     public void interact(){
-        //avatar.use(avatar.getInventory().getPack().getItemAt(select));
+        avatar.use((Takeable) (avatar.getInventory().getPack().getItemAt(select)));
     }
     public void right(){
         System.out.println(select);
         select++;
-        if(select>2)select = 0;
+        if(select%4==0)select = 0;
     }
     public void left(){
         select--;
-        if(select<0)select = 2;
+        if(select%4==0)select = 3;
+    }
+    public void up(){
+        select-=4;
+        if(select<0)select+=16;
+    }
+    public void down(){
+        select+=4;
+        if(select>0)select-=16;
     }
     public void enter(){
         //System.out.println("enter");
